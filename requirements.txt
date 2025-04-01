@@ -1,0 +1,15 @@
+    # requirements.txt
+    # Core data manipulation
+    pandas
+    numpy
+
+    # Web scraping
+    selenium
+    webdriver-manager # Automatically manages browser drivers for Selenium
+
+    # Timezone handling for timestamps in generate_page.py
+    pytz
+
+    # Add any other specific libraries your original odds scrapers might use
+    # (Review your 'odds/' directory scripts if you integrate them later)
+    

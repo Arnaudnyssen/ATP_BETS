@@ -1,0 +1,113 @@
+# .github/workflows/update-odds.yml (Commits CSV)
+
+name: Update Tennis Odds Page
+
+on:
+  workflow_dispatch: # Allows manual triggering
+  schedule:
+    # Runs every day at 06:00 UTC (adjust as needed)
+    - cron: '0 6 * * *'
+
+permissions:
+  contents: write # Needed to commit changes AND checkout
+  pages: write    # Needed to deploy to GitHub Pages
+  id-token: write # Needed for deployment authentication
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        # Fetch depth 0 is needed if you want to compare changes or see history
+        # For simple commit, default depth might be okay, but 0 is safer.
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Firefox ESR
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y firefox-esr xvfb
+
+      - name: Install geckodriver
+        run: |
+          GECKODRIVER_VERSION=$(curl -s "https://api.github.com/repos/mozilla/geckodriver/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
+          wget https://github.com/mozilla/geckodriver/releases/download/$GECKODRIVER_VERSION/geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz
+          tar -xzf geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz
+          sudo mv geckodriver /usr/local/bin/
+
+      - name: Install Python Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Scraper to Generate CSV
+        run: xvfb-run python save_sackmann_data.py
+
+      - name: Verify CSV Output
+        run: |
+          if [ ! -s sackmann_data.csv ]; then
+            echo "Error: sackmann_data.csv was not generated or is empty."
+            exit 1
+          fi
+          echo "sackmann_data.csv found and is not empty."
+
+      # --- New Steps to Commit CSV ---
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>" # GitHub Actions automatically uses github-actions[bot]@users.noreply.github.com
+
+      - name: Stage CSV File
+        run: git add sackmann_data.csv
+
+      - name: Commit CSV if it changed
+        # Only commit if 'git status' shows changes to the CSV
+        # Use 'git diff --staged --quiet || ...' to check if staging area is non-empty
+        run: |
+          git diff --staged --quiet || git commit -m "Update Sackmann data CSV (`date -u`)"
+
+      - name: Push CSV Changes
+        # Push only if there was a commit in the previous step
+        # Check the exit code of the commit command (though the || handles it)
+        # Or simply attempt push; it will do nothing if there are no new commits.
+        run: |
+           git push origin ${{ github.ref_name }} # Push to the branch the workflow is running on
+
+      # --- End of New Steps ---
+
+      - name: Generate HTML Page from CSV
+        run: python generate_page.py
+
+      - name: Verify HTML Output
+        run: |
+          if ! grep -q "Last updated:" index.html; then
+            echo "Error: index.html does not seem to contain the 'Last updated' timestamp."
+            exit 1
+          fi
+          if grep -q "" index.html; then
+            echo "Error: index.html still contains the table placeholder."
+            exit 1
+          fi
+          echo "index.html appears to have been updated."
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './index.html' # Still only uploading the HTML for the Pages site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
