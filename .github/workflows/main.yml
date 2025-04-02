@@ -112,8 +112,9 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        with:
-          path: './index.html' # Upload only the final HTML for the Pages site
+        with: 
+          path: '.'
+          # path: './index.html' # Upload only the final HTML for the Pages site
 
       - name: Deploy to GitHub Pages
         id: deployment
