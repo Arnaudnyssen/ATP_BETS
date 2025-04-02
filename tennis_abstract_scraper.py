@@ -1,4 +1,4 @@
-# tennis_abstract_scraper.py (Revised tourneys_url based on HTML)
+# tennis_abstract_scraper.py (Corrected URL Filter Logic)
 
 import time
 import re
@@ -76,11 +76,11 @@ def setup_driver() -> Optional[webdriver.Chrome]:
 
 # --- Scraping Functions ---
 
-# REVISED tourneys_url function
+# REVISED tourneys_url function with corrected filter
 def tourneys_url() -> List[str]:
     """
     Scrapes Tennis Abstract homepage to find URLs for ATP/Challenger tournament
-    Results and Forecasts pages, using CSS selectors based on known structure.
+    Results and Forecasts pages, using corrected filtering logic.
     """
     print(f"Attempting to find tournament URLs from {BASE_URL}...")
     driver = setup_driver()
@@ -93,40 +93,32 @@ def tourneys_url() -> List[str]:
         driver.get(BASE_URL)
         wait = WebDriverWait(driver, WAIT_TIMEOUT)
 
-        # --- Primary URL Extraction Logic (Revised) ---
+        # --- Primary URL Extraction Logic (Revised Filter) ---
         print("Attempting URL extraction using CSS selectors for specific columns...")
-
-        # Target the 2nd and 3rd columns (td) in the first body row (tr) of the 'current-events' table
-        # These correspond to "Current Men's Tour" and "Current Challenger Tour" based on provided HTML
         men_tour_cell_selector = "table#current-events > tbody > tr:first-child > td:nth-child(2)"
         challenger_tour_cell_selector = "table#current-events > tbody > tr:first-child > td:nth-child(3)"
-
         target_cells_selectors = [men_tour_cell_selector, challenger_tour_cell_selector]
         found_links_primary = False
 
         for selector in target_cells_selectors:
             try:
-                # Wait for the cell itself to be present
                 target_cell = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, selector)))
                 print(f"Found target cell using selector: '{selector}'")
-
-                # Find links with the exact text "Results and Forecasts" within this cell
-                # Using LINK_TEXT for exact match is safer here than PARTIAL_LINK_TEXT
+                # Find links with the exact text "Results and Forecasts"
                 forecast_links = target_cell.find_elements(By.LINK_TEXT, "Results and Forecasts")
                 print(f"  Found {len(forecast_links)} 'Results and Forecasts' links in this cell.")
 
                 for link in forecast_links:
                     href = link.get_attribute("href")
-                    # Basic check if href looks like a valid URL and apply filtering
+                    # Basic check if href looks like a valid URL and avoid duplicates
                     if href and href.startswith("http") and href not in ls_tourneys_urls:
-                        # Apply filtering criteria
-                        url_lower = href.lower()
-                        if ('atp' in url_lower or 'challenger' in url_lower) and 'forecasts' in url_lower:
-                            ls_tourneys_urls.append(href)
-                            print(f"    Added relevant URL: {href}")
-                            found_links_primary = True
-                        # else: # Optional: Log if a link was found but filtered out
-                        #    print(f"    Skipping URL (failed filter): {href}")
+                        # *** CORRECTED FILTER for Primary Method ***
+                        # Since we target specific cells, finding the link text is enough.
+                        # No need to check URL content here, reduces brittleness.
+                        ls_tourneys_urls.append(href)
+                        print(f"    Added relevant URL: {href}")
+                        found_links_primary = True
+                        # *** END CORRECTED FILTER ***
 
             except TimeoutException:
                 print(f"Warning: Timed out waiting for cell '{selector}'.")
@@ -136,36 +128,31 @@ def tourneys_url() -> List[str]:
                  print(f"Warning: Error processing cell '{selector}': {e}")
 
 
-        # --- Fallback Logic (If primary method found nothing) ---
+        # --- Fallback Logic (Revised Filter) ---
         if not found_links_primary:
-             print("Primary CSS selector method yielded no relevant URLs. Falling back to searching all 'Results and Forecasts' links page-wide...")
+             print("Primary CSS selector method yielded no relevant URLs. Falling back...")
              try:
-                 # Wait for *any* link with the target text to appear
                  wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Results and Forecasts")))
                  all_forecast_links = driver.find_elements(By.LINK_TEXT, "Results and Forecasts")
                  print(f"  [Fallback] Found {len(all_forecast_links)} potential links page-wide.")
-
-                 if not all_forecast_links:
-                      print("  [Fallback] No 'Results and Forecasts' links found on the entire page.")
-                      return []
+                 if not all_forecast_links: return [] # Exit if fallback finds nothing
 
                  all_urls = [link.get_attribute("href") for link in all_forecast_links if link.get_attribute("href")]
-
                  print("  [Fallback] Filtering URLs...")
                  for url in all_urls:
                      url_lower = url.lower()
+                     # *** CORRECTED FILTER for Fallback Method ***
+                     # Check only for 'atp' or 'challenger' in the URL, remove 'forecasts' check
                      contains_keyword = 'atp' in url_lower or 'challenger' in url_lower
-                     contains_forecast = 'forecasts' in url_lower
+                     # *** END CORRECTED FILTER ***
 
-                     if contains_keyword and contains_forecast:
+                     if contains_keyword:
                          if url not in ls_tourneys_urls:
                              ls_tourneys_urls.append(url)
                              print(f"    [Fallback] Added relevant URL: {url}")
                      else:
-                         reason = []
-                         if not contains_keyword: reason.append("'atp'/'challenger' missing")
-                         if not contains_forecast: reason.append("'forecasts' missing")
-                         print(f"    [Fallback] Skipping URL: {url} (Reason: {', '.join(reason)})")
+                         # Log reason for skipping (only one reason possible now)
+                         print(f"    [Fallback] Skipping URL: {url} (Reason: 'atp'/'challenger' missing)")
 
              except TimeoutException:
                   print("  [Fallback] Timed out waiting for links during fallback.")
@@ -176,6 +163,7 @@ def tourneys_url() -> List[str]:
 
         print(f"Found {len(ls_tourneys_urls)} relevant tournament URLs after all methods.")
 
+    # ... (rest of the try/except/finally block remains the same) ...
     except TimeoutException:
         print(f"Error: Timed out waiting for elements on {BASE_URL}")
     except NoSuchElementException:
@@ -194,7 +182,7 @@ def tourneys_url() -> List[str]:
     return ls_tourneys_urls
 
 
-# --- probas_scraper function remains the same as in tennis_abstract_scraper_chrome_02 ---
+# --- probas_scraper function remains the same as in tennis_abstract_scraper_chrome_03 ---
 def probas_scraper(url: str) -> List[Any]:
     """
     Scrapes the probability table from a given Tennis Abstract tournament URL.
