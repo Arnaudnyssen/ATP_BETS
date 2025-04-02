@@ -1,121 +1,171 @@
-# .github/workflows/update-odds.yml (Commits Dated CSVs)
+# .github/workflows/update-odds.yml (Commits Dated CSVs, Firefox Fix, Version Logs)
 
+# Descriptive name for the workflow shown on GitHub Actions tab
 name: Update Tennis Odds Page
 
+# Triggers for the workflow
 on:
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch: # Allows manual triggering from the Actions tab
   schedule:
-    # Runs every day at 06:00 UTC (adjust as needed)
+    # Runs automatically on a schedule (using UTC time)
+    # This example runs daily at 6:00 AM UTC
     - cron: '0 6 * * *'
 
+# Permissions needed by the workflow jobs
 permissions:
-  contents: write # Needed to commit changes AND checkout
-  pages: write    # Needed to deploy to GitHub Pages
-  id-token: write # Needed for deployment authentication
+  contents: write # Required for actions/checkout, committing/pushing changes
+  pages: write    # Required for deploying to GitHub Pages
+  id-token: write # Required for authentication when deploying to Pages
 
+# Define the jobs to run in the workflow
 jobs:
+  # Single job named 'build-and-deploy'
   build-and-deploy:
+    # Specify the environment for GitHub Pages deployment (enables access to deployment URL)
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }} # Makes the deployed URL available as an output
 
+    # Runner environment: use the latest Ubuntu virtual machine
     runs-on: ubuntu-latest
 
+    # Steps to execute within the job
     steps:
+      # Step 1: Check out the repository code onto the runner
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Needed to compare changes
+          fetch-depth: 0 # Fetch all history, needed for comparing changes before commit/push
 
+      # Step 2: Set up the specified Python version
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-          cache: 'pip'
+          python-version: '3.10' # Specify desired Python version
+          cache: 'pip' # Cache pip dependencies for faster subsequent runs
 
+      # Step 3: Install Firefox browser and xvfb (for headless execution)
       - name: Install Firefox and xvfb
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y firefox xvfb
+          sudo apt-get update -y # Update package lists
+          sudo apt-get install -y firefox xvfb # Install standard Firefox and xvfb
 
+      # Step 4: Verify Firefox version (for logging/debugging)
+      - name: Verify Firefox Version
+        run: firefox --version
+
+      # Step 5: Download and install the latest geckodriver
       - name: Install geckodriver
         run: |
+          # Get latest geckodriver version tag from GitHub API
           GECKODRIVER_VERSION=$(curl -s "https://api.github.com/repos/mozilla/geckodriver/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
+          echo "Installing geckodriver version: $GECKODRIVER_VERSION"
+          # Download the Linux 64-bit release
           wget https://github.com/mozilla/geckodriver/releases/download/$GECKODRIVER_VERSION/geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz
+          # Extract the archive
           tar -xzf geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz
+          # Move geckodriver executable to a directory in the system PATH
           sudo mv geckodriver /usr/local/bin/
 
+      # Step 6: Verify geckodriver version (for logging/debugging)
+      - name: Verify geckodriver Version
+        run: geckodriver --version
+
+      # Step 7: Install Python package dependencies from requirements.txt
       - name: Install Python Dependencies
         run: pip install -r requirements.txt
 
+      # Step 8: Run the main Python script (scraper + processor + save)
+      # Use xvfb-run to provide a virtual display for headless Firefox
       - name: Run Scraper to Generate Dated CSV
-        # This script now saves to 'data_archive/sackmann_data_YYYYMMDD.csv'
         run: xvfb-run python save_sackmann_data.py
 
-      # --- Updated Steps to Commit Dated CSV ---
+      # --- Steps to Commit the generated CSV back to the repository ---
+
+      # Step 9: Configure Git user for commits made by the workflow
       - name: Configure Git
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      # Step 10: Stage any new/modified CSV files in the data_archive directory
       - name: Stage New CSV File(s)
-        # Add all files in the data_archive directory.
         run: |
+          # Check if the directory exists first
           if [ -d "data_archive" ]; then
+            # Add all .csv files within the directory
             git add data_archive/*.csv
+            echo "Staged CSV files from data_archive."
           else
             echo "data_archive directory not found, nothing to stage."
           fi
 
+      # Step 11: Commit the staged CSV files, but only if there are changes
       - name: Commit New CSV(s) if any were staged
-        # Check if there are staged changes before attempting commit
         run: |
-          # Check if 'git add' actually staged anything
+          # Use 'git diff --staged --quiet' which exits 0 if no changes, 1 if changes
+          # The '!' negates the exit code, so the 'if' block runs if there ARE changes
           if ! git diff --staged --quiet; then
+            # Create commit if changes were staged
             git commit -m "Add/Update Sackmann data CSV(s) (`date -u +%Y-%m-%d`)"
+            echo "Committed CSV changes."
           else
+            # No changes were staged
             echo "No changes to CSV files to commit."
           fi
 
+      # Step 12: Push the commit back to the origin repository branch
       - name: Push CSV Changes
         run: |
-           # Only push if there are new commits to the current branch compared to remote
-           # Check if local branch is ahead of remote before pushing
+           # Check if the local branch has commits not present on the remote
+           # Uses 'git rev-list --count remote..local'
            if [ $(git rev-list --count origin/${{ github.ref_name }}..${{ github.ref_name }}) -gt 0 ]; then
+             # Push if local branch is ahead
              git push origin ${{ github.ref_name }}
+             echo "Pushed CSV commits to origin."
            else
+             # No new commits to push
              echo "No new commits to push."
            fi
 
-      # --- End of Updated Steps ---
+      # --- End of CSV Commit Steps ---
 
+      # Step 13: Generate the index.html page using the latest CSV data
       - name: Generate HTML Page from Latest CSV
-        # This script now finds the latest CSV in 'data_archive/'
         run: python generate_page.py
 
+      # Step 14: Verify the generated HTML (optional checks)
       - name: Verify HTML Output
         run: |
-          # Check if the HTML was updated (contains timestamp and not placeholder)
+          # Check if index.html exists
+          if [ ! -f index.html ]; then
+            echo "Error: index.html not found after generation step."
+            exit 1
+          fi
+          # Check if timestamp was added
           if ! grep -q "Last updated:" index.html; then
             echo "Warning: index.html does not seem to contain the 'Last updated' timestamp."
-            # Decide if this should be an error: exit 1
+            # exit 1 # Optionally fail the build here
           fi
-          # *** CORRECTED GREP COMMAND BELOW ***
+          # Check if placeholder was removed
           if grep -q "" index.html; then
             echo "Warning: index.html might still contain the table placeholder."
-            # Decide if this should be an error: exit 1
+            # exit 1 # Optionally fail the build here
           fi
           echo "HTML verification check complete."
 
+      # Step 15: Configure GitHub Pages deployment settings
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # Step 16: Upload the generated website content as a Pages artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        with: 
+        with:
+          # Upload the root directory containing index.html
           path: '.'
-          # path: './index.html' # Upload only the final HTML for the Pages site
 
+      # Step 17: Deploy the uploaded artifact to GitHub Pages
       - name: Deploy to GitHub Pages
-        id: deployment
+        id: deployment # Give the step an ID to reference its outputs (like page_url)
         uses: actions/deploy-pages@v4
