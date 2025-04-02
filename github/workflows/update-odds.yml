@@ -100,6 +100,7 @@ jobs:
             echo "Warning: index.html does not seem to contain the 'Last updated' timestamp."
             # Decide if this should be an error: exit 1
           fi
+          # *** CORRECTED GREP COMMAND BELOW ***
           if grep -q "" index.html; then
             echo "Warning: index.html might still contain the table placeholder."
             # Decide if this should be an error: exit 1
