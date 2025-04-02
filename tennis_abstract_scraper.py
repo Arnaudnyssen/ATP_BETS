@@ -1,11 +1,11 @@
-# tennis_abstract_scraper.py (Using Chrome/Chromedriver)
+# tennis_abstract_scraper.py (Revised tourneys_url based on HTML)
 
 import time
 import re
 from typing import List, Optional, Any
-import os # Added for checking driver path existence
+import os
 
-# Selenium imports - UPDATED for Chrome
+# Selenium imports
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -14,7 +14,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException, WebDriverException
 
-# Webdriver Manager import - Can still be used for local Chrome testing
+# Webdriver Manager import
 try:
     from webdriver_manager.chrome import ChromeDriverManager
 except ImportError:
@@ -25,7 +25,7 @@ except ImportError:
 BASE_URL = "http://www.tennisabstract.com/"
 WAIT_TIMEOUT = 15
 
-# --- WebDriver Setup (UPDATED for Chrome) ---
+# --- WebDriver Setup (Using Chrome - No changes here) ---
 def setup_driver() -> Optional[webdriver.Chrome]:
     """
     Sets up and returns a headless Chrome WebDriver instance.
@@ -34,68 +34,55 @@ def setup_driver() -> Optional[webdriver.Chrome]:
     """
     print("Setting up Chrome WebDriver...")
     options = ChromeOptions()
-    options.add_argument("--headless=new") # Modern headless mode
+    options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--disable-gpu") # Often recommended for headless
-    options.add_argument("--window-size=1920,1080") # Specify window size
+    options.add_argument("--disable-gpu")
+    options.add_argument("--window-size=1920,1080")
 
-    # Path where chromedriver is typically installed by apt
     chromedriver_path_apt = "/usr/bin/chromedriver"
-    # Path where webdriver-manager might install it
     chromedriver_path_wdm = None
     if ChromeDriverManager:
          try:
-              # Attempt to get path from webdriver-manager without installing if possible,
-              # or just let it install/cache locally. For CI, we rely on apt path.
-              # Note: .install() will download if not found locally.
               chromedriver_path_wdm = ChromeDriverManager().install()
               print(f"webdriver-manager path: {chromedriver_path_wdm}")
          except Exception as e:
               print(f"Could not get path from webdriver-manager: {e}")
 
-
     driver = None
     try:
-        # Prioritize the apt path expected in GitHub Actions
         if os.path.exists(chromedriver_path_apt):
             print(f"Using chromedriver from apt path: {chromedriver_path_apt}")
             service = ChromeService(executable_path=chromedriver_path_apt)
             driver = webdriver.Chrome(service=service, options=options)
         elif chromedriver_path_wdm and os.path.exists(chromedriver_path_wdm):
-             # Fallback to webdriver-manager path if apt path doesn't exist (local use)
              print(f"Using chromedriver from webdriver-manager path: {chromedriver_path_wdm}")
              service = ChromeService(executable_path=chromedriver_path_wdm)
              driver = webdriver.Chrome(service=service, options=options)
         else:
-             # Last resort: Let Selenium try to find chromedriver in PATH
              print("Chromedriver not found at specific paths, attempting PATH...")
-             driver = webdriver.Chrome(options=options) # May fail if not in PATH
+             driver = webdriver.Chrome(options=options)
 
         print("Chrome WebDriver setup successful.")
         return driver
-
     except WebDriverException as e:
         print(f"WebDriver setup failed: {e}")
-        if driver:
-             driver.quit()
+        if driver: driver.quit()
         return None
     except Exception as e:
          print(f"An unexpected error occurred during Chrome WebDriver setup: {e}")
-         if driver:
-              driver.quit()
+         if driver: driver.quit()
          return None
 
+# --- Scraping Functions ---
 
-# --- Scraping Functions (No changes needed inside these for Chrome vs Firefox typically) ---
-
+# REVISED tourneys_url function
 def tourneys_url() -> List[str]:
     """
     Scrapes Tennis Abstract homepage to find URLs for ATP/Challenger tournament
-    Results and Forecasts pages, targeting specific table sections.
+    Results and Forecasts pages, using CSS selectors based on known structure.
     """
     print(f"Attempting to find tournament URLs from {BASE_URL}...")
-    # Calls the updated setup_driver which now returns a Chrome driver
     driver = setup_driver()
     if driver is None:
         print("Failed to setup WebDriver in tourneys_url. Aborting.")
@@ -105,54 +92,89 @@ def tourneys_url() -> List[str]:
     try:
         driver.get(BASE_URL)
         wait = WebDriverWait(driver, WAIT_TIMEOUT)
-        current_events_table = wait.until(EC.presence_of_element_located(
-            (By.ID, "current-events")
-        ))
-        print("Found 'current-events' table.")
 
-        mens_tour_cell_xpath = "//th[contains(text(), \"Current Men's Tour\")]/../following-sibling::tr/td[count(//th[contains(text(), \"Current Men's Tour\")]/preceding-sibling::th)+1]"
-        challenger_tour_cell_xpath = "//th[contains(text(), \"Current Challenger Tour\")]/../following-sibling::tr/td[count(//th[contains(text(), \"Current Challenger Tour\")]/preceding-sibling::th)+1]"
+        # --- Primary URL Extraction Logic (Revised) ---
+        print("Attempting URL extraction using CSS selectors for specific columns...")
 
-        target_cells = []
-        try:
-            mens_cell = current_events_table.find_element(By.XPATH, mens_tour_cell_xpath)
-            target_cells.append(mens_cell)
-            print("Found Men's Tour cell.")
-        except NoSuchElementException:
-            print("Warning: Could not find the specific Men's Tour cell.")
+        # Target the 2nd and 3rd columns (td) in the first body row (tr) of the 'current-events' table
+        # These correspond to "Current Men's Tour" and "Current Challenger Tour" based on provided HTML
+        men_tour_cell_selector = "table#current-events > tbody > tr:first-child > td:nth-child(2)"
+        challenger_tour_cell_selector = "table#current-events > tbody > tr:first-child > td:nth-child(3)"
 
-        try:
-            challenger_cell = current_events_table.find_element(By.XPATH, challenger_tour_cell_xpath)
-            target_cells.append(challenger_cell)
-            print("Found Challenger Tour cell.")
-        except NoSuchElementException:
-            print("Warning: Could not find the specific Challenger Tour cell.")
+        target_cells_selectors = [men_tour_cell_selector, challenger_tour_cell_selector]
+        found_links_primary = False
 
-        if not target_cells:
-             print("Error: Could not find any target cells for tournament links.")
-             print("Falling back to searching all 'Results and Forecasts' links...")
-             all_forecast_links = wait.until(EC.presence_of_all_elements_located(
-                 (By.PARTIAL_LINK_TEXT, "Results and Forecasts")
-             ))
-             if not all_forecast_links:
-                  print("Fallback failed: No 'Results and Forecasts' links found on page.")
-                  return []
-             else:
-                  print(f"Found {len(all_forecast_links)} potential links via fallback.")
-                  all_urls = [link.get_attribute("href") for link in all_forecast_links if link.get_attribute("href")]
-                  ls_tourneys_urls = [
-                      url for url in all_urls
-                      if ('atp' in url.lower() or 'challenger' in url.lower()) and 'forecasts' in url.lower()
-                  ]
-        else:
-            for cell in target_cells:
-                forecast_links = cell.find_elements(By.PARTIAL_LINK_TEXT, "Results and Forecasts")
+        for selector in target_cells_selectors:
+            try:
+                # Wait for the cell itself to be present
+                target_cell = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, selector)))
+                print(f"Found target cell using selector: '{selector}'")
+
+                # Find links with the exact text "Results and Forecasts" within this cell
+                # Using LINK_TEXT for exact match is safer here than PARTIAL_LINK_TEXT
+                forecast_links = target_cell.find_elements(By.LINK_TEXT, "Results and Forecasts")
+                print(f"  Found {len(forecast_links)} 'Results and Forecasts' links in this cell.")
+
                 for link in forecast_links:
                     href = link.get_attribute("href")
-                    if href and href not in ls_tourneys_urls:
-                        ls_tourneys_urls.append(href)
+                    # Basic check if href looks like a valid URL and apply filtering
+                    if href and href.startswith("http") and href not in ls_tourneys_urls:
+                        # Apply filtering criteria
+                        url_lower = href.lower()
+                        if ('atp' in url_lower or 'challenger' in url_lower) and 'forecasts' in url_lower:
+                            ls_tourneys_urls.append(href)
+                            print(f"    Added relevant URL: {href}")
+                            found_links_primary = True
+                        # else: # Optional: Log if a link was found but filtered out
+                        #    print(f"    Skipping URL (failed filter): {href}")
 
-        print(f"Found {len(ls_tourneys_urls)} relevant tournament URLs.")
+            except TimeoutException:
+                print(f"Warning: Timed out waiting for cell '{selector}'.")
+            except NoSuchElementException:
+                print(f"Warning: Could not find cell using selector '{selector}'.")
+            except Exception as e:
+                 print(f"Warning: Error processing cell '{selector}': {e}")
+
+
+        # --- Fallback Logic (If primary method found nothing) ---
+        if not found_links_primary:
+             print("Primary CSS selector method yielded no relevant URLs. Falling back to searching all 'Results and Forecasts' links page-wide...")
+             try:
+                 # Wait for *any* link with the target text to appear
+                 wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Results and Forecasts")))
+                 all_forecast_links = driver.find_elements(By.LINK_TEXT, "Results and Forecasts")
+                 print(f"  [Fallback] Found {len(all_forecast_links)} potential links page-wide.")
+
+                 if not all_forecast_links:
+                      print("  [Fallback] No 'Results and Forecasts' links found on the entire page.")
+                      return []
+
+                 all_urls = [link.get_attribute("href") for link in all_forecast_links if link.get_attribute("href")]
+
+                 print("  [Fallback] Filtering URLs...")
+                 for url in all_urls:
+                     url_lower = url.lower()
+                     contains_keyword = 'atp' in url_lower or 'challenger' in url_lower
+                     contains_forecast = 'forecasts' in url_lower
+
+                     if contains_keyword and contains_forecast:
+                         if url not in ls_tourneys_urls:
+                             ls_tourneys_urls.append(url)
+                             print(f"    [Fallback] Added relevant URL: {url}")
+                     else:
+                         reason = []
+                         if not contains_keyword: reason.append("'atp'/'challenger' missing")
+                         if not contains_forecast: reason.append("'forecasts' missing")
+                         print(f"    [Fallback] Skipping URL: {url} (Reason: {', '.join(reason)})")
+
+             except TimeoutException:
+                  print("  [Fallback] Timed out waiting for links during fallback.")
+                  return []
+             except NoSuchElementException:
+                   print("  [Fallback] No 'Results and Forecasts' links found during fallback.")
+                   return []
+
+        print(f"Found {len(ls_tourneys_urls)} relevant tournament URLs after all methods.")
 
     except TimeoutException:
         print(f"Error: Timed out waiting for elements on {BASE_URL}")
@@ -162,6 +184,8 @@ def tourneys_url() -> List[str]:
          print(f"WebDriver error while getting tournament URLs: {e}")
     except Exception as e:
         print(f"An unexpected error occurred in tourneys_url: {e}")
+        import traceback
+        traceback.print_exc()
     finally:
         if driver:
             driver.quit()
@@ -170,13 +194,13 @@ def tourneys_url() -> List[str]:
     return ls_tourneys_urls
 
 
+# --- probas_scraper function remains the same as in tennis_abstract_scraper_chrome_02 ---
 def probas_scraper(url: str) -> List[Any]:
     """
     Scrapes the probability table from a given Tennis Abstract tournament URL.
     Targets the table dynamically loaded into the 'forecast' span.
     """
     print(f"Attempting to scrape probability table from: {url}")
-    # Calls the updated setup_driver which now returns a Chrome driver
     driver = setup_driver()
     if driver is None:
         print(f"Failed to setup WebDriver in probas_scraper for {url}. Aborting.")
@@ -279,3 +303,4 @@ if __name__ == "__main__":
                 print(f"No data scraped from the first URL: {first_url_to_scrape}")
     else:
         print("No tournament URLs found.")
+
