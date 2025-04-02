@@ -1,11 +1,10 @@
-# .github/workflows/update-odds.yml (Using Chrome/Chromedriver)
+# .github/workflows/main.yml (Add CSV Check)
 
 name: Update Tennis Odds Page
 
 on:
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch:
   schedule:
-    # Runs every day at 06:00 UTC
     - cron: '0 6 * * *'
 
 permissions:
@@ -33,28 +32,39 @@ jobs:
           python-version: '3.10'
           cache: 'pip'
 
-      # --- Install Chromium and Chromedriver ---
       - name: Install Chromium and Chromedriver
         run: |
           sudo apt-get update -y
-          # Install chromium-browser and the matching chromedriver via apt
           sudo apt-get install -y chromium-browser chromium-chromedriver
 
-      # --- Verify Versions (Optional but Recommended) ---
       - name: Verify Chromium Version
         run: chromium-browser --version
 
       - name: Verify Chromedriver Version
         run: chromedriver --version
 
-      # --- Install Python Dependencies ---
       - name: Install Python Dependencies
         run: pip install -r requirements.txt
 
-      # --- Run Scraper (No xvfb needed for Chrome headless) ---
       - name: Run Scraper to Generate Dated CSV
-        # Note: Removed xvfb-run prefix
-        run: python save_sackmann_data.py
+        run: python save_sackmann_data.py # Removed xvfb-run as it's not needed for Chrome
+
+      # *** NEW STEP: Verify CSV was created ***
+      - name: Verify CSV Creation
+        run: |
+          # Find files matching the pattern. Use 'find' for better handling of filenames.
+          # Use 'head -n 1' to get just one filename if multiple match (e.g., if run twice quickly)
+          # Use 'wc -l' to count how many files were found.
+          file_count=$(find data_archive -maxdepth 1 -name 'sackmann_data_*.csv' -print -quit | wc -l)
+          if [ "$file_count" -eq 0 ]; then
+            echo "Error: No CSV file found in data_archive after scraper run."
+            exit 1 # Fail the workflow explicitly
+          else
+            echo "CSV file successfully created in data_archive."
+            # Optional: list files found
+            ls -l data_archive/sackmann_data_*.csv
+          fi
+      # *** END NEW STEP ***
 
       # --- Steps to Commit the generated CSV back to the repository ---
       - name: Configure Git
@@ -92,8 +102,9 @@ jobs:
       # --- End of CSV Commit Steps ---
 
       - name: Generate HTML Page from Latest CSV
-        run: python generate_page.py
+        run: python generate_page.py # This now runs only if CSV exists
 
+      # ... (Verify HTML, Setup Pages, Upload, Deploy steps remain the same) ...
       - name: Verify HTML Output
         run: |
           if [ ! -f index.html ]; then
@@ -102,11 +113,9 @@ jobs:
           fi
           if ! grep -q "Last updated:" index.html; then
             echo "Warning: index.html does not seem to contain the 'Last updated' timestamp."
-            # exit 1
           fi
           if grep -q "" index.html; then
             echo "Warning: index.html might still contain the table placeholder."
-            # exit 1
           fi
           echo "HTML verification check complete."
 
@@ -116,8 +125,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Upload the current directory
+          path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
