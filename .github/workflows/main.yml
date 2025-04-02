@@ -33,10 +33,10 @@ jobs:
           python-version: '3.10'
           cache: 'pip'
 
-      - name: Install Firefox ESR and xvfb
+      - name: Install Firefox and xvfb
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y firefox-esr xvfb
+          sudo apt-get install -y firefox xvfb
 
       - name: Install geckodriver
         run: |
