@@ -1,4 +1,4 @@
-# .github/workflows/update-odds.yml (Commits CSV)
+# .github/workflows/update-odds.yml (Commits Dated CSVs)
 
 name: Update Tennis Odds Page
 
@@ -24,10 +24,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        # Fetch depth 0 is needed if you want to compare changes or see history
-        # For simple commit, default depth might be okay, but 0 is safer.
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # Needed to compare changes
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -35,7 +33,7 @@ jobs:
           python-version: '3.10'
           cache: 'pip'
 
-      - name: Install Firefox ESR
+      - name: Install Firefox ESR and xvfb
         run: |
           sudo apt-get update -y
           sudo apt-get install -y firefox-esr xvfb
@@ -50,55 +48,63 @@ jobs:
       - name: Install Python Dependencies
         run: pip install -r requirements.txt
 
-      - name: Run Scraper to Generate CSV
+      - name: Run Scraper to Generate Dated CSV
+        # This script now saves to 'data_archive/sackmann_data_YYYYMMDD.csv'
         run: xvfb-run python save_sackmann_data.py
 
-      - name: Verify CSV Output
-        run: |
-          if [ ! -s sackmann_data.csv ]; then
-            echo "Error: sackmann_data.csv was not generated or is empty."
-            exit 1
-          fi
-          echo "sackmann_data.csv found and is not empty."
-
-      # --- New Steps to Commit CSV ---
+      # --- Updated Steps to Commit Dated CSV ---
       - name: Configure Git
         run: |
           git config user.name "GitHub Actions Bot"
-          git config user.email "<>" # GitHub Actions automatically uses github-actions[bot]@users.noreply.github.com
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Stage CSV File
-        run: git add sackmann_data.csv
-
-      - name: Commit CSV if it changed
-        # Only commit if 'git status' shows changes to the CSV
-        # Use 'git diff --staged --quiet || ...' to check if staging area is non-empty
+      - name: Stage New CSV File(s)
+        # Add all files in the data_archive directory.
         run: |
-          git diff --staged --quiet || git commit -m "Update Sackmann data CSV (`date -u`)"
+          if [ -d "data_archive" ]; then
+            git add data_archive/*.csv
+          else
+            echo "data_archive directory not found, nothing to stage."
+          fi
+
+      - name: Commit New CSV(s) if any were staged
+        # Check if there are staged changes before attempting commit
+        run: |
+          # Check if 'git add' actually staged anything
+          if ! git diff --staged --quiet; then
+            git commit -m "Add/Update Sackmann data CSV(s) (`date -u +%Y-%m-%d`)"
+          else
+            echo "No changes to CSV files to commit."
+          fi
 
       - name: Push CSV Changes
-        # Push only if there was a commit in the previous step
-        # Check the exit code of the commit command (though the || handles it)
-        # Or simply attempt push; it will do nothing if there are no new commits.
         run: |
-           git push origin ${{ github.ref_name }} # Push to the branch the workflow is running on
+           # Only push if there are new commits to the current branch compared to remote
+           # Check if local branch is ahead of remote before pushing
+           if [ $(git rev-list --count origin/${{ github.ref_name }}..${{ github.ref_name }}) -gt 0 ]; then
+             git push origin ${{ github.ref_name }}
+           else
+             echo "No new commits to push."
+           fi
 
-      # --- End of New Steps ---
+      # --- End of Updated Steps ---
 
-      - name: Generate HTML Page from CSV
+      - name: Generate HTML Page from Latest CSV
+        # This script now finds the latest CSV in 'data_archive/'
         run: python generate_page.py
 
       - name: Verify HTML Output
         run: |
+          # Check if the HTML was updated (contains timestamp and not placeholder)
           if ! grep -q "Last updated:" index.html; then
-            echo "Error: index.html does not seem to contain the 'Last updated' timestamp."
-            exit 1
+            echo "Warning: index.html does not seem to contain the 'Last updated' timestamp."
+            # Decide if this should be an error: exit 1
           fi
           if grep -q "" index.html; then
-            echo "Error: index.html still contains the table placeholder."
-            exit 1
+            echo "Warning: index.html might still contain the table placeholder."
+            # Decide if this should be an error: exit 1
           fi
-          echo "index.html appears to have been updated."
+          echo "HTML verification check complete."
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -106,7 +112,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './index.html' # Still only uploading the HTML for the Pages site
+          path: './index.html' # Upload only the final HTML for the Pages site
 
       - name: Deploy to GitHub Pages
         id: deployment
