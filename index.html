@@ -50,7 +50,7 @@
         table.dataframe th, table.dataframe td {
             border: none;
             border-bottom: 1px solid var(--medium-gray);
-            padding: 14px 16px;
+            padding: 12px 14px; /* Adjusted padding */
             text-align: left;
             vertical-align: middle;
             white-space: nowrap;
@@ -58,12 +58,26 @@
         table.dataframe tbody tr:last-child td {
             border-bottom: none;
         }
-        /* Column specific styles */
-        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 35%; white-space: normal; font-weight: 500;} /* Player */
-        table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) { width: 15%; text-align: right;} /* Probability */
-        table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) { width: 15%; text-align: right;} /* Odds */
-        table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) { width: 15%; } /* Round */
-        table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) { width: 20%; white-space: normal;} /* Tournament */
+        /* --- Updated Column Styles for Matchup View --- */
+        /* Player 1 */
+        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 25%; white-space: normal; font-weight: 500;}
+        /* P1 Prob */
+        table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) { width: 8%; text-align: right;}
+        /* P1 Odds */
+        table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) { width: 8%; text-align: right;}
+        /* vs */
+        table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) { width: 5%; text-align: center; font-weight: bold;}
+         /* Player 2 */
+        table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) { width: 25%; white-space: normal; font-weight: 500;}
+         /* P2 Prob */
+        table.dataframe th:nth-child(6), table.dataframe td:nth-child(6) { width: 8%; text-align: right;}
+         /* P2 Odds */
+        table.dataframe th:nth-child(7), table.dataframe td:nth-child(7) { width: 8%; text-align: right;}
+        /* Round */
+        table.dataframe th:nth-child(8), table.dataframe td:nth-child(8) { width: 8%; }
+        /* Tournament */
+        table.dataframe th:nth-child(9), table.dataframe td:nth-child(9) { width: 15%; white-space: normal;}
+        /* --- End Updated Column Styles --- */
 
         table.dataframe thead th {
             background-color: var(--secondary-color);
@@ -71,6 +85,9 @@
             font-weight: 600;
             border-bottom: 2px solid var(--primary-color);
             white-space: nowrap;
+            position: sticky; /* Make header sticky */
+            top: 0; /* Stick to the top */
+            z-index: 1; /* Ensure header is above table body */
         }
         table.dataframe tbody tr:nth-child(even) {
             background-color: var(--light-gray);
@@ -98,7 +115,18 @@
             table.dataframe th, table.dataframe td {
                 white-space: normal;
                 padding: 10px 8px;
+                font-size: 0.9em; /* Slightly smaller font on mobile */
             }
+            /* Adjust widths for mobile if needed */
+             table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 30%;} /* P1 */
+             table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) { width: 30%;} /* P2 */
+             table.dataframe th:nth-child(9), table.dataframe td:nth-child(9) { width: auto;} /* Tournament - allow wrap */
+             /* Hide less critical columns on very small screens if necessary */
+             /* Example: Hide odds columns */
+             /*
+             table.dataframe th:nth-child(3), table.dataframe td:nth-child(3),
+             table.dataframe th:nth-child(7), table.dataframe td:nth-child(7) { display: none; }
+             */
         }
     </style>
 </head>
@@ -108,10 +136,10 @@
     <p>This page displays probabilities and calculated decimal odds for upcoming ATP and Challenger matches based on the Tennis Abstract Sackmann model ratings.</p>
 
     <div class="table-container">
-    </div>
+        </div>
 
     <div class="last-updated">
-    </div>
+        </div>
 
 </body>
 </html>
