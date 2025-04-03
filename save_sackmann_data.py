@@ -1,26 +1,21 @@
-# save_sackmann_data.py (Save to data_archive)
+# save_sackmann_data.py (Save to data_archive - Import Fix)
 
 import pandas as pd
 from datetime import datetime
 import os
 import sys
-import traceback # Import traceback
+import traceback
+from typing import Optional # <--- Added this import
 
 # --- Constants ---
-# Define the target directory and filename pattern
-# Ensure this matches what subsequent steps expect (like generate_page.py)
 OUTPUT_DIRECTORY = "data_archive"
-BASE_FILENAME = "sackmann_data" # Base name without date
+BASE_FILENAME = "sackmann_data"
 DATE_FORMAT = "%Y%m%d"
 
 # --- Import Preprocessing Function ---
-# Ensure the main project directory is in the Python path
 try:
-    # Assumes save_sackmann_data.py and p_sack_preproc.py are in the same directory (e.g., project root)
     from p_sack_preproc import get_all_sackmann_data
 except ImportError:
-    # Handle cases where scripts might be in subdirectories if needed
-    # This basic structure assumes they are siblings
     project_dir = os.path.dirname(os.path.abspath(__file__))
     if project_dir not in sys.path:
         sys.path.append(project_dir)
@@ -30,7 +25,7 @@ except ImportError:
          print(f"Error importing 'get_all_sackmann_data': {e}")
          print("Ensure 'p_sack_preproc.py' is accessible (e.g., in the same directory).")
          print(f"Current sys.path: {sys.path}")
-         sys.exit(1) # Exit if import fails
+         sys.exit(1)
 
 
 # --- Saving Function ---
@@ -53,12 +48,11 @@ def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: s
 
     # --- Create Output Directory ---
     try:
-        # exist_ok=True prevents an error if the directory already exists
         os.makedirs(output_dir, exist_ok=True)
         print(f"Ensured output directory exists: '{output_dir}'")
     except OSError as e:
         print(f"Error creating output directory '{output_dir}': {e}")
-        return None # Cannot proceed without output directory
+        return None
 
     # --- Construct Filename ---
     today_date_str = datetime.now().strftime(DATE_FORMAT)
@@ -70,7 +64,7 @@ def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: s
     try:
         data.to_csv(output_path, index=False, encoding='utf-8')
         print(f"Successfully saved data to: {output_path}")
-        return output_path # Return the path of the saved file
+        return output_path
     except Exception as e:
         print(f"Error saving data to CSV file '{output_path}': {e}")
         traceback.print_exc()
@@ -88,16 +82,15 @@ def main():
     try:
         # Step 1: Fetch the processed data
         print("Fetching processed data using get_all_sackmann_data()...")
-        sackmann_data = get_all_sackmann_data() # This now returns the consolidated DataFrame
+        sackmann_data = get_all_sackmann_data()
 
         # Step 2: Save the collected data to the archive directory
         if sackmann_data is not None and not sackmann_data.empty:
             print(f"Data fetched successfully. Shape: {sackmann_data.shape}")
-            # **** SAVE TO THE CORRECT DIRECTORY ****
             saved_filepath = save_data_to_dated_csv(
                 data=sackmann_data,
                 base_filename=BASE_FILENAME,
-                output_dir=OUTPUT_DIRECTORY # Use the constant defined above
+                output_dir=OUTPUT_DIRECTORY
             )
             if saved_filepath:
                 print(f"Data saving process completed successfully. File: {saved_filepath}")
@@ -105,13 +98,12 @@ def main():
                 print("Data saving process failed.")
         elif sackmann_data is None:
              print("Fetching data failed (returned None). No data to save.")
-        else: # sackmann_data is empty DataFrame
+        else:
              print("Fetched data is empty. No data to save.")
-
 
     except Exception as e:
         print(f"An critical error occurred during the main process in save_sackmann_data.py: {e}")
-        traceback.print_exc() # Print detailed traceback for debugging
+        traceback.print_exc()
 
     print("Save process finished.")
 
