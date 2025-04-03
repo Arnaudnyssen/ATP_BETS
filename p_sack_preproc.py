@@ -1,417 +1,271 @@
-# p_sack_preproc.py (Use Headers Provided by Scraper)
+# p_sack_preproc.py (Refactored to Process Matchups)
 
 import pandas as pd
 import numpy as np
 import re
 import traceback
 from typing import List, Optional, Dict, Any
+import sys
+import os
 
-# --- Scraper imports remain inside the function that uses them ---
+# --- Constants ---
+MODEL_NAME = "Sackmann" # Identifier for this data source
 
-
-# --- REMOVED find_headers_cols function ---
-# This function is no longer needed as headers are provided by the scraper.
-
+# --- Import Scraper Functions ---
+try:
+    # Assuming tennis_abstract_scraper.py is in the same directory
+    from tennis_abstract_scraper import tourneys_url, probas_scraper
+except ImportError as e:
+    print(f"Error importing from tennis_abstract_scraper: {e}")
+    # Handle if scripts are in different directories if necessary
+    # project_dir = os.path.dirname(os.path.abspath(__file__))
+    # if project_dir not in sys.path: sys.path.append(project_dir)
+    # try: from tennis_abstract_scraper import tourneys_url, probas_scraper
+    # except ImportError: # Handle final import failure
+    print("Ensure tennis_abstract_scraper.py is accessible.")
+    sys.exit(1)
 
 # --- Helper Functions ---
-# (table_data_to_df, clean_df, get_active_round_and_columns,
-#  preprocess_player_names remain largely the same, but table_data_to_df
-#  no longer needs complex logic to find start of data)
 
-# MODIFIED table_data_to_df to directly use provided headers
-def table_data_to_df(headers: List[str], table_data: List[Any], url: str) -> Optional[pd.DataFrame]:
-    """
-    Converts the raw list of scraped data into a pandas DataFrame using the provided headers.
-    Adds the source URL as a column. Returns None if DataFrame creation fails.
-    Assumes table_data is a flat list corresponding to the headers.
-    """
-    if not headers:
-        print(f"Error: No headers provided for URL {url}. Cannot create DataFrame.")
-        return None
-
-    num_headers = len(headers)
-    if num_headers == 0:
-         print(f"Error: Zero headers provided for URL {url}. Cannot create DataFrame.")
-         return None
-    print(f"--- Debug: Creating DataFrame with {num_headers} provided headers: {headers} ---")
-
-    if not table_data:
-        print(f"Error: Empty table_data received for URL {url}. Cannot create DataFrame.")
-        return None
-
-    # Calculate expected number of data points
-    num_data_points = len(table_data)
-    if num_data_points % num_headers != 0:
-        print(f"--- Debug: Warning - Number of data points ({num_data_points}) is not a multiple of the number of headers ({num_headers}) for URL {url}. Table might be incomplete or parsing error occurred. ---")
-        # Decide how to handle: truncate or return None? Truncating might hide issues. Let's try to proceed but log clearly.
-        num_rows = num_data_points // num_headers
-        print(f"--- Debug: Attempting to create DataFrame with {num_rows} full rows. ---")
-        if num_rows == 0:
-            print("Error: Not enough data points to form even one full row.")
-            return None
-        # Truncate data to the largest multiple of num_headers
-        table_data = table_data[:num_rows * num_headers]
-    else:
-        num_rows = num_data_points // num_headers
-        print(f"--- Debug: Reshaping {num_data_points} data points into {num_rows} rows of {num_headers} columns. ---")
-
-    # Reshape the flat list into a list of lists (rows)
+def preprocess_player_name(name: str) -> str:
+    """Standardizes a single player name string."""
+    if not isinstance(name, str):
+        return "" # Return empty string if input is not a string
     try:
-        data_rows = [table_data[i:i + num_headers] for i in range(0, len(table_data), num_headers)]
+        # Remove content in parentheses (seed, country, WC, Q, etc.)
+        name = re.sub(r'\s*\([^)]*\)', '', name)
+        # Remove leading/trailing asterisks
+        name = re.sub(r'^\*|\*$', '', name)
+        # Strip whitespace and convert to lowercase
+        name = name.strip().lower()
+        # Optional: Add more cleaning like removing accents if needed later
+        # from unicodedata import normalize
+        # name = normalize('NFKD', name).encode('ascii', 'ignore').decode('utf-8')
+        return name
     except Exception as e:
-        print(f"Error reshaping data list into rows for URL {url}: {e}")
-        traceback.print_exc()
+        print(f"Warning: Could not preprocess name '{name}': {e}")
+        return name # Return original name on error
+
+def calculate_odds(probability: Optional[float]) -> Optional[float]:
+    """Calculates decimal odds from probability (0-100). Handles 0 probability."""
+    if probability is None or not isinstance(probability, (int, float)):
+        return None
+    if probability <= 0:
+        return None # Or return np.inf or a very large number? None seems safer.
+    try:
+        odds = 100.0 / probability
+        return round(odds, 2)
+    except ZeroDivisionError:
+        return None
+    except Exception as e:
+        print(f"Warning: Could not calculate odds for probability '{probability}': {e}")
         return None
 
-    if not data_rows:
-         print(f"Error: No data rows could be formed after reshaping for URL {url}.")
-         return None
-
-    print(f"--- Debug: Reshaped into {len(data_rows)} potential data rows. Creating DataFrame... ---")
+def get_tournament_name_from_url(url: str) -> str:
+    """Extracts a readable tournament name from the Tennis Abstract URL."""
     try:
-        # Create DataFrame directly from reshaped data and provided headers
-        df = pd.DataFrame(data_rows, columns=headers)
+        if isinstance(url, str) and '/' in url and len(url.split('/')) > 2:
+            # Assumes format like .../current/YYYYTournamentName.html
+            name_part = url.split('/')[-1] # Get filename
+            name_part = name_part.replace('.html', '') # Remove extension
+            # Remove potential year prefix (handle YYYY or YY)
+            if name_part[:4].isdigit() and len(name_part) > 4:
+                name_part = name_part[4:]
+            elif name_part[:2].isdigit() and len(name_part) > 2:
+                 name_part = name_part[2:]
+            # Replace hyphens/underscores, title case
+            name_part = re.sub(r'[-_]', ' ', name_part)
+            # Handle common patterns like (City)Challenger
+            name_part = re.sub(r'\((\w+)\)Challenger', r'\1 Challenger', name_part)
+            return name_part.title()
+        else:
+            return 'Unknown Tournament'
+    except Exception as e:
+        print(f"Warning: Could not extract tournament name from URL '{url}': {e}")
+        return 'Unknown Tournament'
 
-        # Basic validation: Check if 'Player' column exists (it should if headers were captured correctly)
-        if "Player" not in df.columns:
-             print(f"--- Debug: Warning - 'Player' column not found in provided headers {df.columns}. Check header capturing in scraper. Attempting to use first column. ---")
-             if df.shape[1] > 0:
-                  df.rename(columns={df.columns[0]: "Player"}, inplace=True) # Assume first column is Player
-             else:
-                  print("Error: DataFrame created with no columns.")
-                  return None
+# --- New Processing Logic ---
 
-        # Set index and add URL
-        df.set_index("Player", inplace=True)
-        df['Tournament_URL'] = url
-        print(f"--- Debug: DataFrame created successfully with shape {df.shape} for URL {url}. ---")
+def process_matchup_list(match_list: List[Dict[str, Any]], url: str) -> Optional[pd.DataFrame]:
+    """
+    Converts a list of scraped match dictionaries into a processed DataFrame.
+
+    Args:
+        match_list (List[Dict[str, Any]]): List of dicts from probas_scraper.
+                                           Expected keys: 'Player1', 'Player2',
+                                           'P1_Prob', 'P2_Prob', 'Round'.
+        url (str): The source URL for this tournament.
+
+    Returns:
+        Optional[pd.DataFrame]: Processed DataFrame matching the target structure,
+                                or None if input is invalid or processing fails.
+    """
+    if not match_list:
+        print(f"Received empty match list for URL: {url}")
+        return None # Return None for empty input
+
+    try:
+        # 1. Convert list of dictionaries to DataFrame
+        df = pd.DataFrame(match_list)
+        print(f"Created initial DataFrame with shape {df.shape} from {len(match_list)} matchups.")
+
+        # 2. Basic Validation (check if essential columns exist)
+        required_cols = ['Player1', 'Player2', 'P1_Prob', 'P2_Prob', 'Round']
+        if not all(col in df.columns for col in required_cols):
+            print(f"Error: DataFrame missing required columns. Found: {df.columns.tolist()}")
+            return None
+
+        # 3. Rename columns to match target structure
+        df.rename(columns={
+            'Player1': 'Player1Name',
+            'Player2': 'Player2Name',
+            'P1_Prob': 'Player1_Match_Prob',
+            'P2_Prob': 'Player2_Match_Prob'
+            # 'Round' is already correct
+        }, inplace=True)
+        print("Renamed columns.")
+
+        # 4. Preprocess Player Names
+        print("Preprocessing player names...")
+        df['Player1Name'] = df['Player1Name'].apply(preprocess_player_name)
+        df['Player2Name'] = df['Player2Name'].apply(preprocess_player_name)
+        print("Player names preprocessed.")
+
+        # 5. Calculate Odds
+        print("Calculating odds...")
+        df['Player1_Match_Odds'] = df['Player1_Match_Prob'].apply(calculate_odds)
+        df['Player2_Match_Odds'] = df['Player2_Match_Prob'].apply(calculate_odds)
+        print("Odds calculated.")
+
+        # 6. Add Metadata
+        print("Adding metadata...")
+        df['TournamentURL'] = url
+        df['TournamentName'] = get_tournament_name_from_url(url)
+        df['ModelName'] = MODEL_NAME
+        print("Metadata added.")
+
+        # 7. Reorder columns to match target structure
+        target_columns = [
+            'TournamentName', 'TournamentURL', 'Round',
+            'Player1Name', 'Player2Name',
+            'Player1_Match_Prob', 'Player2_Match_Prob',
+            'Player1_Match_Odds', 'Player2_Match_Odds',
+            'ModelName'
+            # ScrapeTimestampUTC will be added after concatenation
+        ]
+        # Ensure only existing columns are selected in the specified order
+        df = df[[col for col in target_columns if col in df.columns]]
+        print(f"Columns reordered. Final shape for this URL: {df.shape}")
+
         return df
-    except ValueError as ve:
-         print(f"Error creating DataFrame for URL {url}: {ve}")
-         print(f"--- Debug: Mismatch likely between number of headers ({num_headers}) and reshaped data structure. ---")
-         print(f"--- Debug: First few reshaped data rows: {data_rows[:3]} ---")
-         return None
+
     except Exception as e:
-        print(f"Unexpected error creating DataFrame for URL {url}: {e}")
-        traceback.print_exc()
-        return None
-
-# --- clean_df, get_active_round_and_columns, preprocess_player_names remain the same as previous debug version ---
-# (No changes needed here as they operate on the DataFrame after creation)
-def clean_df(df: pd.DataFrame) -> pd.DataFrame:
-    """Cleans the DataFrame by removing irrelevant rows/columns and handling NaNs."""
-    print("--- Debug: Entering clean_df ---") # DEBUG LOG
-    print(f"--- Debug: Initial shape: {df.shape} ---") # DEBUG LOG
-    potential_numeric_cols = [col for col in df.columns if col not in ['Tournament_URL']]
-    print(f"--- Debug: Potential numeric cols: {potential_numeric_cols} ---") # DEBUG LOG
-    for col in potential_numeric_cols:
-         if col not in df.columns: continue # Skip if column doesn't exist
-         if pd.api.types.is_string_dtype(df[col]) or df[col].dtype == 'object':
-              if df[col].astype(str).str.contains('%').any():
-                   print(f"--- Debug: Removing '%' from column '{col}' ---") # DEBUG LOG
-                   df[col] = df[col].astype(str).str.replace('%', '', regex=False)
-         print(f"--- Debug: Converting column '{col}' to numeric ---") # DEBUG LOG
-         df[col] = pd.to_numeric(df[col], errors='coerce')
-
-    rows_before = df.shape[0]
-    cols_before = df.shape[1]
-    df = df.dropna(how='all', axis=0).dropna(how='all', axis=1)
-    rows_after = df.shape[0]
-    cols_after = df.shape[1]
-    print(f"--- Debug: Dropped {rows_before - rows_after} all-NaN rows. ---") # DEBUG LOG
-    print(f"--- Debug: Dropped {cols_before - cols_after} all-NaN columns. ---") # DEBUG LOG
-    print(f"--- Debug: Final shape after cleaning: {df.shape} ---") # DEBUG LOG
-    print("Cleaning complete.")
-    return df
-
-def get_active_round_and_columns(df: pd.DataFrame) -> Optional[str]:
-    """
-    Identifies the current active round based on probabilities not being 0 or 100.
-    Returns the column name of the active round, or None if no active round found.
-    Assumes numeric conversion and cleaning have happened.
-    """
-    print("--- Debug: Entering get_active_round_and_columns ---") # DEBUG LOG
-    round_col_names = ["R128", "R64", "R32", "R16", "QF", "SF", "F", "W"]
-    potential_round_cols = [col for col in df.columns if col in round_col_names]
-    ordered_round_cols = [col for col in round_col_names if col in potential_round_cols]
-
-    if not ordered_round_cols:
-        print("--- Debug: Warning - Could not identify potential round columns based on typical names (R128, R64...). ---") # DEBUG LOG
-        return None
-
-    print(f"--- Debug: Potential round columns identified and ordered: {ordered_round_cols} ---") # DEBUG LOG
-
-    for round_col in ordered_round_cols:
-        if round_col not in df.columns: continue
-
-        print(f"--- Debug: Checking round column '{round_col}' for active status... ---") # DEBUG LOG
-        if pd.api.types.is_numeric_dtype(df[round_col]):
-            percentages = df[round_col].dropna()
-            if percentages.empty:
-                 print(f"--- Debug: Round column '{round_col}' contains only NaN values. Skipping. ---") # DEBUG LOG
-                 continue
-            is_active = (percentages > 0.01) & (percentages < 99.99)
-            if is_active.any():
-                print(f"--- Debug: Active round identified: {round_col} (found values between 0.01 and 99.99) ---") # DEBUG LOG
-                return round_col
-            else:
-                 finished_check = percentages.isin([0, 100])
-                 if finished_check.all():
-                     print(f"--- Debug: Round '{round_col}' appears finished (only 0, 100, or NaN values). ---") # DEBUG LOG
-                 else:
-                     print(f"--- Debug: Warning - Round '{round_col}' has unexpected numeric values not in [0, 100]: {percentages[~finished_check].unique()} ---") # DEBUG LOG
-        else:
-             print(f"--- Debug: Warning - Column '{round_col}' is not numeric after cleaning, cannot check for active status. Type: {df[round_col].dtype} ---") # DEBUG LOG
-
-    print("--- Debug: No active round found (all rounds might be finished, empty, or data is missing/unparseable). ---") # DEBUG LOG
-    return None
-
-def preprocess_player_names(df: pd.DataFrame) -> pd.DataFrame:
-    """Standardizes player names in the DataFrame index or 'Player' column."""
-    print("--- Debug: Entering preprocess_player_names ---") # DEBUG LOG
-    if isinstance(df.index, pd.MultiIndex):
-         print("--- Debug: Warning - MultiIndex found, cannot preprocess player names in index. ---") # DEBUG LOG
-         return df
-
-    target_column_data = None
-    is_index = False
-    original_target_name = None
-
-    if df.index.name == 'Player':
-        print("--- Debug: Processing 'Player' index. ---") # DEBUG LOG
-        target_column_data = df.index
-        original_target_name = df.index.name
-        is_index = True
-    elif 'Player' in df.columns:
-        print("--- Debug: Processing 'Player' column. ---") # DEBUG LOG
-        target_column_data = df['Player']
-        original_target_name = 'Player'
-        is_index = False
-    else:
-         print("--- Debug: Warning - Neither 'Player' index nor 'Player' column found for preprocessing. ---") # DEBUG LOG
-         return df
-
-    if target_column_data is None:
-         print("--- Debug: Error - Target column data is None. Skipping preprocessing. ---") # DEBUG LOG
-         return df
-
-    original_target_copy = target_column_data.copy()
-
-    try:
-        processed_target = target_column_data.astype(str)
-        processed_target = processed_target.str.replace(r'\s*\(\d+\)', '', regex=True)
-        processed_target = processed_target.str.replace(r'\s*\([A-Z]{3}\)', '', regex=True)
-        processed_target = processed_target.str.replace(r'\s*\(WC\)', '', regex=True)
-        processed_target = processed_target.str.replace(r'\s*\(Q\)', '', regex=True)
-        processed_target = processed_target.str.replace(r'\s*\(LL\)', '', regex=True)
-        processed_target = processed_target.str.replace(r'\s*\(SE\)', '', regex=True)
-        processed_target = processed_target.str.replace(r'\s*\(PR\)', '', regex=True)
-        processed_target = processed_target.str.replace(r'^\*|\*$', '', regex=True)
-        processed_target = processed_target.str.strip().str.lower()
-
-        if is_index:
-            df.index = processed_target
-            df.index.name = original_target_name
-        else:
-            df['Player'] = processed_target
-        print("--- Debug: Player name preprocessing applied. ---") # DEBUG LOG
-    except AttributeError as e:
-        print(f"--- Debug: Could not preprocess player names, likely not string type or regex error: {e} ---") # DEBUG LOG
-        if is_index: df.index = original_target_copy; df.index.name = original_target_name
-        else: df['Player'] = original_target_copy
-    except Exception as e:
-        print(f"--- Debug: Unexpected error during player name preprocessing: {e} ---"); traceback.print_exc()
-        try:
-            if is_index: df.index = original_target_copy; df.index.name = original_target_name
-            else: df['Player'] = original_target_copy
-        except: pass
-
-    return df
-
-
-# --- Main Processing Logic ---
-
-# MODIFIED process_sackmann_table to accept headers
-def process_sackmann_table(headers: List[str], table_data: List[Any], url: str) -> Optional[pd.DataFrame]:
-    """
-    Processes scraped data for a single Tennis Abstract tournament URL using provided headers.
-    Returns a DataFrame with Player, Round, Probability (%), and Decimal Odds,
-    or None if processing fails.
-    """
-    print(f"\n--- Debug: Entering process_sackmann_table for URL: {url} ---")
-    # Basic validation of inputs
-    if not table_data:
-        print("--- Debug: Error - Received empty table_data list. Cannot process. ---")
-        return None
-    if not headers:
-        print("--- Debug: Error - Received empty headers list. Cannot process. ---")
-        # This case should ideally be handled before calling this function
-        return None
-
-    try:
-        # --- DataFrame Creation (using provided headers) ---
-        print(f"--- Debug: Attempting DataFrame creation with {len(headers)} provided headers... ---")
-        df_raw = table_data_to_df(headers, table_data, url) # Call the modified function
-
-        if df_raw is None:
-            print("--- Debug: Error - Failed to create DataFrame (table_data_to_df returned None). ---")
-            return None
-        print(f"--- Debug: Raw DataFrame created with shape: {df_raw.shape} ---")
-
-        # --- Preprocessing & Cleaning ---
-        df_processed = preprocess_player_names(df_raw.copy())
-        df_cleaned = clean_df(df_processed)
-        print(f"--- Debug: Cleaned DataFrame shape: {df_cleaned.shape} ---")
-
-        if df_cleaned.empty:
-            print("--- Debug: DataFrame is empty after cleaning. No data to process further. ---")
-            # Return None because even if headers exist, there's no data
-            return None
-
-        # --- Active Round Identification ---
-        active_round = get_active_round_and_columns(df_cleaned)
-        if active_round is None:
-            print("--- Debug: Warning - Could not determine the active round for odds calculation. Cannot create final output. ---")
-            return None # Return None as no odds can be calculated
-
-        # This check might be redundant if get_active_round ensures column exists, but safe to keep
-        if active_round not in df_cleaned.columns:
-             print(f"--- Debug: Error - Active round column '{active_round}' not found after cleaning. Columns: {df_cleaned.columns} ---")
-             return None
-
-        # --- Final DataFrame Assembly ---
-        print(f"--- Debug: Assembling final DataFrame using active round: '{active_round}' ---")
-        df_final = pd.DataFrame(index=df_cleaned.index) # Start with player index
-        df_final['Probability (%)'] = df_cleaned[active_round]
-
-        # Calculate Decimal Odds
-        if pd.api.types.is_numeric_dtype(df_final['Probability (%)']):
-             valid_probs = df_final['Probability (%)'].dropna() / 100.0
-             valid_probs = valid_probs[valid_probs > 0]
-             if not valid_probs.empty:
-                  df_final['Decimal_Odds'] = (1 / valid_probs).round(2)
-             else:
-                  df_final['Decimal_Odds'] = np.nan
-             df_final['Decimal_Odds'] = df_final['Decimal_Odds'].fillna(np.nan) # Ensure NaNs remain NaN
-             print(f"--- Debug: Calculated Decimal_Odds. ---")
-        else:
-             print(f"--- Debug: Warning - Probability column '{active_round}' is not numeric. Cannot calculate odds. Setting Decimal_Odds to NaN. ---")
-             df_final['Decimal_Odds'] = np.nan
-
-        df_final['Round'] = active_round
-        df_final['Tournament_URL'] = url
-
-        df_final.reset_index(inplace=True) # Make 'Player' a column again
-
-        final_cols = ['Tournament_URL', 'Round', 'Player', 'Probability (%)', 'Decimal_Odds']
-        existing_final_cols = [col for col in final_cols if col in df_final.columns]
-        df_final = df_final[existing_final_cols]
-
-        print(f"--- Debug: Successfully processed. Final DataFrame shape: {df_final.shape} ---")
-        return df_final
-
-    # No longer need specific ValueError catch for find_headers_cols
-    except Exception as e:
-        print(f"--- Debug: An unexpected error occurred during processing for {url}: {e} ---")
+        print(f"Error processing matchup list for URL {url}: {e}")
         traceback.print_exc()
         return None
 
 
-# MODIFIED get_all_sackmann_data to handle tuple return and pass headers
-def get_all_sackmann_data() -> pd.DataFrame:
+def get_all_matchup_data() -> pd.DataFrame:
     """
-    Scrapes and processes Sackmann data for all relevant Tennis Abstract URLs.
-    Returns a consolidated DataFrame with data from all tournaments.
-    """
-    # --- Scraper Import ---
-    try:
-        from tennis_abstract_scraper import tourneys_url, probas_scraper
-        print("Successfully imported from tennis_abstract_scraper inside function.")
-    except ImportError as e:
-        print(f"Error importing from tennis_abstract_scraper inside function: {e}")
-        return pd.DataFrame()
-    # --- End Import ---
+    Scrapes matchup data for all relevant Tennis Abstract URLs and
+    processes it into a single consolidated DataFrame.
 
-    urls = tourneys_url()
+    Returns:
+        pd.DataFrame: Consolidated DataFrame with matchup data, or empty DataFrame on failure.
+    """
+    print("Starting to fetch all matchup data...")
+    urls = tourneys_url() # Get tournament URLs
     print(f"Found {len(urls)} tournament URLs to scrape.")
-    all_data_dfs = []
+    all_matchup_dfs = []
 
     if not urls:
-        print("No tournament URLs found. Returning empty DataFrame.")
+        print("No tournament URLs found.")
         return pd.DataFrame()
 
     for url in urls:
-        print(f"\n--- Processing URL: {url} ---")
+        print("-" * 30)
+        print(f"Processing URL: {url}")
         try:
-            # Step 1: Scrape raw data AND HEADERS
-            print("--- Debug: Calling probas_scraper... ---")
-            # **** UNPACK RETURNED TUPLE ****
-            headers, table_data = probas_scraper(url)
+            # Scrape matchup dictionaries for the current URL
+            scraped_matchups = probas_scraper(url) # Returns List[Dict]
 
-            # **** VALIDATE SCRAPED RESULTS ****
-            if not headers:
-                print(f"--- Debug: Warning - No headers identified by scraper for {url}. Skipping processing for this URL. ---")
-                continue # Skip if headers couldn't be found
-            if not table_data:
-                 print(f"--- Debug: No data scraped from {url}. Skipping. ---")
-                 continue
-            print(f"--- Debug: Scraped {len(headers)} headers and {len(table_data)} raw data points from {url}. ---")
+            if scraped_matchups:
+                print(f"Scraped {len(scraped_matchups)} potential matchups. Processing...")
+                # Process the list of dictionaries into a DataFrame
+                processed_df = process_matchup_list(scraped_matchups, url)
 
-            # Step 2: Process scraped data using the scraped headers
-            print("--- Debug: Calling process_sackmann_table... ---")
-            # **** PASS HEADERS TO PROCESSING FUNCTION ****
-            processed_df = process_sackmann_table(headers, table_data, url)
-
-            # Step 3: Check result and append
-            if processed_df is not None and not processed_df.empty:
-                print(f"--- Debug: Successfully processed data for {url}. Shape: {processed_df.shape} ---")
-                all_data_dfs.append(processed_df)
-            elif processed_df is None:
-                 print(f"--- Debug: Processing failed for {url} (returned None). ---")
-            else: # processed_df is an empty DataFrame
-                 print(f"--- Debug: Processing resulted in an empty DataFrame for {url}. ---")
+                if processed_df is not None and not processed_df.empty:
+                    print(f"Successfully processed DataFrame for {url}. Shape: {processed_df.shape}")
+                    all_matchup_dfs.append(processed_df)
+                else:
+                    print(f"No valid DataFrame generated after processing for {url}.")
+            else:
+                print(f"No matchups returned by scraper for {url}.")
 
         except Exception as e:
-            print(f"--- Debug: Critical error during scrape/process loop for {url}: {e} ---")
+            # Catch errors during the scrape/process loop for a single URL
+            print(f"Critical error during scrape/process loop for {url}: {e}")
             traceback.print_exc()
-            print(f"--- Debug: Skipping to next URL due to error. ---")
-            continue
+            print(f"Skipping to next URL due to error.")
+            continue # Continue with the next URL
 
     # --- Final Concatenation ---
-    if not all_data_dfs:
-        print("\n--- Debug: No data collected from any URL after processing. Returning empty DataFrame. ---")
-        return pd.DataFrame()
+    if not all_matchup_dfs:
+        print("\nNo matchup data collected from any URL after processing.")
+        return pd.DataFrame() # Return empty DataFrame
 
     try:
-        print(f"\n--- Debug: Concatenating {len(all_data_dfs)} processed DataFrames... ---")
-        final_sackmann_data = pd.concat(all_data_dfs, ignore_index=True)
-        # Add a timestamp column right before returning
-        final_sackmann_data['ScrapeTimestampUTC'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
-        print(f"\n--- Debug: Consolidated Sackmann data shape: {final_sackmann_data.shape} ---")
-        return final_sackmann_data
+        print(f"\nConcatenating {len(all_matchup_dfs)} processed DataFrames...")
+        final_matchup_data = pd.concat(all_matchup_dfs, ignore_index=True)
+        print(f"Concatenated data shape: {final_matchup_data.shape}")
+
+        # Add timestamp after successful concatenation
+        final_matchup_data['ScrapeTimestampUTC'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
+        print("Added ScrapeTimestampUTC.")
+
+        # Final column reordering including timestamp
+        final_columns_order = [
+            'TournamentName', 'TournamentURL', 'Round',
+            'Player1Name', 'Player2Name',
+            'Player1_Match_Prob', 'Player2_Match_Prob',
+            'Player1_Match_Odds', 'Player2_Match_Odds',
+            'ModelName', 'ScrapeTimestampUTC'
+        ]
+        final_matchup_data = final_matchup_data[[col for col in final_columns_order if col in final_matchup_data.columns]]
+
+
+        print(f"Final consolidated matchup data shape: {final_matchup_data.shape}")
+        return final_matchup_data
+
     except Exception as e:
-         print(f"--- Debug: Error during final concatenation: {e} ---")
+         print(f"Error during final concatenation or timestamping: {e}")
          traceback.print_exc()
-         return pd.DataFrame()
+         return pd.DataFrame() # Return empty DataFrame on error
 
 
-# Example usage (remains the same)
+# --- Example Usage ---
 if __name__ == "__main__":
-    print("Fetching and processing Sackmann data...")
+    print("="*50)
+    print("Running p_sack_preproc.py directly for testing...")
+    print("="*50)
     start_time = pd.Timestamp.now()
     print(f"Start time: {start_time}")
 
-    sackmann_data = get_all_sackmann_data()
+    matchup_data = get_all_matchup_data() # Call the main function
 
     end_time = pd.Timestamp.now()
     print(f"\nEnd time: {end_time}")
     print(f"Total processing time: {end_time - start_time}")
 
-    if not sackmann_data.empty:
-        print("\n--- Sample of Processed Sackmann Data ---")
-        print(sackmann_data.head())
+    if not matchup_data.empty:
+        print("\n--- Sample of Processed Matchup Data ---")
+        print(matchup_data.head())
         print("\n--- Data Info ---")
-        sackmann_data.info()
+        matchup_data.info()
+        # Optional: Save locally for inspection
+        # local_save_path = "debug_matchup_data.csv"
+        # print(f"\nSaving debug data locally to: {local_save_path}")
+        # matchup_data.to_csv(local_save_path, index=False)
     else:
-        print("\n--- No Sackmann data was processed or collected. ---")
+        print("\n--- No matchup data was processed or collected. ---")
 
