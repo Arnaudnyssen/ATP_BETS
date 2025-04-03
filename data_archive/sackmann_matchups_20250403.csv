@@ -1,33 +1,32 @@
 TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
-Atphouston,https://www.tennisabstract.com/current/2025ATPHouston.html,R16,tommy paul,cristian garin,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Atphouston,https://www.tennisabstract.com/current/2025ATPHouston.html,R16,colton smith,ethan quinn,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Atphouston,https://www.tennisabstract.com/current/2025ATPHouston.html,R16,alejandro tabilo,jenson brooksby,0.0,100.0,,1.0,Sackmann,2025-04-03 20:23:35 UTC
-Atphouston,https://www.tennisabstract.com/current/2025ATPHouston.html,R16,corentin denolly,aleksandar kovacevic,0.0,100.0,,1.0,Sackmann,2025-04-03 20:23:35 UTC
-Atpmarrakech,https://www.tennisabstract.com/current/2025ATPMarrakech.html,R16,tallon griekspoor,pablo carreno busta,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Atpmarrakech,https://www.tennisabstract.com/current/2025ATPMarrakech.html,R16,pierre hugues herbert,mattia bellucci,0.0,100.0,,1.0,Sackmann,2025-04-03 20:23:35 UTC
-Atpmarrakech,https://www.tennisabstract.com/current/2025ATPMarrakech.html,R16,alexandre muller,hugo dellien,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Atpmarrakech,https://www.tennisabstract.com/current/2025ATPMarrakech.html,R16,jesper de jong,kamil majchrzak,0.0,100.0,,1.0,Sackmann,2025-04-03 20:23:35 UTC
-Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,R16,sebastian baez,gabriel diallo,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,R16,francisco comesana,roberto bautista agut,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,R16,nicolas jarry,christopher oconnell,0.0,100.0,,1.0,Sackmann,2025-04-03 20:23:35 UTC
-Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,R16,marton fucsovics,mariano navone,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,R16,filip misolic,richard gasquet,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Menorcachallenger,https://www.tennisabstract.com/current/2025MenorcaChallenger.html,QF,pol martin tiffon,carlos taberner,24.0,76.0,4.17,1.32,Sackmann,2025-04-03 20:23:35 UTC
-Menorcachallenger,https://www.tennisabstract.com/current/2025MenorcaChallenger.html,QF,elmer moller,lukas neumayer,64.8,35.2,1.54,2.84,Sackmann,2025-04-03 20:23:35 UTC
-Menorcachallenger,https://www.tennisabstract.com/current/2025MenorcaChallenger.html,QF,zsombor piros,ignacio buse,52.1,47.9,1.92,2.09,Sackmann,2025-04-03 20:23:35 UTC
-Menorcachallenger,https://www.tennisabstract.com/current/2025MenorcaChallenger.html,QF,vilius gaubas,sebastian ofner,19.8,80.2,5.05,1.25,Sackmann,2025-04-03 20:23:35 UTC
-Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,tomas barrios vera,joao lucas reis da silva,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,eduardo ribeiro,enzo couacaud,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,juan pablo varillas,matheus pucinelli de almeida,60.4,39.6,1.66,2.53,Sackmann,2025-04-03 20:23:35 UTC
-Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,pedro sakamoto,gonzalo bueno,33.0,67.0,3.03,1.49,Sackmann,2025-04-03 20:23:35 UTC
-Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,mariano kestelboim,juan carlos prado angelo,0.0,100.0,,1.0,Sackmann,2025-04-03 20:23:35 UTC
-Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,andrea collarini,matias soto,0.0,100.0,,1.0,Sackmann,2025-04-03 20:23:35 UTC
-Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,conner huertas del pino,daniel dutra da silva,0.0,100.0,,1.0,Sackmann,2025-04-03 20:23:35 UTC
-Cuernavacamorelos Challenger,https://www.tennisabstract.com/current/2025Cuernavaca(Morelos)Challenger.html,R16,stefan kozlov,rafael jodar,0.0,100.0,,1.0,Sackmann,2025-04-03 20:23:35 UTC
-Cuernavacamorelos Challenger,https://www.tennisabstract.com/current/2025Cuernavaca(Morelos)Challenger.html,R16,rodrigo pacheco mendez,mark lajal,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Cuernavacamorelos Challenger,https://www.tennisabstract.com/current/2025Cuernavaca(Morelos)Challenger.html,R16,marc andrea huesler,maximilian neuchrist,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Cuernavacamorelos Challenger,https://www.tennisabstract.com/current/2025Cuernavaca(Morelos)Challenger.html,R16,aidan mayo,elmar ejupovic,100.0,0.0,1.0,,Sackmann,2025-04-03 20:23:35 UTC
-Barlettachallenger,https://www.tennisabstract.com/current/2025BarlettaChallenger.html,QF,valentin royer,enrico dalla valle,80.0,20.0,1.25,5.0,Sackmann,2025-04-03 20:23:35 UTC
-Barlettachallenger,https://www.tennisabstract.com/current/2025BarlettaChallenger.html,QF,dalibor svrcina,michael geerts,76.5,23.5,1.31,4.26,Sackmann,2025-04-03 20:23:35 UTC
-Barlettachallenger,https://www.tennisabstract.com/current/2025BarlettaChallenger.html,QF,daniel evans,vitaliy sachko,71.9,28.1,1.39,3.56,Sackmann,2025-04-03 20:23:35 UTC
-Barlettachallenger,https://www.tennisabstract.com/current/2025BarlettaChallenger.html,QF,matej dodig,maxim mrva,33.5,66.5,2.99,1.5,Sackmann,2025-04-03 20:23:35 UTC
+Atphouston,https://www.tennisabstract.com/current/2025ATPHouston.html,R16,tommy paul,cristian garin,100.0,0.0,1.0,,Sackmann,2025-04-03 20:44:24 UTC
+Atphouston,https://www.tennisabstract.com/current/2025ATPHouston.html,R16,colton smith,ethan quinn,100.0,0.0,1.0,,Sackmann,2025-04-03 20:44:24 UTC
+Atphouston,https://www.tennisabstract.com/current/2025ATPHouston.html,R16,alejandro tabilo,jenson brooksby,0.0,100.0,,1.0,Sackmann,2025-04-03 20:44:24 UTC
+Atphouston,https://www.tennisabstract.com/current/2025ATPHouston.html,R16,corentin denolly,aleksandar kovacevic,0.0,100.0,,1.0,Sackmann,2025-04-03 20:44:24 UTC
+Atpmarrakech,https://www.tennisabstract.com/current/2025ATPMarrakech.html,R16,tallon griekspoor,pablo carreno busta,100.0,0.0,1.0,,Sackmann,2025-04-03 20:44:24 UTC
+Atpmarrakech,https://www.tennisabstract.com/current/2025ATPMarrakech.html,R16,pierre hugues herbert,mattia bellucci,0.0,100.0,,1.0,Sackmann,2025-04-03 20:44:24 UTC
+Atpmarrakech,https://www.tennisabstract.com/current/2025ATPMarrakech.html,R16,alexandre muller,hugo dellien,100.0,0.0,1.0,,Sackmann,2025-04-03 20:44:24 UTC
+Atpmarrakech,https://www.tennisabstract.com/current/2025ATPMarrakech.html,R16,jesper de jong,kamil majchrzak,0.0,100.0,,1.0,Sackmann,2025-04-03 20:44:24 UTC
+Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,QF,sebastian baez,francisco comesana,73.3,26.7,1.36,3.75,Sackmann,2025-04-03 20:44:24 UTC
+Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,QF,christopher oconnell,marton fucsovics,43.9,56.1,2.28,1.78,Sackmann,2025-04-03 20:44:24 UTC
+Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,QF,filip misolic,flavio cobolli,22.2,77.8,4.5,1.29,Sackmann,2025-04-03 20:44:24 UTC
+Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,QF,damir dzumhur,pedro martinez,45.7,54.3,2.19,1.84,Sackmann,2025-04-03 20:44:24 UTC
+Menorcachallenger,https://www.tennisabstract.com/current/2025MenorcaChallenger.html,QF,pol martin tiffon,carlos taberner,24.0,76.0,4.17,1.32,Sackmann,2025-04-03 20:44:24 UTC
+Menorcachallenger,https://www.tennisabstract.com/current/2025MenorcaChallenger.html,QF,elmer moller,lukas neumayer,64.8,35.2,1.54,2.84,Sackmann,2025-04-03 20:44:24 UTC
+Menorcachallenger,https://www.tennisabstract.com/current/2025MenorcaChallenger.html,QF,zsombor piros,ignacio buse,52.1,47.9,1.92,2.09,Sackmann,2025-04-03 20:44:24 UTC
+Menorcachallenger,https://www.tennisabstract.com/current/2025MenorcaChallenger.html,QF,vilius gaubas,sebastian ofner,19.8,80.2,5.05,1.25,Sackmann,2025-04-03 20:44:24 UTC
+Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,tomas barrios vera,joao lucas reis da silva,100.0,0.0,1.0,,Sackmann,2025-04-03 20:44:24 UTC
+Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,eduardo ribeiro,enzo couacaud,100.0,0.0,1.0,,Sackmann,2025-04-03 20:44:24 UTC
+Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,juan pablo varillas,matheus pucinelli de almeida,60.4,39.6,1.66,2.53,Sackmann,2025-04-03 20:44:24 UTC
+Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,pedro sakamoto,gonzalo bueno,33.0,67.0,3.03,1.49,Sackmann,2025-04-03 20:44:24 UTC
+Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,mariano kestelboim,juan carlos prado angelo,0.0,100.0,,1.0,Sackmann,2025-04-03 20:44:24 UTC
+Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,andrea collarini,matias soto,0.0,100.0,,1.0,Sackmann,2025-04-03 20:44:24 UTC
+Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,R16,conner huertas del pino,daniel dutra da silva,0.0,100.0,,1.0,Sackmann,2025-04-03 20:44:24 UTC
+Cuernavacamorelos Challenger,https://www.tennisabstract.com/current/2025Cuernavaca(Morelos)Challenger.html,R16,stefan kozlov,rafael jodar,0.0,100.0,,1.0,Sackmann,2025-04-03 20:44:24 UTC
+Cuernavacamorelos Challenger,https://www.tennisabstract.com/current/2025Cuernavaca(Morelos)Challenger.html,R16,rodrigo pacheco mendez,mark lajal,100.0,0.0,1.0,,Sackmann,2025-04-03 20:44:24 UTC
+Cuernavacamorelos Challenger,https://www.tennisabstract.com/current/2025Cuernavaca(Morelos)Challenger.html,R16,marc andrea huesler,maximilian neuchrist,100.0,0.0,1.0,,Sackmann,2025-04-03 20:44:24 UTC
+Cuernavacamorelos Challenger,https://www.tennisabstract.com/current/2025Cuernavaca(Morelos)Challenger.html,R16,aidan mayo,elmar ejupovic,100.0,0.0,1.0,,Sackmann,2025-04-03 20:44:24 UTC
+Barlettachallenger,https://www.tennisabstract.com/current/2025BarlettaChallenger.html,QF,valentin royer,enrico dalla valle,80.0,20.0,1.25,5.0,Sackmann,2025-04-03 20:44:24 UTC
+Barlettachallenger,https://www.tennisabstract.com/current/2025BarlettaChallenger.html,QF,dalibor svrcina,michael geerts,76.5,23.5,1.31,4.26,Sackmann,2025-04-03 20:44:24 UTC
+Barlettachallenger,https://www.tennisabstract.com/current/2025BarlettaChallenger.html,QF,daniel evans,vitaliy sachko,71.9,28.1,1.39,3.56,Sackmann,2025-04-03 20:44:24 UTC
+Barlettachallenger,https://www.tennisabstract.com/current/2025BarlettaChallenger.html,QF,matej dodig,maxim mrva,33.5,66.5,2.99,1.5,Sackmann,2025-04-03 20:44:24 UTC
