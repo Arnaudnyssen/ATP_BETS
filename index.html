@@ -19,7 +19,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             line-height: 1.65;
             padding: 25px;
-            max-width: 1050px;
+            max-width: 1050px; /* Adjusted for potentially wider table */
             margin: 25px auto;
             background-color: var(--light-gray);
             color: var(--dark-gray);
@@ -58,26 +58,16 @@
         table.dataframe tbody tr:last-child td {
             border-bottom: none;
         }
-        /* --- Updated Column Styles for Matchup View --- */
-        /* Player 1 */
-        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 25%; white-space: normal; font-weight: 500;}
-        /* P1 Prob */
-        table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) { width: 8%; text-align: right;}
-        /* P1 Odds */
-        table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) { width: 8%; text-align: right;}
-        /* vs */
-        table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) { width: 5%; text-align: center; font-weight: bold;}
-         /* Player 2 */
-        table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) { width: 25%; white-space: normal; font-weight: 500;}
-         /* P2 Prob */
-        table.dataframe th:nth-child(6), table.dataframe td:nth-child(6) { width: 8%; text-align: right;}
-         /* P2 Odds */
-        table.dataframe th:nth-child(7), table.dataframe td:nth-child(7) { width: 8%; text-align: right;}
-        /* Round */
-        table.dataframe th:nth-child(8), table.dataframe td:nth-child(8) { width: 8%; }
-        /* Tournament */
-        table.dataframe th:nth-child(9), table.dataframe td:nth-child(9) { width: 15%; white-space: normal;}
-        /* --- End Updated Column Styles --- */
+        /* --- Column Styles for Matchup View --- */
+        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 25%; white-space: normal; font-weight: 500;} /* Player 1 */
+        table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) { width: 8%; text-align: right;} /* P1 Prob */
+        table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) { width: 8%; text-align: right;} /* P1 Odds */
+        table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) { width: 5%; text-align: center; font-weight: bold;} /* vs */
+        table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) { width: 25%; white-space: normal; font-weight: 500;} /* Player 2 */
+        table.dataframe th:nth-child(6), table.dataframe td:nth-child(6) { width: 8%; text-align: right;} /* P2 Prob */
+        table.dataframe th:nth-child(7), table.dataframe td:nth-child(7) { width: 8%; text-align: right;} /* P2 Odds */
+        table.dataframe th:nth-child(8), table.dataframe td:nth-child(8) { width: 8%; } /* Round */
+        table.dataframe th:nth-child(9), table.dataframe td:nth-child(9) { width: 15%; white-space: normal;} /* Tournament */
 
         table.dataframe thead th {
             background-color: var(--secondary-color);
@@ -115,18 +105,11 @@
             table.dataframe th, table.dataframe td {
                 white-space: normal;
                 padding: 10px 8px;
-                font-size: 0.9em; /* Slightly smaller font on mobile */
+                font-size: 0.9em;
             }
-            /* Adjust widths for mobile if needed */
-             table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 30%;} /* P1 */
-             table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) { width: 30%;} /* P2 */
-             table.dataframe th:nth-child(9), table.dataframe td:nth-child(9) { width: auto;} /* Tournament - allow wrap */
-             /* Hide less critical columns on very small screens if necessary */
-             /* Example: Hide odds columns */
-             /*
-             table.dataframe th:nth-child(3), table.dataframe td:nth-child(3),
-             table.dataframe th:nth-child(7), table.dataframe td:nth-child(7) { display: none; }
-             */
+             table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 30%;}
+             table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) { width: 30%;}
+             table.dataframe th:nth-child(9), table.dataframe td:nth-child(9) { width: auto;}
         }
     </style>
 </head>
