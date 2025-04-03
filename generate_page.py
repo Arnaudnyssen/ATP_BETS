@@ -10,249 +10,130 @@ import traceback
 from typing import Optional
 
 # --- Constants ---
-
-# WARNING: These placeholders target specific empty divs based on the
-# current index.html artifact. If the whitespace/newlines in
-# index.html change, these placeholders will NOT match.
+# WARNING: These placeholders target specific empty divs. Fragile!
 TABLE_PLACEHOLDER = '<div class="table-container">\n    </div>'
 TIMESTAMP_PLACEHOLDER = '<div class="last-updated">\n    </div>'
 
-ERROR_MESSAGE_CLASS = "error-message" # CSS class for styling errors
-DATA_DIR = "data_archive"             # Directory for CSV files
-CSV_PATTERN = "sackmann_data_*.csv"   # Pattern for CSV files
-TEMPLATE_FILE = "index.html"          # Source template HTML file
-OUTPUT_HTML_FILE = "index.html"       # Destination HTML file (overwrites template)
+ERROR_MESSAGE_CLASS = "error-message"
+DATA_DIR = "data_archive"
+CSV_PATTERN = "sackmann_data_*.csv"
+TEMPLATE_FILE = "index.html"
+OUTPUT_HTML_FILE = "index.html"
 
 
 # --- Helper Functions ---
 
 def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
-    """
-    Finds the most recently created CSV file matching the pattern in a directory.
-
-    Args:
-        directory (str): The directory to search in.
-        pattern (str): The glob pattern for the CSV files (e.g., "sackmann_data_*.csv").
-
-    Returns:
-        Optional[str]: The full path to the latest file, or None if no matching file found.
-    """
+    """Finds the most recently modified CSV file matching the pattern."""
     try:
         search_path = os.path.join(directory, pattern)
-        abs_search_path = os.path.abspath(search_path)
-        print(f"Searching for pattern: {abs_search_path}")
         list_of_files = glob.glob(search_path)
-
         if not list_of_files:
-            print(f"No files found matching pattern '{pattern}' in directory '{directory}'.")
+            print(f"No files found: {directory}/{pattern}")
             return None
-
-        # Find the latest file based on modification time (more reliable across systems)
         latest_file = max(list_of_files, key=os.path.getmtime)
-
-        print(f"Found latest CSV file: {latest_file} (Full path: {os.path.abspath(latest_file)})")
+        print(f"Found latest CSV: {latest_file}")
         return latest_file
     except Exception as e:
-        print(f"Error finding latest CSV file in '{directory}': {e}")
+        print(f"Error finding latest CSV: {e}")
         traceback.print_exc()
         return None
 
 def format_error_html(message: str) -> str:
-    """Formats an error message as an HTML snippet with a specific CSS class."""
-    print(f"Error generating table: {message}") # Log the error for debugging
-    # Return HTML string wrapped in a div for styling
-    return f'<div class="{ERROR_MESSAGE_CLASS}">{message} Check workflow logs for details.</div>'
+    """Formats an error message as an HTML snippet."""
+    print(f"Error generating table: {message}")
+    return f'<div class="{ERROR_MESSAGE_CLASS}">{message} Check logs.</div>'
 
 def generate_html_table(csv_filepath: str) -> str:
-    """
-    Reads the CSV file and generates an HTML table string.
-    Returns a styled error message string if any step fails.
-
-    Args:
-        csv_filepath (str): The path to the CSV file.
-
-    Returns:
-        str: An HTML string containing the data table or a styled error message.
-    """
-    abs_csv_filepath = os.path.abspath(csv_filepath)
-    print(f"Attempting to read CSV: {abs_csv_filepath}")
-
-    # 1. Check if file exists
+    """Reads CSV, processes data, and generates HTML table string or error HTML."""
+    print(f"Generating table from: {csv_filepath}")
     if not os.path.exists(csv_filepath):
-         return format_error_html(f"Data file not found at {abs_csv_filepath}.")
-
+         return format_error_html(f"Data file not found: {csv_filepath}")
     try:
-        # 2. Check if file is empty
         if os.path.getsize(csv_filepath) == 0:
-            return format_error_html(f"No match data available (data file is empty: {abs_csv_filepath}).")
+            return format_error_html(f"Data file is empty: {csv_filepath}")
 
-        # 3. Read CSV into DataFrame
         df = pd.read_csv(csv_filepath)
-
-        # 4. Check if DataFrame is empty after reading
         if df.empty:
-            print(f"Warning: DataFrame is empty after reading {csv_filepath}.")
-            return format_error_html("No match data available (DataFrame is empty after reading).")
+            return format_error_html("Data file read but DataFrame is empty.")
 
-        print("Preparing data for HTML table...")
-
-        # 5. Drop timestamp column if present
+        # Prepare DataFrame for display
         if 'ScrapeTimestampUTC' in df.columns:
              df_display = df.drop(columns=['ScrapeTimestampUTC']).copy()
-             print("Dropped 'ScrapeTimestampUTC' column.")
-        else:
-             df_display = df.copy()
-             print("Note: 'ScrapeTimestampUTC' column not found in CSV.")
+        else: df_display = df.copy()
 
-        # 6. Define and select relevant columns
         columns_to_display = ['Player', 'Probability (%)', 'Decimal_Odds', 'Round', 'Tournament_URL']
-        print(f"Desired columns: {columns_to_display}")
-        print(f"Available columns in CSV: {df_display.columns.tolist()}")
         existing_columns = [col for col in columns_to_display if col in df_display.columns]
-
-        if not existing_columns:
-             return format_error_html(f"No relevant columns ({', '.join(columns_to_display)}) found in the data file.")
-        if 'Player' not in existing_columns:
-             return format_error_html("'Player' column is missing from the data file.")
-
+        if not existing_columns or 'Player' not in existing_columns:
+             return format_error_html("Required columns ('Player', etc.) not found in CSV.")
         df_display = df_display[existing_columns].copy()
-        print(f"Selected columns for display: {existing_columns}")
 
-        # 7. Rename columns for display
+        # Rename and Format Columns
         rename_map = {'Probability (%)': 'Probability','Decimal_Odds': 'Odds','Tournament_URL': 'Tournament'}
-        rename_map_existing = {k: v for k, v in rename_map.items() if k in df_display.columns}
-        if rename_map_existing:
-            df_display.rename(columns=rename_map_existing, inplace=True)
-            print(f"Renamed columns: {rename_map_existing}")
+        df_display.rename(columns={k: v for k, v in rename_map.items() if k in df_display.columns}, inplace=True)
 
-        # 8. Process Tournament URL for readability
         if 'Tournament' in df_display.columns:
-            print("Processing 'Tournament' column...")
             try:
                  df_display['Tournament'] = df_display['Tournament'].apply(
                      lambda url: url.split('/')[-2].replace('-', ' ').title()
-                     if isinstance(url, str) and '/' in url and len(url.split('/')) > 2
-                     else 'Unknown Tournament'
+                     if isinstance(url, str) and '/' in url and len(url.split('/')) > 2 else 'Unknown'
                  )
-                 print("Processed 'Tournament' column successfully.")
-            except Exception as e:
-                 print(f"Warning: Could not process Tournament URLs cleanly - {e}. Setting to 'Unknown'.")
-                 df_display['Tournament'] = 'Unknown Tournament'
+            except Exception: df_display['Tournament'] = 'Unknown' # Handle potential errors
 
-        # 9. Format Probability column
         if 'Probability' in df_display.columns:
-            print("Processing 'Probability' column...")
             try:
                 df_display['Probability'] = pd.to_numeric(df_display['Probability'], errors='coerce')
-                if pd.api.types.is_numeric_dtype(df_display['Probability']) and not df_display['Probability'].isna().all():
-                    df_display.sort_values(by='Probability', ascending=False, inplace=True, na_position='last')
-                    print("Sorted by 'Probability'.")
-                # Format *after* sorting
+                if pd.api.types.is_numeric_dtype(df_display['Probability']):
+                     df_display.sort_values(by='Probability', ascending=False, inplace=True, na_position='last')
                 df_display['Probability'] = df_display['Probability'].map('{:.1f}%'.format, na_action='ignore')
-                print("Formatted 'Probability' column.")
-            except Exception as e: print(f"Warning: Could not sort/format Probability column - {e}")
+            except Exception as e: print(f"Warning: Formatting Probability failed - {e}")
 
-        # 10. Format Odds column
         if 'Odds' in df_display.columns:
-             print("Processing 'Odds' column...")
              try:
                 df_display['Odds'] = pd.to_numeric(df_display['Odds'], errors='coerce')
                 df_display['Odds'] = df_display['Odds'].map('{:.2f}'.format, na_action='ignore')
-                print("Formatted 'Odds' column.")
-             except Exception as e: print(f"Warning: Could not format Odds column - {e}")
+             except Exception as e: print(f"Warning: Formatting Odds failed - {e}")
 
-        # 11. Generate HTML table string
-        print("Generating HTML string from DataFrame...")
-        try:
-            html_table = df_display.to_html(
-                index=False,        # Don't include DataFrame index
-                border=0,           # No border attribute on table tag
-                classes='dataframe',# Add 'dataframe' class for styling
-                escape=True,        # Escape HTML characters in data (important for security)
-                na_rep='-'          # How to represent missing values (NaN)
-            )
-            # Basic validation of the generated HTML
-            if "<table" not in html_table or "</table>" not in html_table:
-                 print("Warning: pandas to_html did not return expected table tags.")
-                 return format_error_html("Could not format data into a table.")
-            print(f"HTML table string generated successfully (Length: {len(html_table)} chars).")
-            # Inject the table HTML into the div structure expected by the placeholder
-            return f'<div class="table-container">{html_table}</div>' # Success
-        except Exception as e_html:
-             print(f"Error during pandas to_html conversion: {e_html}")
-             traceback.print_exc()
-             return format_error_html(f"Failed during HTML conversion ({type(e_html).__name__}).")
+        # Generate HTML
+        html_table = df_display.to_html(index=False, border=0, classes='dataframe', escape=True, na_rep='-')
+        if "<table" not in html_table: return format_error_html("Failed to generate HTML table tags.")
 
-    # Handle specific pandas error for empty/malformed CSV
-    except pd.errors.EmptyDataError:
-        return format_error_html(f"No match data available (file is empty or unreadable by pandas: {abs_csv_filepath}).")
-    # Handle file not found error if somehow missed earlier
-    except FileNotFoundError:
-         return format_error_html(f"Data file not found at {abs_csv_filepath} (Error in generate_html_table).")
-    # Catch any other unexpected errors during processing
+        print("HTML table generated successfully.")
+        # Wrap table in the container div structure for replacement
+        return f'<div class="table-container">{html_table}</div>'
+
     except Exception as e:
-        print(f"Error processing CSV or generating HTML table: {e}")
+        print(f"Error processing CSV or generating table: {e}")
         traceback.print_exc()
-        return format_error_html(f"An unexpected error ({type(e).__name__}) occurred during table generation.")
+        return format_error_html(f"Unexpected error during table generation: {type(e).__name__}")
 
 
 def update_index_html(template_path: str, output_path: str, table_html_content: str):
-    """
-    Reads the template HTML, injects the generated table (or error message)
-    and timestamp into specific placeholder locations, and writes the output HTML file.
-
-    Args:
-        template_path (str): Path to the source index.html template.
-        output_path (str): Path where the updated index.html will be written.
-        table_html_content (str): The HTML string for the data table or an error message.
-                                   (Note: generate_html_table now wraps table in its div)
-    """
-    abs_template_path = os.path.abspath(template_path)
-    abs_output_path = os.path.abspath(output_path)
-    print(f"Updating '{abs_output_path}' using template '{abs_template_path}'...")
-
+    """Reads template, injects content into placeholders, writes output."""
+    print(f"Updating '{output_path}' using template '{template_path}'...")
     try:
-        # Read the template content
-        print(f"Reading template file: {abs_template_path}")
         with open(template_path, 'r', encoding='utf-8') as f:
             template_content = f.read()
-        print(f"Template content read successfully (Length: {len(template_content)} chars).")
 
-        # --- Replacement Logic for Empty Divs ---
-        final_content = template_content # Start with original content
+        final_content = template_content # Start with original
 
-        # 1. Replace Table Div
-        table_placeholder_found = TABLE_PLACEHOLDER in final_content
-        if table_placeholder_found:
-            print(f"Table placeholder found in template. Replacing...")
-            # Replace the *entire* empty div string with the content generated by generate_html_table
-            # (which already includes the surrounding div if successful)
-            final_content = final_content.replace(TABLE_PLACEHOLDER, table_html_content, 1) # Replace only first instance
-            if TABLE_PLACEHOLDER in final_content: # Check if it remained after replace
-                 print("WARNING: Table placeholder seems to remain after replacement attempt. Check index.html output.")
-            else:
-                 print("Table placeholder replaced successfully.")
+        # Replace Table Div
+        if TABLE_PLACEHOLDER in final_content:
+            final_content = final_content.replace(TABLE_PLACEHOLDER, table_html_content, 1)
+            print("Table placeholder replaced.")
         else:
-            print(f"ERROR: Table placeholder ('{repr(TABLE_PLACEHOLDER)}') was NOT found in the template content. Table not inserted.")
+            print(f"ERROR: Table placeholder not found in template.")
 
-        # 2. Replace Timestamp Div
-        timestamp_placeholder_found = TIMESTAMP_PLACEHOLDER in final_content
-        if timestamp_placeholder_found:
-            print(f"Timestamp placeholder found in template. Replacing...")
+        # Replace Timestamp Div
+        if TIMESTAMP_PLACEHOLDER in final_content:
             update_time = datetime.now(pytz.utc).strftime('%Y-%m-%d %H:%M:%S %Z')
-            # Inject the timestamp *inside* the div structure
             last_updated_html = f'<div class="last-updated">Last updated: {update_time}</div>'
-            final_content = final_content.replace(TIMESTAMP_PLACEHOLDER, last_updated_html, 1) # Replace only first instance
-            if TIMESTAMP_PLACEHOLDER in final_content: # Check if it remained
-                 print("WARNING: Timestamp placeholder seems to remain after replacement attempt. Check index.html output.")
-            else:
-                 print("Last updated placeholder replaced successfully.")
+            final_content = final_content.replace(TIMESTAMP_PLACEHOLDER, last_updated_html, 1)
+            print("Timestamp placeholder replaced.")
         else:
-             print(f"ERROR: Timestamp placeholder ('{repr(TIMESTAMP_PLACEHOLDER)}') was NOT found in the template content. Timestamp not inserted.")
+             print(f"ERROR: Timestamp placeholder not found in template.")
 
-
-        # Write the final content to the output file
-        print(f"Writing updated content to: {abs_output_path}")
+        # Write the result
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(final_content)
         print(f"Successfully wrote updated content to {output_path}")
@@ -267,37 +148,20 @@ def update_index_html(template_path: str, output_path: str, table_html_content: 
 # --- Main Execution Logic ---
 if __name__ == "__main__":
     print("Starting page generation process...")
-    print(f"Looking for latest CSV in: {os.path.abspath(DATA_DIR)}")
-    print(f"Using template: {os.path.abspath(TEMPLATE_FILE)}")
-    print(f"Outputting to: {os.path.abspath(OUTPUT_HTML_FILE)}")
 
-    print("\nFinding latest data file...")
     latest_csv = find_latest_csv(DATA_DIR, CSV_PATTERN)
 
-    table_html_content = "" # Initialize variable
-
     if latest_csv:
-        print(f"\nGenerating HTML table from: {latest_csv}")
-        # generate_html_table handles errors internally and returns HTML string
-        # which includes the surrounding div if successful
         table_html_content = generate_html_table(latest_csv)
     else:
-        # If no CSV found, create the standard error message HTML, wrapped in the container div
-        print(f"\nNo CSV file found in {DATA_DIR}. Generating error message for HTML content.")
-        error_message = format_error_html(f"Error: Could not find the latest data file ({CSV_PATTERN}) in {DATA_DIR}.")
-        # Wrap error message in the container div structure to match placeholder
+        error_message = format_error_html(f"Error: Could not find latest data file ({CSV_PATTERN}) in {DATA_DIR}.")
+        # Wrap error message in container div to replace the placeholder structure
         table_html_content = f'<div class="table-container">{error_message}</div>'
 
-
-    # Ensure table_html_content is definitely a string before proceeding
-    if not isinstance(table_html_content, str):
-        print("ERROR: table_html_content is not a string! Defaulting to an internal error message.")
+    if not isinstance(table_html_content, str): # Should always be string now
         error_message = format_error_html("Internal Error: Failed to generate valid HTML content.")
         table_html_content = f'<div class="table-container">{error_message}</div>'
 
-
-    # Update the HTML file
-    print(f"\nUpdating {OUTPUT_HTML_FILE}...")
     update_index_html(TEMPLATE_FILE, OUTPUT_HTML_FILE, table_html_content)
 
-    print("\nPage generation process complete.")
+    print("Page generation process complete.")
