@@ -1,5 +1,4 @@
-# generate_page.py (Targets specific empty divs in index.html)
-# WARNING: This approach is fragile. Using comment placeholders is recommended.
+# generate_page.py (Using Comment Placeholders - Recommended Version)
 
 import pandas as pd
 from datetime import datetime
@@ -10,18 +9,9 @@ import traceback
 from typing import Optional
 
 # --- Constants ---
-
-# WARNING: These placeholders target specific empty divs based on the
-# current index.html in the Canvas. If the whitespace/newlines in
-# index.html change, these placeholders will NOT match.
-TABLE_PLACEHOLDER = '<div class="table-container">\n    </div>'
-TIMESTAMP_PLACEHOLDER = '<div class="last-updated">\n    </div>'
-
-# Fallback placeholders (less likely to match but safer than empty string)
-# These might be used if the primary ones fail unexpectedly.
-# Consider using more unique IDs if modifying index.html is an option.
-# TABLE_PLACEHOLDER_FALLBACK = '<div class="table-container">'
-# TIMESTAMP_PLACEHOLDER_FALLBACK = '<div class="last-updated">'
+# Use comment placeholders for robust replacement
+TABLE_PLACEHOLDER = ""
+TIMESTAMP_PLACEHOLDER = ""
 
 ERROR_MESSAGE_CLASS = "error-message" # CSS class for styling errors
 DATA_DIR = "data_archive"             # Directory for CSV files
@@ -222,58 +212,57 @@ def update_index_html(template_path: str, output_path: str, table_html_content: 
             template_content = f.read()
         print(f"Template content read successfully (Length: {len(template_content)} chars).")
 
-        # Check if the *exact* placeholders exist in the template content
-        # WARNING: This is fragile due to reliance on exact whitespace/newlines
+        # Check if the comment placeholders exist BEFORE attempting replacement
         table_placeholder_found = TABLE_PLACEHOLDER in template_content
         timestamp_placeholder_found = TIMESTAMP_PLACEHOLDER in template_content
 
         if not table_placeholder_found:
-            print(f"ERROR: Table placeholder ('{repr(TABLE_PLACEHOLDER)}') was NOT found in the template content.")
-            print("       Check if index.html formatting (whitespace/newlines) matches the placeholder definition exactly.")
-            # Fallback attempt (less likely to work correctly but prevents total failure)
-            # print("       Attempting fallback replacement (might place content incorrectly)...")
-            # content_with_table = template_content.replace(TABLE_PLACEHOLDER_FALLBACK, TABLE_PLACEHOLDER_FALLBACK + table_html_content, 1) # Replace only first occurrence
+            print(f"ERROR: Table placeholder '{TABLE_PLACEHOLDER}' was NOT found in the template content read from '{template_path}'. Replacement will fail.")
         else:
-            print(f"Table placeholder found in template.")
-            # Perform the primary replacement
-            content_with_table = template_content.replace(TABLE_PLACEHOLDER, table_html_content)
+            print(f"Table placeholder '{TABLE_PLACEHOLDER}' found in template.")
 
         if not timestamp_placeholder_found:
-            print(f"ERROR: Timestamp placeholder ('{repr(TIMESTAMP_PLACEHOLDER)}') was NOT found in the template content.")
-            print("       Check if index.html formatting (whitespace/newlines) matches the placeholder definition exactly.")
-            # Fallback attempt
-            # print("       Attempting fallback replacement (might place content incorrectly)...")
-            # final_content = content_with_table.replace(TIMESTAMP_PLACEHOLDER_FALLBACK, TIMESTAMP_PLACEHOLDER_FALLBACK + last_updated_text, 1)
-            final_content = content_with_table # Keep content as is if timestamp placeholder missing
+            print(f"ERROR: Timestamp placeholder '{TIMESTAMP_PLACEHOLDER}' was NOT found in the template content read from '{template_path}'. Replacement will fail.")
         else:
-            print(f"Timestamp placeholder found in template.")
-            # Perform the primary replacement
+            print(f"Timestamp placeholder '{TIMESTAMP_PLACEHOLDER}' found in template.")
+
+        # Only proceed if placeholders were found
+        if table_placeholder_found and timestamp_placeholder_found:
             update_time = datetime.now(pytz.utc).strftime('%Y-%m-%d %H:%M:%S %Z')
             last_updated_text = f"Last updated: {update_time}"
+
+            # Perform replacements using the correct comment placeholders
+            print("Performing replacements...")
+            content_with_table = template_content.replace(TABLE_PLACEHOLDER, table_html_content)
             final_content = content_with_table.replace(TIMESTAMP_PLACEHOLDER, last_updated_text)
+            print("Replacements performed.")
 
+            # Verify replacements happened (should always work if placeholders were found)
+            if TABLE_PLACEHOLDER in final_content:
+                 print("ERROR: Table placeholder remained after replacement! Check for unexpected characters or issues with replace function.")
+            else:
+                 print("Table placeholder replaced successfully.")
+            if TIMESTAMP_PLACEHOLDER in final_content:
+                 print("ERROR: Timestamp placeholder remained after replacement! Check for unexpected characters or issues with replace function.")
+            else:
+                 print("Last updated placeholder replaced successfully.")
 
-        # Verify replacements (Check if original placeholder string is still present)
-        # This check might be misleading if replacement failed subtly
-        if table_placeholder_found and TABLE_PLACEHOLDER in final_content:
-             print("WARNING: Table placeholder seems to remain after replacement attempt. Check index.html output.")
-        elif table_placeholder_found:
-             print("Table placeholder replaced successfully.")
+            # Write the final content to the output file
+            print(f"Writing updated content to: {abs_output_path}")
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(final_content)
+            print(f"Successfully wrote updated content to {output_path}")
 
-        if timestamp_placeholder_found and TIMESTAMP_PLACEHOLDER in final_content:
-             print("WARNING: Timestamp placeholder seems to remain after replacement attempt. Check index.html output.")
-        elif timestamp_placeholder_found:
-             print("Last updated placeholder replaced successfully.")
-
-
-        # Write the final content to the output file
-        print(f"Writing updated content to: {abs_output_path}")
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(final_content)
-        print(f"Successfully wrote updated content to {output_path}")
+        else:
+            # If placeholders weren't found, write the original template content back
+            # to avoid deleting the file or leaving it in an inconsistent state.
+            print("ERROR: Placeholders not found in template. Writing original template content back to output file to prevent data loss.")
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(template_content) # Write original content back
 
     except FileNotFoundError:
         print(f"Error: Template file not found at {template_path}")
+        # Avoid writing if template doesn't exist
     except Exception as e:
         print(f"Error updating index.html: {e}")
         traceback.print_exc()
