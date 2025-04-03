@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upcoming Tennis Odds (Sackmann Model)</title>
     <style>
-        :root { /* Define CSS variables for easier theme changes */
+        :root { /* Define CSS variables */
             --primary-color: #0056b3;
             --secondary-color: #007bff;
             --light-gray: #f8f9fa;
@@ -17,9 +17,9 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.65; /* Slightly increased line height */
-            padding: 25px; /* Slightly more padding */
-            max-width: 1050px; /* Wider max-width */
+            line-height: 1.65;
+            padding: 25px;
+            max-width: 1050px;
             margin: 25px auto;
             background-color: var(--light-gray);
             color: var(--dark-gray);
@@ -29,18 +29,18 @@
             border-bottom: 3px solid var(--primary-color);
             padding-bottom: 12px;
             margin-bottom: 30px;
-            font-weight: 600; /* Make heading slightly bolder */
+            font-weight: 600;
         }
         p {
-            margin-bottom: 20px; /* Space below paragraph */
+            margin-bottom: 20px;
         }
         .table-container {
             overflow-x: auto;
-            box-shadow: 0 4px 10px var(--shadow-color); /* Slightly stronger shadow */
-            border-radius: 6px; /* Smoother corners */
+            box-shadow: 0 4px 10px var(--shadow-color);
+            border-radius: 6px;
             background-color: var(--white);
-            border: 1px solid var(--medium-gray); /* Add subtle border to container */
-            min-height: 100px; /* Add min-height to ensure container is visible even when empty */
+            border: 1px solid var(--medium-gray);
+            min-height: 100px; /* Ensure container is visible */
         }
         table.dataframe {
             width: 100%;
@@ -48,20 +48,18 @@
             margin: 0;
         }
         table.dataframe th, table.dataframe td {
-            border: none; /* Remove individual cell borders */
-            border-bottom: 1px solid var(--medium-gray); /* Use bottom borders for separation */
-            padding: 14px 16px; /* More padding */
+            border: none;
+            border-bottom: 1px solid var(--medium-gray);
+            padding: 14px 16px;
             text-align: left;
             vertical-align: middle;
             white-space: nowrap;
         }
-        /* Remove bottom border for the last row */
         table.dataframe tbody tr:last-child td {
             border-bottom: none;
         }
-
-        /* Specific column widths/styles */
-        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 35%; white-space: normal; font-weight: 500;} /* Player Name */
+        /* Column specific styles */
+        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 35%; white-space: normal; font-weight: 500;} /* Player */
         table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) { width: 15%; text-align: right;} /* Probability */
         table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) { width: 15%; text-align: right;} /* Odds */
         table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) { width: 15%; } /* Round */
@@ -71,8 +69,8 @@
             background-color: var(--secondary-color);
             color: var(--white);
             font-weight: 600;
-            border-bottom: 2px solid var(--primary-color); /* Stronger header bottom border */
-            white-space: nowrap; /* Keep headers on one line */
+            border-bottom: 2px solid var(--primary-color);
+            white-space: nowrap;
         }
         table.dataframe tbody tr:nth-child(even) {
             background-color: var(--light-gray);
@@ -88,9 +86,8 @@
             color: #6c757d;
             text-align: center;
         }
-        /* Style for error messages */
-        .error-message {
-            color: #dc3545; /* Bootstrap danger color */
+        .error-message { /* Style for error messages */
+            color: #dc3545;
             font-weight: bold;
             padding: 20px;
             text-align: center;
@@ -100,9 +97,8 @@
             h1 { font-size: 1.5em; }
             table.dataframe th, table.dataframe td {
                 white-space: normal;
-                padding: 10px 8px; /* Adjust padding for smaller screens */
+                padding: 10px 8px;
             }
-             /* Consider stacking table on very small screens if needed */
         }
     </style>
 </head>
@@ -112,10 +108,10 @@
     <p>This page displays probabilities and calculated decimal odds for upcoming ATP and Challenger matches based on the Tennis Abstract Sackmann model ratings.</p>
 
     <div class="table-container">
-        </div>
+    </div>
 
     <div class="last-updated">
-        </div>
+    </div>
 
 </body>
 </html>
