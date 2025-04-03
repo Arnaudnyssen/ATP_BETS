@@ -1,4 +1,4 @@
-# .github/workflows/main.yml (Less Strict CSV Check)
+# .github/workflows/main.yml (Improved Git Add Check)
 
 name: Update Tennis Odds Page
 
@@ -49,38 +49,38 @@ jobs:
       - name: Run Scraper to Generate Dated CSV
         run: python save_sackmann_data.py
 
-      # --- MODIFIED STEP: Verify CSV Creation (Warn instead of Error) ---
+      # Use the less strict verification (warn only)
       - name: Verify CSV Creation
         run: |
-          # Ensure directory exists first (optional, as Python script should create it, but safe)
-          mkdir -p data_archive
-          # Now check for files
+          mkdir -p data_archive # Ensure directory exists
           file_count=$(find data_archive -maxdepth 1 -name 'sackmann_data_*.csv' -print -quit | wc -l)
           if [ "$file_count" -eq 0 ]; then
-            # Print a warning instead of exiting
             echo "Warning: No CSV file found in data_archive after scraper run. Proceeding without data."
-            # exit 1 # <-- REMOVED explicit failure
+            # No exit 1 here
           else
             echo "CSV file successfully found in data_archive."
             ls -l data_archive/sackmann_data_*.csv
           fi
-      # --- END MODIFIED STEP ---
 
-      # --- Steps to Commit CSV (will run even if no CSV was created/staged) ---
+      # --- Steps to Commit the generated CSV back to the repository ---
       - name: Configure Git
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      # *** MODIFIED STEP: Stage New CSV File(s) with pre-check ***
       - name: Stage New CSV File(s)
         run: |
-          if [ -d "data_archive" ]; then
-            # Use 'git add --ignore-errors' in case glob doesn't match anything
+          # Check if directory exists AND contains matching files before trying to add
+          if [ -d "data_archive" ] && [ "$(find data_archive -maxdepth 1 -name 'sackmann_data_*.csv' -print -quit | wc -l)" -gt 0 ]; then
+            # Add files using the pattern (ignore errors just in case, though unlikely needed now)
             git add --ignore-errors data_archive/*.csv
             echo "Attempted to stage CSV files from data_archive."
           else
-            echo "data_archive directory not found, nothing to stage."
+            # Print message if directory/files not found or no files match
+            echo "data_archive directory not found or no CSV files to stage."
           fi
+      # *** END MODIFIED STEP ***
 
       - name: Commit New CSV(s) if any were staged
         run: |
@@ -102,7 +102,7 @@ jobs:
       # --- End of CSV Commit Steps ---
 
       - name: Generate HTML Page from Latest CSV
-        run: python generate_page.py # Will use error message if find_latest_csv returns None
+        run: python generate_page.py
 
       - name: Verify HTML Output
         run: |
