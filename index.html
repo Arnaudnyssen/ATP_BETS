@@ -40,6 +40,7 @@
             border-radius: 6px; /* Smoother corners */
             background-color: var(--white);
             border: 1px solid var(--medium-gray); /* Add subtle border to container */
+            min-height: 100px; /* Add min-height to ensure container is visible even when empty */
         }
         table.dataframe {
             width: 100%;
@@ -87,6 +88,13 @@
             color: #6c757d;
             text-align: center;
         }
+        /* Style for error messages */
+        .error-message {
+            color: #dc3545; /* Bootstrap danger color */
+            font-weight: bold;
+            padding: 20px;
+            text-align: center;
+        }
         @media (max-width: 768px) {
             body { padding: 15px; }
             h1 { font-size: 1.5em; }
@@ -101,7 +109,7 @@
 <body>
 
     <h1>Upcoming Tennis Match Odds (Sackmann Model)</h1>
-    <p>This page displays probabilities and calculated decimal odds for upcoming ATP matches based on the Tennis Abstract Sackmann model ratings.</p>
+    <p>This page displays probabilities and calculated decimal odds for upcoming ATP and Challenger matches based on the Tennis Abstract Sackmann model ratings.</p>
 
     <div class="table-container">
         </div>
