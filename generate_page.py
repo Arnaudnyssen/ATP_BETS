@@ -11,8 +11,8 @@ import html # Still needed for escaping timestamp
 
 # --- Constants ---
 # *** Use unique HTML comment placeholders ***
-TABLE_PLACEHOLDER = ""
-TIMESTAMP_PLACEHOLDER = ""
+TABLE_PLACEHOLDER = "``"
+TIMESTAMP_PLACEHOLDER = "``"
 
 ERROR_MESSAGE_CLASS = "error-message" # For displaying errors via format_error_html
 DATA_DIR = "data_archive"
