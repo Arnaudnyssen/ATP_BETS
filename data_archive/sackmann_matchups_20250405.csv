@@ -1,0 +1,15 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atphouston,https://www.tennisabstract.com/current/2025ATPHouston.html,SF,tommy paul,jenson brooksby,71.6,28.4,1.4,3.52,Sackmann,2025-04-05 06:02:18 UTC
+Atphouston,https://www.tennisabstract.com/current/2025ATPHouston.html,SF,brandon nakashima,frances tiafoe,50.6,49.4,1.98,2.02,Sackmann,2025-04-05 06:02:18 UTC
+Atpmarrakech,https://www.tennisabstract.com/current/2025ATPMarrakech.html,SF,tallon griekspoor,kamil majchrzak,64.4,35.6,1.55,2.81,Sackmann,2025-04-05 06:02:18 UTC
+Atpmarrakech,https://www.tennisabstract.com/current/2025ATPMarrakech.html,SF,roberto carballes baena,luciano darderi,52.8,47.2,1.89,2.12,Sackmann,2025-04-05 06:02:18 UTC
+Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,SF,sebastian baez,marton fucsovics,61.3,38.7,1.63,2.58,Sackmann,2025-04-05 06:02:18 UTC
+Atpbucharest,https://www.tennisabstract.com/current/2025ATPBucharest.html,SF,flavio cobolli,damir dzumhur,56.9,43.1,1.76,2.32,Sackmann,2025-04-05 06:02:18 UTC
+Menorcachallenger,https://www.tennisabstract.com/current/2025MenorcaChallenger.html,SF,pol martin tiffon,lukas neumayer,30.8,69.2,3.25,1.45,Sackmann,2025-04-05 06:02:18 UTC
+Menorcachallenger,https://www.tennisabstract.com/current/2025MenorcaChallenger.html,SF,ignacio buse,vilius gaubas,63.2,36.8,1.58,2.72,Sackmann,2025-04-05 06:02:18 UTC
+Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,SF,tomas barrios vera,juan pablo varillas,55.1,44.9,1.81,2.23,Sackmann,2025-04-05 06:02:18 UTC
+Campinaschallenger,https://www.tennisabstract.com/current/2025CampinasChallenger.html,SF,alvaro guillen meza,matias soto,53.6,46.4,1.87,2.16,Sackmann,2025-04-05 06:02:18 UTC
+Cuernavacamorelos Challenger,https://www.tennisabstract.com/current/2025Cuernavaca(Morelos)Challenger.html,SF,rafael jodar,marc andrea huesler,17.3,82.7,5.78,1.21,Sackmann,2025-04-05 06:02:18 UTC
+Cuernavacamorelos Challenger,https://www.tennisabstract.com/current/2025Cuernavaca(Morelos)Challenger.html,SF,dmitry popko,alexis galarneau,40.4,59.6,2.48,1.68,Sackmann,2025-04-05 06:02:18 UTC
+Barlettachallenger,https://www.tennisabstract.com/current/2025BarlettaChallenger.html,SF,valentin royer,dalibor svrcina,67.6,32.4,1.48,3.09,Sackmann,2025-04-05 06:02:18 UTC
+Barlettachallenger,https://www.tennisabstract.com/current/2025BarlettaChallenger.html,SF,vitaliy sachko,maxim mrva,35.0,65.0,2.86,1.54,Sackmann,2025-04-05 06:02:18 UTC
