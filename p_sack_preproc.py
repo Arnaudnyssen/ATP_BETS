@@ -37,7 +37,7 @@ def preprocess_player_name(name: str) -> str:
         # Remove leading/trailing asterisks
         name = re.sub(r'^\*|\*$', '', name)
         # Strip whitespace and convert to lowercase
-        name = name.strip().lower()
+        name = name.strip().title()
         # Optional: Add more cleaning like removing accents if needed later
         # from unicodedata import normalize
         # name = normalize('NFKD', name).encode('ascii', 'ignore').decode('utf-8')
