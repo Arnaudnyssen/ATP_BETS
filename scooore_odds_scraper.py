@@ -1,14 +1,15 @@
-# scooore_odds_scraper.py (Using Chrome)
+# scooore_odds_scraper.py (Using Chrome, Parse aria-label, Increased Timeout)
 
 import pandas as pd
 import numpy as np
 import time
 import traceback
-from typing import List, Dict, Any, Optional
+import re # For parsing aria-label
+from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime
 import os
 
-# Selenium imports (CHANGED to Chrome)
+# Selenium imports
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -20,7 +21,7 @@ from selenium.common.exceptions import (
     StaleElementReferenceException
 )
 
-# Webdriver Manager import (CHANGED to ChromeDriverManager)
+# Webdriver Manager import
 try:
     from webdriver_manager.chrome import ChromeDriverManager
 except ImportError:
@@ -29,191 +30,222 @@ except ImportError:
 
 # --- Configuration ---
 BASE_URL = "https://www.scooore.be/fr/sports/sports-hub/tennis"
-WAIT_TIMEOUT = 15 # Seconds to wait for elements
-DATA_DIR = "data_archive" # Directory to save the output CSV
-BASE_FILENAME = "scooore_odds" # Base name for the output file
-DATE_FORMAT = "%Y%m%d" # Date format for the filename
+WAIT_TIMEOUT = 45 # Keep increased timeout
+DATA_DIR = "data_archive"
+BASE_FILENAME = "scooore_odds"
+DATE_FORMAT = "%Y%m%d"
 
-# --- SELECTORS based on User Input ---
-# WARNING: These XPaths can be brittle. Consider CSS selectors or shorter XPaths.
-CHALLENGER_CATEGORY_SELECTOR = (By.XPATH, "/html/body/div[1]/div[2]/div/div[3]/div[2]/div/div/div/div/section/div[2]/div[2]/div/div[1]/div[1]/div/div/div/ul/li[3]/div")
-TOURNAMENT_LINK_SELECTOR = (By.XPATH, "//*[@id='KambiBC-content']//section/section/div[1]/div[2]/div/div/div/ul/li/div")
+# --- SELECTORS (Revised Strategy) ---
+MAIN_CONTENT_ID = "KambiBC-content" # For initial page load wait
+# Selector for the UL containing all matches for a tournament
+# Assuming the old MATCH_LIST_CONTAINER_SELECTOR is correct for the UL
 MATCH_LIST_CONTAINER_SELECTOR = (By.XPATH, "//*[@id='KambiBC-content']//section/section/section/section/section/ul")
-MATCH_ITEM_SELECTOR = (By.XPATH, "./li") # Relative to MATCH_LIST_CONTAINER_SELECTOR
-PLAYER_NAME_SELECTOR = (By.XPATH, ".//a/div[1]/div[2]/div/div/div[1]/div[contains(@class, 'participant-name') or contains(@class, 'player-name')]")
-ODDS_VALUE_SELECTOR = (By.XPATH, ".//div/div/div[1]/div/div/button/div/div/div[2]/div")
+# Selector for individual match items (li) relative to the container UL
+MATCH_ITEM_SELECTOR = (By.XPATH, "./li")
+# Selector for player names within an li (Keep as fallback/verification)
+# Using contains(@class) is generally better than absolute paths
+PLAYER_NAME_SELECTOR = (By.XPATH, ".//div[contains(@class, 'participant-name')]") # Simplified selector - find divs with this class
+# Selector for the elements (likely buttons or divs containing them) that hold the odds AND the aria-label
+# This targets the button directly, assuming aria-label might be on it or its child div.
+# We will get the aria-label from the button's child div if necessary.
+# Let's try finding the button first based on common Kambi structure patterns.
+# This looks for button elements that are likely odds buttons within the match item.
+ODDS_BUTTON_SELECTOR = (By.XPATH, ".//div[contains(@class, 'outcome-button')]//button")
+# If the above is too generic, maybe target based on the structure you found:
+# ODDS_BUTTON_SELECTOR = (By.XPATH, ".//div/div/div[1]/div/div/button") # Relative to li
 
 # --- Helper Functions ---
 
-# --- WebDriver Setup (CHANGED to Chrome, mirrors tennis_abstract_scraper) ---
 def setup_driver() -> Optional[webdriver.Chrome]:
     """Sets up and returns a headless Chrome WebDriver instance."""
+    # (No changes from previous version scooore_scraper_debug_v1)
     print("Setting up Chrome WebDriver...")
     options = ChromeOptions()
-    options.add_argument("--headless=new")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--disable-gpu")
-    options.add_argument("--window-size=1920,1080")
-    options.add_argument('--log-level=1') # Reduce log verbosity
-
-    # Define potential chromedriver paths
-    chromedriver_path_apt = "/usr/bin/chromedriver" # Common path on Linux runners
-    chromedriver_path_wdm = None
+    options.add_argument("--headless=new"); options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage"); options.add_argument("--disable-gpu")
+    options.add_argument("--window-size=1920,1080"); options.add_argument('--log-level=1')
+    options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
+    chromedriver_path_apt = "/usr/bin/chromedriver"; chromedriver_path_wdm = None
     if ChromeDriverManager:
-         try:
-              print("Attempting to install/use ChromeDriver via webdriver-manager...")
-              # Get the path from webdriver-manager
-              chromedriver_path_wdm = ChromeDriverManager().install()
-              print(f"webdriver-manager path: {chromedriver_path_wdm}")
-         except Exception as e:
-              print(f"Could not get path from webdriver-manager: {e}")
-
-    driver = None
-    service = None
+         try: chromedriver_path_wdm = ChromeDriverManager().install(); print(f"webdriver-manager path: {chromedriver_path_wdm}")
+         except Exception as e: print(f"Could not get path from webdriver-manager: {e}")
+    driver = None; service = None
     try:
-        # Prioritize system path if it exists
-        if os.path.exists(chromedriver_path_apt):
-            print(f"Using chromedriver from apt path: {chromedriver_path_apt}")
-            service = ChromeService(executable_path=chromedriver_path_apt)
-            driver = webdriver.Chrome(service=service, options=options)
-        # Fallback to webdriver-manager path if available
-        elif chromedriver_path_wdm and os.path.exists(chromedriver_path_wdm):
-             print(f"Using chromedriver from webdriver-manager path: {chromedriver_path_wdm}")
-             service = ChromeService(executable_path=chromedriver_path_wdm)
-             driver = webdriver.Chrome(service=service, options=options)
-        # Final fallback: let Selenium try to find chromedriver in PATH
-        else:
-             print("Chromedriver not found at specific paths, attempting PATH...")
-             driver = webdriver.Chrome(options=options) # No service specified
+        if os.path.exists(chromedriver_path_apt): service = ChromeService(executable_path=chromedriver_path_apt); driver = webdriver.Chrome(service=service, options=options); print(f"Using chromedriver from apt path: {chromedriver_path_apt}")
+        elif chromedriver_path_wdm and os.path.exists(chromedriver_path_wdm): service = ChromeService(executable_path=chromedriver_path_wdm); driver = webdriver.Chrome(service=service, options=options); print(f"Using chromedriver from webdriver-manager path: {chromedriver_path_wdm}")
+        else: driver = webdriver.Chrome(options=options); print("Chromedriver not found at specific paths, attempting PATH...")
+        print("Chrome WebDriver setup successful."); return driver
+    except Exception as e: print(f"WebDriver setup failed: {e}"); traceback.print_exc(); return None
 
-        print("Chrome WebDriver setup successful.")
-        return driver
-    except WebDriverException as e:
-        print(f"WebDriver setup failed: {e}")
-        traceback.print_exc()
-        if driver: driver.quit()
-        return None
-    except Exception as e:
-         print(f"An unexpected error occurred during Chrome WebDriver setup: {e}")
-         traceback.print_exc()
-         if driver: driver.quit()
-         return None
-# --- End WebDriver Setup Change ---
-
-def parse_odds(odds_text: str) -> Optional[float]:
-    """Converts odds text (e.g., '1,85') to float, handling commas."""
+def parse_odds_value(odds_text: str) -> Optional[float]:
+    """Converts odds text (e.g., '2.60' or '2,60') to float."""
     if not odds_text: return None
     try: return float(odds_text.replace(',', '.'))
-    except ValueError:
-        print(f"Warning: Could not convert odds text '{odds_text}' to float.")
-        return None
+    except ValueError: print(f"Warning: Could not convert odds text '{odds_text}' to float."); return None
 
-# --- Function to save data to dated CSV (No changes needed) ---
-def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: str) -> Optional[str]:
+def parse_aria_label(label: str) -> Optional[Tuple[str, str, str, float]]:
     """
-    Saves the provided DataFrame to a CSV file with today's date in the filename,
-    inside the specified output directory. Creates the directory if it doesn't exist.
-    Returns the full path of the saved file, or None on failure.
+    Parses the Scooore aria-label string to extract player names and odds.
+    Example: "Pari sur Sonego, Lorenzo vs Martinez, Pedro - Cotes du match - Martinez, Pedro  à 2.60"
+    Returns: Tuple (p1_name, p2_name, target_player_name, odds_value) or None if parsing fails.
     """
-    if data is None or data.empty:
-        print("No data provided or DataFrame is empty. Nothing to save.")
-        return None
-
-    # Ensure output directory exists relative to the script location
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    absolute_output_dir = os.path.join(script_dir, output_dir)
+    if not label: return None
     try:
-        os.makedirs(absolute_output_dir, exist_ok=True)
-        print(f"Ensured output directory exists: '{absolute_output_dir}'")
-    except OSError as e:
-        print(f"Error creating output directory '{absolute_output_dir}': {e}")
-        return None
+        # Regex to capture names and odds value
+        # Adjust regex if the format varies significantly
+        pattern = r"Pari sur (.*?) vs (.*?) - Cotes du match - (.*?) à ([\d,.]+)"
+        match = re.search(pattern, label)
+        if match:
+            p1_name = match.group(1).strip()
+            p2_name = match.group(2).strip()
+            target_player_name = match.group(3).strip()
+            odds_str = match.group(4).strip()
+            odds_value = parse_odds_value(odds_str)
 
-    today_date_str = datetime.now().strftime(DATE_FORMAT)
-    filename = f"{base_filename}_{today_date_str}.csv"
-    output_path = os.path.join(absolute_output_dir, filename)
-    print(f"Attempting to save data to: {output_path}")
-
-    try:
-        data.to_csv(output_path, index=False, encoding='utf-8')
-        print(f"Successfully saved data to: {output_path}")
-        return output_path
+            if p1_name and p2_name and target_player_name and odds_value is not None:
+                # Basic cleaning/standardization (e.g., remove extra spaces)
+                p1_name = ' '.join(p1_name.split())
+                p2_name = ' '.join(p2_name.split())
+                target_player_name = ' '.join(target_player_name.split())
+                return p1_name, p2_name, target_player_name, odds_value
+        else:
+            print(f"Warning: Regex did not match aria-label format: '{label}'")
+            return None
     except Exception as e:
-        print(f"Error saving data to CSV file '{output_path}': {e}")
-        traceback.print_exc()
+        print(f"Error parsing aria-label '{label}': {e}")
         return None
+    return None
 
-# --- Scraper Function (CHANGED driver type hint) ---
+def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: str) -> Optional[str]:
+    """Saves the DataFrame to a dated CSV file."""
+    # (No changes from previous version scooore_scraper_debug_v1)
+    if data is None or data.empty: print("No data provided or DataFrame is empty. Nothing to save."); return None
+    script_dir = os.path.dirname(os.path.abspath(__file__)); absolute_output_dir = os.path.join(script_dir, output_dir)
+    try: os.makedirs(absolute_output_dir, exist_ok=True); print(f"Ensured output directory exists: '{absolute_output_dir}'")
+    except OSError as e: print(f"Error creating output directory '{absolute_output_dir}': {e}"); return None
+    today_date_str = datetime.now().strftime(DATE_FORMAT); filename = f"{base_filename}_{today_date_str}.csv"
+    output_path = os.path.join(absolute_output_dir, filename); print(f"Attempting to save data to: {output_path}")
+    try: data.to_csv(output_path, index=False, encoding='utf-8'); print(f"Successfully saved data to: {output_path}"); return output_path
+    except Exception as e: print(f"Error saving data to CSV file '{output_path}': {e}"); traceback.print_exc(); return None
+
+# --- Scraper Function (Revised Strategy) ---
 def scooore_odds_scraper_refactored(driver: webdriver.Chrome, wait: WebDriverWait, tournament_name: str) -> List[Dict[str, Any]]:
     """
     Scrapes odds for the currently selected tournament using Chrome.
-    Assumes tournament is already clicked.
+    Prioritizes parsing aria-label from odds buttons/elements.
     Returns a list of dictionaries representing matches. Empty list on failure.
     """
     matches_data = []
     print(f"\n--- Scraping Tournament: {tournament_name} ---")
     try:
-        # Wait for the match list container (UL element)
         print(f"Waiting for match list container (selector: {MATCH_LIST_CONTAINER_SELECTOR[1]})...")
         match_list_container = wait.until(EC.presence_of_element_located(MATCH_LIST_CONTAINER_SELECTOR))
         print("Match list container found.")
-
-        # Find all individual match list items (li) within the container
-        # Adding a small delay might help if elements load dynamically after container appears
-        time.sleep(0.5)
+        time.sleep(2.0) # Allow dynamic content within list to settle
         match_elements = match_list_container.find_elements(*MATCH_ITEM_SELECTOR)
         print(f"Found {len(match_elements)} potential match list items (li).")
 
         if not match_elements:
-            print(f"No match items (li) found for {tournament_name} using selector '{MATCH_ITEM_SELECTOR[1]}'.")
+            print(f"No match items (li) found for {tournament_name}.")
             return []
 
-        # Iterate through each found match element (li)
+        # Iterate through each match item (li)
         for index, match_element in enumerate(match_elements):
-            p1_name, p2_name, p1_odds, p2_odds = "N/A", "N/A", None, None
+            print(f"  Processing Match Item {index + 1}...")
+            match_info = {'tournament': tournament_name}
+            p1_name_fallback = "N/A"
+            p2_name_fallback = "N/A"
+
+            # Fallback: Try getting player names via structure first
             try:
-                # Find player names *within* this specific match element (li)
                 player_name_elements = match_element.find_elements(*PLAYER_NAME_SELECTOR)
                 if len(player_name_elements) >= 2:
-                    # Use .text attribute and clean whitespace
-                    p1_name = " ".join(player_name_elements[0].text.split())
-                    p2_name = " ".join(player_name_elements[1].text.split())
+                    p1_name_fallback = " ".join(player_name_elements[0].text.split())
+                    p2_name_fallback = " ".join(player_name_elements[1].text.split())
+                    print(f"    Fallback Names: P1='{p1_name_fallback}', P2='{p2_name_fallback}'")
                 else:
-                    print(f"Warning: Found {len(player_name_elements)} player names in match {index+1}, expected 2.")
+                     print(f"    Warning: Found {len(player_name_elements)} player name elements using fallback selector.")
+            except Exception as e_name:
+                print(f"    Warning: Error getting fallback player names: {e_name}")
 
-                # Find odds values *within* this specific match element (li)
-                odds_value_elements = match_element.find_elements(*ODDS_VALUE_SELECTOR)
-                if len(odds_value_elements) >= 2:
-                    p1_odds = parse_odds(odds_value_elements[0].text)
-                    p2_odds = parse_odds(odds_value_elements[1].text)
-                else:
-                    print(f"Warning: Found {len(odds_value_elements)} odds values in match {index+1}, expected 2.")
+            # Primary Strategy: Find odds buttons/divs and parse aria-label
+            odds_extracted_count = 0
+            try:
+                # Find elements likely containing odds and aria-label
+                # Adjust ODDS_BUTTON_SELECTOR if needed based on inspection
+                odds_elements = match_element.find_elements(*ODDS_BUTTON_SELECTOR)
+                print(f"    Found {len(odds_elements)} potential odds elements.")
 
-                # Basic validation
-                if p1_name != "N/A" and p2_name != "N/A" and p1_odds is not None and p2_odds is not None:
-                    match_dict = {
-                        'p1_name': p1_name, 'p2_name': p2_name,
-                        'p1_odds': p1_odds, 'p2_odds': p2_odds,
-                        'tournament': tournament_name
-                    }
-                    matches_data.append(match_dict)
-                    # Optional: Print extracted match for debugging
-                    # print(f"  Extracted Match {index+1}: {p1_name} ({p1_odds}) vs {p2_name} ({p2_odds})")
+                if len(odds_elements) >= 2:
+                    for odd_element in odds_elements[:2]: # Process the first two found
+                        aria_label_value = None
+                        # Try getting aria-label from the button itself or its immediate child div
+                        try:
+                            # Check button first
+                            aria_label_value = odd_element.get_attribute('aria-label')
+                            if not aria_label_value:
+                                # If not on button, check immediate child div (common pattern)
+                                child_div = odd_element.find_element(By.XPATH, "./div")
+                                aria_label_value = child_div.get_attribute('aria-label')
+                        except Exception:
+                            print(f"    Warning: Could not find aria-label on odd element or its child div.")
+                            continue # Skip this odd element if no label found
+
+                        if aria_label_value:
+                            print(f"    Parsing aria-label: '{aria_label_value}'")
+                            parsed_data = parse_aria_label(aria_label_value)
+                            if parsed_data:
+                                p1_name_aria, p2_name_aria, target_player_aria, odds_value_aria = parsed_data
+                                print(f"      Parsed: P1='{p1_name_aria}', P2='{p2_name_aria}', Target='{target_player_aria}', Odds={odds_value_aria}")
+
+                                # Store names from the first successfully parsed label
+                                if 'p1_name' not in match_info:
+                                    match_info['p1_name'] = p1_name_aria
+                                    match_info['p2_name'] = p2_name_aria
+
+                                # Assign odds to the correct player based on target_player_aria
+                                # Compare target_player_aria with p1_name_aria (case-insensitive)
+                                if target_player_aria.lower() == p1_name_aria.lower():
+                                    if 'p1_odds' not in match_info:
+                                        match_info['p1_odds'] = odds_value_aria
+                                        odds_extracted_count += 1
+                                    else: print(f"    Warning: P1 odds already found for this match.")
+                                elif target_player_aria.lower() == p2_name_aria.lower():
+                                     if 'p2_odds' not in match_info:
+                                        match_info['p2_odds'] = odds_value_aria
+                                        odds_extracted_count += 1
+                                     else: print(f"    Warning: P2 odds already found for this match.")
+                                else:
+                                    print(f"    Warning: Target player '{target_player_aria}' in aria-label doesn't match P1 or P2 ('{p1_name_aria}', '{p2_name_aria}').")
+                            else:
+                                print(f"    Warning: Failed to parse aria-label.")
+                        else:
+                             print(f"    Warning: Found odd element but aria-label attribute was empty or missing.")
                 else:
-                    print(f"  Skipping match {index+1} in {tournament_name} due to missing data (Name1: {p1_name}, Name2: {p2_name}, Odds1: {p1_odds}, Odds2: {p2_odds})...")
+                     print(f"    Warning: Found {len(odds_elements)} odds elements, expected at least 2.")
 
             except StaleElementReferenceException:
-                print(f"Warning: Stale element reference processing match {index+1}. Skipping match.")
-                continue # Skip to the next match element
-            except NoSuchElementException as e:
-                print(f"Error finding element within match {index+1}: {e}")
-            except Exception as e_inner:
-                print(f"Unexpected error processing match {index+1}: {e_inner}")
-                traceback.print_exc(limit=1)
+                print(f"    Warning: Stale element reference trying to find odds elements. Skipping odds for this match.")
+            except Exception as e_odds:
+                print(f"    Error finding/parsing odds elements: {e_odds}")
+
+            # Validation: Check if we got both odds and names
+            if 'p1_odds' in match_info and 'p2_odds' in match_info:
+                # Use names from aria-label if available, else use fallback
+                if 'p1_name' not in match_info: match_info['p1_name'] = p1_name_fallback
+                if 'p2_name' not in match_info: match_info['p2_name'] = p2_name_fallback
+
+                if match_info['p1_name'] != "N/A" and match_info['p2_name'] != "N/A":
+                    print(f"    SUCCESS: Extracted Match {index + 1}: {match_info['p1_name']} ({match_info.get('p1_odds')}) vs {match_info['p2_name']} ({match_info.get('p2_odds')})")
+                    matches_data.append(match_info)
+                else:
+                    print(f"    Skipping match {index + 1} due to missing player names (fallback failed?).")
+            else:
+                print(f"    Skipping match {index + 1} due to missing odds (extracted {odds_extracted_count}/2).")
+
 
     except TimeoutException:
-        print(f"Error: Timed out waiting for match list for {tournament_name}.")
+        print(f"Error: Timed out waiting for match list container for {tournament_name}.")
     except NoSuchElementException:
         print(f"Error: Could not find primary match list container for {tournament_name}.")
     except Exception as e_outer:
@@ -224,239 +256,135 @@ def scooore_odds_scraper_refactored(driver: webdriver.Chrome, wait: WebDriverWai
     return matches_data
 
 
-# --- Main Scraping Orchestrator (No changes needed here) ---
+# --- Main Scraping Orchestrator ---
 def scrape_all_scoore_tournaments(scrape_challenger=False) -> pd.DataFrame:
     """
     Navigates Scooore, finds ATP or Challenger tournaments, scrapes odds for each,
     and returns a consolidated DataFrame. Uses Chrome.
     """
-    driver = setup_driver() # Uses the updated setup_driver for Chrome
-    if driver is None:
-        return pd.DataFrame()
-
+    # (No changes from previous version scooore_scraper_debug_v1 in this function)
+    # It calls the updated scooore_odds_scraper_refactored function now.
+    driver = setup_driver()
+    if driver is None: return pd.DataFrame()
     all_matches_data = []
     try:
         print(f"Navigating to {BASE_URL}...")
         driver.get(BASE_URL)
         wait = WebDriverWait(driver, WAIT_TIMEOUT)
-        # Wait for a known stable element on the page after load
-        wait.until(EC.presence_of_element_located((By.ID, "KambiBC-content"))) # Example ID
-        print("Main Kambi content area loaded.")
-        time.sleep(1) # Small pause for dynamic content
-
+        print("Page navigation initiated. Waiting for main content...")
+        try: print(f"Page Title after load attempt: {driver.title}")
+        except Exception as debug_err: print(f"Error getting debug info (title/source): {debug_err}")
+        print(f"Waiting up to {WAIT_TIMEOUT}s for element with ID '{MAIN_CONTENT_ID}' to be present...")
+        wait.until(EC.presence_of_element_located((By.ID, MAIN_CONTENT_ID)))
+        print(f"Element '{MAIN_CONTENT_ID}' found. Main content area loaded.")
+        time.sleep(1)
         target_category_text = "Challenger" if scrape_challenger else "ATP"
         print(f"Targeting {target_category_text} tournaments.")
-
         if scrape_challenger:
             try:
                 print("Attempting to navigate to Challenger tournaments...")
-                # Wait for the specific Challenger button/link to be clickable
                 challenger_button = wait.until(EC.element_to_be_clickable(CHALLENGER_CATEGORY_SELECTOR))
-                # Scroll into view if needed (sometimes helps)
-                driver.execute_script("arguments[0].scrollIntoView(true);", challenger_button)
-                time.sleep(0.5) # Pause after scroll
-                challenger_button.click()
-                print("Clicked Challenger category selector.")
-                # Wait for content to potentially reload - look for tournament links again
-                wait.until(EC.presence_of_element_located(TOURNAMENT_LINK_SELECTOR))
-                print("Waited for Challenger tournaments to load.")
-                time.sleep(1) # Extra pause after click/load
-            except (NoSuchElementException, TimeoutException) as e:
-                print(f"Error finding or clicking Challenger category selector: {e}. Scraping default (ATP).")
-                # Reset scrape_challenger if navigation failed? Or proceed with ATP?
-                # For now, proceed assuming ATP might be visible.
-
-        # Find all visible tournament links/buttons
+                driver.execute_script("arguments[0].scrollIntoView(true);", challenger_button); time.sleep(0.5)
+                challenger_button.click(); print("Clicked Challenger category selector.")
+                wait.until(EC.presence_of_element_located(TOURNAMENT_LINK_SELECTOR)); print("Waited for Challenger tournaments to load.")
+                time.sleep(1.5)
+            except (NoSuchElementException, TimeoutException) as e: print(f"Error finding or clicking Challenger category selector: {e}. Scraping default (ATP).")
         tournament_elements_info = []
         try:
             print(f"Waiting for tournament links (selector: {TOURNAMENT_LINK_SELECTOR[1]})...")
-            # Ensure the elements are present AND visible might be more robust
             tournament_elements_list = wait.until(EC.visibility_of_all_elements_located(TOURNAMENT_LINK_SELECTOR))
             print(f"Found {len(tournament_elements_list)} tournament links/buttons.")
-            if not tournament_elements_list:
-                 print("No tournament links found. Exiting.")
-                 return pd.DataFrame()
-
-            # Get names and indices carefully, handling potential staleness
+            if not tournament_elements_list: print("No tournament links found. Exiting."); return pd.DataFrame()
             for i in range(len(tournament_elements_list)):
                  try:
-                     # Re-find the list in each iteration to reduce stale elements
                      current_elements = wait.until(EC.visibility_of_all_elements_located(TOURNAMENT_LINK_SELECTOR))
                      if i < len(current_elements):
-                         el = current_elements[i]
-                         name = el.text.strip()
-                         if name:
-                             tournament_elements_info.append({'index': i, 'name': name})
-                             # print(f"  Found tournament: {name} (Index: {i})")
-                         else:
-                             print(f"Warning: Tournament element at index {i} has empty text.")
-                     else:
-                         print(f"Warning: Index {i} out of bounds after re-finding elements.")
-                         break # Stop if list size changed unexpectedly
-                 except StaleElementReferenceException:
-                     print(f"Warning: Tournament element at index {i} became stale while getting name. Trying to continue.")
-                     # We might miss one, but try to proceed
-                     continue
-
+                         el = current_elements[i]; name = el.text.strip()
+                         if name: tournament_elements_info.append({'index': i, 'name': name})
+                         else: print(f"Warning: Tournament element at index {i} has empty text.")
+                     else: print(f"Warning: Index {i} out of bounds after re-finding elements."); break
+                 except StaleElementReferenceException: print(f"Warning: Tournament element at index {i} became stale while getting name. Trying to continue."); continue
             print(f"Identified {len(tournament_elements_info)} tournaments with names to process.")
-
-            # Iterate through found tournaments by index, re-finding elements each time
             processed_tournaments = 0
             for tourney_info in tournament_elements_info:
-                tourney_index = tourney_info['index'] # Use the original index for lookup
-                tourney_name = tourney_info['name']
+                tourney_index = tourney_info['index']; tourney_name = tourney_info['name']
                 print(f"\nProcessing tournament {processed_tournaments + 1}/{len(tournament_elements_info)}: {tourney_name}")
                 try:
-                    # Re-find the list of tournament elements *before* clicking
                     current_tournament_elements = wait.until(EC.visibility_of_all_elements_located(TOURNAMENT_LINK_SELECTOR))
                     if tourney_index < len(current_tournament_elements):
                         element_to_click = current_tournament_elements[tourney_index]
                         print(f"Clicking tournament element for '{tourney_name}'...")
-                        # Use JavaScript click as a fallback if direct click fails
-                        try:
-                            element_to_click.click()
-                        except Exception as click_err:
-                            print(f"Direct click failed ({click_err}), trying JavaScript click...")
-                            driver.execute_script("arguments[0].click();", element_to_click)
-
-                        # Wait for something specific on the tournament page to load
-                        # (e.g., the match list container) before scraping
-                        wait.until(EC.presence_of_element_located(MATCH_LIST_CONTAINER_SELECTOR))
-                        print("Tournament page loaded, starting scrape...")
-
-                        # Scrape the data for this tournament
+                        try: element_to_click.click()
+                        except Exception as click_err: print(f"Direct click failed ({click_err}), trying JavaScript click..."); driver.execute_script("arguments[0].click();", element_to_click)
+                        wait.until(EC.presence_of_element_located(MATCH_LIST_CONTAINER_SELECTOR)); print("Tournament page loaded, starting scrape...")
+                        # *** Calls the updated function ***
                         tournament_data = scooore_odds_scraper_refactored(driver, wait, tourney_name)
-                        all_matches_data.extend(tournament_data)
-                        processed_tournaments += 1
-
-                        # Navigate back or refresh carefully
-                        print("Navigating back to main Tennis Hub URL...")
-                        driver.get(BASE_URL)
-                        wait.until(EC.presence_of_element_located((By.ID, "KambiBC-content")))
-                        print("Reloaded main page.")
-                        time.sleep(1) # Pause after navigation
-
-                        # Re-select Challenger category if needed for the next iteration
+                        all_matches_data.extend(tournament_data); processed_tournaments += 1
+                        print("Navigating back to main Tennis Hub URL..."); driver.get(BASE_URL)
+                        wait.until(EC.presence_of_element_located((By.ID, MAIN_CONTENT_ID))); print("Reloaded main page.")
+                        time.sleep(1.5)
                         if scrape_challenger:
                              try:
                                  challenger_button = wait.until(EC.element_to_be_clickable(CHALLENGER_CATEGORY_SELECTOR))
-                                 driver.execute_script("arguments[0].scrollIntoView(true);", challenger_button)
-                                 time.sleep(0.5)
+                                 driver.execute_script("arguments[0].scrollIntoView(true);", challenger_button); time.sleep(0.5)
                                  challenger_button.click()
-                                 wait.until(EC.presence_of_element_located(TOURNAMENT_LINK_SELECTOR)) # Wait for links again
-                                 print("Re-selected Challenger category.")
-                                 time.sleep(1) # Pause after category click
-                             except Exception as e_reclick:
-                                 print(f"Warning: Failed to re-click Challenger category: {e_reclick}. May affect next iteration.")
-                                 # Consider breaking or resetting scrape_challenger flag if this is critical
-                    else:
-                        print(f"Warning: Tournament index {tourney_index} out of bounds ({len(current_tournament_elements)} elements found). Skipping '{tourney_name}'.")
-                        continue
-
+                                 wait.until(EC.presence_of_element_located(TOURNAMENT_LINK_SELECTOR)); print("Re-selected Challenger category.")
+                                 time.sleep(1.5)
+                             except Exception as e_reclick: print(f"Warning: Failed to re-click Challenger category: {e_reclick}. May affect next iteration.")
+                    else: print(f"Warning: Tournament index {tourney_index} out of bounds ({len(current_tournament_elements)} elements found). Skipping '{tourney_name}'."); continue
                 except StaleElementReferenceException:
                     print(f"Error: Tournament link for '{tourney_name}' became stale before/during processing. Skipping.")
-                    # Attempt to recover by refreshing the main page for the next loop
-                    try:
-                        driver.get(BASE_URL)
-                        wait.until(EC.presence_of_element_located((By.ID, "KambiBC-content")))
-                        if scrape_challenger: # Re-click challenger if needed
-                             challenger_button = wait.until(EC.element_to_be_clickable(CHALLENGER_CATEGORY_SELECTOR))
-                             challenger_button.click(); time.sleep(1)
-                             wait.until(EC.presence_of_element_located(TOURNAMENT_LINK_SELECTOR))
+                    try: # Attempt recovery
+                        driver.get(BASE_URL); wait.until(EC.presence_of_element_located((By.ID, MAIN_CONTENT_ID)))
+                        if scrape_challenger: challenger_button = wait.until(EC.element_to_be_clickable(CHALLENGER_CATEGORY_SELECTOR)); challenger_button.click(); time.sleep(1.5); wait.until(EC.presence_of_element_located(TOURNAMENT_LINK_SELECTOR))
                         print("Refreshed main page after stale element error.")
-                    except Exception as refresh_err:
-                         print(f"CRITICAL: Failed to refresh page after stale element error: {refresh_err}. Aborting loop.")
-                         break # Exit loop if recovery fails
-                    continue # Continue to the next tournament info item
+                    except Exception as refresh_err: print(f"CRITICAL: Failed to refresh page after stale element error: {refresh_err}. Aborting loop."); break
+                    continue
                 except Exception as loop_error:
-                    print(f"Error processing tournament '{tourney_name}': {loop_error}")
-                    traceback.print_exc(limit=2)
-                    # Optional: Try to navigate back for the next loop
-                    try:
-                        driver.get(BASE_URL)
-                        wait.until(EC.presence_of_element_located((By.ID, "KambiBC-content")))
-                        if scrape_challenger: # Re-click challenger if needed
-                             challenger_button = wait.until(EC.element_to_be_clickable(CHALLENGER_CATEGORY_SELECTOR))
-                             challenger_button.click(); time.sleep(1)
-                             wait.until(EC.presence_of_element_located(TOURNAMENT_LINK_SELECTOR))
+                    print(f"Error processing tournament '{tourney_name}': {loop_error}"); traceback.print_exc(limit=2)
+                    try: # Attempt recovery
+                        driver.get(BASE_URL); wait.until(EC.presence_of_element_located((By.ID, MAIN_CONTENT_ID)))
+                        if scrape_challenger: challenger_button = wait.until(EC.element_to_be_clickable(CHALLENGER_CATEGORY_SELECTOR)); challenger_button.click(); time.sleep(1.5); wait.until(EC.presence_of_element_located(TOURNAMENT_LINK_SELECTOR))
                         print("Navigated back to main page after loop error.")
-                    except Exception as nav_err:
-                         print(f"CRITICAL: Failed to navigate back after loop error: {nav_err}. Aborting loop.")
-                         break # Exit loop if navigation fails
-
-        except (NoSuchElementException, TimeoutException) as e:
-            print(f"Error: Could not find initial tournament links list: {e}")
-        except Exception as e:
-            print(f"An unexpected error occurred finding/looping tournaments: {e}")
-            traceback.print_exc()
-
+                    except Exception as nav_err: print(f"CRITICAL: Failed to navigate back after loop error: {nav_err}. Aborting loop."); break
+        except (NoSuchElementException, TimeoutException) as e: print(f"Error: Could not find initial tournament links list: {e}")
+        except Exception as e: print(f"An unexpected error occurred finding/looping tournaments: {e}"); traceback.print_exc()
     finally:
-        if driver:
-            driver.quit()
-            print("Browser closed.")
-
+        if driver: driver.quit(); print("Browser closed.")
     # --- Final DataFrame Creation ---
-    if not all_matches_data:
-        print("\nNo match data collected from any tournament.")
-        return pd.DataFrame()
-
+    if not all_matches_data: print("\nNo match data collected from any tournament."); return pd.DataFrame()
     print(f"\nCollected data for {len(all_matches_data)} matches in total.")
     try:
         final_df = pd.DataFrame(all_matches_data)
-        # Add timestamp
         final_df['scrape_timestamp_utc'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
-        # Clean player names (strip whitespace, lowercase) for better matching later
-        final_df['p1_name'] = final_df['p1_name'].str.strip().str.lower()
-        final_df['p2_name'] = final_df['p2_name'].str.strip().str.lower()
-        # Drop duplicates based on cleaned names and tournament
+        # Apply consistent cleaning (lowercase) for merging later
+        final_df['p1_name'] = final_df['p1_name'].astype(str).str.strip().str.lower()
+        final_df['p2_name'] = final_df['p2_name'].astype(str).str.strip().str.lower()
         final_df = final_df.drop_duplicates(subset=['tournament', 'p1_name', 'p2_name'])
         print(f"DataFrame shape after dropping duplicates: {final_df.shape}")
-        print("Created final DataFrame:")
-        print(final_df.head())
+        print("Created final DataFrame:"); print(final_df.head())
         return final_df
-    except Exception as df_err:
-        print(f"Error creating or processing final DataFrame: {df_err}")
-        traceback.print_exc()
-        return pd.DataFrame() # Return empty on error
-
+    except Exception as df_err: print(f"Error creating or processing final DataFrame: {df_err}"); traceback.print_exc(); return pd.DataFrame()
 
 # --- Main Execution ---
 if __name__ == "__main__":
+    # (No changes from previous version scooore_scraper_debug_v1)
     print("Starting Scooore odds scraping process (using Chrome)...")
-    # Set scrape_challenger=True or False as needed
-    # Example: Scrape both ATP (default) and Challenger tournaments
     odds_df_atp = scrape_all_scoore_tournaments(scrape_challenger=False)
+    time.sleep(2)
     odds_df_challenger = scrape_all_scoore_tournaments(scrape_challenger=True)
-
-    # Combine results if both were scraped
     if not odds_df_atp.empty and not odds_df_challenger.empty:
         odds_df = pd.concat([odds_df_atp, odds_df_challenger], ignore_index=True)
-        # Drop duplicates again after combining
         odds_df = odds_df.drop_duplicates(subset=['tournament', 'p1_name', 'p2_name'])
         print("\nCombined ATP and Challenger data.")
-    elif not odds_df_atp.empty:
-        odds_df = odds_df_atp
-        print("\nUsing only ATP data.")
-    elif not odds_df_challenger.empty:
-        odds_df = odds_df_challenger
-        print("\nUsing only Challenger data.")
-    else:
-        odds_df = pd.DataFrame() # Ensure it's an empty DataFrame if nothing was scraped
-
+    elif not odds_df_atp.empty: odds_df = odds_df_atp; print("\nUsing only ATP data.")
+    elif not odds_df_challenger.empty: odds_df = odds_df_challenger; print("\nUsing only Challenger data.")
+    else: odds_df = pd.DataFrame()
     if not odds_df.empty:
-        print(f"\n--- Final Combined Data (Shape: {odds_df.shape}) ---")
-        print(odds_df.head())
+        print(f"\n--- Final Combined Data (Shape: {odds_df.shape}) ---"); print(odds_df.head())
         print("\n--- Saving Scooore Data ---")
-        saved_filepath = save_data_to_dated_csv(
-            data=odds_df,
-            base_filename=BASE_FILENAME,
-            output_dir=DATA_DIR
-        )
-        if saved_filepath:
-             print(f"Scooore data saving process completed successfully. File: {saved_filepath}")
-        else:
-             print("Scooore data saving process failed.")
-
-    else:
-        print("\n--- No Scooore odds data scraped from ATP or Challenger. ---")
+        saved_filepath = save_data_to_dated_csv(data=odds_df, base_filename=BASE_FILENAME, output_dir=DATA_DIR)
+        if saved_filepath: print(f"Scooore data saving process completed successfully. File: {saved_filepath}")
+        else: print("Scooore data saving process failed.")
+    else: print("\n--- No Scooore odds data scraped from ATP or Challenger. ---")
 
