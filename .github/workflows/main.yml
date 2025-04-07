@@ -1,4 +1,4 @@
-"# .github/workflows/main.yml
+# .github/workflows/main.yml
 
 name: Scrape Tennis Data & Update Page
 
@@ -105,4 +105,3 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         # This step uses the artifact uploaded in the previous step
-"
