@@ -42,10 +42,10 @@ jobs:
         id: sackmann_scrape
         run: python save_sackmann_data.py
 
-      - name: Run Unibet Odds Scraper # <--- UPDATED Step Name
-        id: unibet_scrape # <--- UPDATED Step ID
+      - name: Run Scooore Odds Scraper (using Chrome) # <--- REVERTED Step Name & Script
+        id: scooore_scrape # <--- REVERTED Step ID
         continue-on-error: true # Keep allowing workflow to continue on failure
-        run: python unibet_odds_scraper.py # <--- UPDATED Script Name
+        run: python scooore_odds_scraper.py # <--- REVERTED Script Name
 
       - name: Generate HTML Page from Latest CSV
         id: generate_html
@@ -59,16 +59,16 @@ jobs:
 
       - name: Stage All Generated Files
         run: |
-          # Add HTML, Sackmann CSV, and NEW Unibet CSV patterns
-          git add index.html data_archive/sackmann_matchups_*.csv data_archive/unibet_odds_*.csv || echo "No new files to stage, continuing..."
+          # Add HTML, Sackmann CSV, and Scooore CSV patterns
+          git add index.html data_archive/sackmann_matchups_*.csv data_archive/scooore_odds_*.csv || echo "No new files to stage, continuing..." # <--- REVERTED CSV pattern
 
       - name: Commit Updates
         run: |
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            # Updated commit message slightly
-            git commit -m "Automated data (Sackmann/Unibet) and page update"
+            # Reverted commit message slightly
+            git commit -m "Automated data (Sackmann/Scooore) and page update" # <--- REVERTED commit message
           fi
 
       - name: Push Changes
