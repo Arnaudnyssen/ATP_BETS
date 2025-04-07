@@ -1,4 +1,4 @@
-# betcenter_odds_scraper.py (Fixed SyntaxError in loop)
+# betcenter_odds_scraper.py (Corrected Tournament Name Selector)
 
 import pandas as pd
 import numpy as np
@@ -40,7 +40,8 @@ GAMELIST_ITEMS_CONTAINER = (By.CSS_SELECTOR, "#content-container > div > home-pa
 LIST_CHILD_DIVS = (By.XPATH, "./div")
 # --- Selectors RELATIVE to a LIST_CHILD_DIV ---
 TOURNAMENT_HEADER_MARKER = (By.CSS_SELECTOR, "sport-league-header")
-TOURNAMENT_NAME_SELECTOR = (By.CSS_SELECTOR, "div.league-title > span")
+# *** CORRECTED Selector based on user's specific example ***
+TOURNAMENT_NAME_SELECTOR = (By.CSS_SELECTOR, "div.sport-league-header__label.sport-league-header__label--tennis > span")
 MATCH_ELEMENT_MARKER = (By.CSS_SELECTOR, "game")
 # --- Selectors RELATIVE to a MATCH_ELEMENT_MARKER ('game' element) ---
 PLAYER_1_NAME_SELECTOR = (By.CSS_SELECTOR, "div.game-header--team-name-0")
@@ -90,8 +91,7 @@ def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: s
 def scrape_betcenter_tennis() -> pd.DataFrame:
     """
     Scrapes tennis match odds from Betcenter.be/fr/tennis, excluding ITF tournaments.
-    Uses refined relative selectors based on user inspection.
-    Includes corrected try/except structure within the main loop.
+    Uses corrected relative selector for tournament name.
     """
     driver = setup_driver()
     if driver is None: return pd.DataFrame()
@@ -100,16 +100,15 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
     current_tournament_name = "Unknown"
     skip_current_tournament = False
 
-    # Outer try block for setup and overall process errors
     try:
         print(f"Navigating to {BASE_URL}...")
         driver.get(BASE_URL)
-        wait = WebDriverWait(driver, WAIT_TIMEOUT)
+        wait_general = WebDriverWait(driver, WAIT_TIMEOUT)
 
         print(f"Waiting for gamelist items container ({GAMELIST_ITEMS_CONTAINER[0]}: {GAMELIST_ITEMS_CONTAINER[1]})...")
-        gamelist_items_container_element = wait.until(EC.presence_of_element_located(GAMELIST_ITEMS_CONTAINER))
+        gamelist_items_container_element = wait_general.until(EC.presence_of_element_located(GAMELIST_ITEMS_CONTAINER))
         print("Gamelist items container found.")
-        time.sleep(3)
+        time.sleep(3) # Allow content to load
 
         print(f"Finding direct child elements ({LIST_CHILD_DIVS[0]}: {LIST_CHILD_DIVS[1]}) within the items container...")
         child_elements = gamelist_items_container_element.find_elements(*LIST_CHILD_DIVS)
@@ -118,52 +117,64 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
         if not child_elements:
             print("No child elements found. Check GAMELIST_ITEMS_CONTAINER selector."); return pd.DataFrame()
 
-        # Iterate through the found child elements (tournament headers or match group divs)
         for i, child_element in enumerate(child_elements):
-            # --- Start of INNER try block for processing ONE child element ---
             try:
                 is_header = False
                 header_markers = child_element.find_elements(*TOURNAMENT_HEADER_MARKER)
 
                 if header_markers:
-                    # This child div IS a tournament header
                     is_header = True
+                    header_element = header_markers[0]
+
+                    # --- Debugging ---
                     try:
-                        tournament_name_element = header_markers[0].find_element(*TOURNAMENT_NAME_SELECTOR)
+                        header_html = header_element.get_attribute('outerHTML')
+                        print(f"\n--- Debug: HTML for Header Marker in Child {i} ---")
+                        print(header_html[:1000])
+                        print("--- End Debug ---")
+                    except Exception as e_debug:
+                        print(f"Warning: Could not get HTML for debug: {e_debug}")
+                    # --- End Debugging ---
+
+                    try:
+                        # --- Use the CORRECTED relative selector ---
+                        print(f"  Attempting to find tournament name using selector: {TOURNAMENT_NAME_SELECTOR[1]}")
+                        # Find element relative to the header_element we already found
+                        tournament_name_element = header_element.find_element(*TOURNAMENT_NAME_SELECTOR)
+                        # --- ---
+
                         current_tournament_name = " ".join(tournament_name_element.text.split())
-                        if "itf" in current_tournament_name.lower():
+                        if not current_tournament_name: # Check if text is empty
+                             print(f"Warning: Found tournament name element in header {i}, but its text is empty.")
+                             # Keep previous tournament name context in this case
+                        elif "itf" in current_tournament_name.lower():
                             skip_current_tournament = True
                             print(f"\n--- Skipping ITF Tournament: {current_tournament_name} (Child Index: {i}) ---")
                         else:
                             skip_current_tournament = False
                             print(f"\n--- Processing Tournament: {current_tournament_name} (Child Index: {i}) ---")
+
                     except NoSuchElementException:
-                        print(f"Warning: Found header marker in child {i} but couldn't find tournament name. Using previous: '{current_tournament_name}'")
+                        # This means the CORRECTED selector still failed - structure might vary slightly
+                        print(f"Warning: Found header marker in child {i} but couldn't find tournament name using selector '{TOURNAMENT_NAME_SELECTOR[1]}'. Check Debug HTML. Using previous: '{current_tournament_name}'")
                     except Exception as e_header:
                         print(f"Warning: Error processing header in child {i}: {e_header}. Using previous: '{current_tournament_name}'")
 
-                # If this child div is NOT a header AND we are NOT skipping the current tournament
                 if not is_header and not skip_current_tournament:
                     match_elements = child_element.find_elements(*MATCH_ELEMENT_MARKER)
-
                     if match_elements:
                         print(f"  Found {len(match_elements)} match elements in group div (Child Index: {i}).")
                         for match_index, match_element in enumerate(match_elements):
-                            # --- Start of try block for processing ONE match ---
                             try:
                                 p1_name, p2_name, p1_odds, p2_odds = "N/A", "N/A", None, None
-
                                 p1_name_el = match_element.find_element(*PLAYER_1_NAME_SELECTOR)
                                 p1_name = " ".join(p1_name_el.text.split())
-
                                 p2_name_el = match_element.find_element(*PLAYER_2_NAME_SELECTOR)
                                 p2_name = " ".join(p2_name_el.text.split())
-
                                 odds_containers = match_element.find_elements(*ODDS_BUTTON_CONTAINER_SELECTOR)
                                 if len(odds_containers) >= 2:
                                     p1_odds_el = odds_containers[0].find_element(*ODDS_VALUE_RELATIVE_SELECTOR)
                                     p1_odds = parse_odds_value(p1_odds_el.text)
-
                                     p2_odds_el = odds_containers[1].find_element(*ODDS_VALUE_RELATIVE_SELECTOR)
                                     p2_odds = parse_odds_value(p2_odds_el.text)
                                 else:
@@ -171,41 +182,30 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
 
                                 if p1_name and p1_name != "N/A" and p2_name and p2_name != "N/A" and p1_odds is not None and p2_odds is not None:
                                     match_dict = {
-                                        'tournament': current_tournament_name,
-                                        'p1_name': p1_name,
-                                        'p2_name': p2_name,
-                                        'p1_odds': p1_odds,
-                                        'p2_odds': p2_odds
+                                        'tournament': current_tournament_name, 'p1_name': p1_name, 'p2_name': p2_name,
+                                        'p1_odds': p1_odds, 'p2_odds': p2_odds
                                     }
                                     all_matches_data.append(match_dict)
                                     print(f"    Extracted Match {match_index+1}: {p1_name} ({p1_odds}) vs {p2_name} ({p2_odds})")
                                 else:
                                     print(f"    Skipping match {match_index+1} in '{current_tournament_name}' due to missing data (P1: '{p1_name}', P2: '{p2_name}', O1: {p1_odds}, O2: {p2_odds})")
-
-                            # --- End of try block for processing ONE match ---
                             except NoSuchElementException as e_inner:
                                 print(f"    Error finding element within match {match_index+1} in '{current_tournament_name}': {e_inner}. Check relative selectors (PLAYER_*, ODDS_*)")
                             except StaleElementReferenceException:
                                 print(f"    Warning: Stale element reference processing match {match_index+1}. Skipping.")
-                                continue # Skip this match, try next
+                                continue
                             except Exception as e_match:
                                 print(f"    Unexpected error processing match {match_index+1}: {e_match}")
                                 traceback.print_exc(limit=1)
-                    # else: No 'game' elements found in this child div
 
-            # --- End of INNER try block - handles errors for ONE child element ---
             except StaleElementReferenceException:
-                # This catches if child_element itself becomes stale during processing
                 print(f"Warning: Stale element reference processing child div {i}. Skipping this child.")
-                continue # Skip this child div, try next
+                continue
             except Exception as e_child_loop:
-                 # Catches any other error during processing of this child div
                  print(f"Error processing child div {i}: {e_child_loop}")
-                 traceback.print_exc(limit=1) # Print traceback for unexpected errors
-                 # Continue to the next child element
+                 traceback.print_exc(limit=1)
                  continue
 
-    # --- Outer Error Handling & Cleanup ---
     except TimeoutException:
         print(f"Error: Timed out waiting for initial elements ({GAMELIST_ITEMS_CONTAINER[1]}). Check selectors and page load state.")
         try: print(f"Page Title at Timeout: {driver.title}")
@@ -220,7 +220,6 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
             driver.quit()
             print("Browser closed.")
 
-    # --- Final DataFrame Creation ---
     if not all_matches_data:
         print("\nNo match data collected from Betcenter.")
         return pd.DataFrame()
@@ -241,22 +240,12 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
         traceback.print_exc()
         return pd.DataFrame()
 
-# --- Main Execution ---
 if __name__ == "__main__":
     print("Starting Betcenter.be tennis odds scraping process...")
     odds_df = scrape_betcenter_tennis()
-
     if not odds_df.empty:
         print("\n--- Saving Betcenter Data ---")
-        saved_filepath = save_data_to_dated_csv(
-            data=odds_df,
-            base_filename=BASE_FILENAME, # Uses "betcenter_odds"
-            output_dir=DATA_DIR
-        )
-        if saved_filepath:
-             print(f"Betcenter data saving process completed successfully. File: {saved_filepath}")
-        else:
-             print("Betcenter data saving process failed.")
-    else:
-        print("\n--- No Betcenter odds data scraped. ---")
-
+        saved_filepath = save_data_to_dated_csv(data=odds_df, base_filename=BASE_FILENAME, output_dir=DATA_DIR)
+        if saved_filepath: print(f"Betcenter data saving process completed successfully. File: {saved_filepath}")
+        else: print("Betcenter data saving process failed.")
+    else: print("\n--- No Betcenter odds data scraped. ---")
