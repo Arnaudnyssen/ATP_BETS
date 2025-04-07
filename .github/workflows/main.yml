@@ -21,17 +21,20 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-           persist-credentials: false
+           persist-credentials: false # We'll use a PAT or GitHub token later
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.10' # Or your preferred Python version
 
       - name: Install Browser (Chrome)
         run: |
           sudo apt-get update
+          # Install Chrome/Chromedriver (needed for both scrapers now)
           sudo apt-get install -y chromium-chromedriver
+        # Note: webdriver-manager in the scripts will handle driver specifics,
+        # but installing the browser itself via apt is reliable on runners.
 
       - name: Install Python Dependencies
         run: |
@@ -40,15 +43,19 @@ jobs:
 
       - name: Run Sackmann Data Pipeline
         id: sackmann_scrape
-        run: python save_sackmann_data.py
+        run: python save_sackmann_data.py # Orchestrates Sackmann scrape & save
 
-      - name: Run Scooore Odds Scraper (using Chrome) # <--- REVERTED Step Name & Script
-        id: scooore_scrape # <--- REVERTED Step ID
-        continue-on-error: true # Keep allowing workflow to continue on failure
-        run: python scooore_odds_scraper.py # <--- REVERTED Script Name
+      # --- MODIFIED STEP: Run Betcenter Scraper ---
+      - name: Run Betcenter Odds Scraper (using Chrome)
+        id: betcenter_scrape # Changed id for clarity
+        # Continue even if this step fails, so the rest can proceed
+        continue-on-error: true
+        run: python betcenter_odds_scraper.py # Changed script name
 
       - name: Generate HTML Page from Latest CSV
         id: generate_html
+        # This step depends on the Sackmann CSV being present
+        # It will read latest Sackmann and (if available) Betcenter CSVs
         run: python generate_page.py
 
       # --- Commit ALL Generated Files ---
@@ -57,29 +64,48 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
+      # --- MODIFIED STEP: Stage Files ---
       - name: Stage All Generated Files
         run: |
-          # Add HTML, Sackmann CSV, and Scooore CSV patterns
-          git add index.html data_archive/sackmann_matchups_*.csv data_archive/scooore_odds_*.csv || echo "No new files to stage, continuing..." # <--- REVERTED CSV pattern
+          # Add the generated HTML, Sackmann CSV, and NEW Betcenter CSV
+          # Use wildcards to catch the latest dated files
+          git add index.html data_archive/sackmann_matchups_*.csv data_archive/betcenter_odds_*.csv || echo "No new files to stage, continuing..."
+          # Removed scooore_odds_*.csv pattern
 
       - name: Commit Updates
         run: |
+          # Check if there are staged changes before attempting to commit
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            # Reverted commit message slightly
-            git commit -m "Automated data (Sackmann/Scooore) and page update" # <--- REVERTED commit message
+            git commit -m "Automated data and page update (using Betcenter)" # Updated commit message slightly
           fi
 
+      # --- MODIFIED STEP: Push Changes (Refined Check) ---
       - name: Push Changes
         run: |
-          if ! git diff --staged --quiet; then
-            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }} || echo "Push failed, continuing deployment steps..."
+          # Check if there are local commits ahead of the remote branch before pushing
+          # This avoids push errors if the commit step was skipped but the branch wasn't updated otherwise.
+          # Alternatively, rely on the commit step's conditional logic implicitly.
+          # Let's stick to the simpler check: only push if the commit happened (checked implicitly by commit step logic)
+          # The robust check: Check if HEAD is ahead of origin/branch
+          # local_sha=$(git rev-parse HEAD)
+          # remote_sha=$(git rev-parse @{u}) # @{u} is shorthand for upstream
+          # if [[ "$local_sha" != "$remote_sha" ]]; then ...
+
+          # Simpler approach based on commit step: Assume commit only happens if needed.
+          # If the previous commit step actually made a commit, this push will proceed.
+          # Adding an explicit check for safety:
+          if ! git diff --quiet HEAD~1 HEAD -- data_archive/ index.html; then # Check if last commit actually touched our target files
+             echo "Changes detected in last commit, attempting to push..."
+             # Using the default GITHUB_TOKEN which has write permissions
+             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
           else
-            echo "No commit made, skipping push."
+             # This case might happen if commit was skipped or committed unrelated changes
+             echo "No relevant changes detected in last commit or commit skipped, skipping push."
           fi
         env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Explicitly pass token
 
       # --- GitHub Pages Deployment ---
       - name: Setup Pages
@@ -88,8 +114,11 @@ jobs:
       - name: Upload Artifact for Pages Deployment
         uses: actions/upload-pages-artifact@v3
         with:
+          # Upload entire repository content, including the generated index.html and data files
           path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        # This step uses the artifact uploaded in the previous step
+
