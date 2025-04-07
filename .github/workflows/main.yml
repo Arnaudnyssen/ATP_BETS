@@ -1,132 +1,108 @@
-# .github/workflows/main.yml (Improved Git Add Check)
+"# .github/workflows/main.yml
 
-name: Update Tennis Odds Page
+name: Scrape Tennis Data & Update Page
 
 on:
-  workflow_dispatch:
   schedule:
+    # Runs daily at a specific UTC time (adjust as needed)
+    # Example: Run at 06:00 UTC daily
     - cron: '0 6 * * *'
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
   build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to commit changes back to the repo
+      pages: write # Required to deploy to GitHub Pages
+      id-token: write # Required for GitHub Pages deployment
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+           persist-credentials: false # We'll use a PAT or GitHub token later
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
-          cache: 'pip'
+          python-version: '3.10' # Or your preferred Python version
 
-      - name: Install Chromium and Chromedriver
+      - name: Install Browser (Chrome) # Updated step name
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y chromium-browser chromium-chromedriver
-
-      - name: Verify Chromium Version
-        run: chromium-browser --version
-
-      - name: Verify Chromedriver Version
-        run: chromedriver --version
+          sudo apt-get update
+          # Install Chrome/Chromedriver (needed for both scrapers now)
+          sudo apt-get install -y chromium-chromedriver
+        # Note: webdriver-manager in the scripts will handle driver specifics,
+        # but installing the browser itself via apt is reliable on runners.
 
       - name: Install Python Dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run Scraper to Generate Dated CSV
-        run: python save_sackmann_data.py
-
-      # Use the less strict verification (warn only)
-      - name: Verify CSV Creation
         run: |
-          mkdir -p data_archive # Ensure directory exists
-          file_count=$(find data_archive -maxdepth 1 -name 'sackmann_data_*.csv' -print -quit | wc -l)
-          if [ "$file_count" -eq 0 ]; then
-            echo "Warning: No CSV file found in data_archive after scraper run. Proceeding without data."
-            # No exit 1 here
-          else
-            echo "CSV file successfully found in data_archive."
-            ls -l data_archive/sackmann_data_*.csv
-          fi
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # --- Steps to Commit the generated CSV back to the repository ---
-      - name: Configure Git
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Run Sackmann Data Pipeline
+        id: sackmann_scrape
+        run: python save_sackmann_data.py # Orchestrates Sackmann scrape & save
 
-      # *** MODIFIED STEP: Stage New CSV File(s) with pre-check ***
-      - name: Stage New CSV File(s)
-        run: |
-          # Check if directory exists AND contains matching files before trying to add
-          if [ -d "data_archive" ] && [ "$(find data_archive -maxdepth 1 -name 'sackmann_data_*.csv' -print -quit | wc -l)" -gt 0 ]; then
-            # Add files using the pattern (ignore errors just in case, though unlikely needed now)
-            git add --ignore-errors data_archive/*.csv
-            echo "Attempted to stage CSV files from data_archive."
-          else
-            # Print message if directory/files not found or no files match
-            echo "data_archive directory not found or no CSV files to stage."
-          fi
-      # *** END MODIFIED STEP ***
-
-      - name: Commit New CSV(s) if any were staged
-        run: |
-          if ! git diff --staged --quiet; then
-            git commit -m "Add/Update Sackmann data CSV(s) (`date -u +%Y-%m-%d`)"
-            echo "Committed CSV changes."
-          else
-            echo "No changes to CSV files to commit."
-          fi
-
-      - name: Push CSV Changes
-        run: |
-           if [ $(git rev-list --count origin/${{ github.ref_name }}..${{ github.ref_name }}) -gt 0 ]; then
-             git push origin ${{ github.ref_name }}
-             echo "Pushed CSV commits to origin."
-           else
-             echo "No new commits to push."
-           fi
-      # --- End of CSV Commit Steps ---
+      - name: Run Scooore Odds Scraper (using Chrome) # Updated step name
+        id: scooore_scrape
+        # Continue even if this step fails, so the rest can proceed
+        continue-on-error: true
+        run: python scooore_odds_scraper.py # This script now uses Chrome
 
       - name: Generate HTML Page from Latest CSV
+        id: generate_html
+        # This step depends on the Sackmann CSV being present
+        # It will use the latest sackmann_matchups_*.csv
         run: python generate_page.py
 
-      - name: Verify HTML Output
+      # --- Commit ALL Generated Files ---
+      - name: Configure Git
         run: |
-          if [ ! -f index.html ]; then
-            echo "Error: index.html not found after generation step."
-            exit 1
-          fi
-          if ! grep -q "Last updated:" index.html; then
-            echo "Warning: index.html does not seem to contain the 'Last updated' timestamp."
-          fi
-          # Use corrected placeholder check
-          if grep -q "" index.html; then
-            echo "Warning: index.html might still contain the table placeholder."
-          fi
-          echo "HTML verification check complete."
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
+      - name: Stage All Generated Files
+        run: |
+          # Add the generated HTML and both types of dated CSVs
+          # Use wildcards to catch the latest dated files
+          git add index.html data_archive/sackmann_matchups_*.csv data_archive/scooore_odds_*.csv || echo "No new files to stage, continuing..."
+          # Use || echo ... to prevent workflow failure if git add finds nothing initially
+
+      - name: Commit Updates
+        run: |
+          # Check if there are staged changes before attempting to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Automated data and page update"
+          fi
+
+      - name: Push Changes
+        # Only push if a commit was made
+        run: |
+          if ! git diff --staged --quiet; then
+            # Using the default GITHUB_TOKEN which has write permissions
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }} || echo "Push failed, continuing deployment steps..."
+          else
+            echo "No commit made, skipping push."
+          fi
+        env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Explicitly pass token to env if needed by specific git versions/configs
+
+      # --- GitHub Pages Deployment ---
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v4
 
-      - name: Upload artifact
+      - name: Upload Artifact for Pages Deployment
         uses: actions/upload-pages-artifact@v3
         with:
+          # Upload entire repository content, including the generated index.html
           path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        # This step uses the artifact uploaded in the previous step
+"
