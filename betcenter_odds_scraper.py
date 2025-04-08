@@ -1,4 +1,4 @@
-# betcenter_odds_scraper.py (Debug Dropdown Clickability)
+# betcenter_odds_scraper.py (Guessing Option Selector)
 
 import pandas as pd
 import numpy as np
@@ -15,11 +15,12 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support.ui import Select # Required for dropdowns
+# from selenium.webdriver.support.ui import Select # No longer using Select class
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import (
     NoSuchElementException, TimeoutException, WebDriverException,
-    StaleElementReferenceException, ElementNotInteractableException
+    StaleElementReferenceException, ElementNotInteractableException,
+    ElementClickInterceptedException
 )
 
 # Webdriver Manager import
@@ -32,13 +33,20 @@ except ImportError:
 # --- Configuration ---
 BASE_URL = "https://www.betcenter.be/fr/tennis"
 WAIT_TIMEOUT = 30 # General timeout
-# WAIT_TIMEOUT_SHORT = 10 # No longer using short wait here
+WAIT_TIMEOUT_SHORT = 15 # Timeout for options/updates
 DATA_DIR = "data_archive"
 BASE_FILENAME = "betcenter_odds"
 DATE_FORMAT = "%Y%m%d"
 
 # --- SELECTORS ---
-TOURNAMENT_DROPDOWN_SELECTOR = (By.CSS_SELECTOR, "#filter-league > div > div > div > select")
+# Selector for the VISIBLE element you CLICK to OPEN the dropdown
+DROPDOWN_TRIGGER_SELECTOR = (By.CSS_SELECTOR, "#filter-league .filter-select") # Confirmed Trigger
+
+# !!! EDUCATED GUESS for OPTION SELECTOR - Based on hidden <option> class !!!
+# Assuming the visible options (likely divs or lis) reuse this class. Needs verification if script fails.
+DROPDOWN_OPTION_SELECTOR = (By.CSS_SELECTOR, ".filter-select__option") # GUESS: Target elements with this class directly
+
+# --- Selectors for scraping matches (likely still valid) ---
 GAMELIST_ITEMS_CONTAINER = (By.CSS_SELECTOR, "#content-container > div > home-page > section > div > games-list > div > gamelist > div")
 MATCH_ELEMENT_MARKER = (By.CSS_SELECTOR, "div.gamelist_event")
 # --- Selectors RELATIVE to a MATCH_ELEMENT_MARKER (div.gamelist_event) ---
@@ -86,8 +94,8 @@ def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: s
 # --- Main Scraping Function ---
 def scrape_betcenter_tennis() -> pd.DataFrame:
     """
-    Scrapes tennis match odds from Betcenter.be/fr/tennis using the tournament dropdown filter.
-    Excludes ITF tournaments. Includes debugging for dropdown clickability.
+    Scrapes tennis match odds from Betcenter.be/fr/tennis using custom dropdown interaction.
+    Excludes ITF tournaments. Uses GUESS for visible option selector.
     """
     driver = setup_driver()
     if driver is None: return pd.DataFrame()
@@ -97,90 +105,119 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
     try:
         print(f"Navigating to {BASE_URL}...")
         driver.get(BASE_URL)
-        wait = WebDriverWait(driver, WAIT_TIMEOUT) # Use main 30s wait
+        wait = WebDriverWait(driver, WAIT_TIMEOUT)
+        wait_short = WebDriverWait(driver, WAIT_TIMEOUT_SHORT)
 
-        print("Pausing briefly for initial page scripts to potentially run...")
+        print("Pausing briefly for initial page elements...")
         time.sleep(5)
 
-        # --- Find Dropdown and Debug Properties ---
-        print(f"Waiting up to {WAIT_TIMEOUT}s for tournament dropdown PRESENCE ({TOURNAMENT_DROPDOWN_SELECTOR[1]})...")
-        select_element_present = wait.until(EC.presence_of_element_located(TOURNAMENT_DROPDOWN_SELECTOR))
-        print("Dropdown element found in DOM.")
+        # --- Find Dropdown Trigger ---
+        print(f"Waiting for dropdown TRIGGER element ({DROPDOWN_TRIGGER_SELECTOR[1]})...")
+        trigger_element = wait.until(EC.element_to_be_clickable(DROPDOWN_TRIGGER_SELECTOR))
+        print("Dropdown trigger found and clickable.")
 
-        # --- Added Debugging ---
-        try:
-            print(f"  Debug Info for Found Element:")
-            print(f"    Tag Name: {select_element_present.tag_name}")
-            print(f"    Is Displayed? {select_element_present.is_displayed()}")
-            print(f"    Is Enabled? {select_element_present.is_enabled()}")
-            size = select_element_present.size
-            loc = select_element_present.location
-            print(f"    Size: {size}")
-            print(f"    Location: {loc}")
-            # Check if dimensions are zero or location is off-screen
-            if size['width'] == 0 or size['height'] == 0:
-                 print("    WARNING: Element size is zero.")
-            if loc['x'] < 0 or loc['y'] < 0:
-                 print("    WARNING: Element location is off-screen.")
-        except Exception as e_debug:
-            print(f"    Error getting debug properties: {e_debug}")
-        # --- End Debugging ---
-
-        # --- Wait for Clickability ---
-        # *** Changed Wait Condition to element_to_be_clickable ***
-        print(f"Waiting up to {WAIT_TIMEOUT}s for dropdown to become CLICKABLE...")
-        # Use the main wait object (30s) for this potentially longer wait
-        select_element = wait.until(EC.element_to_be_clickable(TOURNAMENT_DROPDOWN_SELECTOR))
-        print("Dropdown element is clickable.")
-
-        # --- Proceed with Select Interaction ---
-        select_object = Select(select_element)
-        all_options = select_object.options
+        # --- Get and Filter Tournament Options ---
         valid_tournament_texts = []
-        print(f"Found {len(all_options)} options in dropdown. Filtering for ATP/Challenger (excluding ITF)...")
-        # (Filtering logic remains the same)
-        for option in all_options:
-            option_text = option.text
-            option_text_lower = option_text.lower()
-            if ("atp" in option_text_lower or "challenger" in option_text_lower) and "itf" not in option_text_lower:
-                valid_tournament_texts.append(option_text)
-                print(f"  Adding valid tournament: {option_text}")
+        try:
+            print("Clicking dropdown trigger to get options...")
+            try: trigger_element.click()
+            except (ElementClickInterceptedException, ElementNotInteractableException): driver.execute_script("arguments[0].click();", trigger_element)
+            print("Clicked dropdown trigger.")
+
+            # --- Wait for the FIRST VISIBLE OPTION using the GUESSED SELECTOR ---
+            print(f"Waiting for the first dropdown OPTION ({DROPDOWN_OPTION_SELECTOR[1]}) to appear...")
+            # *** USER MUST VERIFY DROPDOWN_OPTION_SELECTOR if this fails ***
+            # Wait for the first element matching the guess to be visible
+            wait_short.until(EC.visibility_of_element_located(DROPDOWN_OPTION_SELECTOR))
+            print("At least one option element found and visible.")
+
+            # --- Find ALL options matching the selector ---
+            print(f"Finding all options ({DROPDOWN_OPTION_SELECTOR[1]})...")
+            # It's possible options load slightly after the first, so short pause
+            time.sleep(0.5)
+            option_elements = driver.find_elements(*DROPDOWN_OPTION_SELECTOR)
+            print(f"Found {len(option_elements)} potential option elements. Filtering...")
+
+            for option_element in option_elements:
+                try:
+                    # Check visibility again for each element just in case
+                    if not option_element.is_displayed():
+                        continue # Skip hidden elements that might match selector
+                    option_text = option_element.text
+                    option_text_lower = option_text.lower()
+                    if ("atp" in option_text_lower or "challenger" in option_text_lower) and "itf" not in option_text_lower:
+                        # Avoid duplicates if text appears multiple times
+                        if option_text not in valid_tournament_texts:
+                             valid_tournament_texts.append(option_text)
+                             print(f"  Adding valid tournament: {option_text}")
+                except StaleElementReferenceException: print("  Warning: Option became stale while reading text."); continue
+                except Exception as e_opt_filter: print(f"  Warning: Error reading option text: {e_opt_filter}"); continue
+
+            # Close dropdown after getting texts
+            print("  Closing dropdown after getting texts...")
+            try: driver.find_element(By.TAG_NAME, 'body').click(); time.sleep(0.5)
+            except: print("  Warning: Could not click body to close dropdown.")
+
+
+        except TimeoutException:
+             # This means NO element matching DROPDOWN_OPTION_SELECTOR became visible
+             print(f"Error: Timed out waiting for ANY options matching '{DROPDOWN_OPTION_SELECTOR[1]}'. Our selector guess is likely wrong.")
+             print("Please inspect the elements that appear after clicking the trigger and update DROPDOWN_OPTION_SELECTOR.")
+             return pd.DataFrame() # Cannot proceed
+        except Exception as e_get_options:
+             print(f"Error getting dropdown options: {e_get_options}")
+             traceback.print_exc(limit=1)
+             return pd.DataFrame() # Cannot proceed
 
         if not valid_tournament_texts:
-            print("No valid ATP or Challenger tournaments found in the dropdown.")
+            print("No valid ATP or Challenger tournament options found after filtering.")
             return pd.DataFrame()
 
         print(f"\nFound {len(valid_tournament_texts)} relevant tournaments to scrape.")
 
         # --- Iterate Through Filtered Tournaments ---
-        # (Loop logic remains the same as v9 - select, wait for update, scrape)
         for i, tournament_text in enumerate(valid_tournament_texts):
             print(f"\n--- Processing Tournament {i+1}/{len(valid_tournament_texts)}: {tournament_text} ---")
             try:
-                print(f"  Selecting '{tournament_text}' from dropdown...")
-                # Re-find element and ensure clickable before interacting
-                select_element = wait.until(EC.element_to_be_clickable(TOURNAMENT_DROPDOWN_SELECTOR))
-                select_object = Select(select_element)
-                select_object.select_by_visible_text(tournament_text)
+                # --- Open Dropdown Again ---
+                print(f"  Re-opening dropdown to select '{tournament_text}'...")
+                trigger_element = wait.until(EC.element_to_be_clickable(DROPDOWN_TRIGGER_SELECTOR))
+                try: trigger_element.click()
+                except (ElementClickInterceptedException, ElementNotInteractableException): driver.execute_script("arguments[0].click();", trigger_element)
+                print("  Dropdown trigger clicked.")
+
+                # --- Find and Click Specific Option ---
+                print(f"  Waiting for option '{tournament_text}' to be clickable...")
+                # Using XPath to find the specific option by text, assuming the class guess is correct
+                # If DROPDOWN_OPTION_SELECTOR is just '.some-class', this XPath works.
+                option_class = DROPDOWN_OPTION_SELECTOR[1].split('.')[-1] # Extract class name from selector
+                option_xpath = f"//*[contains(@class, '{option_class}') and normalize-space()='{tournament_text}']"
+
+                option_to_click = wait.until(EC.element_to_be_clickable((By.XPATH, option_xpath)))
+                print(f"  Found option element for '{tournament_text}'. Clicking...")
+                try: option_to_click.click()
+                except (ElementClickInterceptedException, ElementNotInteractableException): driver.execute_script("arguments[0].click();", option_to_click)
                 print("  Option selected.")
 
+                # --- Wait for Page Update ---
                 print("  Waiting for match list to update...")
-                time.sleep(1.5) # Pause for JS
+                time.sleep(1.5)
                 try:
-                    # Wait for at least one match element using the shorter timeout
-                    wait_short = WebDriverWait(driver, WAIT_TIMEOUT_SHORT) # Re-init short wait
                     match_list_locator = (By.CSS_SELECTOR, f"{GAMELIST_ITEMS_CONTAINER[1]} {MATCH_ELEMENT_MARKER[1]}")
                     wait_short.until(EC.presence_of_element_located(match_list_locator))
-                    print("  Match list updated (found at least one match element).")
+                    print("  Match list updated.")
                 except TimeoutException:
                     print(f"  Warning: No match elements found quickly after selecting '{tournament_text}'.")
                     continue
 
+                # --- Scrape Matches ---
                 print("  Scraping matches...")
+                time.sleep(1.0)
                 gamelist_items_container_element = wait.until(EC.presence_of_element_located(GAMELIST_ITEMS_CONTAINER))
                 match_elements = gamelist_items_container_element.find_elements(*MATCH_ELEMENT_MARKER)
                 print(f"  Found {len(match_elements)} match elements for '{tournament_text}'.")
 
+                # (Match processing loop remains the same)
                 for match_index, match_element in enumerate(match_elements):
                     try:
                         p1_name, p2_name, p1_odds, p2_odds = "N/A", "N/A", None, None
@@ -194,15 +231,9 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
                             p1_odds = parse_odds_value(p1_odds_el.text)
                             p2_odds_el = odds_containers[1].find_element(*ODDS_VALUE_RELATIVE_SELECTOR)
                             p2_odds = parse_odds_value(p2_odds_el.text)
-                        else:
-                            print(f"    Warning: Found {len(odds_containers)} odds button containers for match {match_index+1}, expected 2.")
-
+                        else: print(f"    Warning: Found {len(odds_containers)} odds button containers for match {match_index+1}, expected 2.")
                         if p1_name and p1_name != "N/A" and p2_name and p2_name != "N/A" and p1_odds is not None and p2_odds is not None:
-                            match_dict = {
-                                'tournament': tournament_text.replace("Tennis - ", "").strip(),
-                                'p1_name': p1_name, 'p2_name': p2_name,
-                                'p1_odds': p1_odds, 'p2_odds': p2_odds
-                            }
+                            match_dict = {'tournament': tournament_text.replace("Tennis - ", "").strip(), 'p1_name': p1_name, 'p2_name': p2_name, 'p1_odds': p1_odds, 'p2_odds': p2_odds}
                             all_matches_data.append(match_dict)
                             if match_index < 5: print(f"    Extracted Match {match_index+1}: {p1_name} ({p1_odds}) vs {p2_name} ({p2_odds})")
                             elif match_index == 5: print("    (Further match extraction logs for this tournament suppressed...)")
@@ -211,28 +242,19 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
                     except StaleElementReferenceException: print(f"    Warning: Stale element reference processing match {match_index+1}. Skipping."); continue
                     except Exception as e_match: print(f"    Unexpected error processing match {match_index+1}: {e_match}"); traceback.print_exc(limit=1)
 
-            except ElementNotInteractableException: print(f"Error: Dropdown option '{tournament_text}' not interactable. Skipping."); continue
-            except TimeoutException: print(f"Error: Timed out waiting for elements after selecting '{tournament_text}'. Skipping."); continue
-            except StaleElementReferenceException: print(f"Error: Select element became stale while processing '{tournament_text}'. Attempting to continue loop."); continue
+            # (Outer loop error handling remains the same)
+            except (ElementNotInteractableException, ElementClickInterceptedException) as e_interact: print(f"Error interacting with dropdown/option for '{tournament_text}': {e_interact}. Skipping."); try: driver.find_element(By.TAG_NAME, 'body').click(); time.sleep(0.5); except: pass; continue
+            except TimeoutException: print(f"Error: Timed out waiting for elements during processing of '{tournament_text}'. Skipping."); continue
+            except StaleElementReferenceException: print(f"Error: Element became stale while processing '{tournament_text}'. Attempting to continue loop."); continue
             except Exception as e_loop: print(f"Error processing tournament '{tournament_text}': {e_loop}"); traceback.print_exc(limit=1); continue
 
         print("\nFinished processing all selected tournaments.")
     # --- Outer Error Handling & Cleanup ---
-    except TimeoutException:
-        # This will now likely catch the wait for clickability if it fails
-        print(f"Error: Timed out waiting for initial page elements (dropdown clickable?). Check selectors and page load state.")
-        try: print(f"Page Title at Timeout: {driver.title}")
-        except Exception: pass
-    except NoSuchElementException as e_main:
-         # This might catch the presence check if the selector is truly wrong
-         print(f"Error: Could not find primary page element: {e_main}. Check initial selectors (Dropdown or Container).")
-    except Exception as e_outer:
-        print(f"An unexpected error occurred during scraping: {e_outer}")
-        traceback.print_exc()
+    except TimeoutException: print(f"Error: Timed out on initial page load or finding dropdown trigger. Check selectors/page load."); try: print(f"Page Title at Timeout: {driver.title}"); except Exception: pass
+    except NoSuchElementException as e_main: print(f"Error: Could not find critical initial element: {e_main}. Check initial selectors.");
+    except Exception as e_outer: print(f"An unexpected error occurred during scraping: {e_outer}"); traceback.print_exc()
     finally:
-        if driver:
-            driver.quit()
-            print("Browser closed.")
+        if driver: driver.quit(); print("Browser closed.")
 
     # --- Final DataFrame Creation ---
     # [No changes]
@@ -256,4 +278,3 @@ if __name__ == "__main__":
         if saved_filepath: print(f"Betcenter data saving process completed successfully. File: {saved_filepath}")
         else: print("Betcenter data saving process failed.")
     else: print("\n--- No Betcenter odds data scraped. ---")
-
