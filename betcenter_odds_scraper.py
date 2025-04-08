@@ -1,4 +1,4 @@
-# betcenter_odds_scraper.py (Final Syntax Fix)
+# betcenter_odds_scraper.py (Reduced Wait, Final Check)
 
 import pandas as pd
 import numpy as np
@@ -32,26 +32,27 @@ except ImportError:
 
 # --- Configuration ---
 BASE_URL = "https://www.betcenter.be/fr/tennis"
-WAIT_TIMEOUT = 30 # General timeout
-WAIT_TIMEOUT_SHORT = 25 # Timeout for options/updates
+WAIT_TIMEOUT = 30 # General timeout for initial elements
+# *** Reduced short timeout as requested ***
+WAIT_TIMEOUT_SHORT = 8 # Timeout for options/updates (reduced from 30)
 DATA_DIR = "data_archive"
 BASE_FILENAME = "betcenter_odds"
 DATE_FORMAT = "%Y%m%d"
 
-# --- SELECTORS ---
-# !!! USER ACTION REQUIRED: Verify these selectors AFTER selecting a tournament manually !!!
+# --- SELECTORS (Verified based on user input & relative strategy) ---
 DROPDOWN_TRIGGER_SELECTOR = (By.CSS_SELECTOR, "#filter-league .filter-select")
-# Assuming the visible options reuse this class. Needs verification if script fails.
-DROPDOWN_OPTION_SELECTOR = (By.CSS_SELECTOR, ".filter-select__option") # GUESS
+DROPDOWN_OPTION_SELECTOR = (By.CSS_SELECTOR, ".filter-select__option") # Assumed correct based on logs
+
 # Container holding the list of matches *after* a tournament is selected
-GAMELIST_ITEMS_CONTAINER = (By.CSS_SELECTOR, "#content-container > div > home-page > section > div > games-list > div > gamelist > div") # Needs verification post-filter
+GAMELIST_ITEMS_CONTAINER = (By.CSS_SELECTOR, "#content-container > div > home-page > section > div > games-list > div > gamelist > div") # Assumed correct post-filter
 # Marker for individual match elements within the container
-MATCH_ELEMENT_MARKER = (By.CSS_SELECTOR, "div.gamelist_event") # Needs verification post-filter
+MATCH_ELEMENT_MARKER = (By.CSS_SELECTOR, "div.gamelist_event") # Confirmed from user HTML
+
 # --- Selectors RELATIVE to a MATCH_ELEMENT_MARKER ---
-PLAYER_1_NAME_SELECTOR = (By.CSS_SELECTOR, "div.game-header--team-name-0") # Needs verification post-filter
-PLAYER_2_NAME_SELECTOR = (By.CSS_SELECTOR, "div.game-header--team-name-1") # Needs verification post-filter
-ODDS_BUTTON_CONTAINER_SELECTOR = (By.CSS_SELECTOR, "odd-button") # Needs verification post-filter
-ODDS_VALUE_RELATIVE_SELECTOR = (By.CSS_SELECTOR, "div.odd-button__value > div") # Needs verification post-filter
+PLAYER_1_NAME_SELECTOR = (By.CSS_SELECTOR, "div.game-header--team-name-0") # Confirmed from user HTML
+PLAYER_2_NAME_SELECTOR = (By.CSS_SELECTOR, "div.game-header--team-name-1") # Confirmed from user HTML
+ODDS_BUTTON_CONTAINER_SELECTOR = (By.CSS_SELECTOR, "odd-button") # Confirmed from user HTML
+ODDS_VALUE_RELATIVE_SELECTOR = (By.CSS_SELECTOR, "div.odd-button__value > div") # Confirmed from user HTML
 
 # --- Helper Functions (setup_driver, parse_odds_value, save_data_to_dated_csv) ---
 # [No changes to helper functions - keeping them collapsed for brevity]
@@ -93,7 +94,7 @@ def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: s
 def scrape_betcenter_tennis() -> pd.DataFrame:
     """
     Scrapes tennis match odds from Betcenter.be/fr/tennis using custom dropdown interaction.
-    Excludes ITF tournaments. Uses GUESS for visible option selector. Fixed SyntaxErrors.
+    Excludes ITF tournaments. Uses verified relative selectors. Reduced wait time.
     """
     driver = setup_driver()
     if driver is None: return pd.DataFrame()
@@ -104,6 +105,7 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
         print(f"Navigating to {BASE_URL}...")
         driver.get(BASE_URL)
         wait = WebDriverWait(driver, WAIT_TIMEOUT)
+        # Use the updated (reduced) timeout for waits after selection
         wait_short = WebDriverWait(driver, WAIT_TIMEOUT_SHORT)
 
         print("Pausing briefly for initial page elements...")
@@ -148,8 +150,7 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
             except: print("  Warning: Could not click body to close dropdown.")
 
         except TimeoutException:
-             print(f"Error: Timed out waiting for ANY options matching '{DROPDOWN_OPTION_SELECTOR[1]}'. Our selector guess is likely wrong.")
-             print("Please inspect the elements that appear after clicking the trigger and update DROPDOWN_OPTION_SELECTOR.")
+             print(f"Error: Timed out waiting for ANY options matching '{DROPDOWN_OPTION_SELECTOR[1]}'. Selector guess might be wrong.")
              if driver: driver.quit(); print("Browser closed due to option finding failure.")
              return pd.DataFrame()
         except Exception as e_get_options:
@@ -167,6 +168,7 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
         # --- Iterate Through Filtered Tournaments ---
         for i, tournament_text in enumerate(valid_tournament_texts):
             print(f"\n--- Processing Tournament {i+1}/{len(valid_tournament_texts)}: {tournament_text} ---")
+            container_html_before = "N/A" # Define before try block
             try:
                 # --- Open Dropdown Again ---
                 print(f"  Re-opening dropdown to select '{tournament_text}'...")
@@ -187,25 +189,41 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
 
                 # --- Wait for Page Update ---
                 print("  Waiting for match list to update...")
-                time.sleep(1.5)
+                time.sleep(1.5) # Initial pause
+
+                # --- Debug: Print container HTML before waiting ---
                 try:
                     container_element_before_wait = driver.find_element(*GAMELIST_ITEMS_CONTAINER)
-                    container_html = container_element_before_wait.get_attribute('outerHTML')
+                    container_html_before = container_element_before_wait.get_attribute('outerHTML')
                     print(f"\n  --- Debug: HTML of Container BEFORE Wait (Max 1500 chars) ---")
-                    print(container_html[:1500])
+                    print(container_html_before[:1500])
                     print("  --- End Debug ---")
-                except NoSuchElementException: print("  Debug Warning: Could not find GAMELIST_ITEMS_CONTAINER before waiting for matches.")
+                except NoSuchElementException: print("  Debug Warning: Could not find GAMELIST_ITEMS_CONTAINER before waiting.")
                 except Exception as e_debug_cont: print(f"  Debug Warning: Error getting container HTML: {e_debug_cont}")
 
                 try:
+                    # Wait for VISIBILITY of the first match element using the REDUCED timeout
                     match_list_locator = (By.CSS_SELECTOR, f"{GAMELIST_ITEMS_CONTAINER[1]} {MATCH_ELEMENT_MARKER[1]}")
-                    print(f"  Waiting up to {WAIT_TIMEOUT_SHORT}s for presence of element: {match_list_locator[1]}")
-                    wait_short.until(EC.presence_of_element_located(match_list_locator))
-                    print("  Match list updated (found at least one match element).")
+                    print(f"  Waiting up to {WAIT_TIMEOUT_SHORT}s for VISIBILITY of first element: {match_list_locator[1]}")
+                    wait_short.until(EC.visibility_of_element_located(match_list_locator))
+                    print("  Match list updated (at least one match element is visible).")
                 except TimeoutException:
-                    print(f"  Warning: No match elements found using '{MATCH_ELEMENT_MARKER[1]}' within '{GAMELIST_ITEMS_CONTAINER[1]}' after selecting '{tournament_text}'.")
-                    print(f"  Check debug HTML above. Verify GAMELIST_ITEMS_CONTAINER and MATCH_ELEMENT_MARKER selectors for the page state AFTER filtering.")
-                    continue
+                    print(f"  Warning: Timeout ({WAIT_TIMEOUT_SHORT}s) waiting for match elements visible using '{MATCH_ELEMENT_MARKER[1]}' within '{GAMELIST_ITEMS_CONTAINER[1]}' after selecting '{tournament_text}'.")
+                    # --- Debug: Print container HTML AFTER timeout ---
+                    try:
+                        # Use a basic find_element which won't wait long if it's not there
+                        container_element_after_wait = driver.find_element(*GAMELIST_ITEMS_CONTAINER)
+                        container_html_after = container_element_after_wait.get_attribute('outerHTML')
+                        print(f"\n  --- Debug: HTML of Container AFTER Wait Timeout (Max 1500 chars) ---")
+                        if container_html_after == container_html_before:
+                             print("  (Container HTML appears unchanged from before wait)")
+                        else:
+                             print(container_html_after[:1500])
+                        print("  --- End Debug ---")
+                    except Exception as e_debug_after: print(f"  Debug Warning: Error getting container HTML after timeout: {e_debug_after}")
+                    # --- End Debugging ---
+                    print("  Skipping to next tournament due to timeout.")
+                    continue # Skip to the next tournament
 
                 # --- Scrape Matches ---
                 print("  Scraping matches...")
@@ -238,49 +256,21 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
                     except StaleElementReferenceException: print(f"    Warning: Stale element reference processing match {match_index+1}. Skipping."); continue
                     except Exception as e_match: print(f"    Unexpected error processing match {match_index+1}: {e_match}"); traceback.print_exc(limit=1)
 
-            # --- Error handling for the loop processing one tournament ---
-            # *** CORRECTED SYNTAX HERE ***
-            except (ElementNotInteractableException, ElementClickInterceptedException) as e_interact:
-                 print(f"Error interacting with dropdown/option for '{tournament_text}': {e_interact}. Skipping.")
-                 # Try to click body to close dropdown, ignore if it fails
-                 try:
-                     driver.find_element(By.TAG_NAME, 'body').click()
-                     time.sleep(0.5)
-                 except:
-                     pass # Ignore errors trying to close dropdown
-                 continue # Continue to next tournament
-            # *** END CORRECTION ***
-            except TimeoutException:
-                print(f"Error: Timed out waiting for elements during processing of '{tournament_text}'. Skipping.")
-                continue
-            except StaleElementReferenceException:
-                print(f"Error: Element became stale while processing '{tournament_text}'. Attempting to continue loop.")
-                continue
-            except Exception as e_loop:
-                 print(f"Error processing tournament '{tournament_text}': {e_loop}")
-                 traceback.print_exc(limit=1)
-                 continue # Try next tournament
+            # (Outer loop error handling remains the same)
+            except (ElementNotInteractableException, ElementClickInterceptedException) as e_interact: print(f"Error interacting with dropdown/option for '{tournament_text}': {e_interact}. Skipping."); try: driver.find_element(By.TAG_NAME, 'body').click(); time.sleep(0.5); except: pass; continue
+            except TimeoutException: print(f"Error: Timed out waiting for elements during processing of '{tournament_text}'. Skipping."); continue
+            except StaleElementReferenceException: print(f"Error: Element became stale while processing '{tournament_text}'. Attempting to continue loop."); continue
+            except Exception as e_loop: print(f"Error processing tournament '{tournament_text}': {e_loop}"); traceback.print_exc(limit=1); continue
 
         print("\nFinished processing all selected tournaments.")
     # --- Outer Error Handling & Cleanup ---
-    except TimeoutException:
-        print(f"Error: Timed out on initial page load or finding dropdown trigger. Check selectors/page load.")
-        try:
-            print(f"Page Title at Timeout: {driver.title}")
-        except Exception:
-            pass
-    except NoSuchElementException as e_main:
-         print(f"Error: Could not find critical initial element: {e_main}. Check initial selectors.")
-    except Exception as e_outer:
-        print(f"An unexpected error occurred during scraping: {e_outer}")
-        traceback.print_exc()
+    except TimeoutException: print(f"Error: Timed out on initial page load or finding dropdown trigger. Check selectors/page load."); try: print(f"Page Title at Timeout: {driver.title}"); except Exception: pass
+    except NoSuchElementException as e_main: print(f"Error: Could not find critical initial element: {e_main}. Check initial selectors.");
+    except Exception as e_outer: print(f"An unexpected error occurred during scraping: {e_outer}"); traceback.print_exc()
     finally:
         if 'driver' in locals() and driver is not None:
-            try:
-                driver.quit()
-                print("Browser closed.")
-            except Exception as e_quit:
-                print(f"Error quitting driver: {e_quit}")
+            try: driver.quit(); print("Browser closed.")
+            except Exception as e_quit: print(f"Error quitting driver: {e_quit}")
 
     # --- Final DataFrame Creation ---
     if not all_matches_data: print("\nNo match data collected from Betcenter."); return pd.DataFrame()
