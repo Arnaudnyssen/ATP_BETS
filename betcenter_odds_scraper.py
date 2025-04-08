@@ -310,4 +310,9 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
 if __name__ == "__main__":
     print("Starting Betcenter.be tennis odds scraping process (Dropdown Strategy)...")
     odds_df = scrape_betcenter_tennis()
-    if not o
+    if not odds_df.empty:
+        print("\n--- Saving Betcenter Data ---")
+        saved_filepath = save_data_to_dated_csv(data=odds_df, base_filename=BASE_FILENAME, output_dir=DATA_DIR)
+        if saved_filepath: print(f"Betcenter data saving process completed successfully. File: {saved_filepath}")
+        else: print("Betcenter data saving process failed.")
+    else: print("\n--- No Betcenter odds data scraped. ---")
