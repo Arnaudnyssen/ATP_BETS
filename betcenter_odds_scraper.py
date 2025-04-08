@@ -1,4 +1,4 @@
-# betcenter_odds_scraper.py (Added Scrolling Logic)
+# betcenter_odds_scraper.py (Dropdown Strategy)
 
 import pandas as pd
 import numpy as np
@@ -15,10 +15,11 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select # Required for dropdowns
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import (
     NoSuchElementException, TimeoutException, WebDriverException,
-    StaleElementReferenceException
+    StaleElementReferenceException, ElementNotInteractableException
 )
 
 # Webdriver Manager import
@@ -30,21 +31,19 @@ except ImportError:
 
 # --- Configuration ---
 BASE_URL = "https://www.betcenter.be/fr/tennis"
-WAIT_TIMEOUT = 30
+WAIT_TIMEOUT = 30 # General timeout
+WAIT_TIMEOUT_SHORT = 10 # Shorter timeout for page updates after selection
 DATA_DIR = "data_archive"
 BASE_FILENAME = "betcenter_odds"
 DATE_FORMAT = "%Y%m%d"
-# --- Scrolling Configuration ---
-SCROLL_PAUSE_TIME = 2.0 # Pause time between scrolls in seconds
-MAX_SCROLL_ATTEMPTS = 5 # Max number of times to scroll down
 
-# --- SELECTORS (Refined based on user input & relative strategy) ---
+# --- SELECTORS ---
+# Dropdown select element
+TOURNAMENT_DROPDOWN_SELECTOR = (By.CSS_SELECTOR, "#filter-league select") # More specific selector for the select
+# Container holding the list of matches *after* a tournament is selected
 GAMELIST_ITEMS_CONTAINER = (By.CSS_SELECTOR, "#content-container > div > home-page > section > div > games-list > div > gamelist > div")
-LIST_CHILD_DIVS = (By.XPATH, "./div")
-# --- Selectors RELATIVE to a LIST_CHILD_DIV ---
-TOURNAMENT_HEADER_MARKER = (By.CSS_SELECTOR, "sport-league-header")
-TOURNAMENT_NAME_SELECTOR = (By.CSS_SELECTOR, "div.sport-league-header__label.sport-league-header__label--tennis > span")
-MATCH_ELEMENT_MARKER = (By.CSS_SELECTOR, "div.gamelist_event") # Using div.gamelist_event based on previous clues
+# Marker for individual match elements within the container
+MATCH_ELEMENT_MARKER = (By.CSS_SELECTOR, "div.gamelist_event")
 # --- Selectors RELATIVE to a MATCH_ELEMENT_MARKER (div.gamelist_event) ---
 PLAYER_1_NAME_SELECTOR = (By.CSS_SELECTOR, "div.game-header--team-name-0")
 PLAYER_2_NAME_SELECTOR = (By.CSS_SELECTOR, "div.game-header--team-name-1")
@@ -58,7 +57,7 @@ def setup_driver() -> Optional[webdriver.Chrome]:
     options = ChromeOptions()
     options.add_argument("--headless=new"); options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage"); options.add_argument("--disable-gpu")
-    options.add_argument("--window-size=1920,1200"); options.add_argument('--log-level=1') # Increased height slightly
+    options.add_argument("--window-size=1920,1200"); options.add_argument('--log-level=1')
     options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
     chromedriver_path_apt = "/usr/bin/chromedriver"; chromedriver_path_wdm = None
     if ChromeDriverManager:
@@ -90,157 +89,142 @@ def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: s
 # --- Main Scraping Function ---
 def scrape_betcenter_tennis() -> pd.DataFrame:
     """
-    Scrapes tennis match odds from Betcenter.be/fr/tennis, excluding ITF tournaments.
-    Includes scrolling logic to handle dynamically loaded content.
+    Scrapes tennis match odds from Betcenter.be/fr/tennis using the tournament dropdown filter.
+    Excludes ITF tournaments.
     """
     driver = setup_driver()
     if driver is None: return pd.DataFrame()
 
     all_matches_data = []
-    current_tournament_name = "Unknown"
-    skip_current_tournament = False
 
     try:
         print(f"Navigating to {BASE_URL}...")
         driver.get(BASE_URL)
-        wait_general = WebDriverWait(driver, WAIT_TIMEOUT)
+        wait = WebDriverWait(driver, WAIT_TIMEOUT)
+        wait_short = WebDriverWait(driver, WAIT_TIMEOUT_SHORT)
 
-        print(f"Waiting for gamelist items container ({GAMELIST_ITEMS_CONTAINER[0]}: {GAMELIST_ITEMS_CONTAINER[1]})...")
-        gamelist_items_container_element = wait_general.until(EC.presence_of_element_located(GAMELIST_ITEMS_CONTAINER))
-        print("Gamelist items container found.")
-        time.sleep(3) # Initial pause for content
+        # --- Find and Filter Dropdown Options ---
+        print(f"Waiting for tournament dropdown ({TOURNAMENT_DROPDOWN_SELECTOR[1]})...")
+        select_element = wait.until(EC.visibility_of_element_located(TOURNAMENT_DROPDOWN_SELECTOR))
+        select_object = Select(select_element)
+        print("Dropdown found.")
 
-        # --- Scrolling Logic to Load All Items ---
-        print("Scrolling down to load all available tournaments/matches...")
-        last_height = driver.execute_script("return document.body.scrollHeight")
-        child_elements_count = 0
-        new_child_elements_count = len(gamelist_items_container_element.find_elements(*LIST_CHILD_DIVS))
+        all_options = select_object.options
+        valid_tournament_texts = []
+        print(f"Found {len(all_options)} options in dropdown. Filtering for ATP/Challenger (excluding ITF)...")
+        for option in all_options:
+            option_text = option.text
+            option_text_lower = option_text.lower()
+            # Filter criteria: Must contain ATP or Challenger, must NOT contain ITF
+            if ("atp" in option_text_lower or "challenger" in option_text_lower) and "itf" not in option_text_lower:
+                valid_tournament_texts.append(option_text)
+                print(f"  Adding valid tournament: {option_text}")
 
-        scroll_attempt = 0
-        while scroll_attempt < MAX_SCROLL_ATTEMPTS:
-            child_elements_count = new_child_elements_count
-            print(f"  Scroll attempt {scroll_attempt + 1}/{MAX_SCROLL_ATTEMPTS}... Scrolling down.")
-            # Scroll down by a reasonable amount (e.g., window height)
-            driver.execute_script("window.scrollBy(0, document.documentElement.clientHeight);")
-            # Wait for potential new content to load
-            time.sleep(SCROLL_PAUSE_TIME)
-            # Recalculate new height and check if it changed significantly
-            new_height = driver.execute_script("return document.body.scrollHeight")
-            # Re-find elements and count them
-            new_child_elements_count = len(gamelist_items_container_element.find_elements(*LIST_CHILD_DIVS))
-            print(f"  Found {new_child_elements_count} child elements after scroll (previously {child_elements_count}).")
+        if not valid_tournament_texts:
+            print("No valid ATP or Challenger tournaments found in the dropdown.")
+            return pd.DataFrame()
 
-            # Break if height stops increasing AND element count stops increasing
-            if new_height == last_height and new_child_elements_count == child_elements_count:
-                print("  Scrolling stopped: Page height and element count did not increase.")
-                break
-            last_height = new_height
-            scroll_attempt += 1
-            if scroll_attempt == MAX_SCROLL_ATTEMPTS:
-                 print("  Scrolling stopped: Reached max scroll attempts.")
-        # --- End Scrolling Logic ---
+        print(f"\nFound {len(valid_tournament_texts)} relevant tournaments to scrape.")
 
-        print(f"\nFinding final list of direct child elements ({LIST_CHILD_DIVS[0]}: {LIST_CHILD_DIVS[1]}) after scrolling...")
-        # Get the final list of all child elements after scrolling
-        child_elements = gamelist_items_container_element.find_elements(*LIST_CHILD_DIVS)
-        print(f"Found {len(child_elements)} total child elements to process.")
-
-        if not child_elements:
-            print("No child elements found even after scrolling. Check selectors or page content."); return pd.DataFrame()
-
-        # --- Process All Found Child Elements ---
-        print("\nProcessing elements...")
-        for i, child_element in enumerate(child_elements):
-            # (Inner try/except block for processing one child element)
+        # --- Iterate Through Filtered Tournaments ---
+        for i, tournament_text in enumerate(valid_tournament_texts):
+            print(f"\n--- Processing Tournament {i+1}/{len(valid_tournament_texts)}: {tournament_text} ---")
             try:
-                is_header = False
-                header_markers = child_element.find_elements(*TOURNAMENT_HEADER_MARKER)
+                # --- Select Tournament from Dropdown ---
+                print(f"  Selecting '{tournament_text}' from dropdown...")
+                # Re-find element before interacting to avoid staleness
+                select_element = wait.until(EC.visibility_of_element_located(TOURNAMENT_DROPDOWN_SELECTOR))
+                select_object = Select(select_element)
+                select_object.select_by_visible_text(tournament_text)
+                print("  Option selected.")
 
-                if header_markers:
-                    is_header = True
-                    header_element = header_markers[0]
+                # --- Wait for Page Update ---
+                # Strategy: Wait for the container to potentially become stale OR
+                # wait for at least one match element to appear within the container.
+                # A short sleep might also be needed for JS updates.
+                print("  Waiting for match list to update...")
+                time.sleep(1.5) # Small static pause for JS to potentially start updates
+                try:
+                    # Wait briefly for at least one match element to be present
+                    wait_short.until(EC.presence_of_element_located(
+                        (By.CSS_SELECTOR, f"{GAMELIST_ITEMS_CONTAINER[1]} {MATCH_ELEMENT_MARKER[1]}")
+                    ))
+                    print("  Match list updated (found at least one match element).")
+                except TimeoutException:
+                    # If no matches appear quickly, maybe the tournament has no matches listed currently
+                    print(f"  Warning: No match elements found quickly after selecting '{tournament_text}'. Tournament might be empty or page update slow/failed.")
+                    continue # Skip to the next tournament
+
+                # --- Scrape Matches for Selected Tournament ---
+                print("  Scraping matches...")
+                # Find the container again (might have been replaced)
+                gamelist_items_container_element = wait.until(EC.presence_of_element_located(GAMELIST_ITEMS_CONTAINER))
+                match_elements = gamelist_items_container_element.find_elements(*MATCH_ELEMENT_MARKER)
+                print(f"  Found {len(match_elements)} match elements for '{tournament_text}'.")
+
+                for match_index, match_element in enumerate(match_elements):
                     try:
-                        tournament_name_element = header_element.find_element(*TOURNAMENT_NAME_SELECTOR)
-                        current_tournament_name = " ".join(tournament_name_element.text.split())
-                        if not current_tournament_name:
-                             print(f"Warning: Found tournament name element in header {i}, but text is empty.")
-                        elif "itf" in current_tournament_name.lower():
-                            skip_current_tournament = True
-                            print(f"--- Skipping ITF Tournament: {current_tournament_name} (Element Index: {i}) ---")
+                        p1_name, p2_name, p1_odds, p2_odds = "N/A", "N/A", None, None
+                        # Extract relative data
+                        p1_name_el = match_element.find_element(*PLAYER_1_NAME_SELECTOR)
+                        p1_name = " ".join(p1_name_el.text.split())
+                        p2_name_el = match_element.find_element(*PLAYER_2_NAME_SELECTOR)
+                        p2_name = " ".join(p2_name_el.text.split())
+                        odds_containers = match_element.find_elements(*ODDS_BUTTON_CONTAINER_SELECTOR)
+                        if len(odds_containers) >= 2:
+                            p1_odds_el = odds_containers[0].find_element(*ODDS_VALUE_RELATIVE_SELECTOR)
+                            p1_odds = parse_odds_value(p1_odds_el.text)
+                            p2_odds_el = odds_containers[1].find_element(*ODDS_VALUE_RELATIVE_SELECTOR)
+                            p2_odds = parse_odds_value(p2_odds_el.text)
                         else:
-                            skip_current_tournament = False
-                            print(f"--- Processing Tournament: {current_tournament_name} (Element Index: {i}) ---")
-                    except NoSuchElementException:
-                        print(f"Warning: Found header marker in element {i} but couldn't find name using '{TOURNAMENT_NAME_SELECTOR[1]}'. Using previous: '{current_tournament_name}'")
-                    except Exception as e_header:
-                        print(f"Warning: Error processing header in element {i}: {e_header}. Using previous: '{current_tournament_name}'")
+                            print(f"    Warning: Found {len(odds_containers)} odds button containers for match {match_index+1}, expected 2.")
 
-                if not is_header and not skip_current_tournament:
-                    # This child div should contain matches for the current tournament
-                    # Debug print removed for brevity now, re-enable if needed
-                    # print(f"  Processing Potential Match Group Div (Child Index: {i}) for tournament '{current_tournament_name}'...")
+                        if p1_name and p1_name != "N/A" and p2_name and p2_name != "N/A" and p1_odds is not None and p2_odds is not None:
+                            match_dict = {
+                                'tournament': tournament_text.replace("Tennis - ", "").strip(), # Cleaned tournament name
+                                'p1_name': p1_name, 'p2_name': p2_name,
+                                'p1_odds': p1_odds, 'p2_odds': p2_odds
+                            }
+                            all_matches_data.append(match_dict)
+                            # Limit logging
+                            if match_index < 5: # Log first 5 matches per tournament
+                                print(f"    Extracted Match {match_index+1}: {p1_name} ({p1_odds}) vs {p2_name} ({p2_odds})")
+                            elif match_index == 5:
+                                print("    (Further match extraction logs for this tournament suppressed...)")
+                        else:
+                            print(f"    Skipping match {match_index+1} due to missing data.")
+                    except NoSuchElementException as e_inner:
+                        print(f"    Error finding element within match {match_index+1}: {e_inner}. Check relative selectors.")
+                    except StaleElementReferenceException:
+                        print(f"    Warning: Stale element reference processing match {match_index+1}. Skipping.")
+                        continue
+                    except Exception as e_match:
+                        print(f"    Unexpected error processing match {match_index+1}: {e_match}")
+                        traceback.print_exc(limit=1)
 
-                    match_elements = child_element.find_elements(*MATCH_ELEMENT_MARKER)
-
-                    if match_elements:
-                        print(f"  Found {len(match_elements)} match elements in group div (Element Index: {i}).")
-                        for match_index, match_element in enumerate(match_elements):
-                            # (Inner try/except block for processing one match)
-                            try:
-                                p1_name, p2_name, p1_odds, p2_odds = "N/A", "N/A", None, None
-                                p1_name_el = match_element.find_element(*PLAYER_1_NAME_SELECTOR)
-                                p1_name = " ".join(p1_name_el.text.split())
-                                p2_name_el = match_element.find_element(*PLAYER_2_NAME_SELECTOR)
-                                p2_name = " ".join(p2_name_el.text.split())
-                                odds_containers = match_element.find_elements(*ODDS_BUTTON_CONTAINER_SELECTOR)
-                                if len(odds_containers) >= 2:
-                                    p1_odds_el = odds_containers[0].find_element(*ODDS_VALUE_RELATIVE_SELECTOR)
-                                    p1_odds = parse_odds_value(p1_odds_el.text)
-                                    p2_odds_el = odds_containers[1].find_element(*ODDS_VALUE_RELATIVE_SELECTOR)
-                                    p2_odds = parse_odds_value(p2_odds_el.text)
-                                else:
-                                    print(f"    Warning: Found {len(odds_containers)} odds button containers for match {match_index+1}, expected 2.")
-
-                                if p1_name and p1_name != "N/A" and p2_name and p2_name != "N/A" and p1_odds is not None and p2_odds is not None:
-                                    match_dict = {
-                                        'tournament': current_tournament_name, 'p1_name': p1_name, 'p2_name': p2_name,
-                                        'p1_odds': p1_odds, 'p2_odds': p2_odds
-                                    }
-                                    all_matches_data.append(match_dict)
-                                    # Limit excessive logging, maybe only print first few extracted
-                                    if len(all_matches_data) <= 10:
-                                         print(f"    Extracted Match {match_index+1}: {p1_name} ({p1_odds}) vs {p2_name} ({p2_odds})")
-                                    elif len(all_matches_data) == 11:
-                                         print("    (Further match extraction logs suppressed...)")
-
-                                else:
-                                    print(f"    Skipping match {match_index+1} in '{current_tournament_name}' due to missing data (P1: '{p1_name}', P2: '{p2_name}', O1: {p1_odds}, O2: {p2_odds})")
-                            except NoSuchElementException as e_inner:
-                                print(f"    Error finding element within match {match_index+1} in '{current_tournament_name}': {e_inner}. Check relative selectors (PLAYER_*, ODDS_*) inside '{MATCH_ELEMENT_MARKER[1]}'")
-                            except StaleElementReferenceException:
-                                print(f"    Warning: Stale element reference processing match {match_index+1}. Skipping.")
-                                continue
-                            except Exception as e_match:
-                                print(f"    Unexpected error processing match {match_index+1}: {e_match}")
-                                traceback.print_exc(limit=1)
-                    # else: No match elements found in this div (might be empty spacer etc)
-
-            except StaleElementReferenceException:
-                print(f"Warning: Stale element reference processing child div {i}. Skipping this child.")
-                continue
-            except Exception as e_child_loop:
-                 print(f"Error processing child div {i}: {e_child_loop}")
-                 traceback.print_exc(limit=1)
+            except ElementNotInteractableException:
+                 print(f"Error: Dropdown option '{tournament_text}' not interactable. Skipping.")
                  continue
-        print("\nFinished processing elements.")
+            except TimeoutException:
+                print(f"Error: Timed out waiting for elements after selecting '{tournament_text}'. Skipping.")
+                continue
+            except StaleElementReferenceException:
+                print(f"Error: Select element became stale while processing '{tournament_text}'. Attempting to continue loop.")
+                # Might need to re-find select element at the start of the next loop iteration
+                continue
+            except Exception as e_loop:
+                 print(f"Error processing tournament '{tournament_text}': {e_loop}")
+                 traceback.print_exc(limit=1)
+                 continue # Try next tournament
+
+        print("\nFinished processing all selected tournaments.")
     # --- Outer Error Handling & Cleanup ---
-    # [No changes to outer error handling]
     except TimeoutException:
-        print(f"Error: Timed out waiting for initial elements ({GAMELIST_ITEMS_CONTAINER[1]}). Check selectors and page load state.")
+        print(f"Error: Timed out waiting for initial page elements (dropdown?). Check selectors and page load state.")
         try: print(f"Page Title at Timeout: {driver.title}")
         except Exception: pass
     except NoSuchElementException as e_main:
-         print(f"Error: Could not find primary container element: {e_main}. Check GAMELIST_ITEMS_CONTAINER selector.")
+         print(f"Error: Could not find primary container element: {e_main}. Check initial selectors.")
     except Exception as e_outer:
         print(f"An unexpected error occurred during scraping: {e_outer}")
         traceback.print_exc()
@@ -250,7 +234,6 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
             print("Browser closed.")
 
     # --- Final DataFrame Creation ---
-    # [No changes to DataFrame creation logic]
     if not all_matches_data:
         print("\nNo match data collected from Betcenter.")
         return pd.DataFrame()
@@ -271,9 +254,8 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
         return pd.DataFrame()
 
 # --- Main Execution ---
-# [No changes to main execution logic]
 if __name__ == "__main__":
-    print("Starting Betcenter.be tennis odds scraping process...")
+    print("Starting Betcenter.be tennis odds scraping process (Dropdown Strategy)...")
     odds_df = scrape_betcenter_tennis()
     if not odds_df.empty:
         print("\n--- Saving Betcenter Data ---")
