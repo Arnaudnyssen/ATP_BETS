@@ -1,4 +1,4 @@
-# betcenter_odds_scraper.py (Fixed SyntaxError)
+# betcenter_odds_scraper.py (Fixed Outer SyntaxError)
 
 import pandas as pd
 import numpy as np
@@ -95,13 +95,14 @@ def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: s
 def scrape_betcenter_tennis() -> pd.DataFrame:
     """
     Scrapes tennis match odds from Betcenter.be/fr/tennis using custom dropdown interaction.
-    Excludes ITF tournaments. Uses GUESS for visible option selector. Fixed SyntaxError.
+    Excludes ITF tournaments. Uses GUESS for visible option selector. Fixed SyntaxErrors.
     """
     driver = setup_driver()
     if driver is None: return pd.DataFrame()
 
     all_matches_data = []
 
+    # Outer try block for setup and overall process errors
     try:
         print(f"Navigating to {BASE_URL}...")
         driver.get(BASE_URL)
@@ -152,14 +153,18 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
         except TimeoutException:
              print(f"Error: Timed out waiting for ANY options matching '{DROPDOWN_OPTION_SELECTOR[1]}'. Our selector guess is likely wrong.")
              print("Please inspect the elements that appear after clicking the trigger and update DROPDOWN_OPTION_SELECTOR.")
-             return pd.DataFrame()
+             # We need to close the driver even if we fail here
+             if driver: driver.quit(); print("Browser closed due to option finding failure.")
+             return pd.DataFrame() # Cannot proceed
         except Exception as e_get_options:
              print(f"Error getting dropdown options: {e_get_options}")
              traceback.print_exc(limit=1)
-             return pd.DataFrame()
+             if driver: driver.quit(); print("Browser closed due to option finding failure.")
+             return pd.DataFrame() # Cannot proceed
 
         if not valid_tournament_texts:
             print("No valid ATP or Challenger tournament options found after filtering.")
+            # No need to quit driver here, finally block will handle it
             return pd.DataFrame()
 
         print(f"\nFound {len(valid_tournament_texts)} relevant tournaments to scrape.")
@@ -227,7 +232,7 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
                     except StaleElementReferenceException: print(f"    Warning: Stale element reference processing match {match_index+1}. Skipping."); continue
                     except Exception as e_match: print(f"    Unexpected error processing match {match_index+1}: {e_match}"); traceback.print_exc(limit=1)
 
-            # --- FIXED SyntaxError Area ---
+            # Error handling for the loop processing one tournament
             except (ElementNotInteractableException, ElementClickInterceptedException) as e_interact:
                  print(f"Error interacting with dropdown/option for '{tournament_text}': {e_interact}. Skipping.")
                  # Try to click body to close dropdown, ignore if it fails
@@ -237,7 +242,6 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
                  except:
                      pass # Ignore errors trying to close dropdown
                  continue # Continue to next tournament
-            # --- End Fix ---
             except TimeoutException:
                 print(f"Error: Timed out waiting for elements during processing of '{tournament_text}'. Skipping.")
                 continue
@@ -247,15 +251,33 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
             except Exception as e_loop:
                  print(f"Error processing tournament '{tournament_text}': {e_loop}")
                  traceback.print_exc(limit=1)
-                 continue
+                 continue # Try next tournament
 
         print("\nFinished processing all selected tournaments.")
+
     # --- Outer Error Handling & Cleanup ---
-    except TimeoutException: print(f"Error: Timed out on initial page load or finding dropdown trigger. Check selectors/page load."); try: print(f"Page Title at Timeout: {driver.title}"); except Exception: pass
-    except NoSuchElementException as e_main: print(f"Error: Could not find critical initial element: {e_main}. Check initial selectors.");
-    except Exception as e_outer: print(f"An unexpected error occurred during scraping: {e_outer}"); traceback.print_exc()
+    except TimeoutException:
+        # --- FIXED SyntaxError Area ---
+        print(f"Error: Timed out on initial page load or finding dropdown trigger. Check selectors/page load.")
+        # Safely try to print the title
+        try:
+            print(f"Page Title at Timeout: {driver.title}")
+        except Exception:
+            pass # Ignore error if getting title fails after timeout
+        # --- End Fix ---
+    except NoSuchElementException as e_main:
+         print(f"Error: Could not find critical initial element: {e_main}. Check initial selectors.")
+    except Exception as e_outer:
+        print(f"An unexpected error occurred during scraping: {e_outer}")
+        traceback.print_exc()
     finally:
-        if driver: driver.quit(); print("Browser closed.")
+        # Ensure driver quits even if errors occurred before this point
+        if 'driver' in locals() and driver is not None:
+            try:
+                driver.quit()
+                print("Browser closed.")
+            except Exception as e_quit:
+                print(f"Error quitting driver: {e_quit}")
 
     # --- Final DataFrame Creation ---
     if not all_matches_data: print("\nNo match data collected from Betcenter."); return pd.DataFrame()
