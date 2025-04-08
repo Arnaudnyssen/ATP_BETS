@@ -1,4 +1,4 @@
-# betcenter_odds_scraper.py (Debug Dropdown Presence)
+# betcenter_odds_scraper.py (Debug Dropdown Clickability)
 
 import pandas as pd
 import numpy as np
@@ -32,17 +32,14 @@ except ImportError:
 # --- Configuration ---
 BASE_URL = "https://www.betcenter.be/fr/tennis"
 WAIT_TIMEOUT = 30 # General timeout
-WAIT_TIMEOUT_SHORT = 10 # Shorter timeout for page updates after selection
+# WAIT_TIMEOUT_SHORT = 10 # No longer using short wait here
 DATA_DIR = "data_archive"
 BASE_FILENAME = "betcenter_odds"
 DATE_FORMAT = "%Y%m%d"
 
 # --- SELECTORS ---
-# *** UPDATED Dropdown selector to be more specific based on user input ***
 TOURNAMENT_DROPDOWN_SELECTOR = (By.CSS_SELECTOR, "#filter-league > div > div > div > select")
-# Container holding the list of matches *after* a tournament is selected
 GAMELIST_ITEMS_CONTAINER = (By.CSS_SELECTOR, "#content-container > div > home-page > section > div > games-list > div > gamelist > div")
-# Marker for individual match elements within the container
 MATCH_ELEMENT_MARKER = (By.CSS_SELECTOR, "div.gamelist_event")
 # --- Selectors RELATIVE to a MATCH_ELEMENT_MARKER (div.gamelist_event) ---
 PLAYER_1_NAME_SELECTOR = (By.CSS_SELECTOR, "div.game-header--team-name-0")
@@ -90,7 +87,7 @@ def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: s
 def scrape_betcenter_tennis() -> pd.DataFrame:
     """
     Scrapes tennis match odds from Betcenter.be/fr/tennis using the tournament dropdown filter.
-    Excludes ITF tournaments. Includes debugging for dropdown presence.
+    Excludes ITF tournaments. Includes debugging for dropdown clickability.
     """
     driver = setup_driver()
     if driver is None: return pd.DataFrame()
@@ -100,31 +97,48 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
     try:
         print(f"Navigating to {BASE_URL}...")
         driver.get(BASE_URL)
-        wait = WebDriverWait(driver, WAIT_TIMEOUT)
-        wait_short = WebDriverWait(driver, WAIT_TIMEOUT_SHORT)
+        wait = WebDriverWait(driver, WAIT_TIMEOUT) # Use main 30s wait
 
-        # --- Add extra pause before looking for dropdown ---
         print("Pausing briefly for initial page scripts to potentially run...")
-        time.sleep(5) # Wait 5 seconds
+        time.sleep(5)
 
-        # --- Find and Filter Dropdown Options ---
-        # *** UPDATED Selector and Wait Condition ***
+        # --- Find Dropdown and Debug Properties ---
         print(f"Waiting up to {WAIT_TIMEOUT}s for tournament dropdown PRESENCE ({TOURNAMENT_DROPDOWN_SELECTOR[1]})...")
-        # Wait for the element to be PRESENT in the DOM, not necessarily visible
-        select_element = wait.until(EC.presence_of_element_located(TOURNAMENT_DROPDOWN_SELECTOR))
+        select_element_present = wait.until(EC.presence_of_element_located(TOURNAMENT_DROPDOWN_SELECTOR))
         print("Dropdown element found in DOM.")
 
-        # Now that it's present, short wait for it to potentially become interactable/visible
-        print("Waiting briefly for dropdown to become potentially interactable...")
-        select_element = wait_short.until(EC.visibility_of_element_located(TOURNAMENT_DROPDOWN_SELECTOR)) # Check visibility now
-        print("Dropdown element is visible.")
+        # --- Added Debugging ---
+        try:
+            print(f"  Debug Info for Found Element:")
+            print(f"    Tag Name: {select_element_present.tag_name}")
+            print(f"    Is Displayed? {select_element_present.is_displayed()}")
+            print(f"    Is Enabled? {select_element_present.is_enabled()}")
+            size = select_element_present.size
+            loc = select_element_present.location
+            print(f"    Size: {size}")
+            print(f"    Location: {loc}")
+            # Check if dimensions are zero or location is off-screen
+            if size['width'] == 0 or size['height'] == 0:
+                 print("    WARNING: Element size is zero.")
+            if loc['x'] < 0 or loc['y'] < 0:
+                 print("    WARNING: Element location is off-screen.")
+        except Exception as e_debug:
+            print(f"    Error getting debug properties: {e_debug}")
+        # --- End Debugging ---
 
+        # --- Wait for Clickability ---
+        # *** Changed Wait Condition to element_to_be_clickable ***
+        print(f"Waiting up to {WAIT_TIMEOUT}s for dropdown to become CLICKABLE...")
+        # Use the main wait object (30s) for this potentially longer wait
+        select_element = wait.until(EC.element_to_be_clickable(TOURNAMENT_DROPDOWN_SELECTOR))
+        print("Dropdown element is clickable.")
+
+        # --- Proceed with Select Interaction ---
         select_object = Select(select_element)
-
-
         all_options = select_object.options
         valid_tournament_texts = []
         print(f"Found {len(all_options)} options in dropdown. Filtering for ATP/Challenger (excluding ITF)...")
+        # (Filtering logic remains the same)
         for option in all_options:
             option_text = option.text
             option_text_lower = option_text.lower()
@@ -139,39 +153,35 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
         print(f"\nFound {len(valid_tournament_texts)} relevant tournaments to scrape.")
 
         # --- Iterate Through Filtered Tournaments ---
+        # (Loop logic remains the same as v9 - select, wait for update, scrape)
         for i, tournament_text in enumerate(valid_tournament_texts):
             print(f"\n--- Processing Tournament {i+1}/{len(valid_tournament_texts)}: {tournament_text} ---")
             try:
-                # --- Select Tournament from Dropdown ---
                 print(f"  Selecting '{tournament_text}' from dropdown...")
-                # Re-find element before interacting - important if page reloads/changes significantly
-                select_element = wait.until(EC.element_to_be_clickable(TOURNAMENT_DROPDOWN_SELECTOR)) # Ensure it's clickable
+                # Re-find element and ensure clickable before interacting
+                select_element = wait.until(EC.element_to_be_clickable(TOURNAMENT_DROPDOWN_SELECTOR))
                 select_object = Select(select_element)
                 select_object.select_by_visible_text(tournament_text)
                 print("  Option selected.")
 
-                # --- Wait for Page Update ---
                 print("  Waiting for match list to update...")
-                time.sleep(1.5)
+                time.sleep(1.5) # Pause for JS
                 try:
-                    # Wait for at least one match element to be present within the container
-                    # This confirms the list likely refreshed with content
+                    # Wait for at least one match element using the shorter timeout
+                    wait_short = WebDriverWait(driver, WAIT_TIMEOUT_SHORT) # Re-init short wait
                     match_list_locator = (By.CSS_SELECTOR, f"{GAMELIST_ITEMS_CONTAINER[1]} {MATCH_ELEMENT_MARKER[1]}")
                     wait_short.until(EC.presence_of_element_located(match_list_locator))
                     print("  Match list updated (found at least one match element).")
                 except TimeoutException:
-                    print(f"  Warning: No match elements found quickly after selecting '{tournament_text}'. Tournament might be empty or page update slow/failed.")
-                    continue # Skip to the next tournament
+                    print(f"  Warning: No match elements found quickly after selecting '{tournament_text}'.")
+                    continue
 
-                # --- Scrape Matches for Selected Tournament ---
                 print("  Scraping matches...")
                 gamelist_items_container_element = wait.until(EC.presence_of_element_located(GAMELIST_ITEMS_CONTAINER))
                 match_elements = gamelist_items_container_element.find_elements(*MATCH_ELEMENT_MARKER)
                 print(f"  Found {len(match_elements)} match elements for '{tournament_text}'.")
 
-                # (Match processing loop remains the same as v9)
                 for match_index, match_element in enumerate(match_elements):
-                    # ... (try/except block for extracting match data) ...
                     try:
                         p1_name, p2_name, p1_odds, p2_odds = "N/A", "N/A", None, None
                         p1_name_el = match_element.find_element(*PLAYER_1_NAME_SELECTOR)
@@ -194,43 +204,27 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
                                 'p1_odds': p1_odds, 'p2_odds': p2_odds
                             }
                             all_matches_data.append(match_dict)
-                            if match_index < 5:
-                                print(f"    Extracted Match {match_index+1}: {p1_name} ({p1_odds}) vs {p2_name} ({p2_odds})")
-                            elif match_index == 5:
-                                print("    (Further match extraction logs for this tournament suppressed...)")
-                        else:
-                            print(f"    Skipping match {match_index+1} due to missing data.")
-                    except NoSuchElementException as e_inner:
-                        print(f"    Error finding element within match {match_index+1}: {e_inner}. Check relative selectors.")
-                    except StaleElementReferenceException:
-                        print(f"    Warning: Stale element reference processing match {match_index+1}. Skipping.")
-                        continue
-                    except Exception as e_match:
-                        print(f"    Unexpected error processing match {match_index+1}: {e_match}")
-                        traceback.print_exc(limit=1)
+                            if match_index < 5: print(f"    Extracted Match {match_index+1}: {p1_name} ({p1_odds}) vs {p2_name} ({p2_odds})")
+                            elif match_index == 5: print("    (Further match extraction logs for this tournament suppressed...)")
+                        else: print(f"    Skipping match {match_index+1} due to missing data.")
+                    except NoSuchElementException as e_inner: print(f"    Error finding element within match {match_index+1}: {e_inner}. Check relative selectors.")
+                    except StaleElementReferenceException: print(f"    Warning: Stale element reference processing match {match_index+1}. Skipping."); continue
+                    except Exception as e_match: print(f"    Unexpected error processing match {match_index+1}: {e_match}"); traceback.print_exc(limit=1)
 
-            # (Outer loop error handling remains the same as v9)
-            except ElementNotInteractableException:
-                 print(f"Error: Dropdown option '{tournament_text}' not interactable. Skipping.")
-                 continue
-            except TimeoutException:
-                print(f"Error: Timed out waiting for elements after selecting '{tournament_text}'. Skipping.")
-                continue
-            except StaleElementReferenceException:
-                print(f"Error: Select element became stale while processing '{tournament_text}'. Attempting to continue loop.")
-                continue
-            except Exception as e_loop:
-                 print(f"Error processing tournament '{tournament_text}': {e_loop}")
-                 traceback.print_exc(limit=1)
-                 continue
+            except ElementNotInteractableException: print(f"Error: Dropdown option '{tournament_text}' not interactable. Skipping."); continue
+            except TimeoutException: print(f"Error: Timed out waiting for elements after selecting '{tournament_text}'. Skipping."); continue
+            except StaleElementReferenceException: print(f"Error: Select element became stale while processing '{tournament_text}'. Attempting to continue loop."); continue
+            except Exception as e_loop: print(f"Error processing tournament '{tournament_text}': {e_loop}"); traceback.print_exc(limit=1); continue
 
         print("\nFinished processing all selected tournaments.")
     # --- Outer Error Handling & Cleanup ---
     except TimeoutException:
-        print(f"Error: Timed out waiting for initial page elements (dropdown?). Check selectors and page load state.")
-        try: print(f"Page Title at Timeout: {driver.title}") # Important for debugging
+        # This will now likely catch the wait for clickability if it fails
+        print(f"Error: Timed out waiting for initial page elements (dropdown clickable?). Check selectors and page load state.")
+        try: print(f"Page Title at Timeout: {driver.title}")
         except Exception: pass
     except NoSuchElementException as e_main:
+         # This might catch the presence check if the selector is truly wrong
          print(f"Error: Could not find primary page element: {e_main}. Check initial selectors (Dropdown or Container).")
     except Exception as e_outer:
         print(f"An unexpected error occurred during scraping: {e_outer}")
@@ -241,28 +235,18 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
             print("Browser closed.")
 
     # --- Final DataFrame Creation ---
-    # [No changes to DataFrame creation logic]
-    if not all_matches_data:
-        print("\nNo match data collected from Betcenter.")
-        return pd.DataFrame()
+    # [No changes]
+    if not all_matches_data: print("\nNo match data collected from Betcenter."); return pd.DataFrame()
     print(f"\nCollected data for {len(all_matches_data)} matches in total.")
     try:
-        final_df = pd.DataFrame(all_matches_data)
-        final_df['scrape_timestamp_utc'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
-        final_df['p1_name'] = final_df['p1_name'].astype(str).str.strip().str.lower()
-        final_df['p2_name'] = final_df['p2_name'].astype(str).str.strip().str.lower()
-        final_df = final_df.drop_duplicates(subset=['tournament', 'p1_name', 'p2_name'])
-        print(f"DataFrame shape after dropping duplicates: {final_df.shape}")
-        print("Created final DataFrame:")
-        print(final_df.head())
-        return final_df
-    except Exception as df_err:
-        print(f"Error creating or processing final DataFrame: {df_err}")
-        traceback.print_exc()
-        return pd.DataFrame()
+        final_df = pd.DataFrame(all_matches_data); final_df['scrape_timestamp_utc'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
+        final_df['p1_name'] = final_df['p1_name'].astype(str).str.strip().str.lower(); final_df['p2_name'] = final_df['p2_name'].astype(str).str.strip().str.lower()
+        final_df = final_df.drop_duplicates(subset=['tournament', 'p1_name', 'p2_name']); print(f"DataFrame shape after dropping duplicates: {final_df.shape}")
+        print("Created final DataFrame:"); print(final_df.head()); return final_df
+    except Exception as df_err: print(f"Error creating or processing final DataFrame: {df_err}"); traceback.print_exc(); return pd.DataFrame()
 
 # --- Main Execution ---
-# [No changes to main execution logic]
+# [No changes]
 if __name__ == "__main__":
     print("Starting Betcenter.be tennis odds scraping process (Dropdown Strategy)...")
     odds_df = scrape_betcenter_tennis()
@@ -272,3 +256,4 @@ if __name__ == "__main__":
         if saved_filepath: print(f"Betcenter data saving process completed successfully. File: {saved_filepath}")
         else: print("Betcenter data saving process failed.")
     else: print("\n--- No Betcenter odds data scraped. ---")
+
