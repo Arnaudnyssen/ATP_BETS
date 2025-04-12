@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upcoming Tennis Odds Comparison</title>
+    <title>Upcoming Tennis Odds Comparison (Sackmann vs Betcenter)</title>
     <style>
         :root {
             --primary-color: #0056b3;
@@ -16,13 +16,18 @@
             --shadow-color: rgba(0,0,0,0.06);
             --value-bet-bg-color: #d4edda; /* Greenish background for value bets */
             --value-bet-text-color: #155724; /* Dark green text */
-            --scooore-bg-color: #f0f8ff; /* Light blue for regular Scooore cells */
-            --scooore-header-bg-color: #e7f3ff; /* Slightly darker blue for Scooore headers */
+            --betcenter-bg-color: #fff0f5; /* Lavender blush for Betcenter cells */
+            --betcenter-header-bg-color: #ffe4e1; /* Misty rose for Betcenter headers */
+            --spread-positive-bg-color: #e6ffed; /* Light green for positive spread */
+            --spread-positive-text-color: #006400; /* Dark green */
+            --spread-negative-bg-color: #ffeeee; /* Light red for negative spread */
+            --spread-negative-text-color: #a52a2a; /* Brown */
+            --spread-header-bg-color: #f5f5f5; /* Very light gray for spread headers */
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6; padding: 20px; max-width: 1200px; margin: 20px auto;
-            background-color: var(--light-gray); color: var(--dark-gray);
+            line-height: 1.6; padding: 20px; max-width: 1400px; /* Increased max-width */
+            margin: 20px auto; background-color: var(--light-gray); color: var(--dark-gray);
         }
         h1 {
             color: var(--primary-color); border-bottom: 3px solid var(--primary-color);
@@ -34,31 +39,37 @@
             border-radius: 6px; background-color: var(--white);
             border: 1px solid var(--medium-gray); min-height: 100px; margin-bottom: 20px;
         }
-        /* Base table style from Pandas Styler */
         table.dataframe {
-            width: 100%; border-collapse: collapse; margin: 0; font-size: 0.9em;
+            width: 100%; border-collapse: collapse; margin: 0; font-size: 0.85em; /* Slightly smaller base font */
         }
-        /* Default cell style from Pandas Styler (overridden by specific classes below) */
         table.dataframe th, table.dataframe td {
             border: none; border-bottom: 1px solid var(--medium-gray);
-            padding: 10px 12px; text-align: left; vertical-align: middle;
-            white-space: nowrap;
+            padding: 8px 10px; /* Adjusted padding */
+            text-align: left; vertical-align: middle; white-space: nowrap;
         }
         table.dataframe tbody tr:last-child td { border-bottom: none; }
 
-        /* --- Column Widths (Applied via TH/TD selectors) --- */
-        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 14%; white-space: normal;} /* Tournament */
-        table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) { width: 5%; }  /* Round */
-        table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) { width: 16%; white-space: normal; font-weight: 500;} /* Player 1 */
-        table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) { width: 16%; white-space: normal; font-weight: 500;} /* Player 2 */
-        table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) { width: 8%; text-align: right;} /* P1 Prob (Sack) */
-        table.dataframe th:nth-child(6), table.dataframe td:nth-child(6) { width: 8%; text-align: right;} /* P2 Prob (Sack) */
-        table.dataframe th:nth-child(7), table.dataframe td:nth-child(7) { width: 8%; text-align: right;} /* P1 Odds (Sack) */
-        table.dataframe th:nth-child(8), table.dataframe td:nth-child(8) { width: 8%; text-align: right;} /* P2 Odds (Sack) */
-        table.dataframe th:nth-child(9), table.dataframe td:nth-child(9) { width: 8%; text-align: right; background-color: var(--scooore-header-bg-color);} /* P1 Odds (Scooore) Header */
-        table.dataframe th:nth-child(10), table.dataframe td:nth-child(10) { width: 9%; text-align: right; background-color: var(--scooore-header-bg-color);} /* P2 Odds (Scooore) Header */
-        /* Default background for Scooore data cells */
-        table.dataframe td:nth-child(9), table.dataframe td:nth-child(10) { background-color: var(--scooore-bg-color); }
+        /* --- Column Widths (12 columns) --- */
+        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 12%; white-space: normal;} /* Tournament */
+        table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) { width: 4%; }  /* Round */
+        table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) { width: 13%; white-space: normal; font-weight: 500;} /* Player 1 */
+        table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) { width: 13%; white-space: normal; font-weight: 500;} /* Player 2 */
+        table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) { width: 7%; text-align: right;} /* P1 Prob (Sack) */
+        table.dataframe th:nth-child(6), table.dataframe td:nth-child(6) { width: 7%; text-align: right;} /* P2 Prob (Sack) */
+        table.dataframe th:nth-child(7), table.dataframe td:nth-child(7) { width: 7%; text-align: right;} /* P1 Odds (Sack) */
+        table.dataframe th:nth-child(8), table.dataframe td:nth-child(8) { width: 7%; text-align: right;} /* P2 Odds (Sack) */
+        /* Betcenter Columns */
+        table.dataframe th:nth-child(9), table.dataframe td:nth-child(9) { width: 7%; text-align: right; background-color: var(--betcenter-header-bg-color);} /* P1 Odds (BC) Header */
+        table.dataframe th:nth-child(10), table.dataframe td:nth-child(10) { width: 7%; text-align: right; background-color: var(--betcenter-header-bg-color);} /* P2 Odds (BC) Header */
+        /* Spread Columns */
+        table.dataframe th:nth-child(11), table.dataframe td:nth-child(11) { width: 7%; text-align: right; background-color: var(--spread-header-bg-color);} /* P1 Spread Header */
+        table.dataframe th:nth-child(12), table.dataframe td:nth-child(12) { width: 6%; text-align: right; background-color: var(--spread-header-bg-color);} /* P2 Spread Header */
+
+        /* Default background for Betcenter data cells */
+        table.dataframe td:nth-child(9), table.dataframe td:nth-child(10) { background-color: var(--betcenter-bg-color); }
+        /* Default background for Spread data cells */
+        table.dataframe td:nth-child(11), table.dataframe td:nth-child(12) { background-color: var(--spread-header-bg-color); }
+
 
         /* Header Styles */
         table.dataframe thead th {
@@ -67,67 +78,82 @@
         }
         /* Even row background */
         table.dataframe tbody tr:nth-child(even) td { background-color: var(--light-gray); }
-        /* Keep Scooore background on even rows */
+        /* Keep Betcenter/Spread background on even rows */
         table.dataframe tbody tr:nth-child(even) td:nth-child(9),
-        table.dataframe tbody tr:nth-child(even) td:nth-child(10) { background-color: var(--scooore-bg-color); opacity: 0.9; } /* Slightly transparent on even rows */
+        table.dataframe tbody tr:nth-child(even) td:nth-child(10) { background-color: var(--betcenter-bg-color); opacity: 0.9; }
+        table.dataframe tbody tr:nth-child(even) td:nth-child(11),
+        table.dataframe tbody tr:nth-child(even) td:nth-child(12) { background-color: var(--spread-header-bg-color); opacity: 0.9; }
 
         /* Hover Styles */
         table.dataframe tbody tr:hover td { background-color: var(--hover-color); }
-        /* Keep Scooore background on hover, slightly darker */
+        /* Keep Betcenter/Spread background on hover, slightly darker */
         table.dataframe tbody tr:hover td:nth-child(9),
-        table.dataframe tbody tr:hover td:nth-child(10) { background-color: #d4eaff; }
+        table.dataframe tbody tr:hover td:nth-child(10) { background-color: #fddde6; } /* Darker pinkish */
+         table.dataframe tbody tr:hover td:nth-child(11),
+         table.dataframe tbody tr:hover td:nth-child(12) { background-color: #e9e9e9; } /* Darker gray */
 
         /* --- Value Bet Highlighting Styles --- */
-        /* Applied by the Styler to specific TD elements */
         table.dataframe td.value-bet-p1,
         table.dataframe td.value-bet-p2 {
             background-color: var(--value-bet-bg-color) !important; /* Override other backgrounds */
-            color: var(--value-bet-text-color);
-            font-weight: bold;
+            color: var(--value-bet-text-color); font-weight: bold;
         }
-        /* Ensure hover doesn't ruin value bet highlight */
-         table.dataframe tbody tr:hover td.value-bet-p1,
-         table.dataframe tbody tr:hover td.value-bet-p2 {
+        table.dataframe tbody tr:hover td.value-bet-p1,
+        table.dataframe tbody tr:hover td.value-bet-p2 {
              background-color: #b8dfc1 !important; /* Darker green on hover */
          }
+
+        /* --- Spread Highlighting Styles --- */
+        table.dataframe td.spread-positive {
+            background-color: var(--spread-positive-bg-color) !important;
+            color: var(--spread-positive-text-color); font-weight: 500;
+        }
+        table.dataframe td.spread-negative {
+            background-color: var(--spread-negative-bg-color) !important;
+            color: var(--spread-negative-text-color); font-weight: 500;
+        }
+         table.dataframe tbody tr:hover td.spread-positive { background-color: #c8e6c9 !important; } /* Slightly darker green */
+         table.dataframe tbody tr:hover td.spread-negative { background-color: #ffcdd2 !important; } /* Slightly darker red */
 
 
         .last-updated {
             margin-top: 25px; padding-top: 15px; border-top: 1px solid var(--medium-gray);
             font-size: 0.9em; color: #6c757d; text-align: center;
         }
-        .error-message {
-            color: #dc3545; font-weight: bold; text-align: center; padding: 20px;
-            background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;
+        .error-message { /* Style for error message div */
+             /* Styles moved inside format_error_html_for_table for direct application */
         }
         /* Responsive adjustments */
-        @media (max-width: 992px) {
-             table.dataframe th, table.dataframe td { font-size: 0.85em; padding: 8px 10px; }
+        @media (max-width: 1200px) {
+             table.dataframe th, table.dataframe td { font-size: 0.8em; padding: 7px 8px; }
         }
-        @media (max-width: 768px) {
-            body { padding: 15px; }
+        @media (max-width: 992px) {
+            body { padding: 15px; max-width: 100%; }
             h1 { font-size: 1.5em; }
-            table.dataframe th, table.dataframe td {
-                white-space: normal; padding: 8px 6px; font-size: 0.8em;
-            }
-            table.dataframe th:nth-child(n), table.dataframe td:nth-child(n) { width: auto;}
+            table.dataframe th, table.dataframe td { font-size: 0.75em; padding: 6px 5px; white-space: normal; }
+            table.dataframe th:nth-child(n), table.dataframe td:nth-child(n) { width: auto;} /* Let columns resize */
             table.dataframe th:nth-child(3), table.dataframe td:nth-child(3),
             table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) { font-weight: normal;}
+        }
+        @media (max-width: 768px) {
+             table.dataframe th, table.dataframe td { font-size: 0.7em; padding: 5px 4px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Upcoming Tennis Match Odds Comparison</h1>
-    <p>This page displays probabilities and calculated decimal odds from the Tennis Abstract Sackmann model, alongside betting odds scraped from Scooore.be (if available). Cells highlighted in <span style="background-color: var(--value-bet-bg-color); color: var(--value-bet-text-color); padding: 0 3px; border-radius: 3px;">green</span> indicate potential value bets where Scooore odds are at least 10% higher than the model's implied odds.</p>
-    <p>Matches involving qualifiers or appearing completed based on Sackmann data are filtered out. Name matching is performed automatically but may not be perfect.</p>
+    <h1>Upcoming Tennis Match Odds Comparison (Sackmann vs Betcenter)</h1>
+    <p>Comparison of probabilities and calculated odds from the Tennis Abstract Sackmann model against betting odds scraped from Betcenter.be.
+       The 'Spread' columns show the difference between Betcenter odds and Sackmann's calculated odds (Positive means Betcenter odds are higher).
+       Cells highlighted in <span style="background-color: var(--value-bet-bg-color); color: var(--value-bet-text-color); padding: 0 3px; border-radius: 3px;">green</span> indicate potential value bets where Betcenter odds are at least 10% higher than the model's implied odds.</p>
+    <p>Matches involving qualifiers or appearing completed based on Sackmann data are filtered out. Name matching uses Title Case and may not be perfect.</p>
 
     <div class="table-container">
-        <div class="error-message" style="padding: 20px;">Unexpected error during HTML table generation: ImportError Check logs for details.</div>
+        <div class="error-message" style="padding: 20px; text-align: center; color: #dc3545; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;"><strong>Error:</strong> Unexpected error during HTML table generation: ImportError Check logs for details.</div>
     </div>
 
     <div class="last-updated">
-        Last updated: 2025-04-12 16:46:38 UTC
+        Last updated: 2025-04-12 19:02:55 CEST
     </div>
 
 </body>
