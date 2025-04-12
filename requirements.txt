@@ -12,4 +12,4 @@
 
     # Add any other specific libraries your original odds scrapers might use
     # (Review your 'odds/' directory scripts if you integrate them later)
-    
+    Jinja2
