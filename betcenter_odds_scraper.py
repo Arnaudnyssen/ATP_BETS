@@ -455,4 +455,4 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
         final_df = pd.DataFrame(all_matches_data);
         final_df['scrape_timestamp_utc'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
         # Clean player names (strip whitespace, lowercase for potential matching later)
-        final_df['p1_name'] = final_df['p1_name'].astype(str).str.strip
+        final_df['p1_name'] = final_df['p1_name'].astype(str).str.strip()
