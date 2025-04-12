@@ -1,10 +1,6 @@
-# betcenter_odds_scraper.py (Local Debug Version + Cookie Handling - Wait for Game Tag)
-# Optimized for running locally with a visible browser window.
-# Handles the cookie banner before proceeding.
-# Filters out doubles tournaments.
-# Waits for the first 'game' tag to be PRESENT after update.
-# Filters for upcoming matches during scraping.
-# Saves results to a dated CSV file in the 'data_archive' subdirectory.
+# betcenter_odds_scraper.py (Final Version - Title Case Names)
+# Scrapes Betcenter, handles cookies, waits for game tag, filters doubles/live.
+# Saves results with Title Case names to match Sackmann data.
 
 import pandas as pd
 import numpy as np
@@ -36,16 +32,19 @@ except ImportError:
     ChromeDriverManager = None
 
 # --- Configuration ---
-RUN_HEADLESS = True
+# Set to True when running in GitHub Actions or headless environment
+RUN_HEADLESS = False
 # ---------------------------------------------------
 
 BASE_URL = "https://www.betcenter.be/fr/tennis"
 WAIT_TIMEOUT = 30 # General timeout for initial elements
-WAIT_TIMEOUT_UPDATE = 15 # Timeout for waiting for the match list update
+WAIT_TIMEOUT_UPDATE = 20 # Timeout for waiting for the match list update
 WAIT_TIMEOUT_OPTIONS_LOOP = 15 # Timeout for waiting for options to reappear in loop
 WAIT_TIMEOUT_COOKIE = 10 # Shorter timeout specifically for the cookie banner
 DATA_DIR = "data_archive" # Subdirectory for saving CSV files
-BASE_FILENAME = "betcenter_odds_local" # Filename prefix for local runs
+# --- Updated Filename ---
+BASE_FILENAME = "betcenter_odds" # Consistent filename
+# ------------------------
 DATE_FORMAT = "%Y%m%d"
 DEBUG_SCREENSHOT_DIR = "debug_screenshots" # Subdirectory for error screenshots/HTML
 
@@ -54,10 +53,8 @@ COOKIE_REJECT_BUTTON_ID = "cookiescript_reject"
 DROPDOWN_TRIGGER_SELECTOR = (By.CSS_SELECTOR, "#filter-league .filter-select")
 DROPDOWN_OPTION_SELECTOR = (By.CSS_SELECTOR, ".filter-select__option")
 GAMELIST_ITEMS_CONTAINER = (By.CSS_SELECTOR, "#content-container > div > home-page > section > div > games-list > div > gamelist > div")
-MATCH_ELEMENT_MARKER = (By.CSS_SELECTOR, "div.gamelist__event") # General marker for any match event div
-# --- New Selector for the game tag itself ---
+MATCH_ELEMENT_MARKER = (By.CSS_SELECTOR, "div.gamelist__event")
 GAME_TAG_SELECTOR = (By.TAG_NAME, "game")
-# --- Markers within the game element ---
 PLAYER_1_NAME_SELECTOR = (By.CSS_SELECTOR, "div.game-header--team-name-0")
 PLAYER_2_NAME_SELECTOR = (By.CSS_SELECTOR, "div.game-header--team-name-1")
 ODDS_BUTTON_CONTAINER_SELECTOR = (By.CSS_SELECTOR, "odd-button")
@@ -260,19 +257,17 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
                     except Exception as e_close_skip: pass
                     continue
 
-                # --- *** Wait for PRESENCE of first GAME tag *** ---
+                # --- Wait for PRESENCE of first GAME tag ---
                 print(f"  Waiting up to {WAIT_TIMEOUT_UPDATE}s for first 'game' tag to be PRESENT...")
-                # Construct a combined selector: container -> match_event -> game_tag
                 game_tag_locator_str = f"{GAMELIST_ITEMS_CONTAINER[1]} {MATCH_ELEMENT_MARKER[1]} {GAME_TAG_SELECTOR[1]}"
                 game_tag_locator = (By.CSS_SELECTOR, game_tag_locator_str)
                 print(f"  (Waiting for locator: '{game_tag_locator[1]}')")
                 update_successful = False
                 try:
-                    # Wait for the PRESENCE of the first 'game' tag within the first match event
                     wait_update.until(EC.presence_of_element_located(game_tag_locator))
                     print("  First 'game' tag is PRESENT. Assuming match list container is ready.")
                     update_successful = True
-                    time.sleep(1.5) # Pause for internal elements (matches) to render
+                    time.sleep(1.5)
                 except TimeoutException:
                     print(f"  TIMEOUT ({WAIT_TIMEOUT_UPDATE}s) waiting for first 'game' tag to be PRESENT.")
                     try: container_after = driver.find_element(*GAMELIST_ITEMS_CONTAINER); print("  --- Container HTML AT TIMEOUT ---"); print(container_after.get_attribute('outerHTML')); print("  -------------------------------")
@@ -283,33 +278,28 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
                      print(f"  Unexpected error during 'game' tag wait: {e_wait}")
                      save_debug_info(driver, f"wait_error_gametag_{tournament_text.replace(' ','_')[:20]}")
                      update_successful = False
-                # --- *** END Wait for Game Tag Strategy *** ---
 
                 if not update_successful: print("  Skipping match scraping due to update failure/timeout."); continue
 
                 # --- Scrape Matches ---
                 print("  Scraping matches...")
                 gamelist_items_container_element = wait.until(EC.presence_of_element_located(GAMELIST_ITEMS_CONTAINER))
-                match_event_elements = gamelist_items_container_element.find_elements(*MATCH_ELEMENT_MARKER) # Find the outer event divs
+                match_event_elements = gamelist_items_container_element.find_elements(*MATCH_ELEMENT_MARKER)
                 print(f"  Found {len(match_event_elements)} match event elements for '{tournament_text}'.")
                 if not match_event_elements: print("  Warning: Update successful, but no match event elements found.")
 
                 processed_count = 0
-                for match_index, match_element in enumerate(match_event_elements): # Iterate through the event divs
+                for match_index, match_element in enumerate(match_event_elements):
                     try:
-                        # --- Filter for UPCOMING matches here ---
-                        # Find the inner 'game' element to check its class
-                        game_element = match_element.find_element(*GAME_TAG_SELECTOR) # Find child 'game' tag
-                        game_inner_div = game_element.find_element(By.CSS_SELECTOR, "div.game") # Find the div inside 'game'
+                        # --- Filter for UPCOMING matches ---
+                        game_element = match_element.find_element(*GAME_TAG_SELECTOR)
+                        game_inner_div = game_element.find_element(By.CSS_SELECTOR, "div.game")
                         game_classes = game_inner_div.get_attribute("class")
-
                         if "game--live" in game_classes: print(f"    Skipping match {match_index+1} as it is live."); continue
                         elif "game--upcoming" not in game_classes: print(f"    Skipping match {match_index+1} as it is not marked as upcoming (Classes: {game_classes})."); continue
-                        # --- End Filter ---
 
-                        # Proceed to scrape data from upcoming match
+                        # --- Scrape upcoming match ---
                         p1_name, p2_name, p1_odds, p2_odds = "N/A", "N/A", None, None
-                        # Find names and odds relative to the outer match_element (div.gamelist__event)
                         try: p1_name_el = match_element.find_element(*PLAYER_1_NAME_SELECTOR); p1_name = " ".join(p1_name_el.text.split())
                         except NoSuchElementException: print(f"    Warning: P1 name not found for upcoming match {match_index+1}.")
                         try: p2_name_el = match_element.find_element(*PLAYER_2_NAME_SELECTOR); p2_name = " ".join(p2_name_el.text.split())
@@ -341,24 +331,41 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
         if 'driver' in locals() and driver is not None:
             try: driver.quit(); print("Browser closed.")
             except Exception as e_quit: print(f"Error quitting driver: {e_quit}")
+
+    # --- Final DataFrame Creation ---
     if not all_matches_data: print("\nNo match data collected from Betcenter."); return pd.DataFrame()
     print(f"\nCollected data for {len(all_matches_data)} matches in total.")
     end_time = time.time(); print(f"Total scraping time: {end_time - start_time:.2f} seconds")
     try:
-        final_df = pd.DataFrame(all_matches_data); final_df['scrape_timestamp_utc'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
-        final_df['p1_name'] = final_df['p1_name'].astype(str).str.strip().str.lower(); final_df['p2_name'] = final_df['p2_name'].astype(str).str.strip().str.lower()
-        final_df = final_df.drop_duplicates(subset=['tournament', 'p1_name', 'p2_name']); print(f"DataFrame shape after dropping duplicates: {final_df.shape}")
-        print("Created final DataFrame:"); print(final_df.head()); return final_df
+        final_df = pd.DataFrame(all_matches_data)
+        final_df['scrape_timestamp_utc'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
+        # --- *** Use .title() for Name Standardization *** ---
+        final_df['p1_name'] = final_df['p1_name'].astype(str).str.strip().str.title()
+        final_df['p2_name'] = final_df['p2_name'].astype(str).str.strip().str.title()
+        # ----------------------------------------------------
+        final_df = final_df.drop_duplicates(subset=['tournament', 'p1_name', 'p2_name'])
+        print(f"DataFrame shape after dropping duplicates: {final_df.shape}")
+        print("Created final DataFrame:")
+        print(final_df.head())
+        return final_df
     except Exception as df_err: print(f"Error creating or processing final DataFrame: {df_err}"); traceback.print_exc(); return pd.DataFrame()
 
 # --- Main Execution Block ---
 if __name__ == "__main__":
-    print("="*50); print(" Starting Betcenter.be Local Debug Scraper (Wait for Game Tag)"); print("="*50) # Updated strategy in title
-    if not RUN_HEADLESS: print("INFO: Script will open a visible Chrome window."); print("      Ensure Chrome and compatible ChromeDriver are installed.")
+    print("="*50); print(" Starting Betcenter.be Odds Scraper (Final Version)"); print("="*50) # Updated title
+    # Set RUN_HEADLESS = True for GitHub Actions
+    # Set RUN_HEADLESS = False for local debugging
+    if not RUN_HEADLESS: print("INFO: Script will open a visible Chrome window.")
     else: print("INFO: Script running in headless mode.")
+
     odds_df = scrape_betcenter_tennis()
     if not odds_df.empty:
-        print("\n--- Saving Results ---"); saved_filepath = save_data_to_dated_csv(data=odds_df, base_filename=BASE_FILENAME, output_dir=DATA_DIR)
+        print("\n--- Saving Results ---")
+        saved_filepath = save_data_to_dated_csv(
+            data=odds_df,
+            base_filename=BASE_FILENAME, # Uses "betcenter_odds"
+            output_dir=DATA_DIR
+        )
         if saved_filepath: print(f"Data saving process completed successfully.\nFile saved to: {os.path.abspath(saved_filepath)}")
         else: print("Data saving process failed.")
     else: print("\n--- No Betcenter odds data scraped. ---")
