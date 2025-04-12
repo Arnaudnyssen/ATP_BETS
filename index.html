@@ -1,107 +1,134 @@
-# .github/workflows/main.yml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Tennis Odds Comparison</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #dee2e6;
+            --dark-gray: #343a40;
+            --white: #ffffff;
+            --hover-color: #e9ecef;
+            --shadow-color: rgba(0,0,0,0.06);
+            --value-bet-bg-color: #d4edda; /* Greenish background for value bets */
+            --value-bet-text-color: #155724; /* Dark green text */
+            --scooore-bg-color: #f0f8ff; /* Light blue for regular Scooore cells */
+            --scooore-header-bg-color: #e7f3ff; /* Slightly darker blue for Scooore headers */
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6; padding: 20px; max-width: 1200px; margin: 20px auto;
+            background-color: var(--light-gray); color: var(--dark-gray);
+        }
+        h1 {
+            color: var(--primary-color); border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px; margin-bottom: 25px; font-weight: 600; font-size: 1.8em;
+        }
+        p { margin-bottom: 15px; font-size: 0.95em; }
+        .table-container {
+            overflow-x: auto; box-shadow: 0 4px 10px var(--shadow-color);
+            border-radius: 6px; background-color: var(--white);
+            border: 1px solid var(--medium-gray); min-height: 100px; margin-bottom: 20px;
+        }
+        /* Base table style from Pandas Styler */
+        table.dataframe {
+            width: 100%; border-collapse: collapse; margin: 0; font-size: 0.9em;
+        }
+        /* Default cell style from Pandas Styler (overridden by specific classes below) */
+        table.dataframe th, table.dataframe td {
+            border: none; border-bottom: 1px solid var(--medium-gray);
+            padding: 10px 12px; text-align: left; vertical-align: middle;
+            white-space: nowrap;
+        }
+        table.dataframe tbody tr:last-child td { border-bottom: none; }
 
-name: Scrape Tennis Data & Update Page
+        /* --- Column Widths (Applied via TH/TD selectors) --- */
+        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) { width: 14%; white-space: normal;} /* Tournament */
+        table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) { width: 5%; }  /* Round */
+        table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) { width: 16%; white-space: normal; font-weight: 500;} /* Player 1 */
+        table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) { width: 16%; white-space: normal; font-weight: 500;} /* Player 2 */
+        table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) { width: 8%; text-align: right;} /* P1 Prob (Sack) */
+        table.dataframe th:nth-child(6), table.dataframe td:nth-child(6) { width: 8%; text-align: right;} /* P2 Prob (Sack) */
+        table.dataframe th:nth-child(7), table.dataframe td:nth-child(7) { width: 8%; text-align: right;} /* P1 Odds (Sack) */
+        table.dataframe th:nth-child(8), table.dataframe td:nth-child(8) { width: 8%; text-align: right;} /* P2 Odds (Sack) */
+        table.dataframe th:nth-child(9), table.dataframe td:nth-child(9) { width: 8%; text-align: right; background-color: var(--scooore-header-bg-color);} /* P1 Odds (Scooore) Header */
+        table.dataframe th:nth-child(10), table.dataframe td:nth-child(10) { width: 9%; text-align: right; background-color: var(--scooore-header-bg-color);} /* P2 Odds (Scooore) Header */
+        /* Default background for Scooore data cells */
+        table.dataframe td:nth-child(9), table.dataframe td:nth-child(10) { background-color: var(--scooore-bg-color); }
 
-on:
-  schedule:
-    # Runs daily at a specific UTC time (adjust as needed)
-    # Example: Run at 06:00 UTC daily
-    - cron: '0 6 * * *'
-  workflow_dispatch: # Allows manual triggering
+        /* Header Styles */
+        table.dataframe thead th {
+            background-color: var(--secondary-color); color: var(--white); font-weight: 600;
+            border-bottom: 2px solid var(--primary-color); position: sticky; top: 0; z-index: 1;
+        }
+        /* Even row background */
+        table.dataframe tbody tr:nth-child(even) td { background-color: var(--light-gray); }
+        /* Keep Scooore background on even rows */
+        table.dataframe tbody tr:nth-child(even) td:nth-child(9),
+        table.dataframe tbody tr:nth-child(even) td:nth-child(10) { background-color: var(--scooore-bg-color); opacity: 0.9; } /* Slightly transparent on even rows */
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write # Required to commit changes back to the repo
-      pages: write # Required to deploy to GitHub Pages
-      id-token: write # Required for GitHub Pages deployment
+        /* Hover Styles */
+        table.dataframe tbody tr:hover td { background-color: var(--hover-color); }
+        /* Keep Scooore background on hover, slightly darker */
+        table.dataframe tbody tr:hover td:nth-child(9),
+        table.dataframe tbody tr:hover td:nth-child(10) { background-color: #d4eaff; }
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-           persist-credentials: false # We'll use a PAT or GitHub token later
+        /* --- Value Bet Highlighting Styles --- */
+        /* Applied by the Styler to specific TD elements */
+        table.dataframe td.value-bet-p1,
+        table.dataframe td.value-bet-p2 {
+            background-color: var(--value-bet-bg-color) !important; /* Override other backgrounds */
+            color: var(--value-bet-text-color);
+            font-weight: bold;
+        }
+        /* Ensure hover doesn't ruin value bet highlight */
+         table.dataframe tbody tr:hover td.value-bet-p1,
+         table.dataframe tbody tr:hover td.value-bet-p2 {
+             background-color: #b8dfc1 !important; /* Darker green on hover */
+         }
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10' # Or your preferred Python version
 
-      - name: Install Browser (Chrome) # Updated step name
-        run: |
-          sudo apt-get update
-          # Install Chrome/Chromedriver (needed for both scrapers now)
-          sudo apt-get install -y chromium-chromedriver
-        # Note: webdriver-manager in the scripts will handle driver specifics,
-        # but installing the browser itself via apt is reliable on runners.
+        .last-updated {
+            margin-top: 25px; padding-top: 15px; border-top: 1px solid var(--medium-gray);
+            font-size: 0.9em; color: #6c757d; text-align: center;
+        }
+        .error-message {
+            color: #dc3545; font-weight: bold; text-align: center; padding: 20px;
+            background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+             table.dataframe th, table.dataframe td { font-size: 0.85em; padding: 8px 10px; }
+        }
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            h1 { font-size: 1.5em; }
+            table.dataframe th, table.dataframe td {
+                white-space: normal; padding: 8px 6px; font-size: 0.8em;
+            }
+            table.dataframe th:nth-child(n), table.dataframe td:nth-child(n) { width: auto;}
+            table.dataframe th:nth-child(3), table.dataframe td:nth-child(3),
+            table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) { font-weight: normal;}
+        }
+    </style>
+</head>
+<body>
 
-      - name: Install Python Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    <h1>Upcoming Tennis Match Odds Comparison</h1>
+    <p>This page displays probabilities and calculated decimal odds from the Tennis Abstract Sackmann model, alongside betting odds scraped from Scooore.be (if available). Cells highlighted in <span style="background-color: var(--value-bet-bg-color); color: var(--value-bet-text-color); padding: 0 3px; border-radius: 3px;">green</span> indicate potential value bets where Scooore odds are at least 10% higher than the model's implied odds.</p>
+    <p>Matches involving qualifiers or appearing completed based on Sackmann data are filtered out. Name matching is performed automatically but may not be perfect.</p>
 
-      - name: Run Sackmann Data Pipeline
-        id: sackmann_scrape
-        run: python save_sackmann_data.py # Orchestrates Sackmann scrape & save
+    <div class="table-container">
+        <div class="error-message" style="padding: 20px;">Unexpected error during HTML table generation: ImportError Check logs for details.</div>
+    </div>
 
-      - name: Run Scooore Odds Scraper (using Chrome) # Updated step name
-        id: scooore_scrape
-        # Continue even if this step fails, so the rest can proceed
-        continue-on-error: true
-        run: python scooore_odds_scraper.py # This script now uses Chrome
+    <div class="last-updated">
+        Last updated: 2025-04-12 16:46:38 UTC
+    </div>
 
-      - name: Generate HTML Page from Latest CSV
-        id: generate_html
-        # This step depends on the Sackmann CSV being present
-        # It will use the latest sackmann_matchups_*.csv
-        run: python generate_page.py
-
-      # --- Commit ALL Generated Files ---
-      - name: Configure Git
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - name: Stage All Generated Files
-        run: |
-          # Add the generated HTML and both types of dated CSVs
-          # Use wildcards to catch the latest dated files
-          git add index.html data_archive/sackmann_matchups_*.csv data_archive/scooore_odds_*.csv || echo "No new files to stage, continuing..."
-          # Use || echo ... to prevent workflow failure if git add finds nothing initially
-
-      - name: Commit Updates
-        run: |
-          # Check if there are staged changes before attempting to commit
-          if git diff --staged --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "Automated data and page update"
-          fi
-
-      - name: Push Changes
-        # Only push if a commit was made
-        run: |
-          if ! git diff --staged --quiet; then
-            # Using the default GITHUB_TOKEN which has write permissions
-            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }} || echo "Push failed, continuing deployment steps..."
-          else
-            echo "No commit made, skipping push."
-          fi
-        env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Explicitly pass token to env if needed by specific git versions/configs
-
-      # --- GitHub Pages Deployment ---
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload Artifact for Pages Deployment
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository content, including the generated index.html
-          path: '.'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        # This step uses the artifact uploaded in the previous step
+</body>
+</html>
