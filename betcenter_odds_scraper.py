@@ -289,6 +289,7 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
                 print(f"  Waiting up to {WAIT_TIMEOUT_UPDATE}s for match list to update...")
                 print(f"  (Expecting at least 1 element matching '{MATCH_ELEMENT_MARKER[1]}' inside '{GAMELIST_ITEMS_CONTAINER[1]}')")
                 update_successful = False
+                # **** USE THE CUSTOM WAIT CONDITION ****
                 wait_condition = number_of_elements_present_in_container(
                     GAMELIST_ITEMS_CONTAINER,
                     MATCH_ELEMENT_MARKER,
@@ -305,10 +306,11 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
                     try:
                         container_after = driver.find_element(*GAMELIST_ITEMS_CONTAINER)
                         print("  --- Container HTML AT TIMEOUT ---")
-                        print(container_after.get_attribute('outerHTML'))
+                        print(container_after.get_attribute('outerHTML')) # Print full HTML on timeout
                         print("  -------------------------------")
                     except NoSuchElementException:
-                        print("  Container element not found AT TIMEOUT.")
+                        # **** UPDATED ERROR MESSAGE ****
+                        print(f"  Container element not found AT TIMEOUT (using {GAMELIST_ITEMS_CONTAINER}). Verify selector post-filter.")
                     except Exception as e_debug_timeout:
                          print(f"  Error getting container HTML at timeout: {e_debug_timeout}")
                     # Save screenshot and HTML source
@@ -453,35 +455,4 @@ def scrape_betcenter_tennis() -> pd.DataFrame:
         final_df = pd.DataFrame(all_matches_data);
         final_df['scrape_timestamp_utc'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
         # Clean player names (strip whitespace, lowercase for potential matching later)
-        final_df['p1_name'] = final_df['p1_name'].astype(str).str.strip().str.lower()
-        final_df['p2_name'] = final_df['p2_name'].astype(str).str.strip().str.lower()
-        # Drop duplicates based on cleaned names and tournament
-        final_df = final_df.drop_duplicates(subset=['tournament', 'p1_name', 'p2_name'])
-        print(f"DataFrame shape after dropping duplicates: {final_df.shape}")
-        print("Created final DataFrame:");
-        print(final_df.head());
-        return final_df
-    except Exception as df_err:
-        print(f"Error creating or processing final DataFrame: {df_err}");
-        traceback.print_exc();
-        return pd.DataFrame()
-
-# --- Main Execution ---
-if __name__ == "__main__":
-    print("Starting Betcenter.be tennis odds scraping process (Element Count Wait Strategy)...")
-    odds_df = scrape_betcenter_tennis()
-
-    if not odds_df.empty:
-        print("\n--- Saving Betcenter Data ---")
-        saved_filepath = save_data_to_dated_csv(
-            data=odds_df,
-            base_filename=BASE_FILENAME,
-            output_dir=DATA_DIR
-        )
-        if saved_filepath:
-             print(f"Betcenter data saving process completed successfully. File: {saved_filepath}")
-        else:
-             print("Betcenter data saving process failed.")
-    else:
-        print("\n--- No Betcenter odds data scraped. ---")
-
+        final_df['p1_name'] = final_df['p1_name'].astype(str).str.strip
