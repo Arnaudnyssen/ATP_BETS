@@ -1,4 +1,4 @@
-# generate_page.py (Integrates Betcenter odds, calculates spread, highlights value - Improved Merging)
+# generate_page.py (Integrates Betcenter odds, calculates spread, highlights value - Fix ValueError, Add Merge Debug)
 
 import pandas as pd
 import numpy as np
@@ -20,7 +20,6 @@ OUTPUT_HTML_FILE = "index.html"
 VALUE_BET_THRESHOLD = 1.10 # Highlight if Betcenter odds >= 110% of Sackmann odds
 
 # --- Updated Column order and headers ---
-# (No change needed here, order remains the same)
 DISPLAY_COLS_ORDERED = [
     'TournamentName', 'Round',
     'Player1Name', 'Player2Name',
@@ -44,42 +43,28 @@ def standardize_tournament_name(name: str) -> str:
     if not isinstance(name, str): return "Unknown Tournament"
     try:
         name = name.lower()
-        # Remove common prefixes/suffixes if needed
         name = name.replace("tennis - ", "").replace(", qualifying", "").replace(", spain", "").replace(", germany", "") # Add more as needed
-        # Remove punctuation and extra spaces
-        name = re.sub(r'[^\w\s]', '', name) # Keep alphanumeric and spaces
-        name = re.sub(r'\s+', ' ', name).strip() # Consolidate whitespace
-        return name.title() # Return in Title Case
-    except Exception:
-        return "Unknown Tournament"
-
+        name = re.sub(r'[^\w\s]', '', name)
+        name = re.sub(r'\s+', ' ', name).strip()
+        return name.title()
+    except Exception: return "Unknown Tournament"
 
 def preprocess_player_name(name: str) -> str:
     """Standardizes player names, handling 'LastName, FirstName' and 'FirstName LastName'."""
     if not isinstance(name, str): return ""
     try:
-        # 1. Handle "LastName, FirstName" format first
         if ',' in name:
             parts = [part.strip() for part in name.split(',')]
-            if len(parts) == 2:
-                name = f"{parts[1]} {parts[0]}" # Reorder to FirstName LastName
-
-        # 2. Remove content in parentheses (might appear after reordering)
+            if len(parts) == 2: name = f"{parts[1]} {parts[0]}"
         name = re.sub(r'\s*\([^)]*\)', '', name).strip()
-        # 3. Remove leading/trailing asterisks if any
         name = re.sub(r'^\*|\*$', '', name).strip()
-        # 4. Apply title case for consistency
         name = name.title()
-        # 5. Consolidate whitespace
         name = re.sub(r'\s+', ' ', name).strip()
         return name
-    except Exception as e:
-        print(f"Warning: Could not preprocess name '{name}': {e}")
-        return name # Return original on error
+    except Exception as e: print(f"Warning: Could not preprocess name '{name}': {e}"); return name
 
 def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
     """Finds the most recently modified CSV file matching the pattern."""
-    # (No changes needed in this function)
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__)); search_dir = os.path.join(script_dir, directory)
         search_path = os.path.join(search_dir, pattern); print(f"Searching for pattern: {search_path}")
@@ -93,11 +78,11 @@ def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
 
 def format_error_html_for_table(message: str) -> str:
     """Formats an error message as an HTML snippet for the table container."""
-    # (No changes needed in this function)
     print(f"Error generating table: {message}")
     return f'<div class="{ERROR_MESSAGE_CLASS}" style="padding: 20px; text-align: center; color: #dc3545; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;"><strong>Error:</strong> {html.escape(message)} Check logs for details.</div>'
 
 # --- Data Loading Functions ---
+# (load_and_prepare_sackmann_data and load_and_prepare_betcenter_data remain the same as previous version)
 def load_and_prepare_sackmann_data(csv_filepath: str) -> Optional[pd.DataFrame]:
     """Loads, preprocesses, filters, and standardizes Sackmann data."""
     print(f"Loading Sackmann data from: {os.path.basename(csv_filepath)}")
@@ -106,39 +91,29 @@ def load_and_prepare_sackmann_data(csv_filepath: str) -> Optional[pd.DataFrame]:
         df = pd.read_csv(csv_filepath)
         if df.empty: print("  Sackmann DataFrame is empty after loading."); return None
         print(f"  Read {len(df)} rows initially from Sackmann CSV.")
-        required_sack_cols = ['TournamentName', 'Player1Name', 'Player2Name', 'Player1_Match_Prob', 'Player2_Match_Prob'] # Added TournamentName
+        required_sack_cols = ['TournamentName', 'Player1Name', 'Player2Name', 'Player1_Match_Prob', 'Player2_Match_Prob']
         if not all(col in df.columns for col in required_sack_cols): print(f"  Error: Sackmann DataFrame missing required columns. Found: {df.columns.tolist()}"); return None
-
         df['Player1_Match_Prob'] = pd.to_numeric(df['Player1_Match_Prob'], errors='coerce')
         df['Player2_Match_Prob'] = pd.to_numeric(df['Player2_Match_Prob'], errors='coerce')
         original_count_step1 = len(df)
         df = df[ (df['Player1_Match_Prob'].notna()) & (df['Player1_Match_Prob'] > 0.0) & (df['Player1_Match_Prob'] < 100.0) & (df['Player2_Match_Prob'].notna()) & (df['Player2_Match_Prob'] > 0.0) & (df['Player2_Match_Prob'] < 100.0) ].copy()
         print(f"  Filtered Sackmann (Prob = 0%, 100%, NaN): {original_count_step1 - len(df)} rows removed. {len(df)} remain.")
-
-        # Standardize Tournament Name first
         df['TournamentName'] = df['TournamentName'].astype(str).apply(standardize_tournament_name)
-
-        # Preprocess player names
         df['Player1Name'] = df['Player1Name'].astype(str).apply(preprocess_player_name)
         df['Player2Name'] = df['Player2Name'].astype(str).apply(preprocess_player_name)
-
         original_count_step2 = len(df)
         mask_p1_qualifier = df['Player1Name'].str.contains('Qualifier', case=False, na=False)
         mask_p2_qualifier = df['Player2Name'].str.contains('Qualifier', case=False, na=False)
         df = df[~(mask_p1_qualifier | mask_p2_qualifier)].copy()
         print(f"  Filtered Sackmann (Qualifiers): {original_count_step2 - len(df)} rows removed. {len(df)} remain.")
-
         if df.empty: print("  Sackmann DataFrame is empty after filtering."); return None
-
         sackmann_cols = ['TournamentName', 'Round', 'Player1Name', 'Player2Name', 'Player1_Match_Prob', 'Player2_Match_Prob', 'Player1_Match_Odds', 'Player2_Match_Odds']
         df_out = df[[col for col in sackmann_cols if col in df.columns]].copy()
         df_out['Player1_Match_Odds'] = pd.to_numeric(df_out['Player1_Match_Odds'], errors='coerce')
         df_out['Player2_Match_Odds'] = pd.to_numeric(df_out['Player2_Match_Odds'], errors='coerce')
-
         print(f"  Prepared Sackmann data. Shape: {df_out.shape}")
         return df_out
     except Exception as e: print(f"  Error loading/preparing Sackmann data: {e}"); traceback.print_exc(); return None
-
 
 def load_and_prepare_betcenter_data(csv_filepath: str) -> Optional[pd.DataFrame]:
     """Loads, preprocesses, and standardizes Betcenter odds data."""
@@ -148,34 +123,23 @@ def load_and_prepare_betcenter_data(csv_filepath: str) -> Optional[pd.DataFrame]
         df = pd.read_csv(csv_filepath)
         if df.empty: print("  Betcenter DataFrame is empty after loading."); return None
         print(f"  Read {len(df)} rows initially from Betcenter CSV.")
-        # Added 'tournament' to required columns
         required_bc_cols = ['tournament', 'p1_name', 'p2_name', 'p1_odds', 'p2_odds']
         if not all(col in df.columns for col in required_bc_cols): print(f"  Error: Betcenter DataFrame missing required columns ({required_bc_cols}). Found: {df.columns.tolist()}"); return None
-
-        # Standardize Tournament Name
         df['TournamentName'] = df['tournament'].astype(str).apply(standardize_tournament_name)
-
-        # Preprocess player names
         df['Player1Name'] = df['p1_name'].astype(str).apply(preprocess_player_name)
         df['Player2Name'] = df['p2_name'].astype(str).apply(preprocess_player_name)
-
-        # Select and rename columns for merging, ensure numeric types
-        betcenter_cols = ['TournamentName', 'Player1Name', 'Player2Name', 'p1_odds', 'p2_odds'] # Use standardized TournamentName
+        betcenter_cols = ['TournamentName', 'Player1Name', 'Player2Name', 'p1_odds', 'p2_odds']
         df_out = df[[col for col in betcenter_cols if col in df.columns]].copy()
         df_out.rename(columns={'p1_odds': 'bc_p1_odds', 'p2_odds': 'bc_p2_odds'}, inplace=True)
-
         df_out['bc_p1_odds'] = pd.to_numeric(df_out['bc_p1_odds'], errors='coerce')
         df_out['bc_p2_odds'] = pd.to_numeric(df_out['bc_p2_odds'], errors='coerce')
         df_out.dropna(subset=['bc_p1_odds', 'bc_p2_odds'], inplace=True)
-
         print(f"  Prepared Betcenter data. Shape: {df_out.shape}")
-        # Display sample names after preprocessing for debugging merge issues
         if not df_out.empty: print(f"  Sample Betcenter preprocessed names:\n{df_out[['TournamentName', 'Player1Name', 'Player2Name']].head(3)}")
         return df_out
     except Exception as e: print(f"  Error loading/preparing Betcenter data: {e}"); traceback.print_exc(); return None
 
-
-# --- Merge Function (Updated to merge on TournamentName) ---
+# --- Merge Function (Added Debug Prints) ---
 def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) -> pd.DataFrame:
     """Merges Sackmann and Betcenter dataframes based on TournamentName and player names."""
     if betcenter_df is None or betcenter_df.empty:
@@ -186,55 +150,44 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
 
     print("Attempting to merge Sackmann and Betcenter data on TournamentName and Player Names...")
     try:
-        # Define merge keys
         merge_keys = ['TournamentName', 'Player1Name', 'Player2Name']
+        if not all(key in sackmann_df.columns for key in merge_keys): print(f"Error: Sackmann DF missing keys ({merge_keys}). Cols: {sackmann_df.columns.tolist()}"); return sackmann_df
+        if not all(key in betcenter_df.columns for key in merge_keys): print(f"Error: Betcenter DF missing keys ({merge_keys}). Cols: {betcenter_df.columns.tolist()}"); return sackmann_df
 
-        # Ensure merge key columns exist in both dataframes
-        if not all(key in sackmann_df.columns for key in merge_keys):
-            print(f"Error: Sackmann DF missing one or more merge keys ({merge_keys}). Columns: {sackmann_df.columns.tolist()}")
-            return sackmann_df # Return original Sackmann data
-        if not all(key in betcenter_df.columns for key in merge_keys):
-             print(f"Error: Betcenter DF missing one or more merge keys ({merge_keys}). Columns: {betcenter_df.columns.tolist()}")
-             return sackmann_df # Return original Sackmann data
+        # --- *** ADDED DEBUG PRINTS *** ---
+        print("\n--- Debugging Merge ---")
+        print(f"Sackmann DF Head (Merge Keys - {len(sackmann_df)} rows):")
+        print(sackmann_df[merge_keys].head())
+        # print("Sackmann DF Dtypes (Merge Keys):") # Optional: Check dtypes if needed
+        # print(sackmann_df[merge_keys].dtypes)
+        print(f"\nBetcenter DF Head (Merge Keys - {len(betcenter_df)} rows):")
+        print(betcenter_df[merge_keys].head())
+        # print("Betcenter DF Dtypes (Merge Keys):") # Optional: Check dtypes if needed
+        # print(betcenter_df[merge_keys].dtypes)
+        print("-----------------------\n")
+        # --- *** END DEBUG PRINTS *** ---
 
-        # Outer merge to keep all matches from both sources
-        merged_df = pd.merge(
-            sackmann_df,
-            betcenter_df,
-            on=merge_keys, # Merge on Tournament and Players
-            how='outer',
-            suffixes=('_sack', '_bc')
-        )
+        merged_df = pd.merge(sackmann_df, betcenter_df, on=merge_keys, how='outer', suffixes=('_sack', '_bc'))
         print(f"  Merged (P1-P1, P2-P2) on {merge_keys}. Shape: {merged_df.shape}")
 
-        # Attempt swapped merge for matches missed in the first pass
+        # Attempt swapped merge
         unmatched_betcenter = merged_df[merged_df['Player1_Match_Prob'].isna() & merged_df['bc_p1_odds'].notna()].copy()
         unmatched_sackmann = merged_df[merged_df['bc_p1_odds'].isna() & merged_df['Player1_Match_Prob'].notna()].copy()
-
         if not unmatched_betcenter.empty and not unmatched_sackmann.empty:
-            print(f"  Found {len(unmatched_betcenter)} unmatched Betcenter rows and {len(unmatched_sackmann)} unmatched Sackmann rows. Attempting swapped merge...")
-            # Prepare swapped Betcenter data (keeping TournamentName)
+            print(f"  Found {len(unmatched_betcenter)} unmatched Betcenter / {len(unmatched_sackmann)} unmatched Sackmann. Attempting swapped merge...")
             swapped_betcenter = unmatched_betcenter[['TournamentName', 'Player2Name', 'Player1Name', 'bc_p2_odds', 'bc_p1_odds']].copy()
-            swapped_betcenter.columns = ['TournamentName', 'Player1Name', 'Player2Name', 'bc_p1_odds', 'bc_p2_odds'] # Rename columns
-
-            # Merge unmatched Sackmann with swapped Betcenter on all keys
-            swapped_merge_result = pd.merge(
-                unmatched_sackmann.drop(columns=['bc_p1_odds', 'bc_p2_odds']),
-                swapped_betcenter,
-                on=merge_keys, # Merge on Tournament and swapped Players
-                how='inner'
-            )
+            swapped_betcenter.columns = ['TournamentName', 'Player1Name', 'Player2Name', 'bc_p1_odds', 'bc_p2_odds']
+            swapped_merge_result = pd.merge(unmatched_sackmann.drop(columns=['bc_p1_odds', 'bc_p2_odds']), swapped_betcenter, on=merge_keys, how='inner')
             print(f"  Found {len(swapped_merge_result)} matches via swapped merge.")
-
             if not swapped_merge_result.empty:
-                # Use set_index for efficient updating (including TournamentName)
-                merged_df.set_index(merge_keys, inplace=True)
-                swapped_merge_result.set_index(merge_keys, inplace=True)
-                merged_df.update(swapped_merge_result[['bc_p1_odds', 'bc_p2_odds']])
-                merged_df.reset_index(inplace=True)
+                merged_df.set_index(merge_keys, inplace=True); swapped_merge_result.set_index(merge_keys, inplace=True)
+                merged_df.update(swapped_merge_result[['bc_p1_odds', 'bc_p2_odds']]); merged_df.reset_index(inplace=True)
                 print("  Updated main dataframe with swapped matches.")
+        else:
+             print("  No potential matches found for swapped merge.")
 
-        # --- Calculate Spread ---
+
+        # Calculate Spread
         print("  Calculating odds spread (Betcenter - Sackmann)...")
         merged_df['Player1_Match_Odds'] = pd.to_numeric(merged_df['Player1_Match_Odds'], errors='coerce')
         merged_df['Player2_Match_Odds'] = pd.to_numeric(merged_df['Player2_Match_Odds'], errors='coerce')
@@ -244,20 +197,17 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
         merged_df['p2_spread'] = merged_df['bc_p2_odds'] - merged_df['Player2_Match_Odds']
         print("  Spread calculated.")
 
-        # --- Final Cleanup ---
+        # Final Cleanup
         initial_rows = len(merged_df)
         merged_df.dropna(subset=['Player1_Match_Prob', 'Player1_Match_Odds'], how='all', inplace=True)
         print(f"  Removed {initial_rows - len(merged_df)} rows where Sackmann data was missing.")
 
         print(f"Final merged data shape: {merged_df.shape}")
-        # Display sample of merged data for debugging
         print("Sample of merged data (Head):")
         print(merged_df[['TournamentName', 'Player1Name', 'Player2Name', 'Player1_Match_Odds', 'bc_p1_odds', 'p1_spread']].head())
         return merged_df
-
     except Exception as e:
-        print(f"Error during data merging or spread calculation: {e}")
-        traceback.print_exc()
+        print(f"Error during data merging or spread calculation: {e}"); traceback.print_exc()
         for col in ['bc_p1_odds', 'bc_p2_odds', 'p1_spread', 'p2_spread']:
              if col not in sackmann_df.columns: sackmann_df[col] = np.nan
         return sackmann_df
@@ -269,10 +219,8 @@ def apply_table_styles(row: pd.Series) -> List[str]:
     # (No changes needed in this function logic itself)
     styles = [''] * len(DISPLAY_COLS_ORDERED)
     try:
-        sack_odds_p1 = pd.to_numeric(row.get('Player1_Match_Odds'), errors='coerce')
-        bc_odds_p1 = pd.to_numeric(row.get('bc_p1_odds'), errors='coerce')
-        sack_odds_p2 = pd.to_numeric(row.get('Player2_Match_Odds'), errors='coerce')
-        bc_odds_p2 = pd.to_numeric(row.get('bc_p2_odds'), errors='coerce')
+        sack_odds_p1 = pd.to_numeric(row.get('Player1_Match_Odds'), errors='coerce'); bc_odds_p1 = pd.to_numeric(row.get('bc_p1_odds'), errors='coerce')
+        sack_odds_p2 = pd.to_numeric(row.get('Player2_Match_Odds'), errors='coerce'); bc_odds_p2 = pd.to_numeric(row.get('bc_p2_odds'), errors='coerce')
         if not pd.isna(sack_odds_p1) and not pd.isna(bc_odds_p1) and bc_odds_p1 >= sack_odds_p1 * VALUE_BET_THRESHOLD:
             try: styles[DISPLAY_COLS_ORDERED.index('bc_p1_odds')] = 'value-bet-p1'
             except ValueError: pass
@@ -281,8 +229,7 @@ def apply_table_styles(row: pd.Series) -> List[str]:
             except ValueError: pass
     except Exception as e_val: print(f"Warning: Error during value bet styling: {e_val}")
     try:
-        p1_spread = pd.to_numeric(row.get('p1_spread'), errors='coerce')
-        p2_spread = pd.to_numeric(row.get('p2_spread'), errors='coerce')
+        p1_spread = pd.to_numeric(row.get('p1_spread'), errors='coerce'); p2_spread = pd.to_numeric(row.get('p2_spread'), errors='coerce')
         if not pd.isna(p1_spread):
             try:
                 idx = DISPLAY_COLS_ORDERED.index('p1_spread')
@@ -303,56 +250,39 @@ def generate_html_table(df: pd.DataFrame) -> str:
     if df is None or df.empty: return format_error_html_for_table("No combined match data available to display.")
     try:
         print("Formatting final merged data for display...")
-        df_numeric = df.copy() # Keep numeric copy for styling
-        df_display = df.copy() # Create copy for display formatting
-
-        # --- Apply Display Formatting to df_display ---
+        df_numeric = df.copy(); df_display = df.copy()
         formatters = {
-            'Player1_Match_Prob': '{:.1f}%'.format,
-            'Player2_Match_Prob': '{:.1f}%'.format,
-            'Player1_Match_Odds': '{:.2f}'.format,
-            'Player2_Match_Odds': '{:.2f}'.format,
-            'bc_p1_odds': '{:.2f}'.format,
-            'bc_p2_odds': '{:.2f}'.format,
-            'p1_spread': '{:+.2f}'.format, # Show sign
-            'p2_spread': '{:+.2f}'.format  # Show sign
+            'Player1_Match_Prob': '{:.1f}%'.format, 'Player2_Match_Prob': '{:.1f}%'.format,
+            'Player1_Match_Odds': '{:.2f}'.format, 'Player2_Match_Odds': '{:.2f}'.format,
+            'bc_p1_odds': '{:.2f}'.format, 'bc_p2_odds': '{:.2f}'.format,
+            'p1_spread': '{:+.2f}'.format, 'p2_spread': '{:+.2f}'.format
         }
         for col, fmt in formatters.items():
             if col in df_display.columns:
-                # Apply formatting only to non-null values to avoid dtype issues
                  df_display[col] = pd.to_numeric(df_display[col], errors='coerce').map(fmt, na_action='ignore')
-
-        # Fill NaNs with '-' AFTER formatting strings
-        df_display.fillna('-', inplace=True)
+        df_display.fillna('-', inplace=True) # Fill NaNs AFTER formatting
         print("Data formatting complete.")
 
-        # --- Sorting ---
-        try:
+        try: # Sorting
             round_map = {'R128': 128, 'R64': 64, 'R32': 32, 'R16': 16, 'QF': 8, 'SF': 4, 'F': 2, 'W': 1}
-            # Use the display df for sorting keys if needed, apply index to numeric df
             df_display['RoundSort'] = df_display['Round'].map(round_map).fillna(999)
             df_display.sort_values(by=['TournamentName', 'RoundSort'], inplace=True, na_position='last')
-            df_numeric = df_numeric.loc[df_display.index] # Align numeric df index
+            df_numeric = df_numeric.loc[df_display.index]
             df_display.drop(columns=['RoundSort'], inplace=True)
             print("Sorted matchups by Tournament and Round.")
         except Exception as e: print(f"Warning: Error during sorting: {e}")
 
-        # --- Column Selection and Renaming ---
         missing_display_cols = [col for col in DISPLAY_COLS_ORDERED if col not in df_display.columns]
         if missing_display_cols: return format_error_html_for_table(f"Data missing columns: {', '.join(missing_display_cols)}.")
-
-        df_display_final = df_display[DISPLAY_COLS_ORDERED]
-        df_numeric_final = df_numeric[DISPLAY_COLS_ORDERED]
+        df_display_final = df_display[DISPLAY_COLS_ORDERED]; df_numeric_final = df_numeric[DISPLAY_COLS_ORDERED]
         df_display_final.columns = DISPLAY_HEADERS
 
-        # --- Generate HTML table string using Pandas Styler ---
         print("Applying styles and generating HTML table string using Styler...")
-        styler = df_numeric_final.style.apply(apply_table_styles, axis=1) # Style based on numeric data
+        styler = df_numeric_final.style.apply(apply_table_styles, axis=1)
         styler.set_table_attributes('class="dataframe"')
-        styler.set_caption(None)
-        styler.data = df_display_final # Use the formatted data for the final HTML output
+        # --- *** REMOVED set_caption(None) *** ---
+        styler.data = df_display_final
 
-        # Render HTML
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
         if not html_table or not isinstance(html_table, str): return format_error_html_for_table("Failed to generate HTML table using pandas Styler.")
         print("HTML table string generated successfully via Styler.")
@@ -360,10 +290,9 @@ def generate_html_table(df: pd.DataFrame) -> str:
     except KeyError as e: print(f"Error generating HTML table: Missing column {e}"); traceback.print_exc(); return format_error_html_for_table(f"Internal Error: Missing column '{e}'.")
     except Exception as e: print(f"Error generating HTML table: {e}"); traceback.print_exc(); return format_error_html_for_table(f"Unexpected error during HTML table generation: {type(e).__name__}")
 
-
 def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     """Constructs the entire HTML page, embedding the table and timestamp."""
-    # (CSS and HTML structure remain the same as previous version with 12 columns)
+    # (CSS and HTML structure remain the same)
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -431,7 +360,6 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
 </html>"""
     return html_content
 
-
 # --- Main Execution Logic ---
 if __name__ == "__main__":
     print("Starting page generation process (Sackmann + Betcenter Integration + Spread)...")
@@ -450,6 +378,7 @@ if __name__ == "__main__":
         if sackmann_data is None or sackmann_data.empty: error_msg += f"Failed to load/prepare valid Sackmann data from {os.path.basename(latest_sackmann_csv)}. "
     else: error_msg += f"Could not find latest Sackmann data file ({SACKMANN_CSV_PATTERN}). "; print(error_msg)
     if latest_betcenter_csv:
+        # Ensure you re-ran the betcenter scraper to get Title Case names in the CSV
         betcenter_data = load_and_prepare_betcenter_data(latest_betcenter_csv)
         if betcenter_data is None or betcenter_data.empty: print(f"Warning: Failed to load/prepare valid Betcenter data from {os.path.basename(latest_betcenter_csv)}. Proceeding without it.")
     else: print(f"Warning: No Betcenter data file found ({BETCENTER_CSV_PATTERN}). Proceeding without it.")
@@ -470,7 +399,7 @@ if __name__ == "__main__":
 
     update_time = datetime.now(pytz.timezone('Europe/Brussels')).strftime('%Y-%m-%d %H:%M:%S %Z')
     timestamp_str = f"Last updated: {html.escape(update_time)}"
-    print("\nGenerating full HTML page content..."); full_html = generate_full_html_page(table_html_content, timestamp_str); print("Full HTML page content generated.")
+    print("\nGenerating full HTML page content..."); full_html = generate_full_html_page(table_content_html, timestamp_str); print("Full HTML page content generated.")
 
     try:
         print(f"Writing generated HTML content to: {output_file_abs}")
