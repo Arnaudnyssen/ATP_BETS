@@ -1,0 +1,77 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread
+Atpbarcelona,R32,Carlos Alcaraz,Ethan Quinn,97.40,2.60,,,1.03,38.46,,,,
+Atpbarcelona,R32,Laslo Djere,Arthur Rinderknech,66.40,33.60,,,1.51,2.98,,,,
+Atpbarcelona,R32,Roberto Carballes Baena,Jordan Thompson,63.90,36.10,,,1.56,2.77,,,,
+Atpbarcelona,R32,Tomas Martin Etcheverry,Alex De Minaur,33.80,66.20,,,2.96,1.51,,,,
+Atpbarcelona,R32,Stefanos Tsitsipas,Reilly Opelka,79.70,20.30,,,1.25,4.93,,,,
+Atpbarcelona,R32,Matteo Arnaldi,Sebastian Korda,55.50,44.50,,,1.80,2.25,,,,
+Atpbarcelona,R32,Pedro Martinez,Brandon Nakashima,41.80,58.20,,,2.39,1.72,,,,
+Atpbarcelona,R32,Pablo Carreno Busta,Arthur Fils,35.00,65.00,,,2.86,1.54,,,,
+Atpbarcelona,R32,Frances Tiafoe,Jaume Munar,57.90,42.10,,,1.73,2.38,,,,
+Atpbarcelona,R32,Karen Khachanov,Cameron Norrie,58.50,41.50,,,1.71,2.41,,,,
+Atpbarcelona,R32,Stan Wawrinka,Alejandro Davidovich Fokina,37.20,62.80,,,2.69,1.59,,,,
+Atpbarcelona,R32,Jesper De Jong,Andrey Rublev,19.50,80.50,,,5.13,1.24,,,,
+Atpbarcelona,R32,Holger Rune,Albert Ramos,88.90,11.10,,,1.12,9.01,,,,
+Atpbarcelona,R32,Sebastian Baez,Damir Dzumhur,68.10,31.90,,,1.47,3.13,,,,
+Atpbarcelona,R32,Hamad Medjedovic,Giovanni Mpetshi Perricard,55.60,44.40,,,1.80,2.25,,,,
+Atpbarcelona,R32,Daniel Elahi Galan,Casper Ruud,11.40,88.60,,,8.77,1.13,,,,
+Atpmunich,R32,Alexander Zverev,Alexandre Muller,83.80,16.20,,,1.19,6.17,,,,
+Atpmunich,R32,Chun Hsin Tseng,Daniel Altmaier,42.30,57.70,34.13,65.87,2.36,1.73,2.74,1.42,0.38,-0.31
+Atpmunich,R32,Tallon Griekspoor,Learner Tien,88.50,11.50,68.21,31.79,1.13,8.70,1.37,2.94,0.24,-5.76
+Atpmunich,R32,Yannick Hanfmann,Jakub Mensik,27.70,72.30,28.60,71.40,3.61,1.38,3.27,1.31,-0.34,-0.07
+Atpmunich,R32,Ugo Humbert,Nicolas Jarry,61.00,39.00,56.69,43.31,1.64,2.56,1.65,2.16,0.01,-0.40
+Atpmunich,R32,Justin Engel,Fabian Marozsan,5.90,94.10,18.70,81.30,16.95,1.06,5.00,1.15,-11.95,0.09
+Atpmunich,R32,Zizou Bergs,Alexander Bublik,61.00,39.00,,,1.64,2.56,,,,
+Atpmunich,R32,Gael Monfils,Denis Shapovalov,38.90,61.10,,,2.57,1.64,,,,
+Atpmunich,R32,Francisco Cerundolo,Jan Lennard Struff,67.80,32.20,76.02,23.98,1.47,3.11,1.23,3.90,-0.24,0.79
+Atpmunich,R32,Flavio Cobolli,Alexander Shevchenko,77.80,22.20,65.87,34.13,1.29,4.50,1.42,2.74,0.13,-1.76
+Atpmunich,R32,Billy Harris,David Goffin,16.60,83.40,26.40,73.60,6.02,1.20,3.54,1.27,-2.48,0.07
+Atpmunich,R32,Mariano Navone,Felix Auger Aliassime,30.40,69.60,,,3.29,1.44,,,,
+Atpmunich,R32,Jiri Lehecka,Luciano Darderi,49.90,50.10,59.54,40.46,2.00,2.00,1.57,2.31,-0.43,0.31
+Atpmunich,R32,Miomir Kecmanovic,Marcos Giron,58.20,41.80,,,1.72,2.39,,,,
+Atpmunich,R32,Roberto Bautista Agut,Botic Van De Zandschulp,55.40,44.60,52.80,47.20,1.81,2.24,1.77,1.98,-0.04,-0.26
+Atpmunich,R32,Borna Gojo,Ben Shelton,28.30,71.70,25.77,74.23,3.53,1.39,3.63,1.26,0.10,-0.13
+Busanchallenger,R32,Adam Walton,Rio Noguchi,80.90,19.10,71.56,28.44,1.24,5.24,1.28,3.22,0.04,-2.02
+Busanchallenger,R32,Sho Shimabukuro,Yuta Shimizu,53.00,47.00,50.00,50.00,1.89,2.13,1.83,1.83,-0.06,-0.30
+Busanchallenger,R32,Soon Woo Kwon,Antoine Escoffier,80.30,19.70,,,1.25,5.08,,,,
+Busanchallenger,R32,Tristan Schoolkate,Gerard Campana Lee,84.60,15.40,79.65,20.35,1.18,6.49,1.15,4.50,-0.03,-1.99
+Busanchallenger,R32,Jason Kubler,Rei Sakamoto,63.90,36.10,50.00,50.00,1.56,2.77,1.83,1.83,0.27,-0.94
+Busanchallenger,R32,Emil Ruusuvuori,Hyeon Chung,56.70,43.30,57.22,42.78,1.76,2.31,1.60,2.14,-0.16,-0.17
+Busanchallenger,R32,James Trotter,Yu Hsiou Hsu,66.60,33.40,,,1.50,2.99,,,,
+Busanchallenger,R32,Yosuke Watanuki,Alex Bolt,72.00,28.00,69.37,30.63,1.39,3.57,1.32,2.99,-0.07,-0.58
+Busanchallenger,R32,Constant Lestienne,Brandon Holt,43.70,56.30,44.47,55.53,2.29,1.78,2.06,1.65,-0.23,-0.13
+Busanchallenger,R32,Terence Atmane,James Mccabe,44.20,55.80,61.04,38.96,2.26,1.79,1.50,2.35,-0.76,0.56
+Busanchallenger,R32,Zachary Svajda,Christopher Eubanks,34.40,65.60,41.64,58.36,2.91,1.52,2.20,1.57,-0.71,0.05
+Oeiras4Challenger,R32,Francisco Comesana,Gastao Elias,79.30,20.70,75.05,24.95,1.26,4.83,1.22,3.67,-0.04,-1.16
+Oeiras4Challenger,R32,Gregoire Barrere,Luca Van Assche,46.50,53.50,,,2.15,1.87,,,,
+Oeiras4Challenger,R32,Lukas Klein,Nishesh Basavareddy,66.70,33.30,50.00,50.00,1.50,3.00,1.83,1.83,0.33,-1.17
+Oeiras4Challenger,R32,Raphael Collignon,Jerome Kym,55.40,44.60,,,1.81,2.24,,,,
+Oeiras4Challenger,R32,Carlos Taberner,Nicolai Budkov Kjaer,62.40,37.60,55.14,44.86,1.60,2.66,1.66,2.04,0.06,-0.62
+Oeiras4Challenger,R32,Shintaro Mochizuki,Thiago Seyboth Wild,40.80,59.20,38.96,61.04,2.45,1.69,2.35,1.50,-0.10,-0.19
+Oeiras4Challenger,R32,Mikhail Kukushkin,Matteo Gigante,48.80,51.20,,,2.05,1.95,,,,
+Oeiras4Challenger,R32,Elmer Moller,Thiago Monteiro,42.20,57.80,50.00,50.00,2.37,1.73,1.83,1.83,-0.54,0.10
+Oeiras4Challenger,R32,Dusan Lajovic,Tiago Pereira,91.20,8.80,81.76,18.24,1.10,11.36,1.12,5.02,0.02,-6.34
+Oeiras4Challenger,R32,Ugo Blanchet,Jan Choinski,50.50,49.50,50.00,50.00,1.98,2.02,1.83,1.83,-0.15,-0.19
+Sanluispotosichallenger,R32,Kiranpal Pannu,Rodrigo Pacheco Mendez,24.80,75.20,25.57,74.43,4.03,1.33,3.58,1.23,-0.45,-0.10
+Sanluispotosichallenger,R32,Maxime Cressy,Tom Paris,73.60,26.40,55.80,44.20,1.36,3.79,1.64,2.07,0.28,-1.72
+Sanluispotosichallenger,R32,Mateus Alves,Juan Carlos Aguilar,61.70,38.30,66.34,33.66,1.62,2.61,1.38,2.72,-0.24,0.11
+Sanluispotosichallenger,R32,Garrett Johns,Matias Soto,41.00,59.00,44.20,55.80,2.44,1.69,2.07,1.64,-0.37,-0.05
+Sanluispotosichallenger,R32,Patrick Zahraj,Alvin Nicholas Tudorica,65.30,34.70,76.33,23.67,1.53,2.88,1.20,3.87,-0.33,0.99
+Sanluispotosichallenger,R32,Nicolas Mejia,Juan Alejandro Hernandez Serrano,79.50,20.50,,,1.26,4.88,,,,
+Sanluispotosichallenger,R32,Luka Pavlovic,Santiago Fa Rodriguez Taverna,68.10,31.90,,,1.47,3.13,,,,
+Sanluispotosichallenger,R32,Rodrigo Alujas,Neil Oberleitner,51.40,48.60,28.44,71.56,1.95,2.06,3.22,1.28,1.27,-0.78
+Sanluispotosichallenger,R32,Max Wiskandt,Adrian Mannarino,15.50,84.50,30.11,69.89,6.45,1.18,3.04,1.31,-3.41,0.13
+Tallahasseechallenger,R32,Eliot Spizzirri,Murphy Cassone,57.20,42.80,,,1.75,2.34,,,,
+Tallahasseechallenger,R32,Joel Schwaerzler,Matteo Martineau,44.10,55.90,,,2.27,1.79,,,,
+Tallahasseechallenger,R32,Gonzalo Bueno,Tung Lin Wu,50.60,49.40,,,1.98,2.02,,,,
+Tallahasseechallenger,R32,Mitchell Krueger,Facundo Mena,55.60,44.40,,,1.80,2.25,,,,
+Tallahasseechallenger,R32,Filip Cristian Jianu,Geoffrey Blancaneaux,46.50,53.50,,,2.15,1.87,,,,
+Tallahasseechallenger,R32,Patrick Maloney,Jenson Brooksby,5.10,94.90,,,19.61,1.05,,,,
+Tallahasseechallenger,R32,Juan Pablo Varillas,Andrea Collarini,63.20,36.80,,,1.58,2.72,,,,
+Tallahasseechallenger,R32,Sascha Gueymard Wayenburg,Alexis Galarneau,34.50,65.50,,,2.90,1.53,,,,
+Abidjan1Challenger,R32,Aziz Dougaz,Toby Samuel,59.70,40.30,59.84,40.16,1.68,2.48,1.53,2.28,-0.15,-0.20
+Abidjan1Challenger,R32,Ricardas Berankis,Aryan Shah,72.80,27.20,61.86,38.14,1.37,3.68,1.48,2.40,0.11,-1.28
+Abidjan1Challenger,R32,Kirill Kivattsev,Aleksandre Bakshi,54.10,45.90,53.26,46.74,1.85,2.18,1.72,1.96,-0.13,-0.22
+Abidjan1Challenger,R32,Abdoulaziz Bationo,Tibo Colson,72.30,27.70,10.22,89.78,1.38,3.61,8.96,1.02,7.58,-2.59
+Abidjan1Challenger,R32,Vadym Ursu,Moez Echargui,24.30,75.70,40.90,59.10,4.12,1.32,2.24,1.55,-1.88,0.23
+Abidjan1Challenger,R32,Tommaso Compagnucci,Robin Bertrand,50.00,50.00,,,2.00,2.00,,,,
