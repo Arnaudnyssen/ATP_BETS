@@ -1,20 +1,20 @@
 TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread
 Atpbarcelona,R32,Carlos Alcaraz,Ethan Quinn,97.40,2.60,,,1.03,38.46,,,,
-Atpbarcelona,R32,Laslo Djere,Arthur Rinderknech,66.40,33.60,,,1.51,2.98,,,,
-Atpbarcelona,R32,Roberto Carballes Baena,Jordan Thompson,63.90,36.10,62.75,37.25,1.56,2.77,1.49,2.51,-0.07,-0.26
+Atpbarcelona,R32,Laslo Djere,Arthur Rinderknech,66.40,33.60,73.05,26.95,1.51,2.98,1.28,3.47,-0.23,0.49
+Atpbarcelona,R32,Roberto Carballes Baena,Jordan Thompson,63.90,36.10,63.18,36.82,1.56,2.77,1.48,2.54,-0.08,-0.23
 Atpbarcelona,R32,Tomas Martin Etcheverry,Alex De Minaur,33.80,66.20,28.08,71.92,2.96,1.51,3.33,1.30,0.37,-0.21
 Atpbarcelona,R32,Stefanos Tsitsipas,Reilly Opelka,79.70,20.30,,,1.25,4.93,,,,
 Atpbarcelona,R32,Matteo Arnaldi,Sebastian Korda,55.50,44.50,51.34,48.66,1.80,2.25,1.82,1.92,0.02,-0.33
 Atpbarcelona,R32,Pedro Martinez,Brandon Nakashima,41.80,58.20,,,2.39,1.72,,,,
 Atpbarcelona,R32,Pablo Carreno Busta,Arthur Fils,35.00,65.00,25.20,74.80,2.86,1.54,3.71,1.25,0.85,-0.29
 Atpbarcelona,R32,Frances Tiafoe,Jaume Munar,57.90,42.10,,,1.73,2.38,,,,
-Atpbarcelona,R32,Karen Khachanov,Cameron Norrie,58.50,41.50,,,1.71,2.41,,,,
+Atpbarcelona,R32,Karen Khachanov,Cameron Norrie,58.50,41.50,60.36,39.64,1.71,2.41,1.55,2.36,-0.16,-0.05
 Atpbarcelona,R32,Stan Wawrinka,Alejandro Davidovich Fokina,37.20,62.80,26.95,73.05,2.69,1.59,3.47,1.28,0.78,-0.31
 Atpbarcelona,R32,Jesper De Jong,Andrey Rublev,19.50,80.50,,,5.13,1.24,,,,
 Atpbarcelona,R32,Holger Rune,Albert Ramos,88.90,11.10,,,1.12,9.01,,,,
 Atpbarcelona,R32,Sebastian Baez,Damir Dzumhur,68.10,31.90,,,1.47,3.13,,,,
-Atpbarcelona,R32,Hamad Medjedovic,Giovanni Mpetshi Perricard,55.60,44.40,,,1.80,2.25,,,,
-Atpbarcelona,R32,Daniel Elahi Galan,Casper Ruud,11.40,88.60,,,8.77,1.13,,,,
+Atpbarcelona,R32,Hamad Medjedovic,Giovanni Mpetshi Perricard,55.60,44.40,63.61,36.39,1.80,2.25,1.47,2.57,-0.33,0.32
+Atpbarcelona,R32,Daniel Elahi Galan,Casper Ruud,11.40,88.60,21.44,78.56,8.77,1.13,4.36,1.19,-4.41,0.06
 Atpmunich,R32,Alexander Zverev,Alexandre Muller,83.80,16.20,,,1.19,6.17,,,,
 Atpmunich,R32,Chun Hsin Tseng,Daniel Altmaier,42.30,57.70,34.13,65.87,2.36,1.73,2.74,1.42,0.38,-0.31
 Atpmunich,R32,Tallon Griekspoor,Learner Tien,88.50,11.50,68.21,31.79,1.13,8.70,1.37,2.94,0.24,-5.76
