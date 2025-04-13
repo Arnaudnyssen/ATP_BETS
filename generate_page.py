@@ -1,6 +1,7 @@
-# generate_page.py (v10 - Debug Value Bet)
-# Adds print statements to debug value bet highlighting.
-# VALUE_BET_THRESHOLD is still lowered for testing.
+# generate_page.py (v11 - Bold Row Highlight)
+# Loads the processed_comparison_*.csv file and generates the HTML page.
+# Highlights rows with significant spread by making them bold.
+# Removes cell-specific color highlighting.
 
 import pandas as pd
 import numpy as np
@@ -16,8 +17,7 @@ from typing import Optional, List
 DATA_DIR = "data_archive"
 PROCESSED_CSV_PATTERN = "processed_comparison_*.csv" # Input file pattern
 OUTPUT_HTML_FILE = "index.html"
-# --- Threshold still lowered for testing ---
-VALUE_BET_THRESHOLD = 1.01 # TEST VALUE: BC odds >= 101% of Sackmann odds
+# VALUE_BET_THRESHOLD = 1.10 # No longer used for highlighting
 INTERESTING_SPREAD_THRESHOLD = 0.50 # Highlight row if abs(spread) > 0.50
 
 # --- Column Definitions (for styling and display) ---
@@ -62,93 +62,35 @@ def format_simple_error_html(message: str) -> str:
 # --- HTML Generation Functions ---
 def apply_table_styles(row: pd.Series) -> List[str]:
     """
-    Applies CSS classes for row highlighting (interesting spread)
-    and cell highlighting (value bets, spread sign). Includes debug prints.
+    Applies CSS class 'interesting-spread-row' to all cells in a row
+    if the absolute spread for either player exceeds the threshold.
+    Otherwise, returns empty styles.
     """
-    styles = [''] * len(row.index)
-    cols_in_row = row.index
-    p1_name = row.get('Player1Name', 'P1?') # Get player names for debug context
-    p2_name = row.get('Player2Name', 'P2?')
+    styles = [''] * len(row.index) # Default: no specific style
 
-    # --- Row Highlighting Check ---
-    is_interesting_spread = False
     try:
         p1_spread_val = pd.to_numeric(row.get('p1_spread'), errors='coerce')
         p2_spread_val = pd.to_numeric(row.get('p2_spread'), errors='coerce')
         p1_spread_abs = abs(p1_spread_val)
         p2_spread_abs = abs(p2_spread_val)
 
+        # Check if either spread exceeds the threshold
         if (not pd.isna(p1_spread_abs) and p1_spread_abs > INTERESTING_SPREAD_THRESHOLD) or \
            (not pd.isna(p2_spread_abs) and p2_spread_abs > INTERESTING_SPREAD_THRESHOLD):
-            is_interesting_spread = True
+            # Apply the class to all cells in this row
             styles = ['interesting-spread-row'] * len(row.index)
-    except Exception as e_row_spread: print(f"Warning: Error during interesting spread row check: {e_row_spread}")
 
-    # --- Cell Specific Highlighting (Value Bets) ---
-    try:
-        sack_odds_p1 = pd.to_numeric(row.get('Player1_Match_Odds'), errors='coerce')
-        bc_odds_p1 = pd.to_numeric(row.get('bc_p1_odds'), errors='coerce')
-        sack_odds_p2 = pd.to_numeric(row.get('Player2_Match_Odds'), errors='coerce')
-        bc_odds_p2 = pd.to_numeric(row.get('bc_p2_odds'), errors='coerce')
+    except Exception as e_row_spread:
+        # Log error but don't apply style if check fails
+        print(f"Warning: Error during interesting spread row check: {e_row_spread}")
 
-        # --- DEBUG PRINT ADDED ---
-        print(f"DEBUG VALUE BET CHECK: {p1_name} vs {p2_name}")
-        if 'bc_p1_odds' in cols_in_row and not pd.isna(sack_odds_p1) and not pd.isna(bc_odds_p1):
-             threshold_val = sack_odds_p1 * VALUE_BET_THRESHOLD
-             print(f"  P1: bc_odds={bc_odds_p1:.2f}, sack_odds={sack_odds_p1:.2f}, threshold_val={threshold_val:.2f}, condition_met={bc_odds_p1 >= threshold_val}")
-             if bc_odds_p1 >= threshold_val:
-                 try:
-                     bc_p1_pos = cols_in_row.get_loc('bc_p1_odds')
-                     styles[bc_p1_pos] = (styles[bc_p1_pos] + ' value-bet').strip()
-                 except KeyError: pass
-        else:
-             print(f"  P1: Skipping check (missing data: sack={sack_odds_p1}, bc={bc_odds_p1})")
-
-        if 'bc_p2_odds' in cols_in_row and not pd.isna(sack_odds_p2) and not pd.isna(bc_odds_p2):
-             threshold_val = sack_odds_p2 * VALUE_BET_THRESHOLD
-             print(f"  P2: bc_odds={bc_odds_p2:.2f}, sack_odds={sack_odds_p2:.2f}, threshold_val={threshold_val:.2f}, condition_met={bc_odds_p2 >= threshold_val}")
-             if bc_odds_p2 >= threshold_val:
-                 try:
-                     bc_p2_pos = cols_in_row.get_loc('bc_p2_odds')
-                     styles[bc_p2_pos] = (styles[bc_p2_pos] + ' value-bet').strip()
-                 except KeyError: pass
-        else:
-             print(f"  P2: Skipping check (missing data: sack={sack_odds_p2}, bc={bc_odds_p2})")
-        # --- END DEBUG PRINT ---
-
-    except Exception as e_val: print(f"Warning: Error during value bet styling: {e_val}")
-
-    # --- Cell Specific Highlighting (Spread Sign) ---
-    # (This part remains the same, using p1_spread_val, p2_spread_val from above)
-    try:
-        if 'p1_spread' in cols_in_row and not pd.isna(p1_spread_val):
-            try:
-                idx = cols_in_row.get_loc('p1_spread')
-                spread_class = ''
-                if p1_spread_val > 0: spread_class = 'spread-positive'
-                elif p1_spread_val < 0: spread_class = 'spread-negative'
-                if spread_class:
-                    styles[idx] = (styles[idx] + ' ' + spread_class).strip()
-            except KeyError: pass
-
-        if 'p2_spread' in cols_in_row and not pd.isna(p2_spread_val):
-            try:
-                idx = cols_in_row.get_loc('p2_spread')
-                spread_class = ''
-                if p2_spread_val > 0: spread_class = 'spread-positive'
-                elif p2_spread_val < 0: spread_class = 'spread-negative'
-                if spread_class:
-                     styles[idx] = (styles[idx] + ' ' + spread_class).strip()
-            except KeyError: pass
-
-    except Exception as e_spread: print(f"Warning: Error during spread sign styling: {e_spread}")
-
+    # No longer applying value-bet or spread-sign classes
     return styles
 
 
 def generate_html_table(df: pd.DataFrame) -> str:
     """Generates the HTML table using Pandas Styler from the processed DataFrame."""
-    # (Logic for formatting, sorting, header mapping remains the same as v9)
+    # (Logic for formatting, sorting, header mapping remains the same)
     if df is None or df.empty:
         return format_simple_error_html("No processed match data provided to generate_html_table.")
     try:
@@ -200,7 +142,8 @@ def generate_html_table(df: pd.DataFrame) -> str:
         df_display.columns = current_headers
 
         print("Applying styles and generating HTML table string using Styler...")
-        styler = df_numeric.style.apply(apply_table_styles, axis=1) # Pass the function
+        # Pass the updated apply_table_styles function
+        styler = df_numeric.style.apply(apply_table_styles, axis=1)
         styler.set_table_attributes('class="dataframe"')
         styler.data = df_display
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
@@ -218,7 +161,7 @@ def generate_html_table(df: pd.DataFrame) -> str:
 
 def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     """Constructs the entire HTML page with updated styles, embedding the table and timestamp."""
-    # (CSS remains the same as v9)
+    # --- Updated CSS - Removed cell highlights, added bold for row ---
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -237,15 +180,9 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
             --row-alt-bg-color: #f8f9fa;
             --hover-bg-color: #e9ecef;
             --shadow-color: rgba(0, 0, 0, 0.05);
-            /* Cell Highlighting Colors */
-            --value-bet-bg-color: #d1ecf1; /* Light blue for value */
-            --value-bet-text-color: #0c5460; /* Dark blue */
-            --spread-positive-bg-color: #e2f0d9; /* Lighter green for spread */
-            --spread-positive-text-color: #385723; /* Darker green */
-            --spread-negative-bg-color: #fdecea; /* Lighter red for spread */
-            --spread-negative-text-color: #843534; /* Darker red */
+            /* Removed cell highlight colors */
             /* Row Highlighting Color */
-            --interesting-spread-row-bg-color: #fff9e6; /* Light yellow */
+            --interesting-spread-row-text-color: #000000; /* Black for bold text */
         }}
 
         body {{
@@ -272,10 +209,10 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
             font-size: 0.95em;
             color: #555;
         }}
-        p .highlight {{ /* Style for inline highlights in paragraph */
+        p .highlight {{
              padding: 1px 4px;
              border-radius: 3px;
-             font-weight: 500;
+             font-weight: bold; /* Make inline highlight bold */
         }}
 
         .table-container {{
@@ -341,42 +278,25 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
             background-color: var(--row-alt-bg-color);
         }}
         table.dataframe tbody tr:hover td {{
-            background-color: var(--hover-bg-color) !important; /* Ensure hover overrides default/alt */
+            background-color: var(--hover-bg-color) !important;
         }}
 
-        /* --- Interesting Spread Row Styling --- */
+        /* --- UPDATED: Interesting Spread Row Styling (Bold) --- */
         table.dataframe td.interesting-spread-row {{
-            background-color: var(--interesting-spread-row-bg-color) !important;
+            font-weight: bold !important; /* Make text bold */
+            color: var(--interesting-spread-row-text-color) !important;
+            /* background-color: transparent !important; Remove background override */
         }}
+        /* Optional: Slightly different hover for bold rows */
         table.dataframe tbody tr:hover td.interesting-spread-row {{
-             background-color: #fff3cd !important; /* Slightly darker yellow on hover */
+             /* background-color: var(--hover-bg-color) !important; Inherit standard hover */
+             /* Or add a subtle different hover if needed */
         }}
         /* --- End Row Styling --- */
 
 
-        /* Cell Specific Highlighting */
-        table.dataframe td.value-bet {{
-            background-color: var(--value-bet-bg-color) !important;
-            color: var(--value-bet-text-color);
-            font-weight: bold;
-            border-radius: 3px;
-        }}
-        table.dataframe td.spread-positive {{
-            background-color: var(--spread-positive-bg-color) !important;
-            color: var(--spread-positive-text-color);
-            font-weight: 500;
-            border-radius: 3px;
-        }}
-        table.dataframe td.spread-negative {{
-            background-color: var(--spread-negative-bg-color) !important;
-            color: var(--spread-negative-text-color);
-            font-weight: 500;
-            border-radius: 3px;
-        }}
-
-        table.dataframe tbody tr:hover td.value-bet {{ background-color: #b8daff !important; color: #004085; }}
-        table.dataframe tbody tr:hover td.spread-positive {{ background-color: #d4edda !important; color: #155724; }}
-        table.dataframe tbody tr:hover td.spread-negative {{ background-color: #f8d7da !important; color: #721c24; }}
+        /* --- REMOVED Cell Specific Highlighting Rules --- */
+        /* .value-bet, .spread-positive, .spread-negative rules removed */
 
 
         .last-updated {{
@@ -411,8 +331,7 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     <h1>Upcoming Tennis Odds Comparison (Sackmann vs Betcenter)</h1>
 
     <p>Comparison of probabilities and calculated odds from the Tennis Abstract Sackmann model against betting odds scraped from Betcenter.be. The 'Spread' columns show the difference between Betcenter odds and Sackmann's calculated odds (Positive means Betcenter odds are higher).
-    <br> - Rows highlighted in <span class="highlight" style="background-color: var(--interesting-spread-row-bg-color);">yellow</span> indicate a significant disagreement (spread > {INTERESTING_SPREAD_THRESHOLD:.2f}) between the sources for at least one player.
-    <br> - Cells highlighted in <span class="highlight" style="background-color: var(--value-bet-bg-color); color: var(--value-bet-text-color);">blue</span> indicate potential value bets where Betcenter odds are at least {int((VALUE_BET_THRESHOLD-1)*100)}% higher than the model's implied odds (TEST VALUE: {VALUE_BET_THRESHOLD*100:.0f}%). </p>
+    <br> - Rows in <span class="highlight">bold</span> indicate a significant disagreement (spread > {INTERESTING_SPREAD_THRESHOLD:.2f}) between the sources for at least one player. </p>
     <p>Matches involving qualifiers or appearing completed based on Sackmann data are filtered out. Name matching uses Title Case and may not be perfect.</p>
 
     <div class="table-container">{table_content_html}</div>
@@ -422,6 +341,7 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     return html_content
 
 # --- Main Execution Logic ---
+# (Main execution block remains the same)
 if __name__ == "__main__":
     print("Starting HTML page generation process...")
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -466,7 +386,7 @@ if __name__ == "__main__":
     update_time = datetime.now(pytz.timezone('Europe/Brussels')).strftime('%Y-%m-%d %H:%M:%S %Z')
     timestamp_str = f"Last updated: {html.escape(update_time)}"
     print("\nGenerating full HTML page content...");
-    full_html = generate_full_html_page(table_html_content, timestamp_str)
+    full_html = generate_full_html_page(table_content_html, timestamp_str)
     print("Full HTML page content generated.")
 
     try:
