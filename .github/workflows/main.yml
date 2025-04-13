@@ -61,14 +61,14 @@ jobs:
         continue-on-error: true # Continue even if betcenter fails, page might still generate with only Sackmann
         run: python betcenter_odds_scraper.py # This should produce betcenter_odds_*.csv
 
-      # --- *** NEW STEP: Process and Merge Data *** ---
+      # --- Process and Merge Data ---
       - name: Process and Merge Data
         id: process_data
-        run: python process_data.py # Reads latest sackmann_* and betcenter_* CSVs, writes merged_matchups_*.csv
+        run: python process_data.py # Reads latest sackmann_* and betcenter_* CSVs, writes processed_comparison_*.csv
 
-      - name: Generate HTML Page from Latest CSV
+      - name: Generate HTML Page from Latest Processed CSV
         id: generate_html
-        run: python generate_page.py # Reads merged_matchups_*.csv
+        run: python generate_page.py # Reads processed_comparison_*.csv
 
       # --- Commit Files ---
       - name: Configure Git
@@ -76,20 +76,20 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Stage All Generated Files
+      - name: Stage Processed Data and HTML # Updated Step Name
         run: |
-          # Add the generated HTML, Sackmann CSV, and Betcenter CSV
-          # NOTE: This staging step might need adjustment based on the NEW process_data step.
-          # It currently stages the raw inputs AND the final HTML.
-          # Consider if you want to stage merged_matchups_*.csv instead of the raw inputs.
-          git add index.html data_archive/sackmann_matchups_*.csv data_archive/betcenter_odds_*.csv || echo "No new files to stage, continuing..."
+          # Remove intermediate raw files from staging (optional, but good practice)
+          git rm --cached data_archive/sackmann_matchups_*.csv || echo "Sackmann raw files not staged or already removed."
+          git rm --cached data_archive/betcenter_odds_*.csv || echo "Betcenter raw files not staged or already removed."
+          # Add the generated HTML and the NEW processed data file
+          git add index.html data_archive/processed_comparison_*.csv || echo "No new files to stage, continuing..."
 
       - name: Commit Updates
         run: |
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Automated data and page update (using Betcenter)"
+            git commit -m "Automated data processing and page update" # Updated commit message
           fi
 
       # --- Push Changes ---
@@ -113,8 +113,9 @@ jobs:
       - name: Upload Artifact for Pages Deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Uploads the entire directory, including index.html
+          path: '.' # Uploads the entire directory, including index.html and data_archive/processed_comparison_*.csv
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+

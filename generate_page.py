@@ -1,5 +1,6 @@
-# generate_page.py (v6 - Display BC Probs & Compact Layout)
-# Loads the pre-processed/merged data CSV and generates the HTML page with updated styles.
+# generate_page.py (v8 - Spread Row Highlighting)
+# Loads the processed_comparison_*.csv file and generates the HTML page
+# with updated styles, including highlighting rows with significant spread.
 
 import pandas as pd
 import numpy as np
@@ -13,41 +14,38 @@ from typing import Optional, List
 
 # --- Constants ---
 DATA_DIR = "data_archive"
-MERGED_CSV_PATTERN = "merged_matchups_*.csv" # Input file pattern
+PROCESSED_CSV_PATTERN = "processed_comparison_*.csv" # Input file pattern
 OUTPUT_HTML_FILE = "index.html"
-VALUE_BET_THRESHOLD = 1.10 # Example: Betcenter odds must be 10% higher
+VALUE_BET_THRESHOLD = 1.10 # BC odds >= 110% of Sackmann odds
+INTERESTING_SPREAD_THRESHOLD = 0.50 # Highlight row if abs(spread) > 0.50
 
 # --- Column Definitions (for styling and display) ---
-# Added bc_p1_prob, bc_p2_prob and reordered
 DISPLAY_COLS_ORDERED = [
     'TournamentName', 'Round', 'Player1Name', 'Player2Name',
-    'Player1_Match_Prob', 'bc_p1_prob', 'Player2_Match_Prob', 'bc_p2_prob', # Sack P1, BC P1, Sack P2, BC P2
-    'Player1_Match_Odds', 'bc_p1_odds', 'Player2_Match_Odds', 'bc_p2_odds', # Sack P1, BC P1, Sack P2, BC P2
+    'Player1_Match_Prob', 'bc_p1_prob', 'Player2_Match_Prob', 'bc_p2_prob',
+    'Player1_Match_Odds', 'bc_p1_odds', 'Player2_Match_Odds', 'bc_p2_odds',
     'p1_spread', 'p2_spread'
 ]
-# Updated headers to match new order and potentially shorten
 DISPLAY_HEADERS = [
-    "Tournament", "R", "Player 1", "Player 2", # Shortened Round
-    "P1 Prob (S)", "P1 Prob (BC)", "P2 Prob (S)", "P2 Prob (BC)", # Shortened Sackmann, Added BC
-    "P1 Odds (S)", "P1 Odds (BC)", "P2 Odds (S)", "P2 Odds (BC)", # Shortened Sackmann, Added BC
+    "Tournament", "R", "Player 1", "Player 2",
+    "P1 Prob (S)", "P1 Prob (BC)", "P2 Prob (S)", "P2 Prob (BC)",
+    "P1 Odds (S)", "P1 Odds (BC)", "P2 Odds (S)", "P2 Odds (BC)",
     "P1 Spread", "P2 Spread"
 ]
 
 # --- Helper Functions ---
+# (find_latest_csv, format_simple_error_html remain the same)
 def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
     """Finds the most recently modified CSV file matching the pattern."""
     try:
-        # Ensure directory path is absolute
         if not os.path.isabs(directory):
              script_dir = os.path.dirname(os.path.abspath(__file__))
              search_dir = os.path.join(script_dir, directory)
         else:
              search_dir = directory
-
         search_path = os.path.join(search_dir, pattern); print(f"Searching for pattern: {search_path}")
         list_of_files = glob.glob(search_path)
         if not list_of_files: print(f"  No files found matching pattern."); return None
-        # Filter out directories, just in case pattern matches one
         list_of_files = [f for f in list_of_files if os.path.isfile(f)]
         if not list_of_files: print(f"  No *files* found matching pattern."); return None
         latest_file = max(list_of_files, key=os.path.getmtime); print(f"Found latest CSV file: {os.path.basename(latest_file)}")
@@ -57,17 +55,35 @@ def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
 def format_simple_error_html(message: str) -> str:
     """Formats a simple error message as HTML for the table container."""
     print(f"Error generating table: {message}")
-    # Basic HTML formatting for the error message
     return f'<div style="padding: 20px; text-align: center; color: #dc3545; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;"><strong>Error:</strong> {html.escape(message)} Check logs for details.</div>'
+
 
 # --- HTML Generation Functions ---
 def apply_table_styles(row: pd.Series) -> List[str]:
-    """Applies CSS classes for value bets and spread highlighting to specific cells."""
-    # Initialize styles as empty strings based on the row's index (columns)
+    """
+    Applies CSS classes for row highlighting (interesting spread)
+    and cell highlighting (value bets, spread sign).
+    Row highlighting takes precedence for background.
+    """
     styles = [''] * len(row.index)
-    cols_in_row = row.index # Get the actual columns present in the row/DataFrame slice
+    cols_in_row = row.index
 
-    try: # Value Bet Check - Apply style ONLY to the Betcenter odds cell
+    # --- Row Highlighting Check ---
+    is_interesting_spread = False
+    try:
+        p1_spread_abs = abs(pd.to_numeric(row.get('p1_spread'), errors='coerce'))
+        p2_spread_abs = abs(pd.to_numeric(row.get('p2_spread'), errors='coerce'))
+        if (not pd.isna(p1_spread_abs) and p1_spread_abs > INTERESTING_SPREAD_THRESHOLD) or \
+           (not pd.isna(p2_spread_abs) and p2_spread_abs > INTERESTING_SPREAD_THRESHOLD):
+            is_interesting_spread = True
+            # Apply class to all cells in the row
+            styles = ['interesting-spread-row'] * len(row.index)
+    except Exception as e_row_spread: print(f"Warning: Error during interesting spread row check: {e_row_spread}")
+
+    # --- Cell Specific Highlighting (Value Bets) ---
+    # These will be added *in addition* to the row class if applicable,
+    # allowing CSS specificity to control final appearance (e.g., font weight).
+    try:
         sack_odds_p1 = pd.to_numeric(row.get('Player1_Match_Odds'), errors='coerce')
         bc_odds_p1 = pd.to_numeric(row.get('bc_p1_odds'), errors='coerce')
         sack_odds_p2 = pd.to_numeric(row.get('Player2_Match_Odds'), errors='coerce')
@@ -76,65 +92,71 @@ def apply_table_styles(row: pd.Series) -> List[str]:
         if 'bc_p1_odds' in cols_in_row and not pd.isna(sack_odds_p1) and not pd.isna(bc_odds_p1) and bc_odds_p1 >= sack_odds_p1 * VALUE_BET_THRESHOLD:
             try:
                 bc_p1_pos = cols_in_row.get_loc('bc_p1_odds')
-                styles[bc_p1_pos] = 'value-bet'
+                # Append class, don't overwrite row class
+                styles[bc_p1_pos] = (styles[bc_p1_pos] + ' value-bet').strip()
             except KeyError: pass
 
         if 'bc_p2_odds' in cols_in_row and not pd.isna(sack_odds_p2) and not pd.isna(bc_odds_p2) and bc_odds_p2 >= sack_odds_p2 * VALUE_BET_THRESHOLD:
             try:
                 bc_p2_pos = cols_in_row.get_loc('bc_p2_odds')
-                styles[bc_p2_pos] = 'value-bet'
+                styles[bc_p2_pos] = (styles[bc_p2_pos] + ' value-bet').strip()
             except KeyError: pass
 
     except Exception as e_val: print(f"Warning: Error during value bet styling: {e_val}")
 
-    try: # Spread Check - Apply style ONLY to the spread cell
+    # --- Cell Specific Highlighting (Spread Sign) ---
+    try:
         p1_spread = pd.to_numeric(row.get('p1_spread'), errors='coerce')
         p2_spread = pd.to_numeric(row.get('p2_spread'), errors='coerce')
 
         if 'p1_spread' in cols_in_row and not pd.isna(p1_spread):
             try:
                 idx = cols_in_row.get_loc('p1_spread')
-                if p1_spread > 0: styles[idx] = 'spread-positive'
-                elif p1_spread < 0: styles[idx] = 'spread-negative'
+                spread_class = ''
+                if p1_spread > 0: spread_class = 'spread-positive'
+                elif p1_spread < 0: spread_class = 'spread-negative'
+                if spread_class:
+                    styles[idx] = (styles[idx] + ' ' + spread_class).strip()
             except KeyError: pass
 
         if 'p2_spread' in cols_in_row and not pd.isna(p2_spread):
             try:
                 idx = cols_in_row.get_loc('p2_spread')
-                if p2_spread > 0: styles[idx] = 'spread-positive'
-                elif p2_spread < 0: styles[idx] = 'spread-negative'
+                spread_class = ''
+                if p2_spread > 0: spread_class = 'spread-positive'
+                elif p2_spread < 0: spread_class = 'spread-negative'
+                if spread_class:
+                     styles[idx] = (styles[idx] + ' ' + spread_class).strip()
             except KeyError: pass
 
-    except Exception as e_spread: print(f"Warning: Error during spread styling: {e_spread}")
+    except Exception as e_spread: print(f"Warning: Error during spread sign styling: {e_spread}")
 
     return styles
 
 
 def generate_html_table(df: pd.DataFrame) -> str:
-    """Generates the HTML table using Pandas Styler from the pre-merged DataFrame."""
+    """Generates the HTML table using Pandas Styler from the processed DataFrame."""
+    # (Logic for formatting, sorting, header mapping remains the same as v7)
     if df is None or df.empty:
-        return format_simple_error_html("No merged match data provided to generate_html_table.")
+        return format_simple_error_html("No processed match data provided to generate_html_table.")
     try:
-        print("Formatting final merged data for display...")
-        # Ensure only columns intended for display are present before styling
+        print("Formatting final processed data for display...")
         cols_to_use = [col for col in DISPLAY_COLS_ORDERED if col in df.columns]
         missing_display_cols = [col for col in DISPLAY_COLS_ORDERED if col not in df.columns]
         if missing_display_cols:
-            print(f"Warning: Merged data missing expected display columns: {', '.join(missing_display_cols)}. Table might look incomplete.")
+            print(f"Warning: Processed data missing expected display columns: {', '.join(missing_display_cols)}. Table might look incomplete.")
 
-        df_numeric = df[cols_to_use].copy() # Use this for styling logic
-        df_display = df[cols_to_use].copy() # Use this for display text
+        df_numeric = df[cols_to_use].copy()
+        df_display = df[cols_to_use].copy()
 
-        # Define formatters for numeric columns (including new BC probs)
         formatters = {
             'Player1_Match_Prob': '{:.1f}%'.format, 'Player2_Match_Prob': '{:.1f}%'.format,
-            'bc_p1_prob': '{:.1f}%'.format, 'bc_p2_prob': '{:.1f}%'.format, # Added BC probs
+            'bc_p1_prob': '{:.1f}%'.format, 'bc_p2_prob': '{:.1f}%'.format,
             'Player1_Match_Odds': '{:.2f}'.format, 'Player2_Match_Odds': '{:.2f}'.format,
             'bc_p1_odds': '{:.2f}'.format, 'bc_p2_odds': '{:.2f}'.format,
             'p1_spread': '{:+.2f}'.format, 'p2_spread': '{:+.2f}'.format
         }
 
-        # Apply formatting to the display DataFrame
         for col, fmt in formatters.items():
             if col in df_display.columns:
                  df_display[col] = pd.to_numeric(df_display[col], errors='coerce').map(fmt, na_action='ignore')
@@ -142,7 +164,6 @@ def generate_html_table(df: pd.DataFrame) -> str:
         df_display.fillna('-', inplace=True)
         print("Data formatting complete.")
 
-        # Sorting logic
         try:
             round_map = {'R128': 128, 'R64': 64, 'R32': 32, 'R16': 16, 'QF': 8, 'SF': 4, 'F': 2, 'W': 1}
             sort_cols = []
@@ -163,14 +184,14 @@ def generate_html_table(df: pd.DataFrame) -> str:
         except Exception as e_sort:
             print(f"Warning: Error during sorting: {e_sort}")
 
-        # Map available columns to their desired headers for the final display
         current_headers = [DISPLAY_HEADERS[DISPLAY_COLS_ORDERED.index(col)] for col in cols_to_use]
         df_display.columns = current_headers
 
         print("Applying styles and generating HTML table string using Styler...")
+        # Pass the apply_table_styles function. It now returns classes for rows and/or cells.
         styler = df_numeric.style.apply(apply_table_styles, axis=1)
         styler.set_table_attributes('class="dataframe"')
-        styler.data = df_display
+        styler.data = df_display # Use the formatted data for the final HTML output
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
 
         if not html_table or not isinstance(html_table, str):
@@ -186,7 +207,7 @@ def generate_html_table(df: pd.DataFrame) -> str:
 
 def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     """Constructs the entire HTML page with updated styles, embedding the table and timestamp."""
-    # --- Updated CSS for Compactness ---
+    # --- Updated CSS with interesting-spread-row ---
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -196,30 +217,32 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     <style>
         /* --- Modern, Sleek, Simple Palette & Layout --- */
         :root {{
-            --bg-color: #ffffff; /* White background */
-            --text-color: #333333; /* Dark gray text */
-            --primary-color: #0a68f5; /* A modern blue */
-            --header-bg-color: #f8f9fa; /* Light gray header */
-            --header-text-color: #343a40; /* Darker gray header text */
-            --border-color: #e9ecef; /* Lighter border color */
-            --row-alt-bg-color: #f8f9fa; /* Light gray for alternating rows */
-            --hover-bg-color: #e9ecef; /* Slightly darker gray on hover */
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --primary-color: #0a68f5;
+            --header-bg-color: #f8f9fa;
+            --header-text-color: #343a40;
+            --border-color: #e9ecef;
+            --row-alt-bg-color: #f8f9fa;
+            --hover-bg-color: #e9ecef;
             --shadow-color: rgba(0, 0, 0, 0.05);
             /* Cell Highlighting Colors */
-            --value-bet-bg-color: #e6ffed; /* Light green */
-            --value-bet-text-color: #006400; /* Dark green */
-            --spread-positive-bg-color: #e6ffed; /* Light green */
-            --spread-positive-text-color: #006400; /* Dark green */
-            --spread-negative-bg-color: #ffeeee; /* Light red */
-            --spread-negative-text-color: #a52a2a; /* Dark red */
+            --value-bet-bg-color: #d1ecf1; /* Light blue for value */
+            --value-bet-text-color: #0c5460; /* Dark blue */
+            --spread-positive-bg-color: #e2f0d9; /* Lighter green for spread */
+            --spread-positive-text-color: #385723; /* Darker green */
+            --spread-negative-bg-color: #fdecea; /* Lighter red for spread */
+            --spread-negative-text-color: #843534; /* Darker red */
+            /* Row Highlighting Color */
+            --interesting-spread-row-bg-color: #fff9e6; /* Light yellow */
         }}
 
         body {{
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.55; /* Slightly reduced line-height */
-            padding: 20px; /* Reduced padding */
-            max-width: 98%; /* Use percentage for better fluidity */
-            margin: 20px auto; /* Reduced margin */
+            line-height: 1.55;
+            padding: 20px;
+            max-width: 98%;
+            margin: 20px auto;
             background-color: var(--bg-color);
             color: var(--text-color);
         }}
@@ -230,17 +253,22 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
             padding-bottom: 10px;
             margin-bottom: 25px;
             font-weight: 600;
-            font-size: 1.7em; /* Slightly smaller */
+            font-size: 1.7em;
         }}
 
         p {{
             margin-bottom: 15px;
-            font-size: 0.95em; /* Slightly smaller */
+            font-size: 0.95em;
             color: #555;
+        }}
+        p .highlight {{ /* Style for inline highlights in paragraph */
+             padding: 1px 4px;
+             border-radius: 3px;
+             font-weight: 500;
         }}
 
         .table-container {{
-            overflow-x: auto; /* Keep horizontal scroll as fallback */
+            overflow-x: auto;
             box-shadow: 0 2px 6px var(--shadow-color);
             border-radius: 6px;
             background-color: var(--bg-color);
@@ -253,14 +281,14 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
             width: 100%;
             border-collapse: collapse;
             margin: 0;
-            font-size: 0.85em; /* Smaller font size */
+            font-size: 0.85em;
         }}
 
         table.dataframe th,
         table.dataframe td {{
             border: none;
             border-bottom: 1px solid var(--border-color);
-            padding: 7px 8px; /* Reduced padding */
+            padding: 7px 8px;
             text-align: left;
             vertical-align: middle;
             white-space: nowrap;
@@ -270,12 +298,10 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
             border-bottom: none;
         }}
 
-        /* --- Adjusted Column Widths for Compactness --- */
-        /* Allow Tournament and Player names more space & wrapping */
+        /* Column Widths */
         table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) {{ width: 15%; white-space: normal;}} /* Tournament */
         table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) {{ width: 15%; white-space: normal; font-weight: 500;}} /* Player 1 */
         table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) {{ width: 15%; white-space: normal; font-weight: 500;}} /* Player 2 */
-        /* Make Round, Probs, Odds, Spread narrower */
         table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) {{ width: 3%; }}  /* Round (R) */
         table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) {{ width: 6%; text-align: right;}} /* P1 Prob (S) */
         table.dataframe th:nth-child(6), table.dataframe td:nth-child(6) {{ width: 6%; text-align: right;}} /* P1 Prob (BC) */
@@ -287,7 +313,6 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
         table.dataframe th:nth-child(12), table.dataframe td:nth-child(12) {{ width: 5%; text-align: right;}} /* P2 Odds (BC) */
         table.dataframe th:nth-child(13), table.dataframe td:nth-child(13) {{ width: 4%; text-align: right;}} /* P1 Spread */
         table.dataframe th:nth-child(14), table.dataframe td:nth-child(14) {{ width: 4%; text-align: right;}} /* P2 Spread */
-        /* --- End Width Adjustments --- */
 
         /* Header Styling */
         table.dataframe thead th {{
@@ -305,15 +330,27 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
             background-color: var(--row-alt-bg-color);
         }}
         table.dataframe tbody tr:hover td {{
-            background-color: var(--hover-bg-color);
+            background-color: var(--hover-bg-color) !important; /* Ensure hover overrides default/alt */
         }}
 
+        /* --- NEW: Interesting Spread Row Styling --- */
+        table.dataframe td.interesting-spread-row {{
+            background-color: var(--interesting-spread-row-bg-color) !important;
+        }}
+        /* Apply hover effect specifically for interesting rows */
+        table.dataframe tbody tr:hover td.interesting-spread-row {{
+             background-color: #fff3cd !important; /* Slightly darker yellow on hover */
+        }}
+        /* --- End Row Styling --- */
+
+
         /* Cell Specific Highlighting */
+        /* These classes are added to specific <td> elements */
         table.dataframe td.value-bet {{
-            background-color: var(--value-bet-bg-color) !important;
+            background-color: var(--value-bet-bg-color) !important; /* Use important to override row bg */
             color: var(--value-bet-text-color);
             font-weight: bold;
-            border-radius: 3px; /* Slightly smaller radius */
+            border-radius: 3px;
         }}
         table.dataframe td.spread-positive {{
             background-color: var(--spread-positive-bg-color) !important;
@@ -327,29 +364,31 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
             font-weight: 500;
             border-radius: 3px;
         }}
-        table.dataframe tbody tr:hover td.value-bet {{ background-color: #c8e6c9 !important; }}
-        table.dataframe tbody tr:hover td.spread-positive {{ background-color: #c8e6c9 !important; }}
-        table.dataframe tbody tr:hover td.spread-negative {{ background-color: #ffcdd2 !important; }}
+
+        /* Ensure hover doesn't completely override cell highlight colors */
+        table.dataframe tbody tr:hover td.value-bet {{ background-color: #b8daff !important; color: #004085; }} /* Adjust hover color */
+        table.dataframe tbody tr:hover td.spread-positive {{ background-color: #d4edda !important; color: #155724; }} /* Adjust hover color */
+        table.dataframe tbody tr:hover td.spread-negative {{ background-color: #f8d7da !important; color: #721c24; }} /* Adjust hover color */
+
 
         .last-updated {{
             margin-top: 25px;
             padding-top: 15px;
             border-top: 1px solid var(--border-color);
-            font-size: 0.85em; /* Smaller */
+            font-size: 0.85em;
             color: #6c757d;
             text-align: center;
         }}
 
         /* Responsive Adjustments */
         @media (max-width: 1200px) {{
-            /* Already quite compact, minimal changes */
             table.dataframe th, table.dataframe td {{ font-size: 0.82em; padding: 6px 7px; }}
         }}
         @media (max-width: 992px) {{
-             body {{ padding: 15px; max-width: 100%; }} /* Allow full width */
+             body {{ padding: 15px; max-width: 100%; }}
              h1 {{ font-size: 1.5em; }}
              table.dataframe th, table.dataframe td {{ font-size: 0.78em; padding: 6px 5px; white-space: normal; }}
-             table.dataframe th:nth-child(n), table.dataframe td:nth-child(n) {{ width: auto;}} /* Allow natural wrapping */
+             table.dataframe th:nth-child(n), table.dataframe td:nth-child(n) {{ width: auto;}}
              table.dataframe th:nth-child(3), table.dataframe td:nth-child(3),
              table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) {{ font-weight: normal;}}
         }}
@@ -362,8 +401,13 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
 </head>
 <body>
     <h1>Upcoming Tennis Odds Comparison (Sackmann vs Betcenter)</h1>
-    <p>Comparison of probabilities and calculated odds from the Tennis Abstract Sackmann model against betting odds scraped from Betcenter.be. The 'Spread' columns show the difference between Betcenter odds and Sackmann's calculated odds (Positive means Betcenter odds are higher). Cells highlighted in <span style="background-color: var(--value-bet-bg-color); color: var(--value-bet-text-color); padding: 1px 4px; border-radius: 3px;">green</span> indicate potential value bets where Betcenter odds are at least {int((VALUE_BET_THRESHOLD-1)*100)}% higher than the model's implied odds.</p>
+
+    <p>Comparison of probabilities and calculated odds from the Tennis Abstract Sackmann model against betting odds scraped from Betcenter.be. The 'Spread' columns show the difference between Betcenter odds and Sackmann's calculated odds (Positive means Betcenter odds are higher).
+    <br> - Rows highlighted in <span class="highlight" style="background-color: var(--interesting-spread-row-bg-color);">yellow</span> indicate a significant disagreement (spread > {INTERESTING_SPREAD_THRESHOLD:.2f}) between the sources for at least one player.
+    <br> - Cells highlighted in <span class="highlight" style="background-color: var(--value-bet-bg-color); color: var(--value-bet-text-color);">blue</span> indicate potential value bets where Betcenter odds are at least {int((VALUE_BET_THRESHOLD-1)*100)}% higher than the model's implied odds.
+    </p>
     <p>Matches involving qualifiers or appearing completed based on Sackmann data are filtered out. Name matching uses Title Case and may not be perfect.</p>
+
     <div class="table-container">{table_content_html}</div>
     <div class="last-updated">{timestamp_str}</div>
 </body>
@@ -371,39 +415,40 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     return html_content
 
 # --- Main Execution Logic ---
+# (Main execution block remains the same as v7)
 if __name__ == "__main__":
     print("Starting HTML page generation process...")
     script_dir = os.path.dirname(os.path.abspath(__file__))
     data_dir_abs = os.path.join(script_dir, DATA_DIR)
     output_file_abs = os.path.join(script_dir, OUTPUT_HTML_FILE)
-    print(f"Script directory: {script_dir}"); print(f"Looking for latest merged CSV in: {data_dir_abs}"); print(f"Outputting generated HTML to: {output_file_abs}")
+    print(f"Script directory: {script_dir}"); print(f"Looking for latest processed CSV in: {data_dir_abs}"); print(f"Outputting generated HTML to: {output_file_abs}")
 
     table_html_content = format_simple_error_html("Initialization error or process did not start correctly.")
     final_df = None
 
     try:
-        print("\nFinding latest merged data file...")
-        latest_merged_csv = find_latest_csv(data_dir_abs, MERGED_CSV_PATTERN)
+        print("\nFinding latest processed data file...")
+        latest_processed_csv = find_latest_csv(data_dir_abs, PROCESSED_CSV_PATTERN)
 
-        if latest_merged_csv:
-            print(f"Loading merged data from: {os.path.basename(latest_merged_csv)}")
+        if latest_processed_csv:
+            print(f"Loading processed data from: {os.path.basename(latest_processed_csv)}")
             try:
-                final_df = pd.read_csv(latest_merged_csv)
+                final_df = pd.read_csv(latest_processed_csv)
                 if final_df.empty:
-                     print(f"  Warning: Loaded merged data file is empty.")
-                     table_html_content = format_simple_error_html("Loaded merged data file is empty.")
+                     print(f"  Warning: Loaded processed data file is empty.")
+                     table_html_content = format_simple_error_html("Loaded processed data file is empty.")
                 else:
-                     print(f"  Successfully loaded merged data. Shape: {final_df.shape}")
+                     print(f"  Successfully loaded processed data. Shape: {final_df.shape}")
                      print(f"\nGenerating HTML table content from final data (Shape: {final_df.shape})...")
                      table_html_content = generate_html_table(final_df)
 
             except Exception as load_err:
-                error_msg = f"Error loading or processing merged CSV '{os.path.basename(latest_merged_csv)}': {load_err}"
+                error_msg = f"Error loading or processing CSV '{os.path.basename(latest_processed_csv)}': {load_err}"
                 print(f"  {error_msg}")
                 traceback.print_exc()
                 table_html_content = format_simple_error_html(error_msg)
         else:
-            error_msg = f"Could not find latest merged data file ({MERGED_CSV_PATTERN}). Run processing script first."
+            error_msg = f"Could not find latest processed data file ({PROCESSED_CSV_PATTERN}). Run processing script first."
             print(f"  {error_msg}")
             table_html_content = format_simple_error_html(error_msg)
 
@@ -415,7 +460,7 @@ if __name__ == "__main__":
     update_time = datetime.now(pytz.timezone('Europe/Brussels')).strftime('%Y-%m-%d %H:%M:%S %Z')
     timestamp_str = f"Last updated: {html.escape(update_time)}"
     print("\nGenerating full HTML page content...");
-    full_html = generate_full_html_page(table_html_content, timestamp_str)
+    full_html = generate_full_html_page(table_content_html, timestamp_str)
     print("Full HTML page content generated.")
 
     try:

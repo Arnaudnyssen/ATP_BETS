@@ -1,6 +1,7 @@
-# process_data.py (v3 - Refined Key Cleaning)
+# process_data.py (v4 - Improved Key Cleaning & New Output Filename)
 # Loads latest Sackmann and Betcenter data, preprocesses, merges, calculates spread,
-# calculates normalized Betcenter probabilities, and saves the final combined DataFrame.
+# calculates normalized Betcenter probabilities, and saves the final combined DataFrame
+# to a new filename pattern.
 
 import pandas as pd
 import numpy as np
@@ -16,7 +17,9 @@ from typing import Optional, List, Tuple, Any
 DATA_DIR = "data_archive"
 SACKMANN_CSV_PATTERN = "sackmann_matchups_*.csv"
 BETCENTER_CSV_PATTERN = "betcenter_odds_*.csv"
-MERGED_OUTPUT_FILENAME_BASE = "merged_matchups"
+# --- NEW Output Filename Base ---
+PROCESSED_OUTPUT_FILENAME_BASE = "processed_comparison"
+# --------------------------------
 DATE_FORMAT = "%Y%m%d"
 
 # --- Column Definitions ---
@@ -38,15 +41,20 @@ def create_merge_key(text: str) -> str:
         # Remove common prefixes/suffixes/qualifiers
         prefixes_suffixes_to_remove = [
             "tennis - ", ", qualifying", ", spain", ", germany", "atp", "challenger",
-            "qualification" # Added qualification
+            "qualification"
         ]
         for item in prefixes_suffixes_to_remove:
             key = key.replace(item, "")
 
         key = key.strip() # Remove leading/trailing spaces after replacements
-        key = re.sub(r'[^\w]', '', key) # Keep only alphanumeric
+        # --- ADDED: Remove trailing digits (e.g., from Abidjan1) ---
+        key = re.sub(r'\d+$', '', key)
+        # ----------------------------------------------------------
+        key = re.sub(r'[^\w]', '', key) # Keep only alphanumeric (removes spaces, hyphens etc.)
         return key
-    except Exception: return "" # Return empty string on any error
+    except Exception as e:
+        print(f"Warning: Error creating merge key for '{text}': {e}")
+        return "" # Return empty string on any error
 
 def preprocess_player_name(name: str) -> Tuple[str, str]:
     """Standardizes player names (Title Case) and creates a merge key."""
@@ -60,12 +68,14 @@ def preprocess_player_name(name: str) -> Tuple[str, str]:
         display_name = re.sub(r'^\*|\*$', '', display_name).strip()
         display_name = display_name.title()
         display_name = re.sub(r'\s+', ' ', display_name).strip()
-        merge_key_name = create_merge_key(display_name) # Use the same key func for consistency
+        # Use the updated create_merge_key for player names too for consistency
+        merge_key_name = create_merge_key(display_name)
         return display_name, merge_key_name
     except Exception as e:
         print(f"Warning: Could not preprocess player name '{name}': {e}")
-        return name.title(), create_merge_key(name)
+        return name.title(), create_merge_key(name) # Fallback uses updated key func
 
+# (find_latest_csv, load_and_prepare_sackmann_data, load_and_prepare_betcenter_data, merge_data remain the same as v3)
 def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
     """Finds the most recently modified CSV file matching the pattern."""
     try:
@@ -83,8 +93,6 @@ def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
         return latest_file
     except Exception as e: print(f"Error finding latest CSV file in '{directory}' with pattern '{pattern}': {e}"); traceback.print_exc(); return None
 
-# --- Data Loading Functions ---
-# (load_and_prepare_sackmann_data and load_and_prepare_betcenter_data remain the same as v2)
 def load_and_prepare_sackmann_data(csv_filepath: str) -> Optional[pd.DataFrame]:
     """Loads, preprocesses, filters, and standardizes Sackmann data."""
     print(f"Loading Sackmann data from: {os.path.basename(csv_filepath)}")
@@ -156,8 +164,6 @@ def load_and_prepare_betcenter_data(csv_filepath: str) -> Optional[pd.DataFrame]
         return df_out
     except Exception as e: print(f"  Error loading/preparing Betcenter data: {e}"); traceback.print_exc(); return None
 
-# --- Merge Function (Using Keys) ---
-# (merge_data function remains the same as v2)
 def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) -> pd.DataFrame:
     """Merges Sackmann and Betcenter dataframes based on standardized keys, handling swaps."""
     if sackmann_df is None or sackmann_df.empty:
@@ -167,13 +173,14 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
     if betcenter_df is None or betcenter_df.empty:
         print("Betcenter data is missing or empty. Adding placeholder columns to Sackmann data.")
         final_df = sackmann_df.copy()
-        for col in ['bc_p1_odds', 'bc_p2_odds']:
+        # Add placeholders for all columns that would come from Betcenter
+        for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread']:
              if col not in final_df.columns: final_df[col] = np.nan
     else:
         print("Attempting to merge Sackmann and Betcenter data on standardized keys...")
         try:
-            if not all(key in sackmann_df.columns for key in MERGE_KEY_COLS): print(f"Error: Sackmann DF missing keys ({MERGE_KEY_COLS})."); return sackmann_df
-            if not all(key in betcenter_df.columns for key in MERGE_KEY_COLS): print(f"Error: Betcenter DF missing keys ({MERGE_KEY_COLS})."); return sackmann_df
+            if not all(key in sackmann_df.columns for key in MERGE_KEY_COLS): print(f"Error: Sackmann DF missing keys ({MERGE_KEY_COLS})."); return sackmann_df # Return original if keys missing
+            if not all(key in betcenter_df.columns for key in MERGE_KEY_COLS): print(f"Error: Betcenter DF missing keys ({MERGE_KEY_COLS})."); return sackmann_df # Return original if keys missing
 
             print("\n--- Debugging Merge ---"); print(f"Sackmann DF Head (Keys - {len(sackmann_df)} rows):"); print(sackmann_df[MERGE_KEY_COLS].head())
             print(f"\nBetcenter DF Head (Keys - {len(betcenter_df)} rows):"); print(betcenter_df[MERGE_KEY_COLS].head()); print("-----------------------\n")
@@ -195,8 +202,11 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
                 }, inplace=True)
 
                 unmatched_sackmann_subset = sackmann_df.loc[unmatched_indices].copy()
+                # Ensure merge keys are present before dropping columns
+                cols_to_drop = ['bc_p1_odds', 'bc_p2_odds']
+                cols_exist = [col for col in cols_to_drop if col in unmatched_sackmann_subset.columns]
                 swapped_merge_result = pd.merge(
-                    unmatched_sackmann_subset.drop(columns=['bc_p1_odds', 'bc_p2_odds'], errors='ignore'),
+                    unmatched_sackmann_subset.drop(columns=cols_exist, errors='ignore'),
                     betcenter_swapped, on=MERGE_KEY_COLS, how='left', suffixes=('', '_swap')
                 )
 
@@ -216,7 +226,7 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
             print(f"Error during data merging: {e}"); traceback.print_exc()
             print("Fallback: Returning only Sackmann data due to merge error.")
             final_df = sackmann_df.copy()
-            for col in ['bc_p1_odds', 'bc_p2_odds']:
+            for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread']:
                  if col not in final_df.columns: final_df[col] = np.nan
 
     # --- Calculate Spread ---
@@ -248,12 +258,10 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
 
     print(f"Final processed data shape: {final_df.shape}")
     print("Sample of final processed data (Head):")
-    # Print relevant columns including the new probabilities
     print(final_df[['TournamentName', 'Player1Name', 'Player2Name', 'Player1_Match_Prob', 'bc_p1_prob', 'Player1_Match_Odds', 'bc_p1_odds', 'p1_spread']].head())
     return final_df
 
 # --- Main Execution Logic ---
-# (Main execution block remains the same as v2)
 if __name__ == "__main__":
     print("="*50); print(" Starting Data Processing Script..."); print("="*50)
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -277,20 +285,22 @@ if __name__ == "__main__":
     else:
         print("Warning: Betcenter data file not found. Proceeding with Sackmann data only (no BC odds/probs/spread).")
 
-    final_merged_data = merge_data(sackmann_data, betcenter_data)
+    final_processed_data = merge_data(sackmann_data, betcenter_data)
 
-    if final_merged_data is not None and not final_merged_data.empty:
-        print("\nSaving final merged data...")
+    if final_processed_data is not None and not final_processed_data.empty:
+        print("\nSaving final processed data...")
         today_date_str = datetime.now().strftime(DATE_FORMAT)
-        output_filename = f"{MERGED_OUTPUT_FILENAME_BASE}_{today_date_str}.csv"
+        # --- Use NEW Filename Base ---
+        output_filename = f"{PROCESSED_OUTPUT_FILENAME_BASE}_{today_date_str}.csv"
+        # ---------------------------
         output_path = os.path.join(data_dir_abs, output_filename)
         try:
-            float_cols = final_merged_data.select_dtypes(include=['float']).columns
+            float_cols = final_processed_data.select_dtypes(include=['float']).columns
             format_dict = {col: '%.2f' for col in float_cols}
-            final_merged_data.to_csv(output_path, index=False, encoding='utf-8', float_format='%.2f')
-            print(f"Successfully saved merged data to: {output_path}")
+            final_processed_data.to_csv(output_path, index=False, encoding='utf-8', float_format='%.2f')
+            print(f"Successfully saved processed data to: {output_path}") # Updated message
         except Exception as e:
-            print(f"Error saving merged data to CSV: {e}")
+            print(f"Error saving processed data to CSV: {e}") # Updated message
             traceback.print_exc()
     else:
         print("\nNo final data generated or available to save.")
