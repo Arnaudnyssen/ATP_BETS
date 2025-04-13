@@ -1,5 +1,5 @@
-# generate_page.py (Simplified - Final Fix - Debug Code Removed - NameError Fix)
-# Loads the pre-processed/merged data CSV and generates the HTML page.
+# generate_page.py (Simplified - Final Fix - Debug Code Removed - NameError Fix - Modern Styling)
+# Loads the pre-processed/merged data CSV and generates the HTML page with updated styles.
 
 import pandas as pd
 import numpy as np
@@ -51,50 +51,74 @@ def format_simple_error_html(message: str) -> str:
 
 # --- HTML Generation Functions ---
 def apply_table_styles(row: pd.Series) -> List[str]:
-    """Applies CSS classes for value bets and spread highlighting."""
+    """Applies CSS classes for value bets and spread highlighting to specific cells."""
+    # Initialize styles as empty strings for all columns
     styles = [''] * len(DISPLAY_COLS_ORDERED)
-    try: # Value Bet Check
-        sack_odds_p1 = pd.to_numeric(row.get('Player1_Match_Odds'), errors='coerce'); bc_odds_p1 = pd.to_numeric(row.get('bc_p1_odds'), errors='coerce')
-        sack_odds_p2 = pd.to_numeric(row.get('Player2_Match_Odds'), errors='coerce'); bc_odds_p2 = pd.to_numeric(row.get('bc_p2_odds'), errors='coerce')
+    try: # Value Bet Check - Apply style ONLY to the Betcenter odds cell
+        sack_odds_p1 = pd.to_numeric(row.get('Player1_Match_Odds'), errors='coerce')
+        bc_odds_p1 = pd.to_numeric(row.get('bc_p1_odds'), errors='coerce')
+        sack_odds_p2 = pd.to_numeric(row.get('Player2_Match_Odds'), errors='coerce')
+        bc_odds_p2 = pd.to_numeric(row.get('bc_p2_odds'), errors='coerce')
+
+        # Check P1 value bet
         if not pd.isna(sack_odds_p1) and not pd.isna(bc_odds_p1) and bc_odds_p1 >= sack_odds_p1 * VALUE_BET_THRESHOLD:
-            try: styles[DISPLAY_COLS_ORDERED.index('bc_p1_odds')] = 'value-bet-p1'
-            except ValueError: pass
+            try:
+                # Find the index of 'bc_p1_odds' in the display list and apply the style
+                bc_p1_index = DISPLAY_COLS_ORDERED.index('bc_p1_odds')
+                styles[bc_p1_index] = 'value-bet' # Use a single class for value bets
+            except ValueError: pass # Column not found
+
+        # Check P2 value bet
         if not pd.isna(sack_odds_p2) and not pd.isna(bc_odds_p2) and bc_odds_p2 >= sack_odds_p2 * VALUE_BET_THRESHOLD:
-            try: styles[DISPLAY_COLS_ORDERED.index('bc_p2_odds')] = 'value-bet-p2'
-            except ValueError: pass
+            try:
+                # Find the index of 'bc_p2_odds' in the display list and apply the style
+                bc_p2_index = DISPLAY_COLS_ORDERED.index('bc_p2_odds')
+                styles[bc_p2_index] = 'value-bet' # Use a single class for value bets
+            except ValueError: pass # Column not found
+
     except Exception as e_val: print(f"Warning: Error during value bet styling: {e_val}")
-    try: # Spread Check
-        p1_spread = pd.to_numeric(row.get('p1_spread'), errors='coerce'); p2_spread = pd.to_numeric(row.get('p2_spread'), errors='coerce')
+
+    try: # Spread Check - Apply style ONLY to the spread cell
+        p1_spread = pd.to_numeric(row.get('p1_spread'), errors='coerce')
+        p2_spread = pd.to_numeric(row.get('p2_spread'), errors='coerce')
+
+        # Check P1 spread sign
         if not pd.isna(p1_spread):
             try:
                 idx = DISPLAY_COLS_ORDERED.index('p1_spread')
                 if p1_spread > 0: styles[idx] = 'spread-positive'
                 elif p1_spread < 0: styles[idx] = 'spread-negative'
-            except ValueError: pass
+            except ValueError: pass # Column not found
+
+        # Check P2 spread sign
         if not pd.isna(p2_spread):
             try:
                 idx = DISPLAY_COLS_ORDERED.index('p2_spread')
                 if p2_spread > 0: styles[idx] = 'spread-positive'
                 elif p2_spread < 0: styles[idx] = 'spread-negative'
-            except ValueError: pass
+            except ValueError: pass # Column not found
+
     except Exception as e_spread: print(f"Warning: Error during spread styling: {e_spread}")
+
     return styles
+
 
 def generate_html_table(df: pd.DataFrame) -> str:
     """Generates the HTML table using Pandas Styler from the pre-merged DataFrame."""
     if df is None or df.empty:
-        # This case should ideally be handled before calling this function,
-        # but we return an error message just in case.
         return format_simple_error_html("No merged match data provided to generate_html_table.")
     try:
         print("Formatting final merged data for display...")
+        # Ensure only columns intended for display are present before styling
+        cols_to_use = [col for col in DISPLAY_COLS_ORDERED if col in df.columns]
         missing_display_cols = [col for col in DISPLAY_COLS_ORDERED if col not in df.columns]
         if missing_display_cols:
-            return format_simple_error_html(f"Merged data missing columns: {', '.join(missing_display_cols)}.")
+            print(f"Warning: Merged data missing expected display columns: {', '.join(missing_display_cols)}. Table might look incomplete.")
+            # Proceeding with available columns
 
-        # Create copies for formatting and styling
-        df_numeric = df[DISPLAY_COLS_ORDERED].copy()
-        df_display = df[DISPLAY_COLS_ORDERED].copy()
+        # Create copies for formatting and styling using only available columns
+        df_numeric = df[cols_to_use].copy()
+        df_display = df[cols_to_use].copy()
 
         # Define formatters for numeric columns
         formatters = {
@@ -107,41 +131,45 @@ def generate_html_table(df: pd.DataFrame) -> str:
         # Apply formatting to the display DataFrame
         for col, fmt in formatters.items():
             if col in df_display.columns:
-                 # Use .map() for robust NaN handling during formatting
                  df_display[col] = pd.to_numeric(df_display[col], errors='coerce').map(fmt, na_action='ignore')
 
         # Fill remaining NaNs and finalize display DataFrame
         df_display.fillna('-', inplace=True)
         print("Data formatting complete.")
 
-        # Sorting logic
+        # Sorting logic (ensure columns exist before sorting)
         try:
             round_map = {'R128': 128, 'R64': 64, 'R32': 32, 'R16': 16, 'QF': 8, 'SF': 4, 'F': 2, 'W': 1}
-            # Ensure 'Round' column exists before trying to map/sort
+            sort_cols = []
+            if 'TournamentName' in df_display.columns:
+                sort_cols.append('TournamentName')
             if 'Round' in df_display.columns:
                 df_display['RoundSort'] = df_display['Round'].map(round_map).fillna(999)
-                # Ensure 'TournamentName' also exists for sorting
-                sort_cols = ['TournamentName', 'RoundSort'] if 'TournamentName' in df_display.columns else ['RoundSort']
+                sort_cols.append('RoundSort')
+
+            if sort_cols:
                 df_display.sort_values(by=sort_cols, inplace=True, na_position='last')
                 df_numeric = df_numeric.loc[df_display.index] # Align numeric data index
-                df_display.drop(columns=['RoundSort'], inplace=True)
-                print("Sorted matchups by available columns (Tournament/Round).")
+                if 'RoundSort' in df_display.columns:
+                    df_display.drop(columns=['RoundSort'], inplace=True)
+                print(f"Sorted matchups by: {', '.join(sort_cols).replace('RoundSort', 'Round')}.")
             else:
-                print("Warning: 'Round' column not found for sorting.")
+                print("Warning: Neither 'TournamentName' nor 'Round' column found for sorting.")
         except Exception as e_sort:
             print(f"Warning: Error during sorting: {e_sort}")
 
-        # Set display headers AFTER sorting/indexing
-        df_display.columns = DISPLAY_HEADERS
+        # Map available columns to their desired headers
+        current_headers = [DISPLAY_HEADERS[DISPLAY_COLS_ORDERED.index(col)] for col in cols_to_use]
+        df_display.columns = current_headers # Set display headers AFTER sorting/indexing
 
         print("Applying styles and generating HTML table string using Styler...")
-        styler = df_numeric.style.apply(apply_table_styles, axis=1) # Style based on numeric data
+        # Apply styles based on the numeric data, ensuring alignment if columns were missing
+        styler = df_numeric.style.apply(lambda row: styles[:len(cols_to_use)], axis=1) # Pass only styles for available columns
         styler.set_table_attributes('class="dataframe"')
         styler.data = df_display # Use the formatted data for the final HTML output
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
 
         if not html_table or not isinstance(html_table, str):
-            # This case indicates an issue within styler.to_html() itself
             return format_simple_error_html("Pandas Styler failed to generate HTML string.")
 
         print("HTML table string generated successfully via Styler.")
@@ -150,12 +178,11 @@ def generate_html_table(df: pd.DataFrame) -> str:
     except Exception as e:
         print(f"Error generating HTML table: {e}")
         traceback.print_exc()
-        # Return a formatted error message if any exception occurs within this function
         return format_simple_error_html(f"Unexpected error during HTML table generation: {type(e).__name__}")
 
 def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
-    """Constructs the entire HTML page, embedding the table and timestamp."""
-    # (CSS and HTML structure remain the same as previous version)
+    """Constructs the entire HTML page with updated styles, embedding the table and timestamp."""
+    # --- Updated CSS ---
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,59 +190,170 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upcoming Tennis Odds Comparison (Sackmann vs Betcenter)</title>
     <style>
+        /* --- Modern, Sleek, Simple Palette & Layout --- */
         :root {{
-            --primary-color: #0056b3; --secondary-color: #007bff; --light-gray: #f8f9fa;
-            --medium-gray: #dee2e6; --dark-gray: #343a40; --white: #ffffff; --hover-color: #e9ecef;
-            --shadow-color: rgba(0,0,0,0.06); --value-bet-bg-color: #d4edda; --value-bet-text-color: #155724;
-            --betcenter-bg-color: #fff0f5; --betcenter-header-bg-color: #ffe4e1;
-            --spread-positive-bg-color: #e6ffed; --spread-positive-text-color: #006400;
-            --spread-negative-bg-color: #ffeeee; --spread-negative-text-color: #a52a2a;
-            --spread-header-bg-color: #f5f5f5;
+            --bg-color: #ffffff; /* White background */
+            --text-color: #333333; /* Dark gray text */
+            --primary-color: #0a68f5; /* A modern blue */
+            --header-bg-color: #f8f9fa; /* Light gray header */
+            --header-text-color: #343a40; /* Darker gray header text */
+            --border-color: #e9ecef; /* Lighter border color */
+            --row-alt-bg-color: #f8f9fa; /* Light gray for alternating rows */
+            --hover-bg-color: #e9ecef; /* Slightly darker gray on hover */
+            --shadow-color: rgba(0, 0, 0, 0.05);
+            /* Cell Highlighting Colors */
+            --value-bet-bg-color: #e6ffed; /* Light green */
+            --value-bet-text-color: #006400; /* Dark green */
+            --spread-positive-bg-color: #e6ffed; /* Light green */
+            --spread-positive-text-color: #006400; /* Dark green */
+            --spread-negative-bg-color: #ffeeee; /* Light red */
+            --spread-negative-text-color: #a52a2a; /* Dark red */
         }}
-        body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; line-height: 1.6; padding: 20px; max-width: 1400px; margin: 20px auto; background-color: var(--light-gray); color: var(--dark-gray); }}
-        h1 {{ color: var(--primary-color); border-bottom: 3px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 25px; font-weight: 600; font-size: 1.8em; }}
-        p {{ margin-bottom: 15px; font-size: 0.95em; }}
-        .table-container {{ overflow-x: auto; box-shadow: 0 4px 10px var(--shadow-color); border-radius: 6px; background-color: var(--white); border: 1px solid var(--medium-gray); min-height: 100px; margin-bottom: 20px; }}
-        table.dataframe {{ width: 100%; border-collapse: collapse; margin: 0; font-size: 0.85em; }}
-        table.dataframe th, table.dataframe td {{ border: none; border-bottom: 1px solid var(--medium-gray); padding: 8px 10px; text-align: left; vertical-align: middle; white-space: nowrap; }}
-        table.dataframe tbody tr:last-child td {{ border-bottom: none; }}
-        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) {{ width: 12%; white-space: normal;}} /* Tournament */
-        table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) {{ width: 4%; }}  /* Round */
-        table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) {{ width: 13%; white-space: normal; font-weight: 500;}} /* Player 1 */
-        table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) {{ width: 13%; white-space: normal; font-weight: 500;}} /* Player 2 */
-        table.dataframe th:nth-child(5), table.dataframe td:nth-child(5) {{ width: 7%; text-align: right;}} /* P1 Prob (Sack) */
-        table.dataframe th:nth-child(6), table.dataframe td:nth-child(6) {{ width: 7%; text-align: right;}} /* P2 Prob (Sack) */
-        table.dataframe th:nth-child(7), table.dataframe td:nth-child(7) {{ width: 7%; text-align: right;}} /* P1 Odds (Sack) */
-        table.dataframe th:nth-child(8), table.dataframe td:nth-child(8) {{ width: 7%; text-align: right;}} /* P2 Odds (Sack) */
-        table.dataframe th:nth-child(9), table.dataframe td:nth-child(9) {{ width: 7%; text-align: right; background-color: var(--betcenter-header-bg-color);}} /* P1 Odds (BC) Header */
-        table.dataframe th:nth-child(10), table.dataframe td:nth-child(10) {{ width: 7%; text-align: right; background-color: var(--betcenter-header-bg-color);}} /* P2 Odds (BC) Header */
-        table.dataframe th:nth-child(11), table.dataframe td:nth-child(11) {{ width: 7%; text-align: right; background-color: var(--spread-header-bg-color);}} /* P1 Spread Header */
-        table.dataframe th:nth-child(12), table.dataframe td:nth-child(12) {{ width: 6%; text-align: right; background-color: var(--spread-header-bg-color);}} /* P2 Spread Header */
-        table.dataframe td:nth-child(9), table.dataframe td:nth-child(10) {{ background-color: var(--betcenter-bg-color); }}
-        table.dataframe td:nth-child(11), table.dataframe td:nth-child(12) {{ background-color: var(--spread-header-bg-color); }}
-        table.dataframe thead th {{ background-color: var(--secondary-color); color: var(--white); font-weight: 600; border-bottom: 2px solid var(--primary-color); position: sticky; top: 0; z-index: 1; }}
-        table.dataframe tbody tr:nth-child(even) td {{ background-color: var(--light-gray); }}
-        table.dataframe tbody tr:nth-child(even) td:nth-child(9), table.dataframe tbody tr:nth-child(even) td:nth-child(10) {{ background-color: var(--betcenter-bg-color); opacity: 0.9; }}
-        table.dataframe tbody tr:nth-child(even) td:nth-child(11), table.dataframe tbody tr:nth-child(even) td:nth-child(12) {{ background-color: var(--spread-header-bg-color); opacity: 0.9; }}
-        table.dataframe tbody tr:hover td {{ background-color: var(--hover-color); }}
-        table.dataframe tbody tr:hover td:nth-child(9), table.dataframe tbody tr:hover td:nth-child(10) {{ background-color: #fddde6; }}
-        table.dataframe tbody tr:hover td:nth-child(11), table.dataframe tbody tr:hover td:nth-child(12) {{ background-color: #e9e9e9; }}
-        table.dataframe td.value-bet-p1, table.dataframe td.value-bet-p2 {{ background-color: var(--value-bet-bg-color) !important; color: var(--value-bet-text-color); font-weight: bold; }}
-        table.dataframe tbody tr:hover td.value-bet-p1, table.dataframe tbody tr:hover td.value-bet-p2 {{ background-color: #b8dfc1 !important; }}
-        table.dataframe td.spread-positive {{ background-color: var(--spread-positive-bg-color) !important; color: var(--spread-positive-text-color); font-weight: 500; }}
-        table.dataframe td.spread-negative {{ background-color: var(--spread-negative-bg-color) !important; color: var(--spread-negative-text-color); font-weight: 500; }}
+
+        body {{
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            padding: 25px;
+            max-width: 1500px; /* Slightly wider max-width */
+            margin: 25px auto;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }}
+
+        h1 {{
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 1.9em;
+        }}
+
+        p {{
+            margin-bottom: 18px;
+            font-size: 1em;
+            color: #555; /* Slightly lighter text for paragraphs */
+        }}
+
+        .table-container {{
+            overflow-x: auto;
+            box-shadow: 0 2px 8px var(--shadow-color); /* Softer shadow */
+            border-radius: 8px; /* Slightly more rounded corners */
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }}
+
+        table.dataframe {{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            font-size: 0.9em; /* Slightly larger base font size */
+        }}
+
+        table.dataframe th,
+        table.dataframe td {{
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 12px; /* Increased padding */
+            text-align: left;
+            vertical-align: middle;
+            white-space: nowrap;
+        }}
+
+        table.dataframe tbody tr:last-child td {{
+            border-bottom: none; /* Remove border on last row */
+        }}
+
+        /* Column Widths (Adjust as needed) */
+        table.dataframe th:nth-child(1), table.dataframe td:nth-child(1) {{ width: 14%; white-space: normal;}} /* Tournament */
+        table.dataframe th:nth-child(2), table.dataframe td:nth-child(2) {{ width: 5%; }}  /* Round */
+        table.dataframe th:nth-child(3), table.dataframe td:nth-child(3) {{ width: 14%; white-space: normal; font-weight: 500;}} /* Player 1 */
+        table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) {{ width: 14%; white-space: normal; font-weight: 500;}} /* Player 2 */
+        /* Remaining columns distribute space */
+        table.dataframe th:nth-child(n+5), table.dataframe td:nth-child(n+5) {{ text-align: right; width: 7%; }} /* Numeric cols */
+
+
+        /* Header Styling */
+        table.dataframe thead th {{
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color); /* Stronger header bottom border */
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }}
+
+        /* Row Styling */
+        table.dataframe tbody tr:nth-child(even) td {{
+            background-color: var(--row-alt-bg-color);
+        }}
+
+        table.dataframe tbody tr:hover td {{
+            background-color: var(--hover-bg-color);
+        }}
+
+        /* Cell Specific Highlighting (Applied via apply_table_styles) */
+        table.dataframe td.value-bet {{
+            background-color: var(--value-bet-bg-color) !important;
+            color: var(--value-bet-text-color);
+            font-weight: bold;
+            border-radius: 4px; /* Add subtle rounding to highlighted cells */
+        }}
+
+        table.dataframe td.spread-positive {{
+            background-color: var(--spread-positive-bg-color) !important;
+            color: var(--spread-positive-text-color);
+            font-weight: 500;
+            border-radius: 4px;
+        }}
+
+        table.dataframe td.spread-negative {{
+            background-color: var(--spread-negative-bg-color) !important;
+            color: var(--spread-negative-text-color);
+            font-weight: 500;
+            border-radius: 4px;
+        }}
+
+        /* Ensure hover doesn't completely override highlight */
+        table.dataframe tbody tr:hover td.value-bet {{ background-color: #c8e6c9 !important; }}
         table.dataframe tbody tr:hover td.spread-positive {{ background-color: #c8e6c9 !important; }}
         table.dataframe tbody tr:hover td.spread-negative {{ background-color: #ffcdd2 !important; }}
-        .last-updated {{ margin-top: 25px; padding-top: 15px; border-top: 1px solid var(--medium-gray); font-size: 0.9em; color: #6c757d; text-align: center; }}
-        /* Error message div style defined inline via format_simple_error_html */
-        @media (max-width: 1200px) {{ table.dataframe th, table.dataframe td {{ font-size: 0.8em; padding: 7px 8px; }} }}
-        @media (max-width: 992px) {{ body {{ padding: 15px; max-width: 100%; }} h1 {{ font-size: 1.5em; }} table.dataframe th, table.dataframe td {{ font-size: 0.75em; padding: 6px 5px; white-space: normal; }} table.dataframe th:nth-child(n), table.dataframe td:nth-child(n) {{ width: auto;}} table.dataframe th:nth-child(3), table.dataframe td:nth-child(3), table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) {{ font-weight: normal;}} }}
-        @media (max-width: 768px) {{ table.dataframe th, table.dataframe td {{ font-size: 0.7em; padding: 5px 4px; }} }}
+
+
+        .last-updated {{
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: #6c757d;
+            text-align: center;
+        }}
+
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {{
+            table.dataframe th, table.dataframe td {{ font-size: 0.85em; padding: 9px 10px; }}
+        }}
+        @media (max-width: 992px) {{
+             body {{ padding: 15px; }}
+             h1 {{ font-size: 1.6em; }}
+             table.dataframe th, table.dataframe td {{ font-size: 0.8em; padding: 8px 6px; white-space: normal; }}
+             table.dataframe th:nth-child(n), table.dataframe td:nth-child(n) {{ width: auto;}} /* Allow natural wrapping */
+             table.dataframe th:nth-child(3), table.dataframe td:nth-child(3),
+             table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) {{ font-weight: normal;}} /* Reduce emphasis on smaller screens */
+        }}
+        @media (max-width: 768px) {{
+            table.dataframe th, table.dataframe td {{ font-size: 0.75em; padding: 6px 5px; }}
+            h1 {{ font-size: 1.4em; }}
+            p {{ font-size: 0.9em; }}
+        }}
     </style>
 </head>
 <body>
     <h1>Upcoming Tennis Match Odds Comparison (Sackmann vs Betcenter)</h1>
-    <p>Comparison of probabilities and calculated odds from the Tennis Abstract Sackmann model against betting odds scraped from Betcenter.be. The 'Spread' columns show the difference between Betcenter odds and Sackmann's calculated odds (Positive means Betcenter odds are higher). Cells highlighted in <span style="background-color: var(--value-bet-bg-color); color: var(--value-bet-text-color); padding: 0 3px; border-radius: 3px;">green</span> indicate potential value bets where Betcenter odds are at least {int((VALUE_BET_THRESHOLD-1)*100)}% higher than the model's implied odds.</p>
+    <p>Comparison of probabilities and calculated odds from the Tennis Abstract Sackmann model against betting odds scraped from Betcenter.be. The 'Spread' columns show the difference between Betcenter odds and Sackmann's calculated odds (Positive means Betcenter odds are higher). Cells highlighted in <span style="background-color: var(--value-bet-bg-color); color: var(--value-bet-text-color); padding: 1px 4px; border-radius: 3px;">green</span> indicate potential value bets where Betcenter odds are at least {int((VALUE_BET_THRESHOLD-1)*100)}% higher than the model's implied odds.</p>
     <p>Matches involving qualifiers or appearing completed based on Sackmann data are filtered out. Name matching uses Title Case and may not be perfect.</p>
     <div class="table-container">{table_content_html}</div>
     <div class="last-updated">{timestamp_str}</div>
@@ -288,4 +426,3 @@ if __name__ == "__main__":
     except Exception as e: print(f"CRITICAL ERROR writing final HTML file: {e}"); traceback.print_exc()
 
     print("\nPage generation process complete.")
-
