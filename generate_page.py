@@ -1,7 +1,6 @@
-# generate_page.py (v11 - Bold Row Highlight)
-# Loads the processed_comparison_*.csv file and generates the HTML page.
-# Highlights rows with significant spread by making them bold.
-# Removes cell-specific color highlighting.
+# generate_page.py (v12 - Refactored for Scope)
+# Encapsulates table generation logic in a function to ensure
+# variable assignment before use. Continues bold row highlighting.
 
 import pandas as pd
 import numpy as np
@@ -17,7 +16,6 @@ from typing import Optional, List
 DATA_DIR = "data_archive"
 PROCESSED_CSV_PATTERN = "processed_comparison_*.csv" # Input file pattern
 OUTPUT_HTML_FILE = "index.html"
-# VALUE_BET_THRESHOLD = 1.10 # No longer used for highlighting
 INTERESTING_SPREAD_THRESHOLD = 0.50 # Highlight row if abs(spread) > 0.50
 
 # --- Column Definitions (for styling and display) ---
@@ -63,33 +61,25 @@ def apply_table_styles(row: pd.Series) -> List[str]:
     """
     Applies CSS class 'interesting-spread-row' to all cells in a row
     if the absolute spread for either player exceeds the threshold.
-    Otherwise, returns empty styles.
     """
-    styles = [''] * len(row.index) # Default: no specific style
-
+    # (Function unchanged from v11)
+    styles = [''] * len(row.index)
     try:
         p1_spread_val = pd.to_numeric(row.get('p1_spread'), errors='coerce')
         p2_spread_val = pd.to_numeric(row.get('p2_spread'), errors='coerce')
         p1_spread_abs = abs(p1_spread_val)
         p2_spread_abs = abs(p2_spread_val)
-
-        # Check if either spread exceeds the threshold
         if (not pd.isna(p1_spread_abs) and p1_spread_abs > INTERESTING_SPREAD_THRESHOLD) or \
            (not pd.isna(p2_spread_abs) and p2_spread_abs > INTERESTING_SPREAD_THRESHOLD):
-            # Apply the class to all cells in this row
             styles = ['interesting-spread-row'] * len(row.index)
-
     except Exception as e_row_spread:
-        # Log error but don't apply style if check fails
         print(f"Warning: Error during interesting spread row check: {e_row_spread}")
-
-    # No longer applying value-bet or spread-sign classes
     return styles
 
 
 def generate_html_table(df: pd.DataFrame) -> str:
     """Generates the HTML table using Pandas Styler from the processed DataFrame."""
-    # (Logic for formatting, sorting, header mapping remains the same)
+    # (Function unchanged from v11)
     if df is None or df.empty:
         return format_simple_error_html("No processed match data provided to generate_html_table.")
     try:
@@ -141,7 +131,6 @@ def generate_html_table(df: pd.DataFrame) -> str:
         df_display.columns = current_headers
 
         print("Applying styles and generating HTML table string using Styler...")
-        # Pass the updated apply_table_styles function
         styler = df_numeric.style.apply(apply_table_styles, axis=1)
         styler.set_table_attributes('class="dataframe"')
         styler.data = df_display
@@ -160,7 +149,7 @@ def generate_html_table(df: pd.DataFrame) -> str:
 
 def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     """Constructs the entire HTML page with updated styles, embedding the table and timestamp."""
-    # --- Updated CSS - Removed cell highlights, added bold for row ---
+    # (CSS unchanged from v11)
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -279,16 +268,11 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
             background-color: var(--hover-bg-color) !important;
         }}
 
-        /* --- UPDATED: Interesting Spread Row Styling (Bold) --- */
-        /* Applied via apply_table_styles adding class="interesting-spread-row" to <td> */
+        /* --- Interesting Spread Row Styling (Bold) --- */
         table.dataframe td.interesting-spread-row {{
-            font-weight: bold !important; /* Make text bold */
+            font-weight: bold !important;
             color: var(--interesting-spread-row-text-color) !important;
-            /* Background color will be inherited from normal/hover state */
         }}
-        /* --- End Row Styling --- */
-
-        /* --- REMOVED Cell Specific Highlighting Rules --- */
 
         .last-updated {{
             margin-top: 25px;
@@ -322,7 +306,8 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     <h1>Upcoming Tennis Odds Comparison (Sackmann vs Betcenter)</h1>
 
     <p>Comparison of probabilities and calculated odds from the Tennis Abstract Sackmann model against betting odds scraped from Betcenter.be. The 'Spread' columns show the difference between Betcenter odds and Sackmann's calculated odds (Positive means Betcenter odds are higher).
-    <br> - Rows in <span class="highlight">bold</span> indicate a significant disagreement (spread > {INTERESTING_SPREAD_THRESHOLD:.2f}) between the sources for at least one player. </p>
+    <br> - Rows in <span class="highlight">bold</span> indicate a significant disagreement (spread > {INTERESTING_SPREAD_THRESHOLD:.2f}) between the sources for at least one player.
+    </p>
     <p>Matches involving qualifiers or appearing completed based on Sackmann data are filtered out. Name matching uses Title Case and may not be perfect.</p>
 
     <div class="table-container">{table_content_html}</div>
@@ -331,21 +316,18 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
 </html>"""
     return html_content
 
-# --- Main Execution Logic ---
-# (Main execution block remains the same)
-if __name__ == "__main__":
-    print("Starting HTML page generation process...")
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    data_dir_abs = os.path.join(script_dir, DATA_DIR)
-    output_file_abs = os.path.join(script_dir, OUTPUT_HTML_FILE)
-    print(f"Script directory: {script_dir}"); print(f"Looking for latest processed CSV in: {data_dir_abs}"); print(f"Outputting generated HTML to: {output_file_abs}")
-
-    table_html_content = format_simple_error_html("Initialization error or process did not start correctly.")
+# --- NEW Function to Encapsulate Table Generation Logic ---
+def get_main_table_html(data_dir: str) -> str:
+    """
+    Finds the latest processed data, loads it, and generates the HTML table content.
+    Returns either the HTML table string or a formatted error string.
+    """
     final_df = None
+    table_html_content = format_simple_error_html("Initialization error or process did not start correctly.") # Default
 
     try:
         print("\nFinding latest processed data file...")
-        latest_processed_csv = find_latest_csv(data_dir_abs, PROCESSED_CSV_PATTERN)
+        latest_processed_csv = find_latest_csv(data_dir, PROCESSED_CSV_PATTERN)
 
         if latest_processed_csv:
             print(f"Loading processed data from: {os.path.basename(latest_processed_csv)}")
@@ -357,27 +339,44 @@ if __name__ == "__main__":
                 else:
                      print(f"  Successfully loaded processed data. Shape: {final_df.shape}")
                      print(f"\nGenerating HTML table content from final data (Shape: {final_df.shape})...")
+                     # Generate the table HTML - this function handles its own errors
                      table_html_content = generate_html_table(final_df)
 
             except Exception as load_err:
                 error_msg = f"Error loading or processing CSV '{os.path.basename(latest_processed_csv)}': {load_err}"
                 print(f"  {error_msg}")
                 traceback.print_exc()
-                table_html_content = format_simple_error_html(error_msg)
+                table_html_content = format_simple_error_html(error_msg) # Assign error HTML
         else:
             error_msg = f"Could not find latest processed data file ({PROCESSED_CSV_PATTERN}). Run processing script first."
             print(f"  {error_msg}")
-            table_html_content = format_simple_error_html(error_msg)
+            table_html_content = format_simple_error_html(error_msg) # Assign error HTML
 
-    except Exception as main_err:
-         print(f"CRITICAL ERROR in main processing block (e.g., file finding): {main_err}")
+    except Exception as outer_err:
+         # Catch any unexpected error during file finding itself
+         print(f"CRITICAL ERROR finding/loading data: {outer_err}")
          traceback.print_exc()
-         table_html_content = format_simple_error_html(f"Critical processing error: {main_err}")
+         table_html_content = format_simple_error_html(f"Critical processing error: {outer_err}")
 
+    # This function now guarantees returning a string (table or error)
+    return table_html_content
+
+# --- Main Execution Logic ---
+if __name__ == "__main__":
+    print("Starting HTML page generation process...")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir_abs = os.path.join(script_dir, DATA_DIR)
+    output_file_abs = os.path.join(script_dir, OUTPUT_HTML_FILE)
+    print(f"Script directory: {script_dir}"); print(f"Looking for latest processed CSV in: {data_dir_abs}"); print(f"Outputting generated HTML to: {output_file_abs}")
+
+    # Call the new function to get the table HTML or an error message
+    table_html_content = get_main_table_html(data_dir_abs)
+
+    # Now generate the full page using the result
     update_time = datetime.now(pytz.timezone('Europe/Brussels')).strftime('%Y-%m-%d %H:%M:%S %Z')
     timestamp_str = f"Last updated: {html.escape(update_time)}"
     print("\nGenerating full HTML page content...");
-    full_html = generate_full_html_page(table_content_html, timestamp_str)
+    full_html = generate_full_html_page(table_html_content, timestamp_str) # This should now always work
     print("Full HTML page content generated.")
 
     try:
