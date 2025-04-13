@@ -1,4 +1,4 @@
-# tennis_abstract_scraper.py (Improved Debugging & Flexibility)
+# tennis_abstract_scraper.py (Improved Debugging & Flexibility - Debug Code Removed)
 
 import time
 import re
@@ -30,7 +30,7 @@ RESULTS_FORECASTS_LINK_TEXT = "Results and Forecasts"
 CURRENT_EVENTS_TABLE_ID = "current-events"
 ROUND_ORDER = ["R128", "R64", "R32", "R16", "QF", "SF", "F", "W"]
 PLAYER_URL_PATTERN = "player.cgi?p="
-DEBUG_HTML_DIR = "debug_html" # Directory for saving HTML on failure
+# DEBUG_HTML_DIR constant removed
 
 # --- WebDriver Setup (Remains the same) ---
 def setup_driver() -> Optional[webdriver.Chrome]:
@@ -38,9 +38,9 @@ def setup_driver() -> Optional[webdriver.Chrome]:
     print("Setting up Chrome WebDriver...")
     options = ChromeOptions()
     # --- Ensure headless is used for Actions ---
-    # options.add_argument("--headless=new") # UNCOMMENT for GitHub Actions
+    options.add_argument("--headless=new") # Defaulting to headless for Actions
     # --- Keep visible for local debugging if needed ---
-    print("Running in VISIBLE mode for debugging scraper (remember to add --headless=new for Actions).") # Add note for Actions
+    # print("Running in VISIBLE mode for debugging scraper (remember to add --headless=new for Actions).") # Add note for Actions
     # --------------------------------------------
     options.add_argument("--no-sandbox"); options.add_argument("--disable-dev-shm-usage"); options.add_argument("--disable-gpu")
     options.add_argument("--window-size=1920,1080"); options.add_argument('--log-level=1')
@@ -50,9 +50,18 @@ def setup_driver() -> Optional[webdriver.Chrome]:
          except Exception as e: print(f"Could not get path from webdriver-manager: {e}")
     driver = None; service = None
     try:
-        if os.path.exists(chromedriver_path_apt): print(f"Using chromedriver from apt path: {chromedriver_path_apt}"); service = ChromeService(executable_path=chromedriver_path); driver = webdriver.Chrome(service=service, options=options)
-        elif chromedriver_path_wdm and os.path.exists(chromedriver_path_wdm): print(f"Using chromedriver from webdriver-manager path: {chromedriver_path_wdm}"); service = ChromeService(executable_path=chromedriver_path_wdm); driver = webdriver.Chrome(service=service, options=options)
-        else: print("Chromedriver not found at specific paths, attempting PATH..."); driver = webdriver.Chrome(options=options)
+        # Prioritize webdriver-manager path if available
+        if chromedriver_path_wdm and os.path.exists(chromedriver_path_wdm):
+            print(f"Using chromedriver from webdriver-manager path: {chromedriver_path_wdm}")
+            service = ChromeService(executable_path=chromedriver_path_wdm)
+            driver = webdriver.Chrome(service=service, options=options)
+        elif os.path.exists(chromedriver_path_apt):
+            print(f"Using chromedriver from apt path: {chromedriver_path_apt}")
+            service = ChromeService(executable_path=chromedriver_path_apt)
+            driver = webdriver.Chrome(service=service, options=options)
+        else:
+            print("Chromedriver not found at specific paths, attempting PATH...")
+            driver = webdriver.Chrome(options=options)
         print("Chrome WebDriver setup successful."); return driver
     except WebDriverException as e:
         if "executable needs to be in PATH" in str(e) or "cannot find chrome binary" in str(e) or "session not created" in str(e): print("\n--- ChromeDriver Error ---"); print("Selenium couldn't find or use the ChromeDriver."); print("Possible Solutions:"); print("1. Install ChromeDriver using Homebrew: `brew install chromedriver`"); print("2. Ensure Google Chrome browser is installed and up-to-date."); print("3. Check Chrome & ChromeDriver version compatibility."); print(f"   (Error details: {e})"); print("--------------------------\n")
@@ -127,20 +136,7 @@ def tourneys_url() -> List[str]:
         if driver: print("Closing WebDriver for tourneys_url..."); driver.quit(); print("WebDriver closed.")
     return list(dict.fromkeys(ls_tourneys_urls))
 
-# --- Helper: Save HTML for Debugging ---
-def save_debug_html(driver: webdriver.Chrome, url: str):
-    """Saves the current page source to a debug file."""
-    try:
-        os.makedirs(DEBUG_HTML_DIR, exist_ok=True)
-        # Create a filename from the URL
-        url_filename_part = re.sub(r'[^a-zA-Z0-9_-]', '_', url.split('/')[-1] or f"page_{int(time.time())}")
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = os.path.join(DEBUG_HTML_DIR, f"debug_TA_{url_filename_part}_{timestamp}.html")
-        with open(filename, "w", encoding="utf-8") as f:
-            f.write(driver.page_source)
-        print(f"Saved debug HTML for {url} to: {filename}")
-    except Exception as e:
-        print(f"Error saving debug HTML for {url}: {e}")
+# --- save_debug_html function definition removed ---
 
 # --- REVISED probas_scraper ---
 def probas_scraper(url: str) -> List[Dict[str, Any]]:
@@ -179,7 +175,7 @@ def probas_scraper(url: str) -> List[Dict[str, Any]]:
                 print("Fallback successful: Found a table.")
             except (TimeoutException, NoSuchElementException):
                 print("Fallback failed: Could not find any table.")
-                save_debug_html(driver, url) # Save HTML if no table found
+                # Calls to save_debug_html removed
                 return []
 
         # --- Matchup Parsing Logic (Revised) ---
@@ -196,31 +192,21 @@ def probas_scraper(url: str) -> List[Dict[str, Any]]:
                 if not cells: continue
 
                 row_data = [c.text.strip() for c in cells]
-                # --- *** ADDED DEBUG PRINT for first few rows *** ---
-                if i < 15: # Print first 15 rows for inspection
-                    print(f"  Row {i+1} Data: {row_data}")
-                elif i == 15:
-                    print("  (Further row data printing suppressed)")
-                # --- *** END DEBUG PRINT *** ---
+                # Debug print removed
 
                 # --- Header Row Identification (More Flexible) ---
                 is_header = False
                 if not headers and len(row_data) > 3:
                     potential_headers_upper = [h.upper() for h in row_data]
-                    # Check for "PLAYER" OR at least two distinct round names
                     round_headers_found = [r for r in ROUND_ORDER if r in potential_headers_upper]
                     is_potential_header = "PLAYER" in potential_headers_upper or len(set(round_headers_found)) >= 2
                     if is_potential_header:
-                         print(f"  Potential Header Row {i+1}: {row_data}") # Debug Potential Header
+                         print(f"  Potential Header Row {i+1}: {row_data}")
                          headers = [h if h else f"Unknown_{j}" for j, h in enumerate(row_data)]
                          header_map = {name: index for index, name in enumerate(headers)}
                          print(f"  Captured Headers: {headers}")
                          is_header = True
                          last_player_row_data = None
-                    # else: # Optional: Print rows that looked like headers but failed check
-                    #    if len(row_data) > 5: # Only print if it has several columns
-                    #        print(f"  Row {i+1} considered but rejected as header.")
-
 
                 if is_header: continue
 
@@ -233,7 +219,6 @@ def probas_scraper(url: str) -> List[Dict[str, Any]]:
                     if PLAYER_URL_PATTERN in player_link.get_attribute("href"):
                         player_name = player_link.text.strip()
                         if first_cell_element.value_of_css_property('font-style') == 'italic':
-                             # print(f"  Row {i+1}: Skipping italicized player row: {player_name}")
                              last_player_row_data = None; continue
                         is_player_row = True
                 except NoSuchElementException:
@@ -245,11 +230,8 @@ def probas_scraper(url: str) -> List[Dict[str, Any]]:
                     elif first_cell_text and any(c.isalpha() for c in first_cell_text) and (' ' in first_cell_text or ',' in first_cell_text or '.' in first_cell_text):
                         player_name = first_cell_text
                         if first_cell_element.value_of_css_property('font-style') == 'italic':
-                             # print(f"  Row {i+1}: Skipping italicized player row (text): {player_name}")
                              last_player_row_data = None; continue
                         is_player_row = True # Treat as player row
-                        # print(f"  Row {i+1}: Identified player row by text: {player_name}")
-
 
                 if not is_player_row:
                     last_player_row_data = None; continue
@@ -275,7 +257,6 @@ def probas_scraper(url: str) -> List[Dict[str, Any]]:
                                     p1_f = float(p1_prob_str); p2_f = float(p2_prob_str)
                                     if 99.0 < (p1_f + p2_f) < 101.0 and (p1_f > 0 or p2_f > 0):
                                         match_round = current_round_name; p1_prob = p1_f; p2_prob = p2_f
-                                        # print(f"  MATCH FOUND: {player1_name} vs {player2_name} (Round: {match_round}, Probs Col: {next_round_name}, Probs: {p1_prob}%, {p2_prob}%)")
                                         break
                             except (ValueError, TypeError, IndexError) as prob_err: continue
 
@@ -290,10 +271,7 @@ def probas_scraper(url: str) -> List[Dict[str, Any]]:
         if not headers: print("Warning: Could not identify header row. Matchup extraction might be unreliable.")
         if not matchups and len(rows) > 1:
              print("Warning: No matchups extracted despite finding table rows. Check table structure or parsing logic (e.g., player identification, probability columns).")
-             # --- *** SAVE HTML IF NO MATCHUPS FOUND *** ---
-             print("Saving page source because no matchups were extracted...")
-             save_debug_html(driver, url)
-             # --- *** END SAVE HTML *** ---
+             # Calls to save_debug_html removed
 
     except Exception as e: print(f"An unexpected error occurred in probas_scraper for {url}: {e}"); traceback.print_exc()
     finally:

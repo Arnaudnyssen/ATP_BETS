@@ -53,17 +53,22 @@ jobs:
 
       - name: Run Sackmann Data Pipeline
         id: sackmann_scrape
-        run: python save_sackmann_data.py
+        run: python save_sackmann_data.py # This should produce sackmann_matchups_*.csv
 
       # --- Run Betcenter Scraper (using the installed Google Chrome) ---
       - name: Run Betcenter Odds Scraper
         id: betcenter_scrape
-        continue-on-error: true
-        run: python betcenter_odds_scraper.py # webdriver-manager will find the installed chrome
+        continue-on-error: true # Continue even if betcenter fails, page might still generate with only Sackmann
+        run: python betcenter_odds_scraper.py # This should produce betcenter_odds_*.csv
+
+      # --- *** NEW STEP: Process and Merge Data *** ---
+      - name: Process and Merge Data
+        id: process_data
+        run: python process_data.py # Reads latest sackmann_* and betcenter_* CSVs, writes merged_matchups_*.csv
 
       - name: Generate HTML Page from Latest CSV
         id: generate_html
-        run: python generate_page.py
+        run: python generate_page.py # Reads merged_matchups_*.csv
 
       # --- Commit Files ---
       - name: Configure Git
@@ -74,6 +79,9 @@ jobs:
       - name: Stage All Generated Files
         run: |
           # Add the generated HTML, Sackmann CSV, and Betcenter CSV
+          # NOTE: This staging step might need adjustment based on the NEW process_data step.
+          # It currently stages the raw inputs AND the final HTML.
+          # Consider if you want to stage merged_matchups_*.csv instead of the raw inputs.
           git add index.html data_archive/sackmann_matchups_*.csv data_archive/betcenter_odds_*.csv || echo "No new files to stage, continuing..."
 
       - name: Commit Updates
@@ -88,9 +96,6 @@ jobs:
       - name: Push Changes
         run: |
           # Only push if the previous step actually made a commit
-          # Check the exit code of the commit step, or check git status/log
-          # A simpler check: Assume commit step handles conditional execution
-          # We can check if HEAD is ahead of remote before pushing
           git fetch origin ${{ github.ref }} # Ensure remote ref is up-to-date
           if [[ $(git rev-list --count @{u}..HEAD) -gt 0 ]]; then
              echo "Local branch is ahead, attempting to push changes..."
@@ -108,9 +113,8 @@ jobs:
       - name: Upload Artifact for Pages Deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '.' # Uploads the entire directory, including index.html
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-

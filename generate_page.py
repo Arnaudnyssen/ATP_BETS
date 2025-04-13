@@ -1,6 +1,5 @@
-# generate_page.py (Simplified - Final Fix)
+# generate_page.py (Simplified - Final Fix - Debug Code Removed)
 # Loads the pre-processed/merged data CSV and generates the HTML page.
-# Includes robust handling for NameError.
 
 import pandas as pd
 import numpy as np
@@ -13,11 +12,10 @@ import html
 from typing import Optional, List
 
 # --- Constants ---
-ERROR_MESSAGE_CLASS = "error-message"
 DATA_DIR = "data_archive"
 MERGED_CSV_PATTERN = "merged_matchups_*.csv" # Input file pattern
 OUTPUT_HTML_FILE = "index.html"
-VALUE_BET_THRESHOLD = 1.10
+VALUE_BET_THRESHOLD = 1.10 # Example: Betcenter odds must be 10% higher
 
 # --- Column Definitions (for styling and display) ---
 DISPLAY_COLS_ORDERED = [
@@ -45,12 +43,11 @@ def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
         return latest_file
     except Exception as e: print(f"Error finding latest CSV file in '{directory}' with pattern '{pattern}': {e}"); traceback.print_exc(); return None
 
-def format_error_html_for_table(message: str) -> str:
-    """Formats an error message as an HTML snippet for the table container."""
+def format_simple_error_html(message: str) -> str:
+    """Formats a simple error message as HTML for the table container."""
     print(f"Error generating table: {message}")
-    # Basic HTML formatting for the error message to be displayed in the table area
-    return f'<div class="{ERROR_MESSAGE_CLASS}" style="padding: 20px; text-align: center; color: #dc3545; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;"><strong>Error:</strong> {html.escape(message)} Check logs for details.</div>'
-
+    # Basic HTML formatting for the error message
+    return f'<div style="padding: 20px; text-align: center; color: #dc3545; background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;"><strong>Error:</strong> {html.escape(message)} Check logs for details.</div>'
 
 # --- HTML Generation Functions ---
 def apply_table_styles(row: pd.Series) -> List[str]:
@@ -85,43 +82,69 @@ def apply_table_styles(row: pd.Series) -> List[str]:
 
 def generate_html_table(df: pd.DataFrame) -> str:
     """Generates the HTML table using Pandas Styler from the pre-merged DataFrame."""
-    if df is None or df.empty: return format_error_html_for_table("No merged match data available to display.")
+    if df is None or df.empty:
+        return format_simple_error_html("No merged match data available to display.")
     try:
         print("Formatting final merged data for display...")
         missing_display_cols = [col for col in DISPLAY_COLS_ORDERED if col not in df.columns]
-        if missing_display_cols: return format_error_html_for_table(f"Merged data missing columns: {', '.join(missing_display_cols)}.")
-        df_numeric = df[DISPLAY_COLS_ORDERED].copy(); df_display = df[DISPLAY_COLS_ORDERED].copy()
+        if missing_display_cols:
+            return format_simple_error_html(f"Merged data missing columns: {', '.join(missing_display_cols)}.")
+
+        # Create copies for formatting and styling
+        df_numeric = df[DISPLAY_COLS_ORDERED].copy()
+        df_display = df[DISPLAY_COLS_ORDERED].copy()
+
+        # Define formatters for numeric columns
         formatters = {
             'Player1_Match_Prob': '{:.1f}%'.format, 'Player2_Match_Prob': '{:.1f}%'.format,
             'Player1_Match_Odds': '{:.2f}'.format, 'Player2_Match_Odds': '{:.2f}'.format,
             'bc_p1_odds': '{:.2f}'.format, 'bc_p2_odds': '{:.2f}'.format,
             'p1_spread': '{:+.2f}'.format, 'p2_spread': '{:+.2f}'.format
         }
+
+        # Apply formatting to the display DataFrame
         for col, fmt in formatters.items():
             if col in df_display.columns:
                  df_display[col] = pd.to_numeric(df_display[col], errors='coerce').map(fmt, na_action='ignore')
-        df_display.fillna('-', inplace=True); print("Data formatting complete.")
-        try: # Sorting
+
+        # Fill remaining NaNs and finalize display DataFrame
+        df_display.fillna('-', inplace=True)
+        print("Data formatting complete.")
+
+        # Sorting logic
+        try:
             round_map = {'R128': 128, 'R64': 64, 'R32': 32, 'R16': 16, 'QF': 8, 'SF': 4, 'F': 2, 'W': 1}
             df_display['RoundSort'] = df_display['Round'].map(round_map).fillna(999)
             df_display.sort_values(by=['TournamentName', 'RoundSort'], inplace=True, na_position='last')
-            df_numeric = df_numeric.loc[df_display.index]
-            df_display.drop(columns=['RoundSort'], inplace=True); print("Sorted matchups by Tournament and Round.")
-        except Exception as e: print(f"Warning: Error during sorting: {e}")
-        df_display.columns = DISPLAY_HEADERS # Set display headers AFTER sorting/indexing
+            df_numeric = df_numeric.loc[df_display.index] # Align numeric data index
+            df_display.drop(columns=['RoundSort'], inplace=True)
+            print("Sorted matchups by Tournament and Round.")
+        except Exception as e_sort:
+            print(f"Warning: Error during sorting: {e_sort}")
+
+        # Set display headers AFTER sorting/indexing
+        df_display.columns = DISPLAY_HEADERS
+
         print("Applying styles and generating HTML table string using Styler...")
         styler = df_numeric.style.apply(apply_table_styles, axis=1) # Style based on numeric data
         styler.set_table_attributes('class="dataframe"')
         styler.data = df_display # Use the formatted data for the final HTML output
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
-        if not html_table or not isinstance(html_table, str): return format_error_html_for_table("Failed to generate HTML table using pandas Styler.")
+
+        if not html_table or not isinstance(html_table, str):
+            return format_simple_error_html("Failed to generate HTML table using pandas Styler.")
+
         print("HTML table string generated successfully via Styler.")
         return html_table
-    except Exception as e: print(f"Error generating HTML table: {e}"); traceback.print_exc(); return format_error_html_for_table(f"Unexpected error during HTML table generation: {type(e).__name__}")
+
+    except Exception as e:
+        print(f"Error generating HTML table: {e}")
+        traceback.print_exc()
+        return format_simple_error_html(f"Unexpected error during HTML table generation: {type(e).__name__}")
 
 def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     """Constructs the entire HTML page, embedding the table and timestamp."""
-    # (CSS and HTML structure remain the same)
+    # (CSS and HTML structure remain the same as previous version)
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,7 +196,7 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
         table.dataframe tbody tr:hover td.spread-positive {{ background-color: #c8e6c9 !important; }}
         table.dataframe tbody tr:hover td.spread-negative {{ background-color: #ffcdd2 !important; }}
         .last-updated {{ margin-top: 25px; padding-top: 15px; border-top: 1px solid var(--medium-gray); font-size: 0.9em; color: #6c757d; text-align: center; }}
-        .{ERROR_MESSAGE_CLASS} {{ /* Error styles applied inline */ }}
+        /* Error message div style defined inline via format_simple_error_html */
         @media (max-width: 1200px) {{ table.dataframe th, table.dataframe td {{ font-size: 0.8em; padding: 7px 8px; }} }}
         @media (max-width: 992px) {{ body {{ padding: 15px; max-width: 100%; }} h1 {{ font-size: 1.5em; }} table.dataframe th, table.dataframe td {{ font-size: 0.75em; padding: 6px 5px; white-space: normal; }} table.dataframe th:nth-child(n), table.dataframe td:nth-child(n) {{ width: auto;}} table.dataframe th:nth-child(3), table.dataframe td:nth-child(3), table.dataframe th:nth-child(4), table.dataframe td:nth-child(4) {{ font-weight: normal;}} }}
         @media (max-width: 768px) {{ table.dataframe th, table.dataframe td {{ font-size: 0.7em; padding: 5px 4px; }} }}
@@ -197,8 +220,7 @@ if __name__ == "__main__":
     output_file_abs = os.path.join(script_dir, OUTPUT_HTML_FILE)
     print(f"Script directory: {script_dir}"); print(f"Looking for latest merged CSV in: {data_dir_abs}"); print(f"Outputting generated HTML to: {output_file_abs}")
 
-    # --- Robust Initialization for NameError ---
-    table_html_content = format_error_html_for_table("Process did not complete or merged data not found.") # Default error
+    table_html_content = format_simple_error_html("Process did not complete or merged data not found.") # Default error
     final_df = None
     error_msg = "" # Store potential loading errors
 
@@ -209,50 +231,44 @@ if __name__ == "__main__":
         if latest_merged_csv:
             print(f"Loading merged data from: {os.path.basename(latest_merged_csv)}")
             try:
-                # Attempt to load the merged CSV
                 final_df = pd.read_csv(latest_merged_csv)
                 if final_df.empty:
                      error_msg = "Loaded merged data file is empty."
                      print(f"  Warning: {error_msg}")
-                     final_df = None # Treat as no data
+                     final_df = None
                 else:
                      print(f"  Successfully loaded merged data. Shape: {final_df.shape}")
-                     # Attempt to generate the HTML table from the loaded data
                      print(f"\nGenerating HTML table content from final data (Shape: {final_df.shape})...")
-                     table_html_content = generate_html_table(final_df) # Assign result here
-                     if ERROR_MESSAGE_CLASS in table_html_content:
+                     table_html_content = generate_html_table(final_df)
+                     if 'Error:' in table_html_content and '<div style' in table_html_content: # Check if it's an error HTML
                           print("generate_html_table reported an error.")
-                          error_msg = "Error during HTML table generation." # Update error message
+                          error_msg = "Error during HTML table generation."
 
             except Exception as load_err:
                 error_msg = f"Error loading or processing merged CSV '{os.path.basename(latest_merged_csv)}': {load_err}"
                 print(f"  {error_msg}")
                 traceback.print_exc()
-                final_df = None # Ensure df is None on error
+                final_df = None
         else:
             error_msg = f"Could not find latest merged data file ({MERGED_CSV_PATTERN}). Run processing script first."
             print(f"  {error_msg}")
-            final_df = None # Ensure df is None if file not found
+            final_df = None
 
         # If after all attempts, df is None or empty, ensure error HTML is set
         if final_df is None or final_df.empty:
              if not error_msg: error_msg = "No valid merged data found."
              print(f"\nNo data available for table generation. Using error message: {error_msg}")
-             table_html_content = format_error_html_for_table(error_msg)
+             table_html_content = format_simple_error_html(error_msg)
 
     except Exception as main_err:
-         # Catch any unexpected error during file finding or initial processing
          print(f"CRITICAL ERROR in main processing block: {main_err}")
          traceback.print_exc()
-         # Ensure table_content_html has an error message assigned
-         table_html_content = format_error_html_for_table(f"Critical processing error: {main_err}")
-
+         table_html_content = format_simple_error_html(f"Critical processing error: {main_err}")
 
     # Generate and Write Page
     update_time = datetime.now(pytz.timezone('Europe/Brussels')).strftime('%Y-%m-%d %H:%M:%S %Z')
     timestamp_str = f"Last updated: {html.escape(update_time)}"
     print("\nGenerating full HTML page content...");
-    # table_content_html should ALWAYS have a value here (valid table or error html)
     full_html = generate_full_html_page(table_content_html, timestamp_str)
     print("Full HTML page content generated.")
 
@@ -263,4 +279,3 @@ if __name__ == "__main__":
     except Exception as e: print(f"CRITICAL ERROR writing final HTML file: {e}"); traceback.print_exc()
 
     print("\nPage generation process complete.")
-
