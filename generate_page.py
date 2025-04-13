@@ -35,7 +35,6 @@ DISPLAY_HEADERS = [
 ]
 
 # --- Helper Functions ---
-# (find_latest_csv, format_simple_error_html remain the same)
 def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
     """Finds the most recently modified CSV file matching the pattern."""
     try:
@@ -180,7 +179,6 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
             --row-alt-bg-color: #f8f9fa;
             --hover-bg-color: #e9ecef;
             --shadow-color: rgba(0, 0, 0, 0.05);
-            /* Removed cell highlight colors */
             /* Row Highlighting Color */
             --interesting-spread-row-text-color: #000000; /* Black for bold text */
         }}
@@ -282,22 +280,15 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
         }}
 
         /* --- UPDATED: Interesting Spread Row Styling (Bold) --- */
+        /* Applied via apply_table_styles adding class="interesting-spread-row" to <td> */
         table.dataframe td.interesting-spread-row {{
             font-weight: bold !important; /* Make text bold */
             color: var(--interesting-spread-row-text-color) !important;
-            /* background-color: transparent !important; Remove background override */
-        }}
-        /* Optional: Slightly different hover for bold rows */
-        table.dataframe tbody tr:hover td.interesting-spread-row {{
-             /* background-color: var(--hover-bg-color) !important; Inherit standard hover */
-             /* Or add a subtle different hover if needed */
+            /* Background color will be inherited from normal/hover state */
         }}
         /* --- End Row Styling --- */
 
-
         /* --- REMOVED Cell Specific Highlighting Rules --- */
-        /* .value-bet, .spread-positive, .spread-negative rules removed */
-
 
         .last-updated {{
             margin-top: 25px;
