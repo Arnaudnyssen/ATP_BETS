@@ -1,4 +1,4 @@
-# generate_page.py (Simplified - Final Fix - Debug Code Removed - NameError Fix - Modern Styling)
+# generate_page.py (Simplified - Final Fix - Debug Code Removed - NameError Fix - Modern Styling - Styler Fix)
 # Loads the pre-processed/merged data CSV and generates the HTML page with updated styles.
 
 import pandas as pd
@@ -33,10 +33,17 @@ DISPLAY_HEADERS = [
 def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
     """Finds the most recently modified CSV file matching the pattern."""
     try:
-        script_dir = os.path.dirname(os.path.abspath(__file__)); search_dir = os.path.join(script_dir, directory)
+        # Ensure directory path is absolute
+        if not os.path.isabs(directory):
+             script_dir = os.path.dirname(os.path.abspath(__file__))
+             search_dir = os.path.join(script_dir, directory)
+        else:
+             search_dir = directory
+
         search_path = os.path.join(search_dir, pattern); print(f"Searching for pattern: {search_path}")
         list_of_files = glob.glob(search_path)
         if not list_of_files: print(f"  No files found matching pattern."); return None
+        # Filter out directories, just in case pattern matches one
         list_of_files = [f for f in list_of_files if os.path.isfile(f)]
         if not list_of_files: print(f"  No *files* found matching pattern."); return None
         latest_file = max(list_of_files, key=os.path.getmtime); print(f"Found latest CSV file: {os.path.basename(latest_file)}")
@@ -52,29 +59,33 @@ def format_simple_error_html(message: str) -> str:
 # --- HTML Generation Functions ---
 def apply_table_styles(row: pd.Series) -> List[str]:
     """Applies CSS classes for value bets and spread highlighting to specific cells."""
-    # Initialize styles as empty strings for all columns
-    styles = [''] * len(DISPLAY_COLS_ORDERED)
+    # Initialize styles as empty strings based on the row's index (columns)
+    # This ensures the returned list matches the number of columns in the row being processed
+    styles = [''] * len(row.index)
+    cols_in_row = row.index # Get the actual columns present in the row/DataFrame slice
+
     try: # Value Bet Check - Apply style ONLY to the Betcenter odds cell
+        # Use .get() with default None to handle potentially missing columns gracefully
         sack_odds_p1 = pd.to_numeric(row.get('Player1_Match_Odds'), errors='coerce')
         bc_odds_p1 = pd.to_numeric(row.get('bc_p1_odds'), errors='coerce')
         sack_odds_p2 = pd.to_numeric(row.get('Player2_Match_Odds'), errors='coerce')
         bc_odds_p2 = pd.to_numeric(row.get('bc_p2_odds'), errors='coerce')
 
         # Check P1 value bet
-        if not pd.isna(sack_odds_p1) and not pd.isna(bc_odds_p1) and bc_odds_p1 >= sack_odds_p1 * VALUE_BET_THRESHOLD:
+        if 'bc_p1_odds' in cols_in_row and not pd.isna(sack_odds_p1) and not pd.isna(bc_odds_p1) and bc_odds_p1 >= sack_odds_p1 * VALUE_BET_THRESHOLD:
             try:
-                # Find the index of 'bc_p1_odds' in the display list and apply the style
-                bc_p1_index = DISPLAY_COLS_ORDERED.index('bc_p1_odds')
-                styles[bc_p1_index] = 'value-bet' # Use a single class for value bets
-            except ValueError: pass # Column not found
+                # Find the index POSITION of 'bc_p1_odds' in the row's index
+                bc_p1_pos = cols_in_row.get_loc('bc_p1_odds')
+                styles[bc_p1_pos] = 'value-bet' # Use a single class for value bets
+            except KeyError: pass # Should not happen if check passed, but safe
 
         # Check P2 value bet
-        if not pd.isna(sack_odds_p2) and not pd.isna(bc_odds_p2) and bc_odds_p2 >= sack_odds_p2 * VALUE_BET_THRESHOLD:
+        if 'bc_p2_odds' in cols_in_row and not pd.isna(sack_odds_p2) and not pd.isna(bc_odds_p2) and bc_odds_p2 >= sack_odds_p2 * VALUE_BET_THRESHOLD:
             try:
-                # Find the index of 'bc_p2_odds' in the display list and apply the style
-                bc_p2_index = DISPLAY_COLS_ORDERED.index('bc_p2_odds')
-                styles[bc_p2_index] = 'value-bet' # Use a single class for value bets
-            except ValueError: pass # Column not found
+                # Find the index POSITION of 'bc_p2_odds' in the row's index
+                bc_p2_pos = cols_in_row.get_loc('bc_p2_odds')
+                styles[bc_p2_pos] = 'value-bet' # Use a single class for value bets
+            except KeyError: pass # Should not happen
 
     except Exception as e_val: print(f"Warning: Error during value bet styling: {e_val}")
 
@@ -83,20 +94,20 @@ def apply_table_styles(row: pd.Series) -> List[str]:
         p2_spread = pd.to_numeric(row.get('p2_spread'), errors='coerce')
 
         # Check P1 spread sign
-        if not pd.isna(p1_spread):
+        if 'p1_spread' in cols_in_row and not pd.isna(p1_spread):
             try:
-                idx = DISPLAY_COLS_ORDERED.index('p1_spread')
+                idx = cols_in_row.get_loc('p1_spread')
                 if p1_spread > 0: styles[idx] = 'spread-positive'
                 elif p1_spread < 0: styles[idx] = 'spread-negative'
-            except ValueError: pass # Column not found
+            except KeyError: pass
 
         # Check P2 spread sign
-        if not pd.isna(p2_spread):
+        if 'p2_spread' in cols_in_row and not pd.isna(p2_spread):
             try:
-                idx = DISPLAY_COLS_ORDERED.index('p2_spread')
+                idx = cols_in_row.get_loc('p2_spread')
                 if p2_spread > 0: styles[idx] = 'spread-positive'
                 elif p2_spread < 0: styles[idx] = 'spread-negative'
-            except ValueError: pass # Column not found
+            except KeyError: pass
 
     except Exception as e_spread: print(f"Warning: Error during spread styling: {e_spread}")
 
@@ -114,11 +125,10 @@ def generate_html_table(df: pd.DataFrame) -> str:
         missing_display_cols = [col for col in DISPLAY_COLS_ORDERED if col not in df.columns]
         if missing_display_cols:
             print(f"Warning: Merged data missing expected display columns: {', '.join(missing_display_cols)}. Table might look incomplete.")
-            # Proceeding with available columns
 
         # Create copies for formatting and styling using only available columns
-        df_numeric = df[cols_to_use].copy()
-        df_display = df[cols_to_use].copy()
+        df_numeric = df[cols_to_use].copy() # Use this for styling logic
+        df_display = df[cols_to_use].copy() # Use this for display text
 
         # Define formatters for numeric columns
         formatters = {
@@ -144,12 +154,15 @@ def generate_html_table(df: pd.DataFrame) -> str:
             if 'TournamentName' in df_display.columns:
                 sort_cols.append('TournamentName')
             if 'Round' in df_display.columns:
+                # Create sort key only if Round exists
                 df_display['RoundSort'] = df_display['Round'].map(round_map).fillna(999)
                 sort_cols.append('RoundSort')
 
             if sort_cols:
                 df_display.sort_values(by=sort_cols, inplace=True, na_position='last')
-                df_numeric = df_numeric.loc[df_display.index] # Align numeric data index
+                # Reindex the numeric dataframe to match the sorted display dataframe
+                df_numeric = df_numeric.loc[df_display.index]
+                # Drop the temporary sort key if it was created
                 if 'RoundSort' in df_display.columns:
                     df_display.drop(columns=['RoundSort'], inplace=True)
                 print(f"Sorted matchups by: {', '.join(sort_cols).replace('RoundSort', 'Round')}.")
@@ -158,15 +171,18 @@ def generate_html_table(df: pd.DataFrame) -> str:
         except Exception as e_sort:
             print(f"Warning: Error during sorting: {e_sort}")
 
-        # Map available columns to their desired headers
+        # Map available columns to their desired headers for the final display
         current_headers = [DISPLAY_HEADERS[DISPLAY_COLS_ORDERED.index(col)] for col in cols_to_use]
-        df_display.columns = current_headers # Set display headers AFTER sorting/indexing
+        df_display.columns = current_headers
 
         print("Applying styles and generating HTML table string using Styler...")
-        # Apply styles based on the numeric data, ensuring alignment if columns were missing
-        styler = df_numeric.style.apply(lambda row: styles[:len(cols_to_use)], axis=1) # Pass only styles for available columns
+        # --- CORRECTED Styler Call ---
+        # Pass the apply_table_styles function directly. It will receive each row of df_numeric.
+        styler = df_numeric.style.apply(apply_table_styles, axis=1)
+        # -----------------------------
         styler.set_table_attributes('class="dataframe"')
-        styler.data = df_display # Use the formatted data for the final HTML output
+        # Set the display data AFTER applying styles based on numeric data
+        styler.data = df_display
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
 
         if not html_table or not isinstance(html_table, str):
@@ -296,6 +312,7 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
         }}
 
         /* Cell Specific Highlighting (Applied via apply_table_styles) */
+        /* These classes are added to the specific <td> elements by the apply_table_styles function */
         table.dataframe td.value-bet {{
             background-color: var(--value-bet-bg-color) !important;
             color: var(--value-bet-text-color);
