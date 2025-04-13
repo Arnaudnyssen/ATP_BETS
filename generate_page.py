@@ -1,4 +1,4 @@
-# generate_page.py (v8 - Spread Row Highlighting)
+# generate_page.py (v9 - Corrected Styler Apply)
 # Loads the processed_comparison_*.csv file and generates the HTML page
 # with updated styles, including highlighting rows with significant spread.
 
@@ -34,7 +34,6 @@ DISPLAY_HEADERS = [
 ]
 
 # --- Helper Functions ---
-# (find_latest_csv, format_simple_error_html remain the same)
 def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
     """Finds the most recently modified CSV file matching the pattern."""
     try:
@@ -63,7 +62,6 @@ def apply_table_styles(row: pd.Series) -> List[str]:
     """
     Applies CSS classes for row highlighting (interesting spread)
     and cell highlighting (value bets, spread sign).
-    Row highlighting takes precedence for background.
     """
     styles = [''] * len(row.index)
     cols_in_row = row.index
@@ -76,13 +74,10 @@ def apply_table_styles(row: pd.Series) -> List[str]:
         if (not pd.isna(p1_spread_abs) and p1_spread_abs > INTERESTING_SPREAD_THRESHOLD) or \
            (not pd.isna(p2_spread_abs) and p2_spread_abs > INTERESTING_SPREAD_THRESHOLD):
             is_interesting_spread = True
-            # Apply class to all cells in the row
             styles = ['interesting-spread-row'] * len(row.index)
     except Exception as e_row_spread: print(f"Warning: Error during interesting spread row check: {e_row_spread}")
 
     # --- Cell Specific Highlighting (Value Bets) ---
-    # These will be added *in addition* to the row class if applicable,
-    # allowing CSS specificity to control final appearance (e.g., font weight).
     try:
         sack_odds_p1 = pd.to_numeric(row.get('Player1_Match_Odds'), errors='coerce')
         bc_odds_p1 = pd.to_numeric(row.get('bc_p1_odds'), errors='coerce')
@@ -92,7 +87,6 @@ def apply_table_styles(row: pd.Series) -> List[str]:
         if 'bc_p1_odds' in cols_in_row and not pd.isna(sack_odds_p1) and not pd.isna(bc_odds_p1) and bc_odds_p1 >= sack_odds_p1 * VALUE_BET_THRESHOLD:
             try:
                 bc_p1_pos = cols_in_row.get_loc('bc_p1_odds')
-                # Append class, don't overwrite row class
                 styles[bc_p1_pos] = (styles[bc_p1_pos] + ' value-bet').strip()
             except KeyError: pass
 
@@ -136,7 +130,6 @@ def apply_table_styles(row: pd.Series) -> List[str]:
 
 def generate_html_table(df: pd.DataFrame) -> str:
     """Generates the HTML table using Pandas Styler from the processed DataFrame."""
-    # (Logic for formatting, sorting, header mapping remains the same as v7)
     if df is None or df.empty:
         return format_simple_error_html("No processed match data provided to generate_html_table.")
     try:
@@ -188,8 +181,10 @@ def generate_html_table(df: pd.DataFrame) -> str:
         df_display.columns = current_headers
 
         print("Applying styles and generating HTML table string using Styler...")
-        # Pass the apply_table_styles function. It now returns classes for rows and/or cells.
+        # --- CORRECTED Styler Call ---
+        # Pass the apply_table_styles function directly.
         styler = df_numeric.style.apply(apply_table_styles, axis=1)
+        # -----------------------------
         styler.set_table_attributes('class="dataframe"')
         styler.data = df_display # Use the formatted data for the final HTML output
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
@@ -207,7 +202,7 @@ def generate_html_table(df: pd.DataFrame) -> str:
 
 def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     """Constructs the entire HTML page with updated styles, embedding the table and timestamp."""
-    # --- Updated CSS with interesting-spread-row ---
+    # (CSS remains the same as v8)
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -415,7 +410,6 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     return html_content
 
 # --- Main Execution Logic ---
-# (Main execution block remains the same as v7)
 if __name__ == "__main__":
     print("Starting HTML page generation process...")
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -460,7 +454,7 @@ if __name__ == "__main__":
     update_time = datetime.now(pytz.timezone('Europe/Brussels')).strftime('%Y-%m-%d %H:%M:%S %Z')
     timestamp_str = f"Last updated: {html.escape(update_time)}"
     print("\nGenerating full HTML page content...");
-    full_html = generate_full_html_page(table_content_html, timestamp_str)
+    full_html = generate_full_html_page(table_html_content, timestamp_str)
     print("Full HTML page content generated.")
 
     try:
@@ -470,3 +464,4 @@ if __name__ == "__main__":
     except Exception as e: print(f"CRITICAL ERROR writing final HTML file: {e}"); traceback.print_exc()
 
     print("\nPage generation process complete.")
+
