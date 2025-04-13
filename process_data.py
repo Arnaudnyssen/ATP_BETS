@@ -1,7 +1,7 @@
-# process_data.py (v4 - Improved Key Cleaning & New Output Filename)
+# process_data.py (v5 - Standardize Barcelona Spelling)
 # Loads latest Sackmann and Betcenter data, preprocesses, merges, calculates spread,
 # calculates normalized Betcenter probabilities, and saves the final combined DataFrame
-# to a new filename pattern.
+# to processed_comparison_*.csv. Includes improved key cleaning.
 
 import pandas as pd
 import numpy as np
@@ -17,9 +17,7 @@ from typing import Optional, List, Tuple, Any
 DATA_DIR = "data_archive"
 SACKMANN_CSV_PATTERN = "sackmann_matchups_*.csv"
 BETCENTER_CSV_PATTERN = "betcenter_odds_*.csv"
-# --- NEW Output Filename Base ---
 PROCESSED_OUTPUT_FILENAME_BASE = "processed_comparison"
-# --------------------------------
 DATE_FORMAT = "%Y%m%d"
 
 # --- Column Definitions ---
@@ -38,7 +36,13 @@ def create_merge_key(text: str) -> str:
     if not isinstance(text, str): return ""
     try:
         key = text.lower()
-        # Remove common prefixes/suffixes/qualifiers
+        # --- Specific known replacements FIRST ---
+        key = key.replace('barcelone', 'barcelona') # Standardize spelling
+        # Add other known variations here if needed (e.g., 'montecarlo', 'monte carlo')
+        # key = key.replace('some_other_variation', 'standard_name')
+        # -----------------------------------------
+
+        # Remove common prefixes/suffixes/qualifiers AFTER specific replacements
         prefixes_suffixes_to_remove = [
             "tennis - ", ", qualifying", ", spain", ", germany", "atp", "challenger",
             "qualification"
@@ -47,10 +51,10 @@ def create_merge_key(text: str) -> str:
             key = key.replace(item, "")
 
         key = key.strip() # Remove leading/trailing spaces after replacements
-        # --- ADDED: Remove trailing digits (e.g., from Abidjan1) ---
+        # Remove trailing digits (e.g., from Abidjan1)
         key = re.sub(r'\d+$', '', key)
-        # ----------------------------------------------------------
-        key = re.sub(r'[^\w]', '', key) # Keep only alphanumeric (removes spaces, hyphens etc.)
+        # Keep only alphanumeric (removes spaces, hyphens etc.)
+        key = re.sub(r'[^\w]', '', key)
         return key
     except Exception as e:
         print(f"Warning: Error creating merge key for '{text}': {e}")
@@ -63,9 +67,20 @@ def preprocess_player_name(name: str) -> Tuple[str, str]:
     try:
         if ',' in name:
             parts = [part.strip() for part in name.split(',')];
-            if len(parts) == 2: name = f"{parts[1]} {parts[0]}"
+            # Basic handling for "Last, F." type abbreviations if needed
+            if len(parts) == 2:
+                 first_name_part = parts[1]
+                 # Remove trailing period if it looks like an initial
+                 if first_name_part.endswith('.') and len(first_name_part) <= 2:
+                      first_name_part = first_name_part[:-1]
+                 name = f"{first_name_part} {parts[0]}" # Reorder
+            else: # If more than one comma, just join parts - might need review
+                 name = " ".join(parts)
+
         display_name = re.sub(r'\s*\([^)]*\)', '', name).strip()
         display_name = re.sub(r'^\*|\*$', '', display_name).strip()
+        # Remove potential trailing periods from names like "Brand."
+        display_name = re.sub(r'\.$', '', display_name).strip()
         display_name = display_name.title()
         display_name = re.sub(r'\s+', ' ', display_name).strip()
         # Use the updated create_merge_key for player names too for consistency
@@ -75,7 +90,7 @@ def preprocess_player_name(name: str) -> Tuple[str, str]:
         print(f"Warning: Could not preprocess player name '{name}': {e}")
         return name.title(), create_merge_key(name) # Fallback uses updated key func
 
-# (find_latest_csv, load_and_prepare_sackmann_data, load_and_prepare_betcenter_data, merge_data remain the same as v3)
+# (find_latest_csv, load_and_prepare_sackmann_data, load_and_prepare_betcenter_data, merge_data remain the same as v4)
 def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
     """Finds the most recently modified CSV file matching the pattern."""
     try:
@@ -146,6 +161,7 @@ def load_and_prepare_betcenter_data(csv_filepath: str) -> Optional[pd.DataFrame]
         if not all(col in df.columns for col in required_bc_cols): print(f"  Error: Betcenter DataFrame missing required columns ({required_bc_cols}). Found: {df.columns.tolist()}"); return None
 
         df['TournamentKey'] = df['tournament'].astype(str).apply(create_merge_key)
+        # Use the raw tournament name for display for now, or apply minimal cleaning
         df['TournamentName'] = df['tournament'].astype(str).apply(lambda x: x.replace("Tennis - ", "").strip().title())
         df[['Player1Name', 'Player1NameKey']] = df['p1_name'].astype(str).apply(lambda x: pd.Series(preprocess_player_name(x)))
         df[['Player2Name', 'Player2NameKey']] = df['p2_name'].astype(str).apply(lambda x: pd.Series(preprocess_player_name(x)))
@@ -173,14 +189,13 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
     if betcenter_df is None or betcenter_df.empty:
         print("Betcenter data is missing or empty. Adding placeholder columns to Sackmann data.")
         final_df = sackmann_df.copy()
-        # Add placeholders for all columns that would come from Betcenter
         for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread']:
              if col not in final_df.columns: final_df[col] = np.nan
     else:
         print("Attempting to merge Sackmann and Betcenter data on standardized keys...")
         try:
-            if not all(key in sackmann_df.columns for key in MERGE_KEY_COLS): print(f"Error: Sackmann DF missing keys ({MERGE_KEY_COLS})."); return sackmann_df # Return original if keys missing
-            if not all(key in betcenter_df.columns for key in MERGE_KEY_COLS): print(f"Error: Betcenter DF missing keys ({MERGE_KEY_COLS})."); return sackmann_df # Return original if keys missing
+            if not all(key in sackmann_df.columns for key in MERGE_KEY_COLS): print(f"Error: Sackmann DF missing keys ({MERGE_KEY_COLS})."); return sackmann_df
+            if not all(key in betcenter_df.columns for key in MERGE_KEY_COLS): print(f"Error: Betcenter DF missing keys ({MERGE_KEY_COLS})."); return sackmann_df
 
             print("\n--- Debugging Merge ---"); print(f"Sackmann DF Head (Keys - {len(sackmann_df)} rows):"); print(sackmann_df[MERGE_KEY_COLS].head())
             print(f"\nBetcenter DF Head (Keys - {len(betcenter_df)} rows):"); print(betcenter_df[MERGE_KEY_COLS].head()); print("-----------------------\n")
@@ -202,7 +217,6 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
                 }, inplace=True)
 
                 unmatched_sackmann_subset = sackmann_df.loc[unmatched_indices].copy()
-                # Ensure merge keys are present before dropping columns
                 cols_to_drop = ['bc_p1_odds', 'bc_p2_odds']
                 cols_exist = [col for col in cols_to_drop if col in unmatched_sackmann_subset.columns]
                 swapped_merge_result = pd.merge(
@@ -290,17 +304,15 @@ if __name__ == "__main__":
     if final_processed_data is not None and not final_processed_data.empty:
         print("\nSaving final processed data...")
         today_date_str = datetime.now().strftime(DATE_FORMAT)
-        # --- Use NEW Filename Base ---
         output_filename = f"{PROCESSED_OUTPUT_FILENAME_BASE}_{today_date_str}.csv"
-        # ---------------------------
         output_path = os.path.join(data_dir_abs, output_filename)
         try:
             float_cols = final_processed_data.select_dtypes(include=['float']).columns
             format_dict = {col: '%.2f' for col in float_cols}
             final_processed_data.to_csv(output_path, index=False, encoding='utf-8', float_format='%.2f')
-            print(f"Successfully saved processed data to: {output_path}") # Updated message
+            print(f"Successfully saved processed data to: {output_path}")
         except Exception as e:
-            print(f"Error saving processed data to CSV: {e}") # Updated message
+            print(f"Error saving processed data to CSV: {e}")
             traceback.print_exc()
     else:
         print("\nNo final data generated or available to save.")
