@@ -1,7 +1,7 @@
 TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread
 Atpbarcelona,R32,Carlos Alcaraz,Ethan Quinn,97.40,2.60,,,1.03,38.46,,,,
 Atpbarcelona,R32,Laslo Djere,Arthur Rinderknech,66.40,33.60,73.05,26.95,1.51,2.98,1.28,3.47,-0.23,0.49
-Atpbarcelona,R32,Roberto Carballes Baena,Jordan Thompson,63.90,36.10,63.18,36.82,1.56,2.77,1.48,2.54,-0.08,-0.23
+Atpbarcelona,R32,Roberto Carballes Baena,Jordan Thompson,63.90,36.10,62.31,37.69,1.56,2.77,1.50,2.48,-0.06,-0.29
 Atpbarcelona,R32,Tomas Martin Etcheverry,Alex De Minaur,33.80,66.20,28.08,71.92,2.96,1.51,3.33,1.30,0.37,-0.21
 Atpbarcelona,R32,Stefanos Tsitsipas,Reilly Opelka,79.70,20.30,,,1.25,4.93,,,,
 Atpbarcelona,R32,Matteo Arnaldi,Sebastian Korda,55.50,44.50,51.34,48.66,1.80,2.25,1.82,1.92,0.02,-0.33
