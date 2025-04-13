@@ -41,8 +41,7 @@ jobs:
           google-chrome --version
           echo "Installing Python dependencies..."
           python -m pip install --upgrade pip
-          # Added beautifulsoup4, requests for results scraper
-          pip install beautifulsoup4 requests
+          pip install beautifulsoup4 requests # Ensure these are installed
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           echo "Dependency installation complete."
 
@@ -60,22 +59,22 @@ jobs:
         id: process_data
         run: python process_data.py # Produces processed_comparison_*.csv
 
-      - name: Scrape Match Results # Scrapes results based on processed data
+      - name: Scrape Match Results
         id: results_scrape
         run: python results_scraper.py # Produces match_results_*.csv
-        continue-on-error: true # Continue if results for some tournaments fail
+        continue-on-error: true # Keep this for now, but investigate failures
 
-      - name: Simulate Betting Strategies # Identifies bets based on processed data
+      - name: Simulate Betting Strategies
         id: simulate_bets
         run: python simulate_strategies.py # Appends to strategy_log.csv
         continue-on-error: true
 
-      - name: Calculate Strategy Performance # Calculates P/L using logs and results
+      - name: Calculate Strategy Performance
         id: calculate_perf
         run: python calculate_results.py # Updates strategy_log.csv, creates summary
         continue-on-error: true
 
-      - name: Generate HTML Page # Reads processed_comparison & results summary later
+      - name: Generate HTML Page
         id: generate_html
         run: python generate_page.py
 
@@ -85,17 +84,57 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Stage Generated Files # Updated Step Name & Files
+      - name: Stage Generated Files # Updated Step Logic
         run: |
-          echo "Staging index.html and all relevant CSV files..."
+          echo "Staging index.html and generated CSV files if they exist..."
+          # Always add index.html (should always be generated)
           git add index.html
-          git add data_archive/sackmann_matchups_*.csv
-          git add data_archive/betcenter_odds_*.csv
-          git add data_archive/processed_comparison_*.csv
-          git add data_archive/match_results_*.csv
-          git add data_archive/strategy_log.csv # Add the log file
-          git add data_archive/daily_results_summary.csv # Add the summary file
-          git status
+
+          # Conditionally add CSV files only if they exist
+          if ls data_archive/sackmann_matchups_*.csv 1> /dev/null 2>&1; then
+            echo "Adding Sackmann CSV(s)..."
+            git add data_archive/sackmann_matchups_*.csv
+          else
+            echo "Sackmann CSV not found, skipping add."
+          fi
+
+          if ls data_archive/betcenter_odds_*.csv 1> /dev/null 2>&1; then
+            echo "Adding Betcenter CSV(s)..."
+            git add data_archive/betcenter_odds_*.csv
+          else
+            echo "Betcenter CSV not found, skipping add."
+          fi
+
+          if ls data_archive/processed_comparison_*.csv 1> /dev/null 2>&1; then
+            echo "Adding Processed Comparison CSV(s)..."
+            git add data_archive/processed_comparison_*.csv
+          else
+            echo "Processed Comparison CSV not found, skipping add."
+          fi
+
+          if ls data_archive/match_results_*.csv 1> /dev/null 2>&1; then
+            echo "Adding Match Results CSV(s)..."
+            git add data_archive/match_results_*.csv
+          else
+            echo "Match Results CSV not found, skipping add."
+          fi
+
+          if ls data_archive/strategy_log.csv 1> /dev/null 2>&1; then
+            echo "Adding Strategy Log CSV..."
+            git add data_archive/strategy_log.csv
+          else
+            echo "Strategy Log CSV not found, skipping add."
+          fi
+
+          if ls data_archive/daily_results_summary.csv 1> /dev/null 2>&1; then
+            echo "Adding Daily Summary CSV..."
+            git add data_archive/daily_results_summary.csv
+          else
+            echo "Daily Summary CSV not found, skipping add."
+          fi
+
+          echo "Staging check complete."
+          git status # Show what is actually staged
 
       - name: Commit Updates
         run: |
@@ -103,8 +142,7 @@ jobs:
             echo "No changes to commit."
           else
             echo "Committing updated data, results, logs, and page..."
-            # Commit message reflects the broader scope now
-            git commit -m "Automated data, results, strategy simulation, and page update"
+            git commit -m "Automated data processing, results, strategy simulation, and page update"
           fi
 
       # --- Push Changes ---
