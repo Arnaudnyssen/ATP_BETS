@@ -1,6 +1,7 @@
-# generate_page.py (v9 - Corrected Styler Apply)
+# generate_page.py (v10 - Lower Value Threshold TEST)
 # Loads the processed_comparison_*.csv file and generates the HTML page
 # with updated styles, including highlighting rows with significant spread.
+# VALUE_BET_THRESHOLD lowered for testing purposes ONLY.
 
 import pandas as pd
 import numpy as np
@@ -16,7 +17,9 @@ from typing import Optional, List
 DATA_DIR = "data_archive"
 PROCESSED_CSV_PATTERN = "processed_comparison_*.csv" # Input file pattern
 OUTPUT_HTML_FILE = "index.html"
-VALUE_BET_THRESHOLD = 1.10 # BC odds >= 110% of Sackmann odds
+# --- LOWERED THRESHOLD FOR TESTING ---
+VALUE_BET_THRESHOLD = 1.01 # TEST VALUE: BC odds >= 101% of Sackmann odds
+# --- Original value was 1.10 ---
 INTERESTING_SPREAD_THRESHOLD = 0.50 # Highlight row if abs(spread) > 0.50
 
 # --- Column Definitions (for styling and display) ---
@@ -34,6 +37,7 @@ DISPLAY_HEADERS = [
 ]
 
 # --- Helper Functions ---
+# (find_latest_csv, format_simple_error_html remain the same)
 def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
     """Finds the most recently modified CSV file matching the pattern."""
     try:
@@ -58,6 +62,7 @@ def format_simple_error_html(message: str) -> str:
 
 
 # --- HTML Generation Functions ---
+# (apply_table_styles, generate_html_table, generate_full_html_page remain the same as v9)
 def apply_table_styles(row: pd.Series) -> List[str]:
     """
     Applies CSS classes for row highlighting (interesting spread)
@@ -84,13 +89,13 @@ def apply_table_styles(row: pd.Series) -> List[str]:
         sack_odds_p2 = pd.to_numeric(row.get('Player2_Match_Odds'), errors='coerce')
         bc_odds_p2 = pd.to_numeric(row.get('bc_p2_odds'), errors='coerce')
 
-        if 'bc_p1_odds' in cols_in_row and not pd.isna(sack_odds_p1) and not pd.isna(bc_odds_p1) and bc_odds_p1 >= sack_odds_p1 * VALUE_BET_THRESHOLD:
+        if 'bc_p1_odds' in cols_in_row and not pd.isna(sack_odds_p1) and not pd.isna(bc_odds_p1) and bc_odds_p1 >= sack_odds_p1 * VALUE_BET_THRESHOLD: # Uses the potentially lowered threshold
             try:
                 bc_p1_pos = cols_in_row.get_loc('bc_p1_odds')
                 styles[bc_p1_pos] = (styles[bc_p1_pos] + ' value-bet').strip()
             except KeyError: pass
 
-        if 'bc_p2_odds' in cols_in_row and not pd.isna(sack_odds_p2) and not pd.isna(bc_odds_p2) and bc_odds_p2 >= sack_odds_p2 * VALUE_BET_THRESHOLD:
+        if 'bc_p2_odds' in cols_in_row and not pd.isna(sack_odds_p2) and not pd.isna(bc_odds_p2) and bc_odds_p2 >= sack_odds_p2 * VALUE_BET_THRESHOLD: # Uses the potentially lowered threshold
             try:
                 bc_p2_pos = cols_in_row.get_loc('bc_p2_odds')
                 styles[bc_p2_pos] = (styles[bc_p2_pos] + ' value-bet').strip()
@@ -181,12 +186,9 @@ def generate_html_table(df: pd.DataFrame) -> str:
         df_display.columns = current_headers
 
         print("Applying styles and generating HTML table string using Styler...")
-        # --- CORRECTED Styler Call ---
-        # Pass the apply_table_styles function directly.
         styler = df_numeric.style.apply(apply_table_styles, axis=1)
-        # -----------------------------
         styler.set_table_attributes('class="dataframe"')
-        styler.data = df_display # Use the formatted data for the final HTML output
+        styler.data = df_display
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
 
         if not html_table or not isinstance(html_table, str):
@@ -202,7 +204,7 @@ def generate_html_table(df: pd.DataFrame) -> str:
 
 def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
     """Constructs the entire HTML page with updated styles, embedding the table and timestamp."""
-    # (CSS remains the same as v8)
+    # CSS remains the same as v9
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -399,8 +401,7 @@ def generate_full_html_page(table_content_html: str, timestamp_str: str) -> str:
 
     <p>Comparison of probabilities and calculated odds from the Tennis Abstract Sackmann model against betting odds scraped from Betcenter.be. The 'Spread' columns show the difference between Betcenter odds and Sackmann's calculated odds (Positive means Betcenter odds are higher).
     <br> - Rows highlighted in <span class="highlight" style="background-color: var(--interesting-spread-row-bg-color);">yellow</span> indicate a significant disagreement (spread > {INTERESTING_SPREAD_THRESHOLD:.2f}) between the sources for at least one player.
-    <br> - Cells highlighted in <span class="highlight" style="background-color: var(--value-bet-bg-color); color: var(--value-bet-text-color);">blue</span> indicate potential value bets where Betcenter odds are at least {int((VALUE_BET_THRESHOLD-1)*100)}% higher than the model's implied odds.
-    </p>
+    <br> - Cells highlighted in <span class="highlight" style="background-color: var(--value-bet-bg-color); color: var(--value-bet-text-color);">blue</span> indicate potential value bets where Betcenter odds are at least {int((VALUE_BET_THRESHOLD-1)*100)}% higher than the model's implied odds (TEST VALUE: {VALUE_BET_THRESHOLD*100:.0f}%). </p>
     <p>Matches involving qualifiers or appearing completed based on Sackmann data are filtered out. Name matching uses Title Case and may not be perfect.</p>
 
     <div class="table-container">{table_content_html}</div>
