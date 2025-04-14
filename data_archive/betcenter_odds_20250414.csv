@@ -1,103 +1,101 @@
 tournament,p1_name,p2_name,p1_odds,p2_odds,scrape_timestamp_utc
-"Challenger, Tallahassee, USA","Andrade, Andres","Vallejo, Adolfo Daniel",1.83,1.83,2025-04-14 10:07:29 UTC
-"Challenger, Tallahassee, USA","Mmoh, Michael","Barrios Vera, Marcelo Tomas",2.35,1.5,2025-04-14 10:07:29 UTC
-"Challenger, Tallahassee, USA","Krueger, Mitchell","Mena, Facundo",1.6,2.14,2025-04-14 10:07:29 UTC
-"Challenger, Tallahassee, USA","Spizzirri, Eliot","Cassone, Murphy",1.4,2.65,2025-04-14 10:07:29 UTC
-"Challenger, Tallahassee, USA","Gueymard-Wayenburg, Sascha","Galarneau, Alexis",2.65,1.4,2025-04-14 10:07:29 UTC
-"Challenger, Tallahassee, USA","Jianu, Filip Cri.",Blancaneaux Geoffrey,1.65,2.06,2025-04-14 10:07:29 UTC
-"Challenger, Tallahassee, USA","Bueno, Gonzalo",Wu Tung Lin,1.5,2.35,2025-04-14 10:07:29 UTC
-"Challenger, Tallahassee, USA","Maloney, Patrick","Brooksby, Jenson",5.47,1.1,2025-04-14 10:07:29 UTC
-"Challenger, Tallahassee, USA","Schwaerzler, Joel","Martineau, Matteo",1.83,1.83,2025-04-14 10:07:29 UTC
-ATP Munich,"Gojo, Borna","Shelton, Ben",2.63,1.45,2025-04-14 10:07:29 UTC
-ATP Munich,"Harris, Billy","Goffin, David",3.04,1.35,2025-04-14 10:07:29 UTC
-ATP Munich,"Zverev, Alexander","Müller, Alexandre",1.18,4.5,2025-04-14 10:07:29 UTC
-ATP Munich,"Tseng, Chun Hsin","Altmaier, Daniel",2.4,1.53,2025-04-14 10:07:29 UTC
-ATP Munich,"Cerundolo, Francisco","Struff, Jan-Lennard",1.24,3.8,2025-04-14 10:07:29 UTC
-ATP Munich,"Navone, Mariano","Auger-Aliassime, Félix",2.21,1.62,2025-04-14 10:07:29 UTC
-ATP Munich,"Humbert, Ugo","Jarry, Nicolas",1.65,2.16,2025-04-14 10:07:29 UTC
-ATP Munich,"Lehecka, Jiri","Darderi, Luciano",1.57,2.31,2025-04-14 10:07:29 UTC
-ATP Munich,"Hanfmann, Yannick","Mensik, Jakub",3.47,1.28,2025-04-14 10:07:29 UTC
-ATP Munich,"Monfils, Gaël","Shapovalov, Denis",1.97,1.78,2025-04-14 10:07:29 UTC
-ATP Munich,"Engel, Justin","Marozsan, Fabian",5.0,1.15,2025-04-14 10:07:29 UTC
-ATP Munich,"Bergs, Zizou",Bublik Alexander,1.59,2.27,2025-04-14 10:07:29 UTC
-ATP Munich,"Cobolli, Flavio","Shevchenko, Alexander",1.36,2.99,2025-04-14 10:07:29 UTC
-ATP Munich,"Bautista Agut, Roberto","Van De Zandschulp, Botic",1.77,1.98,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Carballes Baena, Roberto","Thompson, Jordan",1.43,2.7,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Arnaldi, Matteo","Korda, Sebastian",1.75,2.01,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Medjedovic, Hamad","Mpetshi-Perricard, Giovanni",1.38,2.9,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Rune, Holger",Ramos Vinolas Albert,1.15,5.0,2025-04-14 10:07:29 UTC
-ATP Barcelone,"De Jong, Jesper",Rublev Andrey,3.21,1.32,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Etcheverry, Tomas Martin","De Minaur, Alex",3.33,1.3,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Wawrinka, Stan","Davidovich Fokina, Alejandro",3.47,1.28,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Carreno Busta, Pablo","Fils, Arthur",3.71,1.25,2025-04-14 10:07:29 UTC
-ATP Barcelone,Tsitsipas Stefano,"Opelka, Reilly",1.17,4.66,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Tiafoe, Francis","Munar, Jaume",1.98,1.77,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Alcaraz Garfia, Carlos","Quinn, Ethan",1.02,11.22,2025-04-14 10:07:29 UTC
-ATP Barcelone,Baez Sebastian,"Dzumhur, Damir",1.38,2.9,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Khachanov, Karen","Norrie, Cameron",1.61,2.23,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Djere, Laslo","Rinderknech, Arthur",1.28,3.47,2025-04-14 10:07:29 UTC
-ATP Barcelone,"Galan, Daniel Elahi","Ruud, Casper",4.36,1.19,2025-04-14 10:07:29 UTC
-Challenger Busan Qualification,"Durasovic, Viktor","Bar Biryukov, Petr",1.45,2.49,2025-04-14 10:07:29 UTC
-Challenger Busan Qualification,"Rosenkranz, Mats","Bouzige, Moerani",1.42,2.58,2025-04-14 10:07:29 UTC
-Challenger Abidjan,"Kivattsev, Kirill","Bakshi, Aleksandre",1.83,1.83,2025-04-14 10:07:29 UTC
-Challenger Abidjan,"Bationo, Abdoulaziz","Colson, Tibo",7.67,1.04,2025-04-14 10:07:29 UTC
-Challenger Abidjan,"Berankis, Ricardas","Shah, Aryan",1.48,2.4,2025-04-14 10:07:29 UTC
-Challenger Abidjan,"Hussey, Giles","Kellovsky, Dominik",1.44,2.52,2025-04-14 10:07:29 UTC
-Challenger Abidjan,"Ursu, Vadym","Echargui, Moez",2.24,1.55,2025-04-14 10:07:29 UTC
-Challenger Abidjan,"Dougaz, Aziz","Samuel, Toby",1.53,2.28,2025-04-14 10:07:29 UTC
-Challenger Abidjan,Baadi Taha,"Coulibaly, Eliakim",3.5,1.24,2025-04-14 10:07:29 UTC
-Challenger Abidjan,Paire Benoit,"Glinka, Daniil",1.96,1.72,2025-04-14 10:07:29 UTC
-Challenger Abidjan,"Compagnucci, Tom.","Bertrand, Robin",3.42,1.25,2025-04-14 10:07:29 UTC
-Challenger Abidjan,"Poullain, Lucas","Henning, Philip",1.83,1.83,2025-04-14 10:07:29 UTC
-Challenger Busan,"Shimabukuro, Sho","Shimizu, Yuta",1.83,1.83,2025-04-14 10:07:29 UTC
-Challenger Busan,"Schoolkate, Tristan","Campana Lee, Gerard",1.15,4.5,2025-04-14 10:07:29 UTC
-Challenger Busan,"Walton, Adam","Noguchi, Rio",1.2,3.87,2025-04-14 10:07:29 UTC
-Challenger Busan,"Kubler, Jason","Sakamoto, Rei",1.83,1.83,2025-04-14 10:07:29 UTC
-Challenger Busan,"Ruusuvuori, Emil","Chung, Hyeon",1.6,2.14,2025-04-14 10:07:29 UTC
-Challenger Busan,"Trotter, James Kent","Hsu, Yu Hsiou",1.3,3.1,2025-04-14 10:07:29 UTC
-Challenger Busan,"Watanuki, Yosuke","Bolt, Alex",1.32,2.99,2025-04-14 10:07:29 UTC
-Challenger Busan,"Atmane, Terence","Mccabe, James",1.5,2.35,2025-04-14 10:07:29 UTC
-Challenger Busan,Kwon Soon Woo,"Escoffier, Antoine",1.4,2.65,2025-04-14 10:07:29 UTC
-Challenger Busan,"Lestienne, Constant","Holt, Brandon",2.06,1.65,2025-04-14 10:07:29 UTC
-Challenger Busan,"Svajda, Zachary","Eubanks, Christopher",2.2,1.57,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,"Mochizuki, Shintaro","Seyboth Wild, Thiago",2.52,1.44,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,"Taberner, Carlos","Budkov Kjaer, Nicolai",1.66,2.04,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,Kukushkin Mikhail,"Gigante, Matteo",2.38,1.49,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,"Moller, Elmer","Monteiro, Thiago",1.83,1.83,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,"Collignon, Raphaël","Kym, Jérôme",1.43,2.55,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,"Blockx, Alexander",Safiullin Roman,3.22,1.28,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,Barrere Gregoire,"Van Assche, Luca",2.49,1.45,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,"Comesana, Francisco","Elias, Gastao",1.22,3.67,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,"Klein, Lukas","Basavareddy, Nishesh",1.83,1.83,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,"Blanchet, Ugo","Choinski, Jan",1.83,1.83,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4,"Lajovic, Dusan","Pereira, Tiago",1.12,5.02,2025-04-14 10:07:29 UTC
-Challenger San Luis Potosi,"Alves, Mateus","Aguilar, Juan Carlos",1.3,3.1,2025-04-14 10:07:29 UTC
-Challenger San Luis Potosi,"Johns, Garrett","Soto, Matias",2.07,1.64,2025-04-14 10:07:29 UTC
-Challenger San Luis Potosi,"Zahraj, Patrick","Tudorica, Alvin Nicholas",1.26,3.35,2025-04-14 10:07:29 UTC
-Challenger San Luis Potosi,"Cressy, Maxime","Paris, Tom",1.86,1.8,2025-04-14 10:07:29 UTC
-Challenger San Luis Potosi,"Janvier, Maxime","Ficovich, Juan Pablo",2.89,1.34,2025-04-14 10:07:29 UTC
-Challenger San Luis Potosi,"Wiskandt, Max","Mannarino, Adrian",3.04,1.31,2025-04-14 10:07:29 UTC
-Challenger San Luis Potosi,"Mejia, Nicolas","Hernandez, Alex",1.55,2.24,2025-04-14 10:07:29 UTC
-Challenger San Luis Potosi,"Pavlovic, Luka","Rodriguez Taverna, Santiago",1.34,2.89,2025-04-14 10:07:29 UTC
-Challenger San Luis Potosi,"Alujas, Rodrigo","Oberleitner, Neil",3.22,1.28,2025-04-14 10:07:29 UTC
-Challenger San Luis Potosi,"Pannu, Kiranpal","Pacheco Mendez, Rodrigo",3.58,1.23,2025-04-14 10:07:29 UTC
-Challenger Abidjan Qualification,"Erel, Yanki","Dalmasso, Guillaume",1.3,3.1,2025-04-14 10:07:29 UTC
-Challenger Abidjan Qualification,"Ouakaa, Aziz","Giunta, Massimo",1.99,1.7,2025-04-14 10:07:29 UTC
-Challenger Abidjan Qualification,"Kalyanpur, Adil","Cazacu, Dragos Nicolae",2.85,1.35,2025-04-14 10:07:29 UTC
-Challenger Abidjan Qualification,"Bax, Florent","Jadoun, Nicolas",1.23,3.58,2025-04-14 10:07:29 UTC
-Challenger Abidjan Qualification,"Jones, Maximus","Dev, Sd Prajwal",1.33,2.94,2025-04-14 10:07:29 UTC
-Challenger Abidjan Qualification,"Palan, Dominik","Dinev, Dinko",1.4,2.65,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4 Qualification,"Cerundolo, Juan Manuel","Houkes, Max",1.4,2.65,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4 Qualification,"Bouquier, Arthur","Travaglia, Stefano",2.14,1.6,2025-04-14 10:07:29 UTC
-Challenger Oeiras 4 Qualification,"Coppejans, Kimmer","Zapata Miralles, Bernabe",1.57,2.2,2025-04-14 10:07:29 UTC
-Qualification Challenger San Luis Potosi,"Orlov, Vladyslav","Martin, Dan",1.45,2.49,2025-04-14 10:07:29 UTC
-Qualification Challenger San Luis Potosi,"Tobon, Miguel","Strode, Isaiah",2.22,1.56,2025-04-14 10:07:29 UTC
-Qualification Challenger San Luis Potosi,"Corwin, Felix","De Alba, Rafael",1.1,5.47,2025-04-14 10:07:29 UTC
-Qualification Challenger San Luis Potosi,"Whitehouse, Mark","Watt, James",1.86,1.8,2025-04-14 10:07:29 UTC
-Qualification Challenger San Luis Potosi,"Kingsley, Cannon","Catry, Robin",1.83,1.83,2025-04-14 10:07:29 UTC
-Qualification Challenger San Luis Potosi,"Mccormick, Tristan","Osorio, Juan Sebastian",1.3,3.1,2025-04-14 10:07:29 UTC
-Qualification Challenger Tallahassee,"Poling, Karl","Polmans, Marc",2.3,1.52,2025-04-14 10:07:29 UTC
-Qualification Challenger Tallahassee,"Dutra Da Silva, Daniel","Zink, Tyler",1.93,1.74,2025-04-14 10:07:29 UTC
-Qualification Challenger Tallahassee,"Sigsgaard, Christian","Rybakov, Alex",1.99,1.7,2025-04-14 10:07:29 UTC
-Qualification Challenger Tallahassee,"Prado Angelo, Juan Carlos","Nanda, Govind",1.28,3.22,2025-04-14 10:07:29 UTC
-Qualification Challenger Tallahassee,"Denolly, Corentin","Montes De La Torre, Inaki",3.1,1.3,2025-04-14 10:07:29 UTC
+"Challenger, Tallahassee, USA","Andrade, Andres","Vallejo, Adolfo Daniel",1.83,1.83,2025-04-14 10:23:28 UTC
+"Challenger, Tallahassee, USA","Mmoh, Michael","Barrios Vera, Marcelo Tomas",2.35,1.5,2025-04-14 10:23:28 UTC
+"Challenger, Tallahassee, USA","Krueger, Mitchell","Mena, Facundo",1.6,2.14,2025-04-14 10:23:28 UTC
+"Challenger, Tallahassee, USA","Spizzirri, Eliot","Cassone, Murphy",1.4,2.65,2025-04-14 10:23:28 UTC
+"Challenger, Tallahassee, USA","Gueymard-Wayenburg, Sascha","Galarneau, Alexis",2.65,1.4,2025-04-14 10:23:28 UTC
+"Challenger, Tallahassee, USA","Jianu, Filip Cri.",Blancaneaux Geoffrey,1.65,2.06,2025-04-14 10:23:28 UTC
+"Challenger, Tallahassee, USA","Bueno, Gonzalo",Wu Tung Lin,1.5,2.35,2025-04-14 10:23:28 UTC
+"Challenger, Tallahassee, USA","Maloney, Patrick","Brooksby, Jenson",5.47,1.1,2025-04-14 10:23:28 UTC
+"Challenger, Tallahassee, USA","Schwaerzler, Joel","Martineau, Matteo",1.83,1.83,2025-04-14 10:23:28 UTC
+ATP Munich,"Gojo, Borna","Shelton, Ben",2.63,1.45,2025-04-14 10:23:28 UTC
+ATP Munich,"Harris, Billy","Goffin, David",3.04,1.35,2025-04-14 10:23:28 UTC
+ATP Munich,"Zverev, Alexander","Müller, Alexandre",1.18,4.5,2025-04-14 10:23:28 UTC
+ATP Munich,"Tseng, Chun Hsin","Altmaier, Daniel",2.4,1.53,2025-04-14 10:23:28 UTC
+ATP Munich,"Cerundolo, Francisco","Struff, Jan-Lennard",1.24,3.8,2025-04-14 10:23:28 UTC
+ATP Munich,"Navone, Mariano","Auger-Aliassime, Félix",2.21,1.62,2025-04-14 10:23:28 UTC
+ATP Munich,"Humbert, Ugo","Jarry, Nicolas",1.65,2.16,2025-04-14 10:23:28 UTC
+ATP Munich,"Lehecka, Jiri","Darderi, Luciano",1.57,2.31,2025-04-14 10:23:28 UTC
+ATP Munich,"Hanfmann, Yannick","Mensik, Jakub",3.47,1.28,2025-04-14 10:23:28 UTC
+ATP Munich,"Monfils, Gaël","Shapovalov, Denis",1.97,1.78,2025-04-14 10:23:28 UTC
+ATP Munich,"Engel, Justin","Marozsan, Fabian",5.0,1.15,2025-04-14 10:23:28 UTC
+ATP Munich,"Bergs, Zizou",Bublik Alexander,1.59,2.27,2025-04-14 10:23:28 UTC
+ATP Munich,"Cobolli, Flavio","Shevchenko, Alexander",1.36,2.99,2025-04-14 10:23:28 UTC
+ATP Munich,"Bautista Agut, Roberto","Van De Zandschulp, Botic",1.77,1.98,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Arnaldi, Matteo","Korda, Sebastian",1.75,2.01,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Medjedovic, Hamad","Mpetshi-Perricard, Giovanni",1.38,2.9,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Rune, Holger",Ramos Vinolas Albert,1.15,5.0,2025-04-14 10:23:28 UTC
+ATP Barcelone,"De Jong, Jesper",Rublev Andrey,3.21,1.32,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Etcheverry, Tomas Martin","De Minaur, Alex",3.33,1.3,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Wawrinka, Stan","Davidovich Fokina, Alejandro",3.47,1.28,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Carreno Busta, Pablo","Fils, Arthur",3.71,1.25,2025-04-14 10:23:28 UTC
+ATP Barcelone,Tsitsipas Stefano,"Opelka, Reilly",1.17,4.66,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Tiafoe, Francis","Munar, Jaume",1.98,1.77,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Alcaraz Garfia, Carlos","Quinn, Ethan",1.02,11.22,2025-04-14 10:23:28 UTC
+ATP Barcelone,Baez Sebastian,"Dzumhur, Damir",1.38,2.9,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Khachanov, Karen","Norrie, Cameron",1.61,2.23,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Djere, Laslo","Rinderknech, Arthur",1.28,3.47,2025-04-14 10:23:28 UTC
+ATP Barcelone,"Galan, Daniel Elahi","Ruud, Casper",4.36,1.19,2025-04-14 10:23:28 UTC
+Challenger Busan Qualification,"Durasovic, Viktor","Bar Biryukov, Petr",1.45,2.49,2025-04-14 10:23:28 UTC
+Challenger Busan Qualification,"Rosenkranz, Mats","Bouzige, Moerani",1.42,2.58,2025-04-14 10:23:28 UTC
+Challenger Abidjan,"Kivattsev, Kirill","Bakshi, Aleksandre",1.83,1.83,2025-04-14 10:23:28 UTC
+Challenger Abidjan,"Bationo, Abdoulaziz","Colson, Tibo",7.67,1.04,2025-04-14 10:23:28 UTC
+Challenger Abidjan,"Berankis, Ricardas","Shah, Aryan",1.48,2.4,2025-04-14 10:23:28 UTC
+Challenger Abidjan,"Hussey, Giles","Kellovsky, Dominik",1.44,2.52,2025-04-14 10:23:28 UTC
+Challenger Abidjan,"Ursu, Vadym","Echargui, Moez",2.24,1.55,2025-04-14 10:23:28 UTC
+Challenger Abidjan,"Dougaz, Aziz","Samuel, Toby",1.53,2.28,2025-04-14 10:23:28 UTC
+Challenger Abidjan,Baadi Taha,"Coulibaly, Eliakim",3.5,1.24,2025-04-14 10:23:28 UTC
+Challenger Abidjan,Paire Benoit,"Glinka, Daniil",1.96,1.72,2025-04-14 10:23:28 UTC
+Challenger Abidjan,"Compagnucci, Tom.","Bertrand, Robin",3.42,1.25,2025-04-14 10:23:28 UTC
+Challenger Abidjan,"Poullain, Lucas","Henning, Philip",1.83,1.83,2025-04-14 10:23:28 UTC
+Challenger Busan,"Shimabukuro, Sho","Shimizu, Yuta",1.83,1.83,2025-04-14 10:23:28 UTC
+Challenger Busan,"Schoolkate, Tristan","Campana Lee, Gerard",1.15,4.5,2025-04-14 10:23:28 UTC
+Challenger Busan,"Walton, Adam","Noguchi, Rio",1.2,3.87,2025-04-14 10:23:28 UTC
+Challenger Busan,"Kubler, Jason","Sakamoto, Rei",1.83,1.83,2025-04-14 10:23:28 UTC
+Challenger Busan,"Ruusuvuori, Emil","Chung, Hyeon",1.6,2.14,2025-04-14 10:23:28 UTC
+Challenger Busan,"Trotter, James Kent","Hsu, Yu Hsiou",1.3,3.1,2025-04-14 10:23:28 UTC
+Challenger Busan,"Watanuki, Yosuke","Bolt, Alex",1.32,2.99,2025-04-14 10:23:28 UTC
+Challenger Busan,"Atmane, Terence","Mccabe, James",1.5,2.35,2025-04-14 10:23:28 UTC
+Challenger Busan,Kwon Soon Woo,"Escoffier, Antoine",1.4,2.65,2025-04-14 10:23:28 UTC
+Challenger Busan,"Lestienne, Constant","Holt, Brandon",2.06,1.65,2025-04-14 10:23:28 UTC
+Challenger Busan,"Svajda, Zachary","Eubanks, Christopher",2.2,1.57,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,"Mochizuki, Shintaro","Seyboth Wild, Thiago",2.52,1.44,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,"Taberner, Carlos","Budkov Kjaer, Nicolai",1.66,2.04,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,Kukushkin Mikhail,"Gigante, Matteo",2.38,1.49,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,"Moller, Elmer","Monteiro, Thiago",1.83,1.83,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,"Collignon, Raphaël","Kym, Jérôme",1.43,2.55,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,"Blockx, Alexander",Safiullin Roman,3.22,1.28,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,Barrere Gregoire,"Van Assche, Luca",2.49,1.45,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,"Comesana, Francisco","Elias, Gastao",1.22,3.67,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,"Klein, Lukas","Basavareddy, Nishesh",1.83,1.83,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,"Blanchet, Ugo","Choinski, Jan",1.83,1.83,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4,"Lajovic, Dusan","Pereira, Tiago",1.12,5.02,2025-04-14 10:23:28 UTC
+Challenger San Luis Potosi,"Alves, Mateus","Aguilar, Juan Carlos",1.3,3.1,2025-04-14 10:23:28 UTC
+Challenger San Luis Potosi,"Johns, Garrett","Soto, Matias",2.07,1.64,2025-04-14 10:23:28 UTC
+Challenger San Luis Potosi,"Zahraj, Patrick","Tudorica, Alvin Nicholas",1.26,3.35,2025-04-14 10:23:28 UTC
+Challenger San Luis Potosi,"Cressy, Maxime","Paris, Tom",1.86,1.8,2025-04-14 10:23:28 UTC
+Challenger San Luis Potosi,"Janvier, Maxime","Ficovich, Juan Pablo",2.89,1.34,2025-04-14 10:23:28 UTC
+Challenger San Luis Potosi,"Wiskandt, Max","Mannarino, Adrian",3.04,1.31,2025-04-14 10:23:28 UTC
+Challenger San Luis Potosi,"Mejia, Nicolas","Hernandez, Alex",1.55,2.24,2025-04-14 10:23:28 UTC
+Challenger San Luis Potosi,"Pavlovic, Luka","Rodriguez Taverna, Santiago",1.34,2.89,2025-04-14 10:23:28 UTC
+Challenger San Luis Potosi,"Alujas, Rodrigo","Oberleitner, Neil",3.22,1.28,2025-04-14 10:23:28 UTC
+Challenger San Luis Potosi,"Pannu, Kiranpal","Pacheco Mendez, Rodrigo",3.58,1.23,2025-04-14 10:23:28 UTC
+Challenger Abidjan Qualification,"Erel, Yanki","Dalmasso, Guillaume",1.3,3.1,2025-04-14 10:23:28 UTC
+Challenger Abidjan Qualification,"Ouakaa, Aziz","Giunta, Massimo",1.99,1.7,2025-04-14 10:23:28 UTC
+Challenger Abidjan Qualification,"Kalyanpur, Adil","Cazacu, Dragos Nicolae",2.85,1.35,2025-04-14 10:23:28 UTC
+Challenger Abidjan Qualification,"Bax, Florent","Jadoun, Nicolas",1.23,3.58,2025-04-14 10:23:28 UTC
+Challenger Abidjan Qualification,"Jones, Maximus","Dev, Sd Prajwal",1.33,2.94,2025-04-14 10:23:28 UTC
+Challenger Abidjan Qualification,"Palan, Dominik","Dinev, Dinko",1.4,2.65,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4 Qualification,"Bouquier, Arthur","Travaglia, Stefano",2.14,1.6,2025-04-14 10:23:28 UTC
+Challenger Oeiras 4 Qualification,"Coppejans, Kimmer","Zapata Miralles, Bernabe",1.57,2.2,2025-04-14 10:23:28 UTC
+Qualification Challenger San Luis Potosi,"Orlov, Vladyslav","Martin, Dan",1.45,2.49,2025-04-14 10:23:28 UTC
+Qualification Challenger San Luis Potosi,"Tobon, Miguel","Strode, Isaiah",2.22,1.56,2025-04-14 10:23:28 UTC
+Qualification Challenger San Luis Potosi,"Corwin, Felix","De Alba, Rafael",1.1,5.47,2025-04-14 10:23:28 UTC
+Qualification Challenger San Luis Potosi,"Whitehouse, Mark","Watt, James",1.86,1.8,2025-04-14 10:23:28 UTC
+Qualification Challenger San Luis Potosi,"Kingsley, Cannon","Catry, Robin",1.83,1.83,2025-04-14 10:23:28 UTC
+Qualification Challenger San Luis Potosi,"Mccormick, Tristan","Osorio, Juan Sebastian",1.3,3.1,2025-04-14 10:23:28 UTC
+Qualification Challenger Tallahassee,"Poling, Karl","Polmans, Marc",2.3,1.52,2025-04-14 10:23:28 UTC
+Qualification Challenger Tallahassee,"Dutra Da Silva, Daniel","Zink, Tyler",1.93,1.74,2025-04-14 10:23:28 UTC
+Qualification Challenger Tallahassee,"Sigsgaard, Christian","Rybakov, Alex",1.99,1.7,2025-04-14 10:23:28 UTC
+Qualification Challenger Tallahassee,"Prado Angelo, Juan Carlos","Nanda, Govind",1.28,3.22,2025-04-14 10:23:28 UTC
+Qualification Challenger Tallahassee,"Denolly, Corentin","Montes De La Torre, Inaki",3.1,1.3,2025-04-14 10:23:28 UTC
