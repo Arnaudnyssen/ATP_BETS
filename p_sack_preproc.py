@@ -1,62 +1,49 @@
-# p_sack_preproc.py (Refactored to Process Matchups)
+# p_sack_preproc.py (v2 - Handle Results)
+# Processes matchups and aggregates results scraped by tennis_abstract_scraper.
 
 import pandas as pd
 import numpy as np
 import re
 import traceback
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Tuple # Added Tuple
 import sys
 import os
 
 # --- Constants ---
-MODEL_NAME = "Sackmann" # Identifier for this data source
+MODEL_NAME = "Sackmann"
 
 # --- Import Scraper Functions ---
 try:
     # Assuming tennis_abstract_scraper.py is in the same directory
-    from tennis_abstract_scraper import tourneys_url, probas_scraper
+    # Import setup_driver if needed for managing driver instance
+    from tennis_abstract_scraper import tourneys_url, probas_scraper, setup_driver
 except ImportError as e:
     print(f"Error importing from tennis_abstract_scraper: {e}")
-    # Handle if scripts are in different directories if necessary
-    # project_dir = os.path.dirname(os.path.abspath(__file__))
-    # if project_dir not in sys.path: sys.path.append(project_dir)
-    # try: from tennis_abstract_scraper import tourneys_url, probas_scraper
-    # except ImportError: # Handle final import failure
     print("Ensure tennis_abstract_scraper.py is accessible.")
     sys.exit(1)
 
 # --- Helper Functions ---
-
+# (preprocess_player_name, calculate_odds, get_tournament_name_from_url remain the same)
 def preprocess_player_name(name: str) -> str:
     """Standardizes a single player name string."""
-    if not isinstance(name, str):
-        return "" # Return empty string if input is not a string
+    if not isinstance(name, str): return ""
     try:
-        # Remove content in parentheses (seed, country, WC, Q, etc.)
         name = re.sub(r'\s*\([^)]*\)', '', name)
-        # Remove leading/trailing asterisks
         name = re.sub(r'^\*|\*$', '', name)
-        # Strip whitespace and convert to lowercase
         name = name.strip().title()
-        # Optional: Add more cleaning like removing accents if needed later
-        # from unicodedata import normalize
-        # name = normalize('NFKD', name).encode('ascii', 'ignore').decode('utf-8')
         return name
     except Exception as e:
         print(f"Warning: Could not preprocess name '{name}': {e}")
-        return name # Return original name on error
+        return name
 
 def calculate_odds(probability: Optional[float]) -> Optional[float]:
     """Calculates decimal odds from probability (0-100). Handles 0 probability."""
-    if probability is None or not isinstance(probability, (int, float)):
-        return None
-    if probability <= 0:
-        return None # Or return np.inf or a very large number? None seems safer.
+    if probability is None or not isinstance(probability, (int, float)): return None
+    if probability <= 0: return None
     try:
         odds = 100.0 / probability
         return round(odds, 2)
-    except ZeroDivisionError:
-        return None
+    except ZeroDivisionError: return None
     except Exception as e:
         print(f"Warning: Could not calculate odds for probability '{probability}': {e}")
         return None
@@ -65,98 +52,61 @@ def get_tournament_name_from_url(url: str) -> str:
     """Extracts a readable tournament name from the Tennis Abstract URL."""
     try:
         if isinstance(url, str) and '/' in url and len(url.split('/')) > 2:
-            # Assumes format like .../current/YYYYTournamentName.html
-            name_part = url.split('/')[-1] # Get filename
-            name_part = name_part.replace('.html', '') # Remove extension
-            # Remove potential year prefix (handle YYYY or YY)
-            if name_part[:4].isdigit() and len(name_part) > 4:
-                name_part = name_part[4:]
-            elif name_part[:2].isdigit() and len(name_part) > 2:
-                 name_part = name_part[2:]
-            # Replace hyphens/underscores, title case
+            name_part = url.split('/')[-1]
+            name_part = name_part.replace('.html', '')
+            if name_part[:4].isdigit() and len(name_part) > 4: name_part = name_part[4:]
+            elif name_part[:2].isdigit() and len(name_part) > 2: name_part = name_part[2:]
             name_part = re.sub(r'[-_]', ' ', name_part)
-            # Handle common patterns like (City)Challenger
             name_part = re.sub(r'\((\w+)\)Challenger', r'\1 Challenger', name_part)
+            # Simple Title Case might be enough here
             return name_part.title()
-        else:
-            return 'Unknown Tournament'
+        else: return 'Unknown Tournament'
     except Exception as e:
         print(f"Warning: Could not extract tournament name from URL '{url}': {e}")
         return 'Unknown Tournament'
 
-# --- New Processing Logic ---
+# --- Processing Logic ---
 
 def process_matchup_list(match_list: List[Dict[str, Any]], url: str) -> Optional[pd.DataFrame]:
     """
-    Converts a list of scraped match dictionaries into a processed DataFrame.
-
-    Args:
-        match_list (List[Dict[str, Any]]): List of dicts from probas_scraper.
-                                           Expected keys: 'Player1', 'Player2',
-                                           'P1_Prob', 'P2_Prob', 'Round'.
-        url (str): The source URL for this tournament.
-
-    Returns:
-        Optional[pd.DataFrame]: Processed DataFrame matching the target structure,
-                                or None if input is invalid or processing fails.
+    Converts a list of scraped upcoming match dictionaries into a processed DataFrame.
+    (Logic remains the same as previous version)
     """
     if not match_list:
-        print(f"Received empty match list for URL: {url}")
-        return None # Return None for empty input
+        # This is normal if a tournament only has completed matches
+        # print(f"Received empty matchup list for URL: {url}")
+        return None
 
     try:
-        # 1. Convert list of dictionaries to DataFrame
         df = pd.DataFrame(match_list)
-        print(f"Created initial DataFrame with shape {df.shape} from {len(match_list)} matchups.")
-
-        # 2. Basic Validation (check if essential columns exist)
+        # print(f"Created initial matchup DataFrame with shape {df.shape} from {len(match_list)} matchups.")
         required_cols = ['Player1', 'Player2', 'P1_Prob', 'P2_Prob', 'Round']
         if not all(col in df.columns for col in required_cols):
-            print(f"Error: DataFrame missing required columns. Found: {df.columns.tolist()}")
+            print(f"Error: Matchup DataFrame missing required columns. Found: {df.columns.tolist()}")
             return None
 
-        # 3. Rename columns to match target structure
         df.rename(columns={
-            'Player1': 'Player1Name',
-            'Player2': 'Player2Name',
-            'P1_Prob': 'Player1_Match_Prob',
-            'P2_Prob': 'Player2_Match_Prob'
-            # 'Round' is already correct
+            'Player1': 'Player1Name', 'Player2': 'Player2Name',
+            'P1_Prob': 'Player1_Match_Prob', 'P2_Prob': 'Player2_Match_Prob'
         }, inplace=True)
-        print("Renamed columns.")
 
-        # 4. Preprocess Player Names
-        print("Preprocessing player names...")
         df['Player1Name'] = df['Player1Name'].apply(preprocess_player_name)
         df['Player2Name'] = df['Player2Name'].apply(preprocess_player_name)
-        print("Player names preprocessed.")
-
-        # 5. Calculate Odds
-        print("Calculating odds...")
         df['Player1_Match_Odds'] = df['Player1_Match_Prob'].apply(calculate_odds)
         df['Player2_Match_Odds'] = df['Player2_Match_Prob'].apply(calculate_odds)
-        print("Odds calculated.")
-
-        # 6. Add Metadata
-        print("Adding metadata...")
         df['TournamentURL'] = url
         df['TournamentName'] = get_tournament_name_from_url(url)
         df['ModelName'] = MODEL_NAME
-        print("Metadata added.")
 
-        # 7. Reorder columns to match target structure
         target_columns = [
             'TournamentName', 'TournamentURL', 'Round',
             'Player1Name', 'Player2Name',
             'Player1_Match_Prob', 'Player2_Match_Prob',
             'Player1_Match_Odds', 'Player2_Match_Odds',
             'ModelName'
-            # ScrapeTimestampUTC will be added after concatenation
         ]
-        # Ensure only existing columns are selected in the specified order
         df = df[[col for col in target_columns if col in df.columns]]
-        print(f"Columns reordered. Final shape for this URL: {df.shape}")
-
+        # print(f"Processed matchup DataFrame for {url}. Shape: {df.shape}")
         return df
 
     except Exception as e:
@@ -165,82 +115,103 @@ def process_matchup_list(match_list: List[Dict[str, Any]], url: str) -> Optional
         return None
 
 
-def get_all_matchup_data() -> pd.DataFrame:
+# --- MODIFIED: Get All Data (Matchups and Results) ---
+def get_all_data() -> Tuple[pd.DataFrame, pd.DataFrame]:
     """
-    Scrapes matchup data for all relevant Tennis Abstract URLs and
-    processes it into a single consolidated DataFrame.
+    Scrapes matchup and results data for all relevant Tennis Abstract URLs
+    and processes them into two consolidated DataFrames.
 
     Returns:
-        pd.DataFrame: Consolidated DataFrame with matchup data, or empty DataFrame on failure.
+        Tuple[pd.DataFrame, pd.DataFrame]: (Consolidated Matchups, Consolidated Results)
+                                           Returns empty DataFrames on failure.
     """
-    print("Starting to fetch all matchup data...")
-    urls = tourneys_url() # Get tournament URLs
+    print("Starting to fetch all matchup and results data...")
+    urls = tourneys_url()
     print(f"Found {len(urls)} tournament URLs to scrape.")
     all_matchup_dfs = []
+    all_results_list = [] # Store results as list of dicts first
 
     if not urls:
         print("No tournament URLs found.")
-        return pd.DataFrame()
+        return pd.DataFrame(), pd.DataFrame()
 
-    for url in urls:
-        print("-" * 30)
-        print(f"Processing URL: {url}")
-        try:
-            # Scrape matchup dictionaries for the current URL
-            scraped_matchups = probas_scraper(url) # Returns List[Dict]
-
-            if scraped_matchups:
-                print(f"Scraped {len(scraped_matchups)} potential matchups. Processing...")
-                # Process the list of dictionaries into a DataFrame
-                processed_df = process_matchup_list(scraped_matchups, url)
-
-                if processed_df is not None and not processed_df.empty:
-                    print(f"Successfully processed DataFrame for {url}. Shape: {processed_df.shape}")
-                    all_matchup_dfs.append(processed_df)
-                else:
-                    print(f"No valid DataFrame generated after processing for {url}.")
-            else:
-                print(f"No matchups returned by scraper for {url}.")
-
-        except Exception as e:
-            # Catch errors during the scrape/process loop for a single URL
-            print(f"Critical error during scrape/process loop for {url}: {e}")
-            traceback.print_exc()
-            print(f"Skipping to next URL due to error.")
-            continue # Continue with the next URL
-
-    # --- Final Concatenation ---
-    if not all_matchup_dfs:
-        print("\nNo matchup data collected from any URL after processing.")
-        return pd.DataFrame() # Return empty DataFrame
+    # Setup main driver instance to reuse
+    driver = setup_driver()
+    if driver is None:
+        print("Failed to setup WebDriver. Aborting scrape.")
+        return pd.DataFrame(), pd.DataFrame()
 
     try:
-        print(f"\nConcatenating {len(all_matchup_dfs)} processed DataFrames...")
-        final_matchup_data = pd.concat(all_matchup_dfs, ignore_index=True)
-        print(f"Concatenated data shape: {final_matchup_data.shape}")
+        for url in urls:
+            print("-" * 30)
+            print(f"Processing URL: {url}")
+            try:
+                # Scrape both matchups and results using the single driver instance
+                scraped_matchups, scraped_results = probas_scraper(url, driver)
 
-        # Add timestamp after successful concatenation
-        final_matchup_data['ScrapeTimestampUTC'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
-        print("Added ScrapeTimestampUTC.")
+                if scraped_matchups:
+                    # print(f"Scraped {len(scraped_matchups)} potential matchups. Processing...")
+                    processed_df = process_matchup_list(scraped_matchups, url)
+                    if processed_df is not None and not processed_df.empty:
+                        all_matchup_dfs.append(processed_df)
+                    # else: print(f"No valid matchup DataFrame generated after processing for {url}.")
+                # else: print(f"No matchups returned by scraper for {url}.")
 
-        # Final column reordering including timestamp
-        final_columns_order = [
-            'TournamentName', 'TournamentURL', 'Round',
-            'Player1Name', 'Player2Name',
-            'Player1_Match_Prob', 'Player2_Match_Prob',
-            'Player1_Match_Odds', 'Player2_Match_Odds',
-            'ModelName', 'ScrapeTimestampUTC'
-        ]
-        final_matchup_data = final_matchup_data[[col for col in final_columns_order if col in final_matchup_data.columns]]
+                if scraped_results:
+                    # print(f"Scraped {len(scraped_results)} completed results.")
+                    # Add tournament name derived from URL if needed (depends on results dict structure)
+                    t_name = get_tournament_name_from_url(url)
+                    for res in scraped_results:
+                        res['TournamentName'] = t_name # Ensure name is present
+                    all_results_list.extend(scraped_results)
+                # else: print(f"No results returned by scraper for {url}.")
 
+            except Exception as e:
+                print(f"Critical error during scrape/process loop for {url}: {e}")
+                traceback.print_exc()
+                print(f"Skipping to next URL due to error.")
+                continue
+            finally:
+                # Optional delay between requests
+                time.sleep(1)
 
-        print(f"Final consolidated matchup data shape: {final_matchup_data.shape}")
-        return final_matchup_data
+    finally:
+        # Ensure driver is closed even if errors occur
+        if driver:
+            print("Closing WebDriver...")
+            driver.quit()
+            print("WebDriver closed.")
 
-    except Exception as e:
-         print(f"Error during final concatenation or timestamping: {e}")
-         traceback.print_exc()
-         return pd.DataFrame() # Return empty DataFrame on error
+    # --- Final DataFrame Creation ---
+    final_matchup_data = pd.DataFrame()
+    final_results_data = pd.DataFrame()
+
+    if not all_matchup_dfs:
+        print("\nNo matchup data collected from any URL after processing.")
+    else:
+        try:
+            print(f"\nConcatenating {len(all_matchup_dfs)} processed Matchup DataFrames...")
+            final_matchup_data = pd.concat(all_matchup_dfs, ignore_index=True)
+            final_matchup_data['ScrapeTimestampUTC'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
+            print(f"Final consolidated matchup data shape: {final_matchup_data.shape}")
+        except Exception as e:
+             print(f"Error during final matchup concatenation or timestamping: {e}")
+             traceback.print_exc()
+
+    if not all_results_list:
+        print("\nNo results data collected from any URL.")
+    else:
+        try:
+            print(f"\nCreating final Results DataFrame from {len(all_results_list)} records...")
+            final_results_data = pd.DataFrame(all_results_list)
+            # Add timestamp if desired (already have ResultDate which is scrape date)
+            # final_results_data['ScrapeTimestampUTC'] = pd.Timestamp.utcnow().strftime('%Y-%m-%d %H:%M:%S %Z')
+            print(f"Final consolidated results data shape: {final_results_data.shape}")
+        except Exception as e:
+            print(f"Error creating final results DataFrame: {e}")
+            traceback.print_exc()
+
+    return final_matchup_data, final_results_data
 
 
 # --- Example Usage ---
@@ -251,7 +222,7 @@ if __name__ == "__main__":
     start_time = pd.Timestamp.now()
     print(f"Start time: {start_time}")
 
-    matchup_data = get_all_matchup_data() # Call the main function
+    matchup_data, results_data = get_all_data() # Call the main function
 
     end_time = pd.Timestamp.now()
     print(f"\nEnd time: {end_time}")
@@ -260,12 +231,12 @@ if __name__ == "__main__":
     if not matchup_data.empty:
         print("\n--- Sample of Processed Matchup Data ---")
         print(matchup_data.head())
-        print("\n--- Data Info ---")
-        matchup_data.info()
-        # Optional: Save locally for inspection
-        # local_save_path = "debug_matchup_data.csv"
-        # print(f"\nSaving debug data locally to: {local_save_path}")
-        # matchup_data.to_csv(local_save_path, index=False)
     else:
         print("\n--- No matchup data was processed or collected. ---")
+
+    if not results_data.empty:
+        print("\n--- Sample of Processed Results Data ---")
+        print(results_data.head())
+    else:
+        print("\n--- No results data was processed or collected. ---")
 

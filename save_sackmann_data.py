@@ -1,41 +1,38 @@
-# save_sackmann_data.py (Imports and saves matchup data)
+# save_sackmann_data.py (v2 - Save Matchups & Results)
+# Imports and saves matchup and results data from p_sack_preproc.
 
 import pandas as pd
 from datetime import datetime
 import os
 import sys
 import traceback
-from typing import Optional # Keep Optional for type hints if needed elsewhere
+from typing import Optional, Tuple # Added Tuple
 
 # --- Constants ---
 OUTPUT_DIRECTORY = "data_archive"
-BASE_FILENAME = "sackmann_matchups" # Changed base name slightly for clarity
+MATCHUPS_FILENAME_BASE = "sackmann_matchups" # Filename for matchups
+RESULTS_FILENAME_BASE = "match_results"     # Filename for results
 DATE_FORMAT = "%Y%m%d"
 
 # --- Import Preprocessing Function ---
 try:
-    # **** CORRECTED IMPORT: Use the new function name ****
-    from p_sack_preproc import get_all_matchup_data
+    # Import the function that now returns two dataframes
+    from p_sack_preproc import get_all_data
 except ImportError as e:
-    print(f"Error importing 'get_all_matchup_data': {e}")
-    # Add path adjustment logic if needed, similar to p_sack_preproc
+    print(f"Error importing 'get_all_data': {e}")
     project_dir = os.path.dirname(os.path.abspath(__file__))
     if project_dir not in sys.path:
         sys.path.append(project_dir)
         print(f"Added {project_dir} to sys.path")
         try:
-            # Retry import after path adjustment
-            from p_sack_preproc import get_all_matchup_data
+            from p_sack_preproc import get_all_data
             print("Import successful after path adjustment.")
         except ImportError as e2:
-            print(f"Still cannot import 'get_all_matchup_data' after path adjustment: {e2}")
-            print("Ensure 'p_sack_preproc.py' exists and contains the 'get_all_matchup_data' function.")
-            print(f"Current sys.path: {sys.path}")
-            sys.exit(1) # Exit if import fails
+            print(f"Still cannot import 'get_all_data' after path adjustment: {e2}")
+            print("Ensure 'p_sack_preproc.py' exists and contains the 'get_all_data' function.")
+            sys.exit(1)
     else:
-        # If already in path but failed, likely function name or file issue
-        print("Ensure 'p_sack_preproc.py' exists and contains the 'get_all_matchup_data' function.")
-        print(f"Current sys.path: {sys.path}")
+        print("Ensure 'p_sack_preproc.py' exists and contains the 'get_all_data' function.")
         sys.exit(1)
 
 
@@ -46,18 +43,21 @@ def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: s
     inside the specified output directory. Creates the directory if it doesn't exist.
     """
     if data is None or data.empty:
-        print("No data provided or DataFrame is empty. Nothing to save.")
+        print(f"No data provided for '{base_filename}' or DataFrame is empty. Nothing to save.")
         return None
+    # Ensure output dir exists
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    absolute_output_dir = os.path.join(script_dir, output_dir)
     try:
-        os.makedirs(output_dir, exist_ok=True)
-        print(f"Ensured output directory exists: '{output_dir}'")
+        os.makedirs(absolute_output_dir, exist_ok=True)
+        # print(f"Ensured output directory exists: '{absolute_output_dir}'") # Less verbose
     except OSError as e:
-        print(f"Error creating output directory '{output_dir}': {e}")
+        print(f"Error creating output directory '{absolute_output_dir}': {e}")
         return None
 
     today_date_str = datetime.now().strftime(DATE_FORMAT)
     filename = f"{base_filename}_{today_date_str}.csv"
-    output_path = os.path.join(output_dir, filename)
+    output_path = os.path.join(absolute_output_dir, filename)
     print(f"Attempting to save data to: {output_path}")
 
     try:
@@ -73,38 +73,44 @@ def save_data_to_dated_csv(data: pd.DataFrame, base_filename: str, output_dir: s
 # --- Main Execution ---
 def main():
     """
-    Main function to fetch matchup data and save it to a dated CSV file.
+    Main function to fetch matchup and results data and save them to dated CSV files.
     """
-    print("Starting the process to fetch and save Sackmann MATCHUP data...")
+    print("Starting the process to fetch and save Sackmann MATCHUP and RESULTS data...")
 
     try:
-        # Step 1: Fetch the processed matchup data
-        print("Fetching processed matchup data using get_all_matchup_data()...")
-        # **** CORRECTED FUNCTION CALL and variable name ****
-        matchup_data = get_all_matchup_data()
+        # Step 1: Fetch the processed matchup and results data
+        print("Fetching processed data using get_all_data()...")
+        matchup_data, results_data = get_all_data() # Expects two dataframes
 
-        # Step 2: Save the collected data to the archive directory
+        # Step 2: Save the matchup data
         if matchup_data is not None and not matchup_data.empty:
-            print(f"Matchup data fetched successfully. Shape: {matchup_data.shape}")
-            saved_filepath = save_data_to_dated_csv(
-                data=matchup_data, # Pass the correct DataFrame
-                base_filename=BASE_FILENAME,
+            print(f"\nMatchup data fetched successfully. Shape: {matchup_data.shape}")
+            saved_matchups_path = save_data_to_dated_csv(
+                data=matchup_data,
+                base_filename=MATCHUPS_FILENAME_BASE,
                 output_dir=OUTPUT_DIRECTORY
             )
-            if saved_filepath:
-                print(f"Data saving process completed successfully. File: {saved_filepath}")
-            else:
-                print("Data saving process failed.")
-        elif matchup_data is None:
-             print("Fetching matchup data failed (returned None). No data to save.")
-        else: # matchup_data is empty DataFrame
-             print("Fetched matchup data is empty. No data to save.")
+            if not saved_matchups_path: print("Matchup data saving process failed.")
+        else:
+             print("\nNo matchup data was fetched or it was empty.")
+
+        # Step 3: Save the results data
+        if results_data is not None and not results_data.empty:
+            print(f"\nResults data fetched successfully. Shape: {results_data.shape}")
+            saved_results_path = save_data_to_dated_csv(
+                data=results_data,
+                base_filename=RESULTS_FILENAME_BASE,
+                output_dir=OUTPUT_DIRECTORY
+            )
+            if not saved_results_path: print("Results data saving process failed.")
+        else:
+             print("\nNo results data was fetched or it was empty.")
 
     except Exception as e:
         print(f"An critical error occurred during the main process in save_sackmann_data.py: {e}")
         traceback.print_exc()
 
-    print("Save process finished.")
+    print("\nSave process finished.")
 
 if __name__ == "__main__":
     main()
