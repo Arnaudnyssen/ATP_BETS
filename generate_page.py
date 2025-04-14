@@ -1,6 +1,7 @@
-# generate_page.py (v14 - UI & Data Presentation Refinements)
-# Implements agreed-upon suggestions: layout, typography, alignment, borders,
-# spread cell highlighting (color/bold based on sign), tab style.
+# generate_page.py (v15 - UI Refinements & Relative Spread)
+# Implements UI suggestions (layout, typography, alignment, borders, tabs)
+# Adds Relative Spread columns to comparison table.
+# Highlights spread cells with color/bold based on sign.
 
 import pandas as pd
 import numpy as np
@@ -17,35 +18,38 @@ DATA_DIR = "data_archive"
 PROCESSED_CSV_PATTERN = "processed_comparison_*.csv"
 STRATEGY_LOG_FILENAME = "strategy_log.csv"
 OUTPUT_HTML_FILE = "index.html"
-# INTERESTING_SPREAD_THRESHOLD = 0.50 # No longer used for row highlighting
+# INTERESTING_SPREAD_THRESHOLD = 0.50 # Not used for highlighting anymore
 
 # --- Column Definitions ---
+# Added relative spread
 COMP_COLS_ORDERED = [
     'TournamentName', 'Round', 'Player1Name', 'Player2Name',
     'Player1_Match_Prob', 'bc_p1_prob', 'Player2_Match_Prob', 'bc_p2_prob',
     'Player1_Match_Odds', 'bc_p1_odds', 'Player2_Match_Odds', 'bc_p2_odds',
-    'p1_spread', 'p2_spread'
+    'p1_spread', 'rel_p1_spread', 'p2_spread', 'rel_p2_spread' # Added Rel Spread
 ]
 COMP_HEADERS = [
     "Tournament", "R", "Player 1", "Player 2",
     "P1 Prob (S)", "P1 Prob (BC)", "P2 Prob (S)", "P2 Prob (BC)",
     "P1 Odds (S)", "P1 Odds (BC)", "P2 Odds (S)", "P2 Odds (BC)",
-    "P1 Spread", "P2 Spread"
+    "P1 Sprd", "Rel Sprd", "P2 Sprd", "Rel Sprd" # Added Rel Spread Headers (shortened)
 ]
+# Added placeholder for Edge
 LOG_COLS_DISPLAY = [
     'BetDate', 'Strategy', 'Tournament', 'Player1', 'Player2', 'BetOnPlayer',
     'BetType', 'TriggerValue', 'BetAmount', 'BetOdds',
-    'SackmannProb', 'BetcenterProb', 'MatchResult', 'ProfitLoss'
+    'SackmannProb', 'BetcenterProb', 'Edge', # Added Edge placeholder
+    'MatchResult', 'ProfitLoss'
 ]
 LOG_HEADERS = [
-    "Date", "Strategy", "Tournament", "Player 1", "Player 2", "Bet On",
-    "Trigger Type", "Trigger Val", "Stake", "Odds Taken",
-    "P(S)", "P(BC)", "Result", "P/L"
+    "Date", "Strategy", "Tournament", "P1", "P2", "Bet On", # Shortened P1/P2
+    "Trigger Type", "Trigger Val", "Stake", "Odds", # Shortened Odds
+    "P(S)", "P(BC)", "Edge", # Added Edge placeholder
+    "Result", "P/L"
 ]
 
 
 # --- Helper Functions ---
-# (find_latest_csv, format_simple_error_html remain the same)
 def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
     """Finds the most recently modified CSV file matching the pattern."""
     try:
@@ -73,7 +77,6 @@ def format_simple_error_html(message: str, context: str = "table") -> str:
 def apply_comp_table_styles(row: pd.Series) -> List[str]:
     """
     Applies CSS classes for spread sign highlighting to specific spread cells.
-    Removes value bet and row highlighting.
     """
     styles = [''] * len(row.index)
     cols_in_row = row.index
@@ -83,29 +86,45 @@ def apply_comp_table_styles(row: pd.Series) -> List[str]:
         p1_spread = pd.to_numeric(row.get('p1_spread'), errors='coerce')
         p2_spread = pd.to_numeric(row.get('p2_spread'), errors='coerce')
 
+        # Apply to absolute spread column
         if 'p1_spread' in cols_in_row and not pd.isna(p1_spread):
             try:
-                idx = cols_in_row.get_loc('p1_spread')
-                if p1_spread > 0: styles[idx] = 'spread-positive'
-                elif p1_spread < 0: styles[idx] = 'spread-negative'
+                idx_abs = cols_in_row.get_loc('p1_spread')
+                if p1_spread > 0: styles[idx_abs] = 'spread-positive'
+                elif p1_spread < 0: styles[idx_abs] = 'spread-negative'
+            except KeyError: pass # Ignore if column doesn't exist
+
+        # Apply to relative spread column
+        if 'rel_p1_spread' in cols_in_row and not pd.isna(p1_spread): # Use p1_spread sign
+            try:
+                idx_rel = cols_in_row.get_loc('rel_p1_spread')
+                if p1_spread > 0: styles[idx_rel] = 'spread-positive'
+                elif p1_spread < 0: styles[idx_rel] = 'spread-negative'
             except KeyError: pass
 
+        # Apply to absolute spread column P2
         if 'p2_spread' in cols_in_row and not pd.isna(p2_spread):
             try:
-                idx = cols_in_row.get_loc('p2_spread')
-                if p2_spread > 0: styles[idx] = 'spread-positive'
-                elif p2_spread < 0: styles[idx] = 'spread-negative'
+                idx_abs = cols_in_row.get_loc('p2_spread')
+                if p2_spread > 0: styles[idx_abs] = 'spread-positive'
+                elif p2_spread < 0: styles[idx_abs] = 'spread-negative'
+            except KeyError: pass
+
+        # Apply to relative spread column P2
+        if 'rel_p2_spread' in cols_in_row and not pd.isna(p2_spread): # Use p2_spread sign
+            try:
+                idx_rel = cols_in_row.get_loc('rel_p2_spread')
+                if p2_spread > 0: styles[idx_rel] = 'spread-positive'
+                elif p2_spread < 0: styles[idx_rel] = 'spread-negative'
             except KeyError: pass
 
     except Exception as e_spread: print(f"Warning: Error during spread sign styling: {e_spread}")
 
-    # No longer applying value-bet or interesting-spread-row classes
     return styles
 
 
 def generate_comparison_table(df: pd.DataFrame) -> str:
     """Generates the HTML table for odds comparison using Pandas Styler."""
-    # (Logic for formatting, sorting, header mapping remains the same)
     if df is None or df.empty:
         return format_simple_error_html("No processed comparison data available.", context="comparison table")
     try:
@@ -118,12 +137,14 @@ def generate_comparison_table(df: pd.DataFrame) -> str:
         df_numeric = df[cols_to_use].copy()
         df_display = df[cols_to_use].copy()
 
+        # Updated formatters
         formatters = {
             'Player1_Match_Prob': '{:.1f}%'.format, 'Player2_Match_Prob': '{:.1f}%'.format,
             'bc_p1_prob': '{:.1f}%'.format, 'bc_p2_prob': '{:.1f}%'.format,
             'Player1_Match_Odds': '{:.2f}'.format, 'Player2_Match_Odds': '{:.2f}'.format,
             'bc_p1_odds': '{:.2f}'.format, 'bc_p2_odds': '{:.2f}'.format,
-            'p1_spread': '{:+.2f}'.format, 'p2_spread': '{:+.2f}'.format
+            'p1_spread': '{:+.2f}'.format, 'p2_spread': '{:+.2f}'.format,
+            'rel_p1_spread': '{:+.1%}'.format, 'rel_p2_spread': '{:+.1%}'.format # Format relative as percentage
         }
         for col, fmt in formatters.items():
             if col in df_display.columns:
@@ -145,13 +166,20 @@ def generate_comparison_table(df: pd.DataFrame) -> str:
             else: print("Warning: Neither 'TournamentName' nor 'Round' column found for sorting comparison table.")
         except Exception as e_sort: print(f"Warning: Error during comparison table sorting: {e_sort}")
 
-        current_headers = [COMP_HEADERS[COMP_COLS_ORDERED.index(col)] for col in cols_to_use]
+        # Map available columns to their desired headers
+        current_headers = []
+        for col in cols_to_use:
+            try:
+                header_index = COMP_COLS_ORDERED.index(col)
+                current_headers.append(COMP_HEADERS[header_index])
+            except (ValueError, IndexError):
+                current_headers.append(col) # Use raw column name if not found
         df_display.columns = current_headers
 
+
         print("Applying styles to comparison table...")
-        # Use the updated apply_comp_table_styles function
-        styler = df_numeric.style.apply(apply_comp_table_styles, axis=1)
-        styler.set_table_attributes('class="dataframe comparison-table"')
+        styler = df_numeric.style.apply(apply_comp_table_styles, axis=1) # Use specific style function
+        styler.set_table_attributes('class="dataframe comparison-table"') # Add specific class
         styler.data = df_display
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
 
@@ -167,12 +195,20 @@ def generate_comparison_table(df: pd.DataFrame) -> str:
 
 def generate_strategy_log_table(df_log: pd.DataFrame) -> str:
     """Generates the HTML table for the strategy log using Pandas Styler."""
-    # (Function unchanged)
+    # (Function updated for new Edge column placeholder)
     if df_log is None or df_log.empty:
         return "<p>No strategy log data found or log is empty.</p>"
     try:
         print("Formatting strategy log data for display...")
         cols_to_display = [col for col in LOG_COLS_DISPLAY if col in df_log.columns]
+        # Add Edge column if it's missing in the log file for display purposes
+        if 'Edge' not in cols_to_display and 'Edge' in LOG_COLS_DISPLAY:
+             df_log['Edge'] = np.nan # Add placeholder if missing
+             # Insert 'Edge' into cols_to_display at the correct position
+             edge_index_target = LOG_COLS_DISPLAY.index('Edge')
+             cols_to_display.insert(edge_index_target, 'Edge')
+
+
         df_display = df_log[cols_to_display].copy()
 
         formatters = {
@@ -181,14 +217,23 @@ def generate_strategy_log_table(df_log: pd.DataFrame) -> str:
             'BetOdds': '{:.2f}'.format,
             'SackmannProb': '{:.1f}%'.format,
             'BetcenterProb': '{:.1f}%'.format,
+            'Edge': '{:+.3f}'.format, # Format edge placeholder
             'ProfitLoss': '{:+.2f}'.format
         }
         for col, fmt in formatters.items():
             if col in df_display.columns:
                  df_display[col] = pd.to_numeric(df_display[col], errors='coerce').map(fmt, na_action='ignore')
 
-        header_map = {col: LOG_HEADERS[LOG_COLS_DISPLAY.index(col)] for col in cols_to_display}
+        # Map columns to headers using the possibly updated cols_to_display
+        header_map = {}
+        for col in cols_to_display:
+             try:
+                 header_index = LOG_COLS_DISPLAY.index(col)
+                 header_map[col] = LOG_HEADERS[header_index]
+             except (ValueError, IndexError):
+                 header_map[col] = col # Use raw name if not found
         df_display.rename(columns=header_map, inplace=True)
+
 
         if 'Date' in df_display.columns:
              df_display.sort_values(by='Date', ascending=False, inplace=True)
@@ -232,13 +277,13 @@ def generate_full_html_page(comp_table_html: str, log_table_html: str, timestamp
             --header-text-color: #343a40;
             --border-color: #dee2e6; /* Standard border color */
             --row-alt-bg-color: #f8f9fa;
-            --hover-bg-color: #e9ecef;
-            --shadow-color: rgba(0, 0, 0, 0.075);
+            --hover-bg-color: #e9ecef; /* Use same as header for consistency */
+            --shadow-color: rgba(0, 0, 0, 0.06); /* Softer shadow */
             /* Cell Highlighting Colors */
-            --spread-positive-bg-color: #e2f0d9;
-            --spread-positive-text-color: #385723;
-            --spread-negative-bg-color: #fdecea;
-            --spread-negative-text-color: #843534;
+            --spread-positive-bg-color: #d1e7dd; /* Bootstrap success light */
+            --spread-positive-text-color: #0f5132; /* Bootstrap success dark */
+            --spread-negative-bg-color: #f8d7da; /* Bootstrap danger light */
+            --spread-negative-text-color: #842029; /* Bootstrap danger dark */
             /* Tab Colors */
             --tab-border-color: var(--border-color);
             --tab-active-border-color: var(--primary-color);
@@ -248,11 +293,10 @@ def generate_full_html_page(comp_table_html: str, log_table_html: str, timestamp
         }}
 
         body {{
-            /* Use system-ui font stack */
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6; /* Increased slightly */
+            line-height: 1.6;
             padding: 1.5rem; /* Use rem units, increased padding */
-            max-width: 1600px; /* Max width to prevent very long lines */
+            max-width: 1600px; /* Max width */
             margin: 1.5rem auto;
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -265,10 +309,10 @@ def generate_full_html_page(comp_table_html: str, log_table_html: str, timestamp
             padding-bottom: 0.75rem;
             margin-bottom: 1.75rem; /* Increased margin */
             font-weight: 600;
-            font-size: 1.8em; /* Relative to base */
+            font-size: 1.8em;
         }}
         h2 {{
-            margin-top: 0; /* Remove default top margin if inside card */
+            margin-top: 0;
             margin-bottom: 1.25rem; /* Increased margin */
             font-weight: 500;
             font-size: 1.4em;
@@ -276,21 +320,20 @@ def generate_full_html_page(comp_table_html: str, log_table_html: str, timestamp
 
         p {{
             margin-bottom: 1rem;
-            font-size: 1em; /* Relative to base */
-            color: #495057; /* Slightly lighter text */
+            font-size: 1em;
+            color: #495057;
         }}
         p .highlight {{
-             padding: 1px 4px; border-radius: 3px; font-weight: bold;
-             /* Add background/color for inline highlights if needed */
-             /* background-color: #e9ecef; */
+             padding: 2px 5px; border-radius: 4px; font-weight: 500;
+             border: 1px solid var(--border-color);
         }}
 
         /* --- Tab Styles --- */
         .tab-container {{ margin-bottom: 0; border-bottom: 1px solid var(--tab-border-color); }}
         .tab-button {{
-            background-color: transparent; border: none; border-bottom: 4px solid transparent; /* Thicker border */
+            background-color: transparent; border: none; border-bottom: 4px solid transparent; /* Thicker border for active state */
             padding: 0.75rem 1rem; margin-bottom: -1px;
-            cursor: pointer; font-size: 1.05em; /* Slightly larger */
+            cursor: pointer; font-size: 1.05em;
             color: var(--tab-text-color);
             transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
         }}
@@ -303,56 +346,57 @@ def generate_full_html_page(comp_table_html: str, log_table_html: str, timestamp
         /* --- Card Structure for Tab Content --- */
         .tab-content {{
             display: none;
-            padding: 1.5rem; /* Padding inside card */
+            padding: 1.5rem;
             background-color: var(--content-bg-color);
             border: 1px solid var(--border-color);
-            border-top: none; /* Remove top border as it's covered by tab container */
+            border-top: none;
             border-radius: 0 0 8px 8px; /* Round bottom corners */
-            box-shadow: 0 1px 3px var(--shadow-color);
-            margin-bottom: 1.5rem; /* Space below card */
+            box-shadow: 0 1px 4px var(--shadow-color);
+            margin-bottom: 1.5rem;
         }}
         .tab-content.active {{ display: block; }}
 
         /* --- Table Styles --- */
-        .table-container {{ overflow-x: auto; margin-bottom: 0; /* Remove margin as it's on tab-content now */ border: none; box-shadow: none; border-radius: 0; background: none;}}
+        .table-container {{ overflow-x: auto; margin-bottom: 0; border: none; box-shadow: none; border-radius: 0; background: none;}}
         table.dataframe {{
             width: 100%; border-collapse: collapse; margin: 0;
-            font-size: 0.88em; /* Slightly larger table font */
+            font-size: 0.88em; /* Increased table font size */
         }}
         table.dataframe th, table.dataframe td {{
-            border-width: 0; /* Remove all default borders */
+            border-width: 0;
             border-bottom: 1px solid var(--border-color); /* Only bottom borders */
             padding: 0.6rem 0.75rem; /* Adjusted padding */
             text-align: left; vertical-align: middle; white-space: nowrap;
         }}
         /* Right-align numeric columns */
-        /* Comparison Table */
-        table.comparison-table th:nth-child(n+5),
-        table.comparison-table td:nth-child(n+5) {{ text-align: right; }}
-        /* Strategy Log Table */
-        table.strategy-log-table th:nth-child(n+7),
-        table.strategy-log-table td:nth-child(n+7) {{ text-align: right; }}
+        table.comparison-table th:nth-child(n+5), table.comparison-table td:nth-child(n+5) {{ text-align: right; }}
+        table.strategy-log-table th:nth-child(n+7), table.strategy-log-table td:nth-child(n+7) {{ text-align: right; }}
         table.strategy-log-table th:nth-child(1), table.strategy-log-table td:nth-child(1) {{ text-align: left; }} /* Keep date left */
 
 
         table.dataframe tbody tr:last-child td {{ border-bottom: none; }}
 
-        /* Column Widths (Keep as before, adjust if needed) */
-        table.comparison-table th:nth-child(1), table.comparison-table td:nth-child(1) {{ width: 15%; white-space: normal;}}
-        table.comparison-table th:nth-child(3), table.comparison-table td:nth-child(3) {{ width: 15%; white-space: normal; font-weight: 500;}}
-        table.comparison-table th:nth-child(4), table.comparison-table td:nth-child(4) {{ width: 15%; white-space: normal; font-weight: 500;}}
-        table.comparison-table th:nth-child(2), table.comparison-table td:nth-child(2) {{ width: 3%; }}
-        table.comparison-table th:nth-child(n+5):nth-child(-n+8) {{ width: 6%; }} /* Probs */
+        /* Column Widths (Adjust as necessary) */
+        /* Comparison Table */
+        table.comparison-table th:nth-child(1), table.comparison-table td:nth-child(1) {{ width: 14%; white-space: normal;}}
+        table.comparison-table th:nth-child(3), table.comparison-table td:nth-child(3) {{ width: 14%; white-space: normal; font-weight: 500;}}
+        table.comparison-table th:nth-child(4), table.comparison-table td:nth-child(4) {{ width: 14%; white-space: normal; font-weight: 500;}}
+        table.comparison-table th:nth-child(2), table.comparison-table td:nth-child(2) {{ width: 3%; }} /* R */
+        table.comparison-table th:nth-child(n+5):nth-child(-n+8) {{ width: 5.5%; }} /* Probs */
         table.comparison-table th:nth-child(n+9):nth-child(-n+12) {{ width: 5%; }} /* Odds */
-        table.comparison-table th:nth-child(n+13) {{ width: 4%; }} /* Spreads */
+        table.comparison-table th:nth-child(13), table.comparison-table td:nth-child(13) {{ width: 4%; }} /* P1 Sprd */
+        table.comparison-table th:nth-child(14), table.comparison-table td:nth-child(14) {{ width: 4.5%; }} /* Rel Sprd */
+        table.comparison-table th:nth-child(15), table.comparison-table td:nth-child(15) {{ width: 4%; }} /* P2 Sprd */
+        table.comparison-table th:nth-child(16), table.comparison-table td:nth-child(16) {{ width: 4.5%; }} /* Rel Sprd */
         /* Strategy Log Table Widths */
         table.strategy-log-table th:nth-child(1), table.strategy-log-table td:nth-child(1) {{ width: 8%; }}
         table.strategy-log-table th:nth-child(2), table.strategy-log-table td:nth-child(2) {{ width: 8%; }}
-        table.strategy-log-table th:nth-child(3), table.strategy-log-table td:nth-child(3) {{ width: 12%; white-space: normal;}}
-        table.strategy-log-table th:nth-child(4), table.strategy-log-table td:nth-child(4) {{ width: 12%; white-space: normal;}}
-        table.strategy-log-table th:nth-child(5), table.strategy-log-table td:nth-child(5) {{ width: 12%; white-space: normal;}}
+        table.strategy-log-table th:nth-child(3), table.strategy-log-table td:nth-child(3) {{ width: 10%; white-space: normal;}}
+        table.strategy-log-table th:nth-child(4), table.strategy-log-table td:nth-child(4) {{ width: 10%; white-space: normal;}}
+        table.strategy-log-table th:nth-child(5), table.strategy-log-table td:nth-child(5) {{ width: 10%; white-space: normal;}}
         table.strategy-log-table th:nth-child(6), table.strategy-log-table td:nth-child(6) {{ width: 5%; }}
-        table.strategy-log-table th:nth-child(n+7) {{ width: 6%;}}
+        table.strategy-log-table th:nth-child(n+7) {{ width: 5.5%;}} /* Auto-adjust remaining */
+
 
         /* Header Styling */
         table.dataframe thead th {{ background-color: var(--header-bg-color); color: var(--header-text-color); font-weight: 600; border-bottom: 2px solid var(--border-color); position: sticky; top: 0; z-index: 1; }}
@@ -360,25 +404,19 @@ def generate_full_html_page(comp_table_html: str, log_table_html: str, timestamp
         table.dataframe tbody tr:nth-child(even) td {{ background-color: var(--row-alt-bg-color); }}
         table.dataframe tbody tr:hover td {{ background-color: var(--hover-bg-color) !important; }}
 
-        /* --- UPDATED Highlighting: Spread Cells Only --- */
+        /* --- Spread Cell Highlighting --- */
         table.dataframe td.spread-positive {{
             background-color: var(--spread-positive-bg-color) !important;
             color: var(--spread-positive-text-color);
-            font-weight: 600; /* Make spread stand out */
+            font-weight: 600;
             border-radius: 3px;
         }}
         table.dataframe td.spread-negative {{
             background-color: var(--spread-negative-bg-color) !important;
             color: var(--spread-negative-text-color);
-            font-weight: 600; /* Make spread stand out */
+            font-weight: 600;
             border-radius: 3px;
         }}
-        /* Remove specific hover for spread cells if row hover is sufficient */
-        /* table.dataframe tbody tr:hover td.spread-positive {{ ... }} */
-        /* table.dataframe tbody tr:hover td.spread-negative {{ ... }} */
-
-        /* --- REMOVED Row Highlighting --- */
-        /* .interesting-spread-row rules removed */
 
         .last-updated {{ margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color); font-size: 0.9em; color: #6c757d; text-align: center; }}
 
@@ -397,7 +435,8 @@ def generate_full_html_page(comp_table_html: str, log_table_html: str, timestamp
 
     <div id="comparisonTab" class="tab-content active">
         <h2>Odds Comparison (Sackmann vs Betcenter)</h2>
-        <p>Comparison of probabilities and calculated odds from the Tennis Abstract Sackmann model against betting odds scraped from Betcenter.be. The 'Spread' columns show the difference between Betcenter odds and Sackmann's calculated odds (Positive means Betcenter odds are higher). Cells highlighted (<span class="highlight" style="background-color: var(--spread-positive-bg-color); color: var(--spread-positive-text-color);">Green</span>/<span class="highlight" style="background-color: var(--spread-negative-bg-color); color: var(--spread-negative-text-color);">Red</span>) in the Spread columns indicate the direction of the difference.</p> <p>Matches involving qualifiers or appearing completed based on Sackmann data are filtered out. Name matching uses Title Case and may not be perfect.</p>
+        <p>Comparison of probabilities and calculated odds from the Tennis Abstract Sackmann model against betting odds scraped from Betcenter.be. 'Spread' columns show the absolute difference between Betcenter odds and Sackmann's calculated odds (Positive = BC odds higher). 'Rel Sprd' shows this difference as a percentage of Sackmann's odds. Cells highlighted (<span class="highlight" style="background-color: var(--spread-positive-bg-color); color: var(--spread-positive-text-color);">Green</span>/<span class="highlight" style="background-color: var(--spread-negative-bg-color); color: var(--spread-negative-text-color);">Red</span>) in the Spread columns indicate the direction of the difference.</p>
+        <p>Matches involving qualifiers or appearing completed based on Sackmann data are filtered out. Name matching uses Title Case and may not be perfect.</p>
         <div class="table-container">{comp_table_html}</div>
     </div>
 
@@ -413,30 +452,17 @@ def generate_full_html_page(comp_table_html: str, log_table_html: str, timestamp
         function openTab(evt, tabName) {{
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {{
-                tabcontent[i].style.display = "none";
-                // Remove active class from content to be safe
-                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
-            }}
+            for (i = 0; i < tabcontent.length; i++) {{ tabcontent[i].style.display = "none"; tabcontent[i].className = tabcontent[i].className.replace(" active", ""); }}
             tablinks = document.getElementsByClassName("tab-button");
-            for (i = 0; i < tablinks.length; i++) {{
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }}
+            for (i = 0; i < tablinks.length; i++) {{ tablinks[i].className = tablinks[i].className.replace(" active", ""); }}
             let currentTab = document.getElementById(tabName);
-            if (currentTab) {{
-                currentTab.style.display = "block";
-                // Add active class to content AFTER setting display
-                currentTab.className += " active";
-            }}
-            if (evt && evt.currentTarget) {{
-                 evt.currentTarget.className += " active";
-            }}
+            if (currentTab) {{ currentTab.style.display = "block"; currentTab.className += " active"; }}
+            if (evt && evt.currentTarget) {{ evt.currentTarget.className += " active"; }}
         }}
-        // Ensure the default tab is shown on load and button is active
          document.addEventListener('DOMContentLoaded', (event) => {{
             let defaultButton = document.querySelector('.tab-button.active');
-            let defaultTabId = defaultButton ? defaultButton.getAttribute('onclick').match(/'([^']+)'/)[1] : 'comparisonTab'; // Fallback ID
-            openTab(null, defaultTabId); // Use null for event if called on load
+            let defaultTabId = defaultButton ? defaultButton.getAttribute('onclick').match(/'([^']+)'/)[1] : 'comparisonTab';
+            openTab(null, defaultTabId);
          }});
     </script>
     </body>
@@ -451,9 +477,8 @@ def get_main_content_html(data_dir: str) -> Tuple[str, str]:
     """
     # (Function unchanged)
     comparison_html = format_simple_error_html("Comparison data failed to load or process.", "comparison table")
-    log_html = "<p>Strategy log file not found or is empty.</p>" # Default message
+    log_html = "<p>Strategy log file not found or is empty.</p>"
 
-    # Load Comparison Data
     try:
         print("\nFinding latest processed comparison data file...")
         latest_processed_csv = find_latest_csv(data_dir, PROCESSED_CSV_PATTERN)
@@ -476,7 +501,6 @@ def get_main_content_html(data_dir: str) -> Tuple[str, str]:
         traceback.print_exc()
         comparison_html = format_simple_error_html(f"Error loading comparison data: {e_comp}", "comparison table")
 
-    # Load Strategy Log Data
     try:
         log_file_path = os.path.join(data_dir, STRATEGY_LOG_FILENAME)
         print(f"\nChecking for strategy log file: {log_file_path}")
@@ -492,8 +516,6 @@ def get_main_content_html(data_dir: str) -> Tuple[str, str]:
                 log_html = generate_strategy_log_table(df_log)
         else:
             print("Strategy log file does not exist.")
-            # Keep default message: log_html = "<p>Strategy log file not found or is empty.</p>"
-
     except Exception as e_log:
         print(f"Error loading/processing strategy log: {e_log}")
         traceback.print_exc()
@@ -509,14 +531,11 @@ if __name__ == "__main__":
     output_file_abs = os.path.join(script_dir, OUTPUT_HTML_FILE)
     print(f"Script directory: {script_dir}"); print(f"Data archive directory: {data_dir_abs}"); print(f"Outputting generated HTML to: {output_file_abs}")
 
-    # Get HTML content for both tables (or error messages)
     comparison_table_html, log_table_html = get_main_content_html(data_dir_abs)
 
-    # Generate the full page embedding both pieces of content
     update_time = datetime.now(pytz.timezone('Europe/Brussels')).strftime('%Y-%m-%d %H:%M:%S %Z')
     timestamp_str = f"Last updated: {html.escape(update_time)}"
     print("\nGenerating full HTML page content with tabs...");
-    # Pass both HTML strings to the page generator
     full_html = generate_full_html_page(comparison_table_html, log_table_html, timestamp_str)
     print("Full HTML page content generated.")
 

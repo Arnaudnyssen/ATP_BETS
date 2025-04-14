@@ -1,7 +1,7 @@
-# process_data.py (v7 - Remove TournamentURL Output)
-# Loads latest Sackmann and Betcenter data, preprocesses, merges, calculates spread,
-# calculates normalized Betcenter probabilities, and saves the final combined DataFrame
-# to processed_comparison_*.csv. Excludes TournamentURL from final output.
+# process_data.py (v8 - Calculate Relative Spread)
+# Loads latest Sackmann and Betcenter data, preprocesses, merges, calculates
+# absolute spread, relative spread, normalized Betcenter probabilities,
+# and saves the final combined DataFrame to processed_comparison_*.csv.
 
 import pandas as pd
 import numpy as np
@@ -22,17 +22,17 @@ DATE_FORMAT = "%Y%m%d"
 
 # --- Column Definitions ---
 MERGE_KEY_COLS = ['TournamentKey', 'Player1NameKey', 'Player2NameKey']
-# Removed TournamentURL from final list
+# Added relative spread columns
 FINAL_COLS = [
-    'TournamentName', 'Round', 'Player1Name', 'Player2Name', # URL removed
+    'TournamentName', 'Round', 'Player1Name', 'Player2Name',
     'Player1_Match_Prob', 'Player2_Match_Prob', 'bc_p1_prob', 'bc_p2_prob',
     'Player1_Match_Odds', 'Player2_Match_Odds', 'bc_p1_odds', 'bc_p2_odds',
-    'p1_spread', 'p2_spread'
+    'p1_spread', 'p2_spread', 'rel_p1_spread', 'rel_p2_spread' # Added relative spreads
 ]
 
 
 # --- Helper Functions ---
-# (create_merge_key, preprocess_player_name, find_latest_csv remain the same as v6)
+# (create_merge_key, preprocess_player_name, find_latest_csv remain the same as v7)
 def create_merge_key(text: str) -> str:
     """Creates a simplified, lowercase, space-removed key for merging."""
     if not isinstance(text, str): return ""
@@ -95,6 +95,7 @@ def find_latest_csv(directory: str, pattern: str) -> Optional[str]:
     except Exception as e: print(f"Error finding latest CSV file in '{directory}' with pattern '{pattern}': {e}"); traceback.print_exc(); return None
 
 # --- Data Loading Functions ---
+# (load_and_prepare_sackmann_data, load_and_prepare_betcenter_data remain the same as v7)
 def load_and_prepare_sackmann_data(csv_filepath: str) -> Optional[pd.DataFrame]:
     """Loads, preprocesses, filters, and standardizes Sackmann data."""
     print(f"Loading Sackmann data from: {os.path.basename(csv_filepath)}")
@@ -103,11 +104,12 @@ def load_and_prepare_sackmann_data(csv_filepath: str) -> Optional[pd.DataFrame]:
         df = pd.read_csv(csv_filepath)
         if df.empty: print("  Sackmann DataFrame is empty after loading."); return None
         print(f"  Read {len(df)} rows initially from Sackmann CSV.")
-        # Ensure TournamentURL is loaded initially, even if not kept till final output
-        required_cols = ['TournamentName', 'TournamentURL', 'Player1Name', 'Player2Name', 'Player1_Match_Prob', 'Player2_Match_Prob']
+        required_cols = ['TournamentName', 'TournamentURL', 'Player1Name', 'Player2Name', 'Player1_Match_Prob', 'Player2_Match_Prob', 'Player1_Match_Odds', 'Player2_Match_Odds'] # Added odds cols
         if not all(col in df.columns for col in required_cols): print(f"  Error: Sackmann DataFrame missing required columns. Found: {df.columns.tolist()}"); return None
         df['Player1_Match_Prob'] = pd.to_numeric(df['Player1_Match_Prob'], errors='coerce')
         df['Player2_Match_Prob'] = pd.to_numeric(df['Player2_Match_Prob'], errors='coerce')
+        df['Player1_Match_Odds'] = pd.to_numeric(df['Player1_Match_Odds'], errors='coerce') # Ensure odds are numeric
+        df['Player2_Match_Odds'] = pd.to_numeric(df['Player2_Match_Odds'], errors='coerce')
         original_count_step1 = len(df)
         df = df[ (df['Player1_Match_Prob'].notna()) & (df['Player1_Match_Prob'] > 0.0) & (df['Player1_Match_Prob'] < 100.0) & \
                  (df['Player2_Match_Prob'].notna()) & (df['Player2_Match_Prob'] > 0.0) & (df['Player2_Match_Prob'] < 100.0) ].copy()
@@ -127,18 +129,17 @@ def load_and_prepare_sackmann_data(csv_filepath: str) -> Optional[pd.DataFrame]:
         print(f"  Filtered Sackmann (Qualifiers): {original_count_step2 - len(df)} rows removed. {len(df)} remain.")
         if df.empty: print("  Sackmann DataFrame is empty after filtering qualifiers."); return None
 
-        # Keep TournamentURL temporarily for potential use during merge or processing if needed later
         sackmann_cols_keep = ['TournamentName', 'TournamentURL', 'Round', 'Player1Name', 'Player2Name',
                               'Player1_Match_Prob', 'Player2_Match_Prob',
                               'Player1_Match_Odds', 'Player2_Match_Odds'] + MERGE_KEY_COLS
         df_out = df[[col for col in sackmann_cols_keep if col in df.columns]].copy()
+        # Ensure odds are numeric again after selection (redundant but safe)
         df_out['Player1_Match_Odds'] = pd.to_numeric(df_out['Player1_Match_Odds'], errors='coerce')
         df_out['Player2_Match_Odds'] = pd.to_numeric(df_out['Player2_Match_Odds'], errors='coerce')
         print(f"  Prepared Sackmann data. Shape: {df_out.shape}")
         return df_out
     except Exception as e: print(f"  Error loading/preparing Sackmann data: {e}"); traceback.print_exc(); return None
 
-# (load_and_prepare_betcenter_data remains the same as v6)
 def load_and_prepare_betcenter_data(csv_filepath: str) -> Optional[pd.DataFrame]:
     """Loads, preprocesses, and standardizes Betcenter odds data."""
     print(f"Loading Betcenter data from: {os.path.basename(csv_filepath)}")
@@ -169,7 +170,7 @@ def load_and_prepare_betcenter_data(csv_filepath: str) -> Optional[pd.DataFrame]
         return df_out
     except Exception as e: print(f"  Error loading/preparing Betcenter data: {e}"); traceback.print_exc(); return None
 
-# (merge_data remains the same as v6)
+# (merge_data remains the same as v7)
 def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) -> pd.DataFrame:
     """Merges Sackmann and Betcenter dataframes based on standardized keys, handling swaps."""
     if sackmann_df is None or sackmann_df.empty:
@@ -179,7 +180,7 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
     if betcenter_df is None or betcenter_df.empty:
         print("Betcenter data is missing or empty. Adding placeholder columns to Sackmann data.")
         final_df = sackmann_df.copy()
-        for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread']:
+        for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread', 'rel_p1_spread', 'rel_p2_spread']: # Added placeholders for rel_spread
              if col not in final_df.columns: final_df[col] = np.nan
     else:
         print("Attempting to merge Sackmann and Betcenter data on standardized keys...")
@@ -191,7 +192,6 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
             print(f"\nBetcenter DF Head (Keys - {len(betcenter_df)} rows):"); print(betcenter_df[MERGE_KEY_COLS].head()); print("-----------------------\n")
 
             betcenter_merge_data = betcenter_df[['bc_p1_odds', 'bc_p2_odds'] + MERGE_KEY_COLS].copy()
-            # Ensure TournamentURL is carried over from sackmann_df during merge
             cols_to_merge = list(sackmann_df.columns)
             merged_df = pd.merge(sackmann_df[cols_to_merge], betcenter_merge_data, on=MERGE_KEY_COLS, how='left', suffixes=('', '_bc'))
             print(f"  Left Merged (P1-P1, P2-P2) on keys. Shape: {merged_df.shape}")
@@ -208,7 +208,6 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
                     'temp_bc_p1_odds': 'bc_p1_odds', 'temp_bc_p2_odds': 'bc_p2_odds'
                 }, inplace=True)
 
-                # Ensure merge keys and TournamentURL are present before dropping columns
                 unmatched_sackmann_subset = sackmann_df.loc[unmatched_indices].copy()
                 cols_to_drop = ['bc_p1_odds', 'bc_p2_odds']
                 cols_exist = [col for col in cols_to_drop if col in unmatched_sackmann_subset.columns]
@@ -233,7 +232,8 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
             print(f"Error during data merging: {e}"); traceback.print_exc()
             print("Fallback: Returning only Sackmann data due to merge error.")
             final_df = sackmann_df.copy()
-            for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread']:
+            # Add placeholders for all columns that would come from Betcenter or calculations
+            for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread', 'rel_p1_spread', 'rel_p2_spread']:
                  if col not in final_df.columns: final_df[col] = np.nan
 
     # --- Calculate Spread ---
@@ -248,6 +248,16 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
                                    final_df['bc_p2_odds'] - final_df['Player2_Match_Odds'], np.nan)
     print("Spread calculated.")
 
+    # --- Calculate Relative Spread ---
+    print("Calculating relative spread...")
+    # Calculate relative spread: spread / sackmann_odds
+    # Handle division by zero or NaN in sackmann_odds
+    final_df['rel_p1_spread'] = np.where(final_df['p1_spread'].notna() & final_df['Player1_Match_Odds'].notna() & (final_df['Player1_Match_Odds'] > 0),
+                                       final_df['p1_spread'] / final_df['Player1_Match_Odds'], np.nan)
+    final_df['rel_p2_spread'] = np.where(final_df['p2_spread'].notna() & final_df['Player2_Match_Odds'].notna() & (final_df['Player2_Match_Odds'] > 0),
+                                       final_df['p2_spread'] / final_df['Player2_Match_Odds'], np.nan)
+    print("Relative spread calculated.")
+
     # --- Calculate Normalized Betcenter Probabilities ---
     print("Calculating normalized Betcenter probabilities...")
     raw_p1 = np.where(final_df['bc_p1_odds'] > 0, 1 / final_df['bc_p1_odds'], 0)
@@ -257,19 +267,19 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
     final_df['bc_p2_prob'] = np.where(total_raw_prob > 0, (raw_p2 / total_raw_prob) * 100, np.nan)
     print("Betcenter probabilities calculated.")
 
-    # Drop the key columns AND TournamentURL before returning/saving final comparison file
-    cols_to_drop_final = MERGE_KEY_COLS + ['TournamentURL']
-    final_df.drop(columns=[col for col in cols_to_drop_final if col in final_df.columns], errors='ignore', inplace=True)
+    # Drop the key columns before returning/saving
+    final_df.drop(columns=[col for col in MERGE_KEY_COLS if col in final_df.columns], errors='ignore', inplace=True)
 
     # Reorder columns for final output
-    final_df = final_df[[col for col in FINAL_COLS if col in final_df.columns]] # FINAL_COLS no longer includes URL
+    final_df = final_df[[col for col in FINAL_COLS if col in final_df.columns]]
 
     print(f"Final processed data shape: {final_df.shape}")
     print("Sample of final processed data (Head):")
-    print(final_df[['TournamentName', 'Player1Name', 'Player2Name', 'Player1_Match_Prob', 'bc_p1_prob', 'Player1_Match_Odds', 'bc_p1_odds', 'p1_spread']].head())
+    print(final_df[['TournamentName', 'Player1Name', 'Player2Name', 'p1_spread', 'rel_p1_spread']].head())
     return final_df
 
 # --- Main Execution Logic ---
+# (Main execution block remains the same)
 if __name__ == "__main__":
     print("="*50); print(" Starting Data Processing Script..."); print("="*50)
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -283,10 +293,9 @@ if __name__ == "__main__":
     betcenter_data = None
 
     if latest_sackmann_csv:
-        # Pass the loaded dataframe, which includes TournamentURL temporarily
         sackmann_data_loaded = load_and_prepare_sackmann_data(latest_sackmann_csv)
         if sackmann_data_loaded is not None:
-             sackmann_data = sackmann_data_loaded # Keep using this name internally
+             sackmann_data = sackmann_data_loaded
     else:
         print("CRITICAL: Sackmann data file not found. Cannot proceed with merge.")
         exit()
@@ -296,9 +305,7 @@ if __name__ == "__main__":
     else:
         print("Warning: Betcenter data file not found. Proceeding with Sackmann data only (no BC odds/probs/spread).")
 
-    # Merge function now takes sackmann_data which still includes TournamentURL internally
     final_processed_data = merge_data(sackmann_data, betcenter_data)
-    # The merge_data function drops the URL before returning final_processed_data
 
     if final_processed_data is not None and not final_processed_data.empty:
         print("\nSaving final processed data...")
@@ -306,9 +313,10 @@ if __name__ == "__main__":
         output_filename = f"{PROCESSED_OUTPUT_FILENAME_BASE}_{today_date_str}.csv"
         output_path = os.path.join(data_dir_abs, output_filename)
         try:
+            # Format floats: Use more precision for relative spread
             float_cols = final_processed_data.select_dtypes(include=['float']).columns
-            format_dict = {col: '%.2f' for col in float_cols}
-            final_processed_data.to_csv(output_path, index=False, encoding='utf-8', float_format='%.2f')
+            format_dict = {col: '%.4f' if 'rel_' in col else '%.2f' for col in float_cols}
+            final_processed_data.to_csv(output_path, index=False, encoding='utf-8', float_format='%.4f') # Use higher precision default
             print(f"Successfully saved processed data to: {output_path}")
         except Exception as e:
             print(f"Error saving processed data to CSV: {e}")
