@@ -1,4 +1,4 @@
-# generate_page.py (v12 - Tabs for Comparison & Log)
+# generate_page.py (v13 - Fix Tuple Import)
 # Loads processed comparison data and strategy log.
 # Generates HTML page with tabs to display both tables.
 
@@ -10,7 +10,7 @@ import glob
 import pytz
 import traceback
 import html
-from typing import Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any, Tuple # Added Tuple import
 
 # --- Constants ---
 DATA_DIR = "data_archive"
@@ -90,7 +90,7 @@ def apply_comp_table_styles(row: pd.Series) -> List[str]:
 
 def generate_comparison_table(df: pd.DataFrame) -> str:
     """Generates the HTML table for odds comparison using Pandas Styler."""
-    # Renamed from generate_html_table
+    # (Function unchanged from v12)
     if df is None or df.empty:
         return format_simple_error_html("No processed comparison data available.", context="comparison table")
     try:
@@ -134,8 +134,8 @@ def generate_comparison_table(df: pd.DataFrame) -> str:
         df_display.columns = current_headers
 
         print("Applying styles to comparison table...")
-        styler = df_numeric.style.apply(apply_comp_table_styles, axis=1) # Use specific style function
-        styler.set_table_attributes('class="dataframe comparison-table"') # Add specific class
+        styler = df_numeric.style.apply(apply_comp_table_styles, axis=1)
+        styler.set_table_attributes('class="dataframe comparison-table"')
         styler.data = df_display
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
 
@@ -149,21 +149,19 @@ def generate_comparison_table(df: pd.DataFrame) -> str:
         traceback.print_exc()
         return format_simple_error_html(f"Unexpected error during comparison table generation: {type(e).__name__}", context="comparison table")
 
-# --- NEW Function to Generate Strategy Log Table ---
 def generate_strategy_log_table(df_log: pd.DataFrame) -> str:
     """Generates the HTML table for the strategy log using Pandas Styler."""
+    # (Function unchanged from v12)
     if df_log is None or df_log.empty:
-        return "<p>No strategy log data found or log is empty.</p>" # Simple message, not error
+        return "<p>No strategy log data found or log is empty.</p>"
     try:
         print("Formatting strategy log data for display...")
-        # Select and order columns for display
         cols_to_display = [col for col in LOG_COLS_DISPLAY if col in df_log.columns]
         df_display = df_log[cols_to_display].copy()
 
-        # Define formatters
         formatters = {
             'TriggerValue': '{:.3f}'.format,
-            'BetAmount': '{:.3f}'.format, # Assuming this might be fractional later
+            'BetAmount': '{:.3f}'.format,
             'BetOdds': '{:.2f}'.format,
             'SackmannProb': '{:.1f}%'.format,
             'BetcenterProb': '{:.1f}%'.format,
@@ -173,11 +171,9 @@ def generate_strategy_log_table(df_log: pd.DataFrame) -> str:
             if col in df_display.columns:
                  df_display[col] = pd.to_numeric(df_display[col], errors='coerce').map(fmt, na_action='ignore')
 
-        # Rename columns to display headers
         header_map = {col: LOG_HEADERS[LOG_COLS_DISPLAY.index(col)] for col in cols_to_display}
         df_display.rename(columns=header_map, inplace=True)
 
-        # Sort by date, then strategy?
         if 'Date' in df_display.columns:
              df_display.sort_values(by='Date', ascending=False, inplace=True)
 
@@ -185,12 +181,8 @@ def generate_strategy_log_table(df_log: pd.DataFrame) -> str:
         print("Strategy log formatting complete.")
 
         print("Generating strategy log HTML table string using Styler...")
-        styler = df_display.style # No complex styling needed for log yet
-        styler.set_table_attributes('class="dataframe strategy-log-table"') # Add specific class
-        # Apply text alignment? Left align most, right align numeric?
-        # styler.set_properties(**{'text-align': 'left'})
-        # styler.set_properties(subset=['Trigger Val', 'Stake', 'Odds Taken', 'P(S)', 'P(BC)', 'P/L'], **{'text-align': 'right'})
-
+        styler = df_display.style
+        styler.set_table_attributes('class="dataframe strategy-log-table"')
         html_table = styler.to_html(index=False, escape=True, na_rep='-', border=0)
 
         if not html_table or not isinstance(html_table, str):
@@ -206,7 +198,7 @@ def generate_strategy_log_table(df_log: pd.DataFrame) -> str:
 
 def generate_full_html_page(comp_table_html: str, log_table_html: str, timestamp_str: str) -> str:
     """Constructs the entire HTML page with tabs, embedding both tables and timestamp."""
-    # --- Updated CSS for Tabs and simplified table styles ---
+    # (Function unchanged from v12)
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -315,24 +307,29 @@ def generate_full_html_page(comp_table_html: str, log_table_html: str, timestamp
     <script>
         function openTab(evt, tabName) {{
             var i, tabcontent, tablinks;
-            // Hide all tab content
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {{
                 tabcontent[i].style.display = "none";
             }}
-            // Remove 'active' class from all tab buttons
             tablinks = document.getElementsByClassName("tab-button");
             for (i = 0; i < tablinks.length; i++) {{
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }}
-            // Show the selected tab content and mark button as active
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }}
-        // Ensure the default tab is shown on load (optional, handled by class 'active' in HTML)
-        // document.addEventListener('DOMContentLoaded', (event) => {{
-        //    document.getElementById('comparisonTab').style.display = 'block';
-        // }});
+        // Ensure the default tab is shown on load
+         document.addEventListener('DOMContentLoaded', (event) => {{
+            // Check if any tab content is already marked active in HTML, if not, activate the first one
+            let activeTab = document.querySelector('.tab-content.active');
+            if (!activeTab) {{
+                 let defaultTab = document.getElementById('comparisonTab');
+                 if(defaultTab) {{ defaultTab.style.display = 'block'; }}
+                 // Also mark the corresponding button active if needed
+                 let defaultButton = document.querySelector('.tab-button'); // Assumes first button corresponds to first tab
+                 if(defaultButton && !defaultButton.classList.contains('active')){{ defaultButton.className += " active"; }}
+            }}
+         }});
     </script>
     </body>
 </html>"""
@@ -344,6 +341,7 @@ def get_main_content_html(data_dir: str) -> Tuple[str, str]:
     Loads comparison and log data, generates HTML for both tables.
     Returns tuple: (comparison_table_html, log_table_html)
     """
+    # (Function unchanged from v12)
     comparison_html = format_simple_error_html("Comparison data failed to load or process.", "comparison table")
     log_html = "<p>Strategy log file not found or is empty.</p>" # Default message
 
@@ -403,13 +401,14 @@ if __name__ == "__main__":
     output_file_abs = os.path.join(script_dir, OUTPUT_HTML_FILE)
     print(f"Script directory: {script_dir}"); print(f"Data archive directory: {data_dir_abs}"); print(f"Outputting generated HTML to: {output_file_abs}")
 
-    # Get HTML content for both tables (or error messages)
+    # Call the function to get the HTML for both tables
     comparison_table_html, log_table_html = get_main_content_html(data_dir_abs)
 
     # Generate the full page embedding both pieces of content
     update_time = datetime.now(pytz.timezone('Europe/Brussels')).strftime('%Y-%m-%d %H:%M:%S %Z')
     timestamp_str = f"Last updated: {html.escape(update_time)}"
     print("\nGenerating full HTML page content with tabs...");
+    # Pass both HTML strings to the page generator
     full_html = generate_full_html_page(comparison_table_html, log_table_html, timestamp_str)
     print("Full HTML page content generated.")
 
