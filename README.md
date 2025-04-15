@@ -4,7 +4,7 @@
 
 This project automates the daily process of scraping tennis match probabilities and betting odds, comparing them to identify potential value, simulating betting strategies based on this comparison, tracking results, and presenting the findings on a static website deployed via GitHub Pages.
 
-The primary goal is to explore potential discrepancies between a statistical model (Jeff Sackmann's Tennis Abstract forecasts) and market odds (currently Betcenter.be) and to backtest simple betting strategies based on these discrepancies.
+The primary goal is to explore potential discrepancies between a statistical model  and market odds  and to backtest simple betting strategies based on these discrepancies.
 
 ## Features
 
