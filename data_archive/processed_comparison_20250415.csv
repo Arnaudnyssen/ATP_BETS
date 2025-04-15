@@ -1,8 +1,8 @@
 TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
 Atpbarcelona,R32,Carlos Alcaraz,Ethan Quinn,97.4000,2.6000,,,1.0300,38.4600,,,,,,
-Atpbarcelona,R32,Laslo Djere,Arthur Rinderknech,66.4000,33.6000,76.0234,23.9766,1.5100,2.9800,1.2300,3.9000,-0.2800,0.9200,-0.1854,0.3087
+Atpbarcelona,R32,Laslo Djere,Arthur Rinderknech,66.4000,33.6000,,,1.5100,2.9800,,,,,,
 Atpbarcelona,R32,Roberto Carballes Baena,Jordan Thompson,63.9000,36.1000,,,1.5600,2.7700,,,,,,
-Atpbarcelona,R32,Tomas Martin Etcheverry,Alex De Minaur,33.8000,66.2000,32.2430,67.7570,2.9600,1.5100,2.9000,1.3800,-0.0600,-0.1300,-0.0203,-0.0861
+Atpbarcelona,R32,Tomas Martin Etcheverry,Alex De Minaur,33.8000,66.2000,,,2.9600,1.5100,,,,,,
 Atpbarcelona,R32,Stefanos Tsitsipas,Reilly Opelka,79.7000,20.3000,,,1.2500,4.9300,,,,,,
 Atpbarcelona,R32,Matteo Arnaldi,Sebastian Korda,55.5000,44.5000,,,1.8000,2.2500,,,,,,
 Atpbarcelona,R32,Pedro Martinez,Brandon Nakashima,41.8000,58.2000,,,2.3900,1.7200,,,,,,
@@ -14,17 +14,17 @@ Atpbarcelona,R32,Jesper De Jong,Andrey Rublev,19.5000,80.5000,,,5.1300,1.2400,,,
 Atpbarcelona,R32,Holger Rune,Albert Ramos,88.9000,11.1000,,,1.1200,9.0100,,,,,,
 Atpbarcelona,R32,Sebastian Baez,Damir Dzumhur,68.1000,31.9000,,,1.4700,3.1300,,,,,,
 Atpbarcelona,R32,Hamad Medjedovic,Giovanni Mpetshi Perricard,55.6000,44.4000,,,1.8000,2.2500,,,,,,
-Atpbarcelona,R32,Daniel Elahi Galan,Casper Ruud,11.4000,88.6000,17.9811,82.0189,8.7700,1.1300,5.2000,1.1400,-3.5700,0.0100,-0.4071,0.0088
+Atpbarcelona,R32,Daniel Elahi Galan,Casper Ruud,11.4000,88.6000,,,8.7700,1.1300,,,,,,
 Atpmunich,R32,Alexander Zverev,Alexandre Muller,83.8000,16.2000,,,1.1900,6.1700,,,,,,
 Atpmunich,R32,Chun Hsin Tseng,Daniel Altmaier,42.3000,57.7000,,,2.3600,1.7300,,,,,,
 Atpmunich,R32,Tallon Griekspoor,Learner Tien,88.5000,11.5000,,,1.1300,8.7000,,,,,,
 Atpmunich,R32,Yannick Hanfmann,Jakub Mensik,27.7000,72.3000,,,3.6100,1.3800,,,,,,
-Atpmunich,R32,Ugo Humbert,Nicolas Jarry,61.0000,39.0000,52.0000,48.0000,1.6400,2.5600,1.8000,1.9500,0.1600,-0.6100,0.0976,-0.2383
-Atpmunich,R32,Justin Engel,Fabian Marozsan,5.9000,94.1000,17.2519,82.7481,16.9500,1.0600,5.4200,1.1300,-11.5300,0.0700,-0.6802,0.0660
+Atpmunich,R32,Ugo Humbert,Nicolas Jarry,61.0000,39.0000,,,1.6400,2.5600,,,,,,
+Atpmunich,R32,Justin Engel,Fabian Marozsan,5.9000,94.1000,,,16.9500,1.0600,,,,,,
 Atpmunich,R32,Zizou Bergs,Alexander Bublik,61.0000,39.0000,,,1.6400,2.5600,,,,,,
 Atpmunich,R32,Gael Monfils,Denis Shapovalov,38.9000,61.1000,,,2.5700,1.6400,,,,,,
-Atpmunich,R32,Francisco Cerundolo,Jan Lennard Struff,67.8000,32.2000,73.0526,26.9474,1.4700,3.1100,1.2800,3.4700,-0.1900,0.3600,-0.1293,0.1158
-Atpmunich,R32,Flavio Cobolli,Alexander Shevchenko,77.8000,22.2000,72.4947,27.5053,1.2900,4.5000,1.2900,3.4000,0.0000,-1.1000,0.0000,-0.2444
+Atpmunich,R32,Francisco Cerundolo,Jan Lennard Struff,67.8000,32.2000,,,1.4700,3.1100,,,,,,
+Atpmunich,R32,Flavio Cobolli,Alexander Shevchenko,77.8000,22.2000,,,1.2900,4.5000,,,,,,
 Atpmunich,R32,Billy Harris,David Goffin,16.6000,83.4000,,,6.0200,1.2000,,,,,,
 Atpmunich,R32,Mariano Navone,Felix Auger Aliassime,30.4000,69.6000,,,3.2900,1.4400,,,,,,
 Atpmunich,R32,Jiri Lehecka,Luciano Darderi,49.9000,50.1000,,,2.0000,2.0000,,,,,,
@@ -49,17 +49,17 @@ Oeiras4Challenger,R32,Raphael Collignon,Jerome Kym,55.4000,44.6000,,,1.8100,2.24
 Oeiras4Challenger,R32,Carlos Taberner,Nicolai Budkov Kjaer,62.4000,37.6000,59.8425,40.1575,1.6000,2.6600,1.5300,2.2800,-0.0700,-0.3800,-0.0438,-0.1429
 Oeiras4Challenger,R32,Shintaro Mochizuki,Thiago Seyboth Wild,40.8000,59.2000,,,2.4500,1.6900,,,,,,
 Oeiras4Challenger,R32,Mikhail Kukushkin,Matteo Gigante,48.8000,51.2000,,,2.0500,1.9500,,,,,,
-Oeiras4Challenger,R32,Elmer Moller,Thiago Monteiro,42.2000,57.8000,51.7711,48.2289,2.3700,1.7300,1.7700,1.9000,-0.6000,0.1700,-0.2532,0.0983
-Oeiras4Challenger,R32,Dusan Lajovic,Tiago Pereira,91.2000,8.8000,81.7590,18.2410,1.1000,11.3600,1.1200,5.0200,0.0200,-6.3400,0.0182,-0.5581
+Oeiras4Challenger,R32,Elmer Moller,Thiago Monteiro,42.2000,57.8000,,,2.3700,1.7300,,,,,,
+Oeiras4Challenger,R32,Dusan Lajovic,Tiago Pereira,91.2000,8.8000,83.2572,16.7428,1.1000,11.3600,1.1000,5.4700,0.0000,-5.8900,0.0000,-0.5185
 Oeiras4Challenger,R32,Ugo Blanchet,Jan Choinski,50.5000,49.5000,50.0000,50.0000,1.9800,2.0200,1.8300,1.8300,-0.1500,-0.1900,-0.0758,-0.0941
-Sanluispotosichallenger,R32,Kiranpal Pannu,Rodrigo Pacheco Mendez,24.8000,75.2000,25.5717,74.4283,4.0300,1.3300,3.5800,1.2300,-0.4500,-0.1000,-0.1117,-0.0752
+Sanluispotosichallenger,R32,Kiranpal Pannu,Rodrigo Pacheco Mendez,24.8000,75.2000,23.0620,76.9380,4.0300,1.3300,3.9700,1.1900,-0.0600,-0.1400,-0.0149,-0.1053
 Sanluispotosichallenger,R32,Maxime Cressy,Tom Paris,73.6000,26.4000,,,1.3600,3.7900,,,,,,
 Sanluispotosichallenger,R32,Mateus Alves,Juan Carlos Aguilar,61.7000,38.3000,,,1.6200,2.6100,,,,,,
 Sanluispotosichallenger,R32,Garrett Johns,Matias Soto,41.0000,59.0000,,,2.4400,1.6900,,,,,,
 Sanluispotosichallenger,R32,Patrick Zahraj,Alvin Nicholas Tudorica,65.3000,34.7000,,,1.5300,2.8800,,,,,,
 Sanluispotosichallenger,R32,Nicolas Mejia,Juan Alejandro Hernandez Serrano,79.5000,20.5000,,,1.2600,4.8800,,,,,,
 Sanluispotosichallenger,R32,Luka Pavlovic,Santiago Fa Rodriguez Taverna,68.1000,31.9000,,,1.4700,3.1300,,,,,,
-Sanluispotosichallenger,R32,Rodrigo Alujas,Neil Oberleitner,51.4000,48.6000,28.4444,71.5556,1.9500,2.0600,3.2200,1.2800,1.2700,-0.7800,0.6513,-0.3786
+Sanluispotosichallenger,R32,Rodrigo Alujas,Neil Oberleitner,51.4000,48.6000,26.1603,73.8397,1.9500,2.0600,3.5000,1.2400,1.5500,-0.8200,0.7949,-0.3981
 Sanluispotosichallenger,R32,Max Wiskandt,Adrian Mannarino,15.5000,84.5000,30.1149,69.8851,6.4500,1.1800,3.0400,1.3100,-3.4100,0.1300,-0.5287,0.1102
 Tallahasseechallenger,R32,Eliot Spizzirri,Murphy Cassone,57.2000,42.8000,,,1.7500,2.3400,,,,,,
 Tallahasseechallenger,R32,Joel Schwaerzler,Matteo Martineau,44.1000,55.9000,,,2.2700,1.7900,,,,,,
@@ -69,9 +69,9 @@ Tallahasseechallenger,R32,Filip Cristian Jianu,Geoffrey Blancaneaux,46.5000,53.5
 Tallahasseechallenger,R32,Patrick Maloney,Jenson Brooksby,5.1000,94.9000,,,19.6100,1.0500,,,,,,
 Tallahasseechallenger,R32,Juan Pablo Varillas,Andrea Collarini,63.2000,36.8000,,,1.5800,2.7200,,,,,,
 Tallahasseechallenger,R32,Sascha Gueymard Wayenburg,Alexis Galarneau,34.5000,65.5000,,,2.9000,1.5300,,,,,,
-Abidjan1Challenger,R32,Aziz Dougaz,Toby Samuel,59.7000,40.3000,55.7951,44.2049,1.6800,2.4800,1.6400,2.0700,-0.0400,-0.4100,-0.0238,-0.1653
+Abidjan1Challenger,R32,Aziz Dougaz,Toby Samuel,59.7000,40.3000,51.4986,48.5014,1.6800,2.4800,1.7800,1.8900,0.1000,-0.5900,0.0595,-0.2379
 Abidjan1Challenger,R32,Ricardas Berankis,Aryan Shah,72.8000,27.2000,,,1.3700,3.6800,,,,,,
 Abidjan1Challenger,R32,Kirill Kivattsev,Aleksandre Bakshi,54.1000,45.9000,,,1.8500,2.1800,,,,,,
 Abidjan1Challenger,R32,Abdoulaziz Bationo,Tibo Colson,72.3000,27.7000,,,1.3800,3.6100,,,,,,
-Abidjan1Challenger,R32,Vadym Ursu,Moez Echargui,24.3000,75.7000,40.8971,59.1029,4.1200,1.3200,2.2400,1.5500,-1.8800,0.2300,-0.4563,0.1742
+Abidjan1Challenger,R32,Vadym Ursu,Moez Echargui,24.3000,75.7000,,,4.1200,1.3200,,,,,,
 Abidjan1Challenger,R32,Tommaso Compagnucci,Robin Bertrand,50.0000,50.0000,,,2.0000,2.0000,,,,,,
