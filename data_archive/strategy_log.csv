@@ -699,3 +699,5 @@ BetDate,Strategy,Tournament,Player1,Player2,BetOnPlayer,BetType,TriggerValue,Bet
 2025-04-15,S3_Kelly,Sanluispotosichallenger,Rodrigo Alujas,Neil Oberleitner,P1,KellyEdge>0%,0.3196,0.0799,3.5000,51.4000,26.1603,,
 2025-04-15,S3_Kelly,Sanluispotosichallenger,Max Wiskandt,Adrian Mannarino,P2,KellyEdge>0%,0.3450,0.0863,1.3100,84.5000,69.8851,,
 2025-04-15,S3_Kelly,Abidjan1Challenger,Aziz Dougaz,Toby Samuel,P1,KellyEdge>0%,0.0803,0.0201,1.7800,59.7000,51.4986,,
+2025-04-16,S1_ProbDiff,Oeiras4Challenger,Dusan Lajovic,Tiago Pereira,P1,ProbDiff>5.0%,7.9400,1.0000,1.1000,91.2000,83.2572,,
+2025-04-16,S3_Kelly,Oeiras4Challenger,Dusan Lajovic,Tiago Pereira,P1,KellyEdge>0%,0.0320,0.0080,1.1000,91.2000,83.2572,,
