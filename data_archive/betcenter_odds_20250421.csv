@@ -1,85 +1,38 @@
 tournament,p1_name,p2_name,p1_odds,p2_odds,scrape_timestamp_utc
-Challenger Savannah,Wu Tung Lin,"Galarneau, Alexis",2.14,1.6,2025-04-21 06:05:43 UTC
-Challenger Savannah,"Gueymard-Wayenburg, Sascha","Martineau, Matteo",2.14,1.6,2025-04-21 06:05:43 UTC
-Challenger Savannah,"Erhard, Mathys","Olivieri, Genaro Alberto",1.83,1.83,2025-04-21 06:05:43 UTC
-Challenger Savannah,"Andrade, Andres","Gomez, Federico Agustin",2.06,1.65,2025-04-21 06:05:43 UTC
-Challenger Savannah,"Tomic, Bernard","Mmoh, Michael",2.58,1.42,2025-04-21 06:05:43 UTC
-Challenger Savannah,"Martin, Andres","Rodesch, Chris",3.87,1.2,2025-04-21 06:05:43 UTC
-Challenger Savannah,"Nava, Emilio","Schwaerzler, Joel",1.12,5.02,2025-04-21 06:05:43 UTC
-Challenger Savannah,Blancaneaux Geoffrey,"Brooksby, Jenson",3.42,1.25,2025-04-21 06:05:43 UTC
-Challenger Savannah,"Mejia, Nicolas","Janvier, Maxime",1.52,2.3,2025-04-21 06:05:43 UTC
-Challenger Gwangju,"Schoolkate, Tristan","Sakamoto, Rei",1.65,2.06,2025-04-21 06:05:43 UTC
-Challenger Gwangju,"Mccabe, James","Watanuki, Yosuke",2.85,1.35,2025-04-21 06:05:43 UTC
-Challenger Gwangju,"Escoffier, Antoine","Eubanks, Christopher",3.5,1.24,2025-04-21 06:05:43 UTC
-Challenger Gwangju,"Shimizu, Yuta","Trotter, James Kent",1.83,1.83,2025-04-21 06:05:43 UTC
-Challenger Gwangju,"Kubler, Jason",Kwon Soon Woo,1.59,2.16,2025-04-21 06:05:43 UTC
-Challenger Gwangju,Grenier Hugo,"Tu, Li",1.86,1.8,2025-04-21 06:05:43 UTC
-Challenger Gwangju,"Atmane, Terence","Kachmazov, Alibek",1.55,2.24,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Tenti, Fermin","Ribero, Franco",3.1,1.3,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Schachter, Noah","Monferrer, Ezequiel",1.65,2.06,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Zanellato, Nicolas","Saraiva Dos Santos, Paulo Andre",1.77,1.9,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Monzon, Ignacio","Basel, Valentin",1.27,3.28,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Aguilar Cardozo, Joaquin","De La Fuente, Santiago",1.6,2.14,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Martinez, Tomas","Cigarran, Thiago",1.99,1.7,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Gimenez, Igor","Villalon Valdes, Nicolas",1.45,2.49,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Huertas Del Pino, Connor","Carou, Ignacio",1.11,5.23,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Zeitune, Gonzalo","Leite, Wilson",3.97,1.19,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Barreiros Reyes, Mateo","Torrealba, Benjamin",1.83,1.83,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman Qualification,"Meneo, Tadeo","Osorio, Juan Sebastian",4.83,1.13,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Mayot, Harold","Shevchenko, Alexander",2.4,1.48,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"De Jong, Jesper","Boyer, Tristan",1.35,2.85,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Cerundolo, Juan Manuel","Seyboth Wild, Thiago",1.91,1.76,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Van De Zandschulp, Botic","Kouame, Moise",1.1,5.47,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,Garin Christian,"Tseng, Chun Hsin",1.55,2.24,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Mannarino, Adrian","Dellien, Hugo",3.97,1.19,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Fearnley, Jacob","Kotov, Pavel",1.75,1.92,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Fucsovics, Marton","Gojo, Borna",1.6,2.14,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Kopriva, Vit","Burruchaga, Roman Andres",1.4,2.65,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Daniel, Taro","Royer, Valentin",2.99,1.32,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Lajovic, Dusan","Tirante, Thiago Agustin",1.7,1.99,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Kym, Jérôme","Mcdonald, Mackenzie",1.7,1.99,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Virtanen, Otto","Coric, Borna",3.5,1.24,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Dedura-Palomero, Diego","Galan, Daniel Elahi",4.09,1.18,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Diallo, Gabriel","Moreno De Alboran, Nicolas",1.21,3.77,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Altmaier, Daniel","Van Assche, Luca",1.48,2.4,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Ritschard, Alexander","Fognini, Fabio",2.0,1.69,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Gaston, Hugo","Hanfmann, Yannick",2.46,1.46,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Hijikata, Rinky","Harris, Lloyd",1.65,2.06,2025-04-21 06:05:43 UTC
-ATP Madrid Qualification,"Dhamne, Manas","Nardi, Luca",5.23,1.11,2025-04-21 06:05:43 UTC
-Challenger Rome Qualification,"Coppejans, Kimmer","Gombos, Norbert",1.55,2.24,2025-04-21 06:05:43 UTC
-Challenger Rome Qualification,"Prihodko, Oleg","Vincent Ruggeri, Samuel",1.75,1.92,2025-04-21 06:05:43 UTC
-Challenger Rome Qualification,"Brunold, Mika","Llamas Ruiz, Pablo",2.14,1.6,2025-04-21 06:05:43 UTC
-Challenger Rome Qualification,"Travaglia, Stefano","Vesely, Jiri",1.45,2.49,2025-04-21 06:05:43 UTC
-Challenger Rome Qualification,"Ymer, Elias","Kopp, Sandro",1.43,2.55,2025-04-21 06:05:43 UTC
-Challenger Rome Qualification,"Pokorny, Lukas","Fonio, Giovanni",2.85,1.35,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2,"Kivattsev, Kirill","Van Wyk, Kris",1.83,1.83,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2,"Kellovsky, Dominik","Compagnucci, Tom.",1.45,2.49,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2,Baadi Taha,"Shah, Aryan",2.55,1.43,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2,"Geerts, Michaël","Colson, Tibo",1.63,2.09,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2,"Andre, Seydina","Chidekh, Clement",7.16,1.05,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2,"Berankis, Ricardas",Paire Benoit,1.43,2.55,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2,"Hussey, Giles","Samuel, Toby",1.72,1.96,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2,"Poullain, Lucas","Echargui, Moez",1.8,1.86,2025-04-21 06:05:43 UTC
-Challenger Rome,"Carboni, Lorenzo","Ajdukovic, Duje",3.22,1.28,2025-04-21 06:05:43 UTC
-Challenger Rome,"Poljicak, Mili","Neumayer, Lukas",2.35,1.5,2025-04-21 06:05:43 UTC
-Challenger Rome,"Maestrelli, Francesco","Squire, Henri",2.35,1.5,2025-04-21 06:05:43 UTC
-Challenger Rome,"Skatov, Timofey","Cornut-Chauvinc, Antoine",1.2,3.87,2025-04-21 06:05:43 UTC
-Challenger Rome,"Gigante, Matteo","Giustino, Lorenzo",1.64,2.07,2025-04-21 06:05:43 UTC
-Challenger Rome,"Shelbayh, Abdullah","Kuzmanov, Dimitar",2.68,1.39,2025-04-21 06:05:43 UTC
-Challenger Rome,"Bertola, Remy","Bouquier, Arthur",1.35,2.85,2025-04-21 06:05:43 UTC
-Challenger Rome,"Gaubas, Vilius","Sultanov, Khumoyun",1.35,2.85,2025-04-21 06:05:43 UTC
-Challenger Rome,"Pellegrino, Andrea","Vasami, Jacopo",1.53,2.28,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman,"Rodriguez Taverna, Santiago","Estevez, Juan",1.3,3.1,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman,"Midon, Lautaro","Schiessl, Joao Eduardo",1.24,3.5,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman,"Zeitune, Maximo","Dellien, Murkel",6.35,1.07,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman,"Pereira, José","Ambrogi, Luciano Emanuel",3.58,1.23,2025-04-21 06:05:43 UTC
-Challenger San Miguel de Tucuman,Bagnis Facundo,"Villanueva, Gonzalo",1.89,1.78,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2 Qualification,"Jadoun, Nicolas","Hulme, Matthew",2.14,1.6,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2 Qualification,"Potenza, Luca","Dalmasso, Guillaume",1.3,3.1,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2 Qualification,"Bax, Florent","Meda, Joel",1.07,6.35,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2 Qualification,"Bittoun-Kouzmine, Constantin","Giunta, Massimo",2.58,1.42,2025-04-21 06:05:43 UTC
-Challenger Abidjan 2 Qualification,"Loof, Thijmen","Ouakaa, Aziz",3.67,1.22,2025-04-21 06:05:43 UTC
-Challenger Savannah Qualification,"Johns, Garrett","Seggerman, Ryan",1.6,2.14,2025-04-21 06:05:43 UTC
-Challenger Savannah Qualification,"Sigsgaard, Christian","Kozlov, Stefan",1.99,1.7,2025-04-21 06:05:43 UTC
-Challenger Savannah Qualification,"Maloney, Patrick","Rybakov, Alex",1.75,1.92,2025-04-21 06:05:43 UTC
-Challenger Savannah Qualification,"Mccormick, Tristan","Polmans, Marc",2.4,1.48,2025-04-21 06:05:43 UTC
+Challenger Savannah,"Andrade, Andres","Gomez, Federico Agustin",2.06,1.65,2025-04-21 18:52:37 UTC
+Challenger Savannah,"Tomic, Bernard","Mmoh, Michael",2.58,1.42,2025-04-21 18:52:37 UTC
+Challenger Savannah,"Martin, Andres","Rodesch, Chris",3.87,1.2,2025-04-21 18:52:37 UTC
+Challenger Savannah,"Nava, Emilio","Schwaerzler, Joel",1.12,5.02,2025-04-21 18:52:37 UTC
+Challenger Savannah,Blancaneaux Geoffrey,"Brooksby, Jenson",3.42,1.25,2025-04-21 18:52:37 UTC
+Challenger Savannah,"Mejia, Nicolas","Janvier, Maxime",1.52,2.3,2025-04-21 18:52:37 UTC
+ATP Madrid Qualification,"Monteiro, Thiago","Krueger, Mitchell",1.21,3.77,2025-04-21 18:52:37 UTC
+Challenger San Miguel de Tucuman Qualification,"Meneo, Tadeo","Osorio, Juan Sebastian",4.83,1.13,2025-04-21 18:52:37 UTC
+Challenger San Miguel de Tucuman Qualification,"Zeitune, Gonzalo","Leite, Wilson",3.97,1.19,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Mccabe, James","Watanuki, Yosuke",2.85,1.35,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Shimizu, Yuta","Trotter, James Kent",1.83,1.83,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Hsu, Yu Hsiou","Holt, Brandon",2.85,1.35,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Ruusuvuori, Emil","Simakin, Ilia",1.89,1.78,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Escoffier, Antoine","Eubanks, Christopher",3.5,1.24,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Noguchi, Rio","Shimabukuro, Sho",1.57,2.2,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Park, Uisung","Chung, Yun Seong",1.48,2.4,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Kubler, Jason",Kwon Soon Woo,1.59,2.16,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Atmane, Terence","Kachmazov, Alibek",1.55,2.24,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Walton, Adam","Sharipov, Marat",1.38,2.72,2025-04-21 18:52:37 UTC
+Challenger Gwangju,"Uchida, Kaichi","Uchiyama, Yasutaka",3.22,1.28,2025-04-21 18:52:37 UTC
+Challenger Gwangju,Grenier Hugo,"Tu, Li",2.12,1.61,2025-04-21 18:52:37 UTC
+Challenger Abidjan 2,"Andre, Seydina","Chidekh, Clement",7.16,1.05,2025-04-21 18:52:37 UTC
+Challenger Abidjan 2,"Hussey, Giles","Samuel, Toby",1.72,1.96,2025-04-21 18:52:37 UTC
+Challenger Abidjan 2,"Poullain, Lucas","Echargui, Moez",1.8,1.86,2025-04-21 18:52:37 UTC
+Challenger Abidjan 2,"Berankis, Ricardas",Paire Benoit,1.43,2.55,2025-04-21 18:52:37 UTC
+Challenger San Miguel de Tucuman,"Rodriguez Taverna, Santiago","Estevez, Juan",1.3,3.1,2025-04-21 18:52:37 UTC
+Challenger San Miguel de Tucuman,"Midon, Lautaro","Schiessl, Joao Eduardo",1.24,3.5,2025-04-21 18:52:37 UTC
+Challenger San Miguel de Tucuman,"Zeitune, Maximo","Dellien, Murkel",6.35,1.07,2025-04-21 18:52:37 UTC
+Challenger San Miguel de Tucuman,"Pereira, José","Ambrogi, Luciano Emanuel",3.58,1.23,2025-04-21 18:52:37 UTC
+Challenger San Miguel de Tucuman,Bagnis Facundo,"Villanueva, Gonzalo",1.89,1.78,2025-04-21 18:52:37 UTC
+Challenger Rome,"Skatov, Timofey","Cornut-Chauvinc, Antoine",1.2,3.87,2025-04-21 18:52:37 UTC
+Challenger Rome,"Carboni, Lorenzo","Ajdukovic, Duje",3.22,1.28,2025-04-21 18:52:37 UTC
+Challenger Rome,"Shelbayh, Abdullah","Kuzmanov, Dimitar",2.68,1.39,2025-04-21 18:52:37 UTC
+Challenger Rome,"Gigante, Matteo","Giustino, Lorenzo",1.55,2.24,2025-04-21 18:52:37 UTC
+Challenger Rome,"Bertola, Remy","Bouquier, Arthur",1.35,2.85,2025-04-21 18:52:37 UTC
+Challenger Rome,"Gaubas, Vilius","Sultanov, Khumoyun",1.35,2.85,2025-04-21 18:52:37 UTC
+Challenger Rome,"Pellegrino, Andrea","Vasami, Jacopo",1.53,2.28,2025-04-21 18:52:37 UTC
