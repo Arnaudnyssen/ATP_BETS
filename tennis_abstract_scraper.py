@@ -1,6 +1,7 @@
-# tennis_abstract_scraper.py (v3 - Optimized Results Parsing)
+# tennis_abstract_scraper.py (v3 - Optimized Results Parsing & Wait Fix)
 # Scrapes probabilities and completed results using Selenium.
 # Optimizes results parsing by using innerText and a simpler regex.
+# Includes fix for Selenium wait condition in probas_scraper.
 
 import time
 import re
@@ -58,7 +59,6 @@ RESULT_TEXT_REGEX = re.compile(
 # -----------------------------------------------
 
 # --- WebDriver Setup ---
-# (Setup function remains the same)
 def setup_driver() -> Optional[webdriver.Chrome]:
     """Sets up and returns a headless Chrome WebDriver instance."""
     print("Setting up Chrome WebDriver...")
@@ -90,10 +90,9 @@ def setup_driver() -> Optional[webdriver.Chrome]:
         traceback.print_exc(); return None
     except Exception as e: print(f"An unexpected error occurred during Chrome WebDriver setup: {e}"); traceback.print_exc(); return None
 
-# --- tourneys_url (Remains the same) ---
+# --- tourneys_url ---
 def tourneys_url() -> List[str]:
     """Scrapes Tennis Abstract homepage to find tournament forecast URLs."""
-    # (Code is the same as previous version)
     print(f"Attempting to find tournament URLs from {BASE_URL}...")
     driver = setup_driver()
     if driver is None: return []
@@ -158,7 +157,7 @@ def tourneys_url() -> List[str]:
     return list(dict.fromkeys(ls_tourneys_urls))
 
 
-# --- MODIFIED probas_scraper ---
+# --- probas_scraper ---
 def probas_scraper(url: str, driver: webdriver.Chrome) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     """
     Scrapes BOTH the probability table AND completed results from a Tennis Abstract tournament URL using Selenium.
@@ -177,7 +176,6 @@ def probas_scraper(url: str, driver: webdriver.Chrome) -> Tuple[List[Dict[str, A
         driver.get(url)
 
         # --- 1. Scrape Probabilities (Forecast Table) ---
-        # (Probability scraping logic remains unchanged)
         forecast_span_id = "forecast"
         probability_table = None
         try:
@@ -185,7 +183,13 @@ def probas_scraper(url: str, driver: webdriver.Chrome) -> Tuple[List[Dict[str, A
             forecast_span = wait.until(EC.presence_of_element_located((By.ID, forecast_span_id)))
             table_locator = (By.CSS_SELECTOR, f"span#{forecast_span_id} table")
             probability_table = wait.until(EC.presence_of_element_located(table_locator))
-            wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, f"span#{forecast_span_id} table td")))
+
+            # MODIFICATION START: Wait for a table row (tr) instead of just any table cell (td)
+            # This provides a slightly stronger guarantee that the table content has started loading.
+            # Old line: wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, f"span#{forecast_span_id} table td")))
+            wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, f"span#{forecast_span_id} table tr")))
+            # MODIFICATION END
+
             print("Located the probability table.")
 
             rows = probability_table.find_elements(By.TAG_NAME, "tr")
@@ -252,8 +256,12 @@ def probas_scraper(url: str, driver: webdriver.Chrome) -> Tuple[List[Dict[str, A
                 # Split the text into lines
                 match_lines = completed_text.splitlines()
                 print(f"  Found {len(match_lines)} potential result lines in completed span text.")
-                tournament_key = create_merge_key(url.split('/')[-1].replace('.html',''))
-                scrape_date = datetime.now().strftime("%Y-%m-%d")
+                # Extract tournament key from URL for results data
+                # Assuming URL format like .../YYYY-TournamentName.html
+                url_parts = url.split('/')
+                tournament_name_part = url_parts[-1].replace('.html', '') if url_parts else url
+                tournament_key = create_merge_key(tournament_name_part) # Use helper
+                scrape_date = datetime.now().strftime("%Y-%m-%d") # Use consistent format
 
                 for line in match_lines:
                     line_cleaned = line.strip()
@@ -269,19 +277,19 @@ def probas_scraper(url: str, driver: webdriver.Chrome) -> Tuple[List[Dict[str, A
                         round_val = data.get('Round', '').strip()
                         score = data.get('Score', '').strip()
 
-                        # Standardize names and create keys
+                        # Standardize names and create keys using helpers
                         winner_display, winner_key = preprocess_player_name(winner_name_raw)
                         loser_display, loser_key = preprocess_player_name(loser_name_raw)
 
                         if winner_key and loser_key:
                             results.append({
-                                'ResultDate': scrape_date,
-                                'TournamentKey': tournament_key,
+                                'ResultDate': scrape_date, # Date results were scraped
+                                'TournamentKey': tournament_key, # Add tournament key
                                 'Round': round_val,
                                 'WinnerName': winner_display,
                                 'LoserName': loser_display,
-                                'WinnerNameKey': winner_key,
-                                'LoserNameKey': loser_key,
+                                'WinnerNameKey': winner_key, # Add winner key
+                                'LoserNameKey': loser_key, # Add loser key
                                 'Score': score
                             })
                         else:
@@ -308,7 +316,7 @@ def probas_scraper(url: str, driver: webdriver.Chrome) -> Tuple[List[Dict[str, A
     return matchups, results
 
 
-# --- Example Usage (Remains the same as v2) ---
+# --- Example Usage ---
 if __name__ == "__main__":
     print("--- Testing tourneys_url ---")
     tournament_urls = tourneys_url()
@@ -327,7 +335,7 @@ if __name__ == "__main__":
                 else: print(f"  No results extracted from URL: {url_to_scrape}")
                 all_scraped_matchups.extend(scraped_matchups)
                 all_scraped_results.extend(scraped_results)
-                time.sleep(1)
+                time.sleep(1) # Be polite
 
             if all_scraped_matchups: print(f"\n--- Summary: Scraped a total of {len(all_scraped_matchups)} Matchups ---")
             else: print("\n--- Summary: No matchups extracted from any URL. ---")
@@ -339,4 +347,3 @@ if __name__ == "__main__":
             print("WebDriver closed.")
         else: print("Failed to setup main WebDriver for testing.")
     else: print("\nNo tournament URLs found by any strategy.")
-
