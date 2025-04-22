@@ -1,0 +1,61 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Roberto Bautista Agut,Jaume Munar,54.1,45.9,1.85,2.18,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Nuno Borges,Pablo Carreno Busta,53.2,46.8,1.88,2.14,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Corentin Moutet,Qualifier1,74.7,25.3,1.34,3.95,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Francisco Comesana,Pedro Martinez,41.7,58.3,2.4,1.72,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Giovanni Mpetshi Perricard,Mariano Navone,41.3,58.7,2.42,1.7,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Roberto Carballes Baena,Jordan Thompson,61.8,38.2,1.62,2.62,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Alex Michelsen,Alexander Bublik,44.3,55.7,2.26,1.8,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Gael Monfils,Qualifier2,78.4,21.6,1.28,4.63,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Christopher Oconnell,Camilo Ugo Carabelli,46.8,53.2,2.14,1.88,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Benjamin Bonzi,Marin Cilic,26.8,73.2,3.73,1.37,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Federico Cina,Coleman Wong,28.3,71.7,3.53,1.39,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Roman Safiullin,Arthur Rinderknech,60.3,39.7,1.66,2.52,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Qualifier3,Laslo Djere,19.2,80.8,5.21,1.24,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Qualifier4,Aleksandar Kovacevic,45.6,54.4,2.19,1.84,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Sebastian Ofner,Qualifier5,65.5,34.5,1.53,2.9,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Fabian Marozsan,Flavio Cobolli,40.5,59.5,2.47,1.68,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Tallon Griekspoor,Qualifier6,84.2,15.8,1.19,6.33,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Learner Tien,Marcos Giron,20.3,79.7,4.93,1.25,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Reilly Opelka,Qualifier7,78.7,21.3,1.27,4.69,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Joao Fonseca,Qualifier8,86.4,13.6,1.16,7.35,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Quentin Halys,Luciano Darderi,38.9,61.1,2.57,1.64,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,David Goffin,Alexandre Muller,50.3,49.7,1.99,2.01,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Damir Dzumhur,Mattia Bellucci,62.6,37.4,1.6,2.67,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Matteo Arnaldi,Qualifier9,81.0,19.0,1.23,5.26,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Lorenzo Sonego,Miomir Kecmanovic,43.6,56.4,2.29,1.77,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Aleksandar Vukic,Kei Nishikori,38.2,61.8,2.62,1.62,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Qualifier10,Jan Lennard Struff,22.4,77.6,4.46,1.29,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Tomas Martin Etcheverry,Hamad Medjedovic,48.3,51.7,2.07,1.93,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Qualifier11,Nicolas Jarry,24.3,75.7,4.12,1.32,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Bu Yunchaokete,Qualifier12,60.5,39.5,1.65,2.53,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Martin Landaluce,Cameron Norrie,16.9,83.1,5.92,1.2,Sackmann,2025-04-22 06:04:37 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R128,Zizou Bergs,Yoshihito Nishioka,57.4,42.6,1.74,2.35,Sackmann,2025-04-22 06:04:37 UTC
+Oeiras4Challenger,https://www.tennisabstract.com/current/2025Oeiras4Challenger.html,R32,Francisco Comesana,Gastao Elias,78.3,21.7,1.28,4.61,Sackmann,2025-04-22 06:04:37 UTC
+Oeiras4Challenger,https://www.tennisabstract.com/current/2025Oeiras4Challenger.html,R32,Tristan Boyer,Denis Yevseyev,72.6,27.4,1.38,3.65,Sackmann,2025-04-22 06:04:37 UTC
+Oeiras4Challenger,https://www.tennisabstract.com/current/2025Oeiras4Challenger.html,R32,Gregoire Barrere,Luca Van Assche,45.8,54.2,2.18,1.85,Sackmann,2025-04-22 06:04:37 UTC
+Oeiras4Challenger,https://www.tennisabstract.com/current/2025Oeiras4Challenger.html,R32,Lukas Klein,Stefano Travaglia,64.3,35.7,1.56,2.8,Sackmann,2025-04-22 06:04:37 UTC
+Gwangjuchallenger,https://www.tennisabstract.com/current/2025GwangjuChallenger.html,R32,Adam Walton,Marat Sharipov,65.4,34.6,1.53,2.89,Sackmann,2025-04-22 06:04:37 UTC
+Gwangjuchallenger,https://www.tennisabstract.com/current/2025GwangjuChallenger.html,R32,Jason Kubler,Soon Woo Kwon,43.2,56.8,2.31,1.76,Sackmann,2025-04-22 06:04:37 UTC
+Gwangjuchallenger,https://www.tennisabstract.com/current/2025GwangjuChallenger.html,R32,Kaichi Uchida,Yasutaka Uchiyama,20.4,79.6,4.9,1.26,Sackmann,2025-04-22 06:04:37 UTC
+Gwangjuchallenger,https://www.tennisabstract.com/current/2025GwangjuChallenger.html,R32,Hugo Grenier,Li Tu,48.5,51.5,2.06,1.94,Sackmann,2025-04-22 06:04:37 UTC
+Gwangjuchallenger,https://www.tennisabstract.com/current/2025GwangjuChallenger.html,R32,Alibek Kachmazov,Rio Noguchi,57.3,42.1,1.75,2.38,Sackmann,2025-04-22 06:04:37 UTC
+Gwangjuchallenger,https://www.tennisabstract.com/current/2025GwangjuChallenger.html,R32,Omar Jasika,Antoine Escoffier,73.9,25.9,1.35,3.86,Sackmann,2025-04-22 06:04:37 UTC
+Savannahchallenger,https://www.tennisabstract.com/current/2025SavannahChallenger.html,R32,Eliot Spizzirri,Ryan Seggerman,73.7,26.3,1.36,3.8,Sackmann,2025-04-22 06:04:37 UTC
+Savannahchallenger,https://www.tennisabstract.com/current/2025SavannahChallenger.html,R32,Alfredo Perez,Patrick Kypson,39.4,60.6,2.54,1.65,Sackmann,2025-04-22 06:04:37 UTC
+Savannahchallenger,https://www.tennisabstract.com/current/2025SavannahChallenger.html,R32,Max Wiskandt,Stefan Kozlov,22.5,77.5,4.44,1.29,Sackmann,2025-04-22 06:04:37 UTC
+Savannahchallenger,https://www.tennisabstract.com/current/2025SavannahChallenger.html,R32,Geoffrey Blancaneaux,Jenson Brooksby,9.5,90.5,10.53,1.1,Sackmann,2025-04-22 06:04:37 UTC
+Savannahchallenger,https://www.tennisabstract.com/current/2025SavannahChallenger.html,R16,Genaro Alberto Olivieri,Andres Andrade,53.7,46.3,1.86,2.16,Sackmann,2025-04-22 06:04:37 UTC
+Sanmigueldetucumanchallenger,https://www.tennisabstract.com/current/2025SanMigueldeTucumanChallenger.html,R32,Andrea Collarini,Juan Manuel La Serna,72.6,27.4,1.38,3.65,Sackmann,2025-04-22 06:04:37 UTC
+Sanmigueldetucumanchallenger,https://www.tennisabstract.com/current/2025SanMigueldeTucumanChallenger.html,R32,Jose Pereira,Luciano Emanuel Ambrogi,52.1,47.9,1.92,2.09,Sackmann,2025-04-22 06:04:37 UTC
+Sanmigueldetucumanchallenger,https://www.tennisabstract.com/current/2025SanMigueldeTucumanChallenger.html,R32,Facundo Bagnis,Gonzalo Villanueva,86.8,13.2,1.15,7.58,Sackmann,2025-04-22 06:04:37 UTC
+Sanmigueldetucumanchallenger,https://www.tennisabstract.com/current/2025SanMigueldeTucumanChallenger.html,R32,Hernan Casanova,Renzo Olivo,51.2,48.8,1.95,2.05,Sackmann,2025-04-22 06:04:37 UTC
+Abidjan2Challenger,https://www.tennisabstract.com/current/2025Abidjan2Challenger.html,R32,Aziz Dougaz,Constantin Bittoun Kouzmine,62.6,37.4,1.6,2.67,Sackmann,2025-04-22 06:04:37 UTC
+Abidjan2Challenger,https://www.tennisabstract.com/current/2025Abidjan2Challenger.html,R32,Lucas Poullain,Moez Echargui,50.2,49.8,1.99,2.01,Sackmann,2025-04-22 06:04:37 UTC
+Abidjan2Challenger,https://www.tennisabstract.com/current/2025Abidjan2Challenger.html,R32,Giles Hussey,Toby Samuel,44.4,55.6,2.25,1.8,Sackmann,2025-04-22 06:04:37 UTC
+Abidjan2Challenger,https://www.tennisabstract.com/current/2025Abidjan2Challenger.html,R32,Guillaume Dalmasso,Philip Henning,47.0,53.0,2.13,1.89,Sackmann,2025-04-22 06:04:37 UTC
+Abidjan2Challenger,https://www.tennisabstract.com/current/2025Abidjan2Challenger.html,R32,Tibo Colson,Dominik Kellovsky,0.0,100.0,,1.0,Sackmann,2025-04-22 06:04:37 UTC
+Romechallenger,https://www.tennisabstract.com/current/2025RomeChallenger.html,R32,Vilius Gaubas,Khumoyun Sultanov,77.1,22.9,1.3,4.37,Sackmann,2025-04-22 06:04:37 UTC
+Romechallenger,https://www.tennisabstract.com/current/2025RomeChallenger.html,R32,Oriol Roca Batalla,Oleg Prihodko,74.4,25.6,1.34,3.91,Sackmann,2025-04-22 06:04:37 UTC
+Romechallenger,https://www.tennisabstract.com/current/2025RomeChallenger.html,R32,Andrea Pellegrino,Jacopo Vasami,74.1,25.9,1.35,3.86,Sackmann,2025-04-22 06:04:37 UTC
+Romechallenger,https://www.tennisabstract.com/current/2025RomeChallenger.html,R32,Remy Bertola,Arthur Bouquier,27.8,72.2,3.6,1.39,Sackmann,2025-04-22 06:04:37 UTC
