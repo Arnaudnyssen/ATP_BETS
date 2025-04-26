@@ -1,0 +1,20 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Alexander Zverev,Roberto Bautista Agut,100.0,0.0,1.0,,Sackmann,2025-04-26 06:04:04 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Nuno Borges,Alejandro Davidovich Fokina,0.0,100.0,,1.0,Sackmann,2025-04-26 06:04:04 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Francisco Cerundolo,Harold Mayot,100.0,0.0,1.0,,Sackmann,2025-04-26 06:04:04 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Francisco Comesana,Arthur Fils,100.0,0.0,1.0,,Sackmann,2025-04-26 06:04:04 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Jakub Mensik,Alexei Popyrin,100.0,0.0,1.0,,Sackmann,2025-04-26 06:04:04 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Alexander Bublik,Gael Monfils,100.0,0.0,1.0,,Sackmann,2025-04-26 06:04:04 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Christopher Oconnell,Benjamin Bonzi,0.0,100.0,,1.0,Sackmann,2025-04-26 06:04:04 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Hubert Hurkacz,Sebastian Korda,0.0,100.0,,1.0,Sackmann,2025-04-26 06:04:04 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Laslo Djere,Juan Manuel Cerundolo,0.0,100.0,,1.0,Sackmann,2025-04-26 06:04:04 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Felix Auger Aliassime,Brandon Nakashima,0.0,100.0,,1.0,Sackmann,2025-04-26 06:04:04 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,R64,Sebastian Ofner,Flavio Cobolli,0.0,100.0,,1.0,Sackmann,2025-04-26 06:04:04 UTC
+Gwangjuchallenger,https://www.tennisabstract.com/current/2025GwangjuChallenger.html,SF,Jason Kubler,Tristan Schoolkate,61.3,38.7,1.63,2.58,Sackmann,2025-04-26 06:04:04 UTC
+Gwangjuchallenger,https://www.tennisabstract.com/current/2025GwangjuChallenger.html,SF,Yosuke Watanuki,Alibek Kachmazov,0.0,100.0,,1.0,Sackmann,2025-04-26 06:04:04 UTC
+Savannahchallenger,https://www.tennisabstract.com/current/2025SavannahChallenger.html,SF,Eliot Spizzirri,Nicolas Mejia,61.0,39.0,1.64,2.56,Sackmann,2025-04-26 06:04:04 UTC
+Savannahchallenger,https://www.tennisabstract.com/current/2025SavannahChallenger.html,SF,Liam Draxl,Genaro Alberto Olivieri,62.5,37.5,1.6,2.67,Sackmann,2025-04-26 06:04:04 UTC
+Sanmigueldetucumanchallenger,https://www.tennisabstract.com/current/2025SanMigueldeTucumanChallenger.html,SF,Andrea Collarini,Santiago Fa Rodriguez Taverna,62.1,37.9,1.61,2.64,Sackmann,2025-04-26 06:04:04 UTC
+Sanmigueldetucumanchallenger,https://www.tennisabstract.com/current/2025SanMigueldeTucumanChallenger.html,SF,Murkel Alejandro Dellien Velasco,Alex Barrena,73.6,26.4,1.36,3.79,Sackmann,2025-04-26 06:04:04 UTC
+Abidjan2Challenger,https://www.tennisabstract.com/current/2025Abidjan2Challenger.html,SF,Aziz Dougaz,Michael Geerts,54.6,45.4,1.83,2.2,Sackmann,2025-04-26 06:04:04 UTC
+Abidjan2Challenger,https://www.tennisabstract.com/current/2025Abidjan2Challenger.html,SF,Ricardas Berankis,Eliakim Coulibaly,83.2,16.8,1.2,5.95,Sackmann,2025-04-26 06:04:04 UTC
