@@ -1,0 +1,37 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,QF,Francisco Cerundolo,Jakub Mensik,64.4,35.6,1.55,2.81,Sackmann,2025-05-01 06:04:49 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,QF,Casper Ruud,Daniil Medvedev,51.7,48.3,1.93,2.07,Sackmann,2025-05-01 06:04:49 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,QF,Jack Draper,Matteo Arnaldi,58.9,41.1,1.7,2.43,Sackmann,2025-05-01 06:04:49 UTC
+Atpmadrid,https://www.tennisabstract.com/current/2025ATPMadrid.html,QF,Lorenzo Musetti,Gabriel Diallo,88.1,11.9,1.14,8.4,Sackmann,2025-05-01 06:04:49 UTC
+Estorilchallenger,https://www.tennisabstract.com/current/2025EstorilChallenger.html,R16,Felix Auger Aliassime,Andrea Pellegrino,86.7,13.3,1.15,7.52,Sackmann,2025-05-01 06:04:49 UTC
+Estorilchallenger,https://www.tennisabstract.com/current/2025EstorilChallenger.html,R16,Gastao Elias,Nicolas Jarry,16.2,83.8,6.17,1.19,Sackmann,2025-05-01 06:04:49 UTC
+Estorilchallenger,https://www.tennisabstract.com/current/2025EstorilChallenger.html,R16,Marcos Giron,Aleksandar Vukic,69.6,30.4,1.44,3.29,Sackmann,2025-05-01 06:04:49 UTC
+Estorilchallenger,https://www.tennisabstract.com/current/2025EstorilChallenger.html,R16,Bernabe Zapata Miralles,Jesper De Jong,23.2,76.8,4.31,1.3,Sackmann,2025-05-01 06:04:49 UTC
+Mauthausenchallenger,https://www.tennisabstract.com/current/2025MauthausenChallenger.html,R16,Alexander Blockx,Thiago Seyboth Wild,39.3,60.7,2.54,1.65,Sackmann,2025-05-01 06:04:49 UTC
+Mauthausenchallenger,https://www.tennisabstract.com/current/2025MauthausenChallenger.html,R16,Lukas Neumayer,Jerome Kym,39.4,60.6,2.54,1.65,Sackmann,2025-05-01 06:04:49 UTC
+Mauthausenchallenger,https://www.tennisabstract.com/current/2025MauthausenChallenger.html,R16,Matteo Gigante,Marco Trungelliti,0.0,100.0,,1.0,Sackmann,2025-05-01 06:04:49 UTC
+Mauthausenchallenger,https://www.tennisabstract.com/current/2025MauthausenChallenger.html,R16,Martin Landaluce,Tomas Barrios Vera,0.0,100.0,,1.0,Sackmann,2025-05-01 06:04:49 UTC
+Mauthausenchallenger,https://www.tennisabstract.com/current/2025MauthausenChallenger.html,R16,Vilius Gaubas,Joel Schwaerzler,39.8,61.0,2.51,1.64,Sackmann,2025-05-01 06:04:49 UTC
+Mauthausenchallenger,https://www.tennisabstract.com/current/2025MauthausenChallenger.html,R16,Filip Misolic,Roman Andres Burruchaga,0.0,100.0,,1.0,Sackmann,2025-05-01 06:04:49 UTC
+Guangzhouchallenger,https://www.tennisabstract.com/current/2025GuangzhouChallenger.html,R16,Adam Walton,Alibek Kachmazov,73.9,26.1,1.35,3.83,Sackmann,2025-05-01 06:04:49 UTC
+Guangzhouchallenger,https://www.tennisabstract.com/current/2025GuangzhouChallenger.html,R16,Omar Jasika,James Mccabe,0.0,100.0,,1.0,Sackmann,2025-05-01 06:04:49 UTC
+Guangzhouchallenger,https://www.tennisabstract.com/current/2025GuangzhouChallenger.html,R16,Tristan Schoolkate,Sho Shimabukuro,65.0,35.0,1.54,2.86,Sackmann,2025-05-01 06:04:49 UTC
+Guangzhouchallenger,https://www.tennisabstract.com/current/2025GuangzhouChallenger.html,R16,Moerani Bouzige,Hugo Grenier,0.0,100.0,,1.0,Sackmann,2025-05-01 06:04:49 UTC
+Guangzhouchallenger,https://www.tennisabstract.com/current/2025GuangzhouChallenger.html,R16,Ilia Simakin,Marat Sharipov,100.0,0.0,1.0,,Sackmann,2025-05-01 06:04:49 UTC
+Ostravachallenger,https://www.tennisabstract.com/current/2025OstravaChallenger.html,R16,Vit Kopriva,Filip Cristian Jianu,81.1,18.9,1.23,5.29,Sackmann,2025-05-01 06:04:49 UTC
+Ostravachallenger,https://www.tennisabstract.com/current/2025OstravaChallenger.html,R16,Daniel Evans,Hady Habib,62.2,37.8,1.61,2.65,Sackmann,2025-05-01 06:04:49 UTC
+Ostravachallenger,https://www.tennisabstract.com/current/2025OstravaChallenger.html,R16,Vitaliy Sachko,Henri Squire,0.0,100.0,,1.0,Sackmann,2025-05-01 06:04:49 UTC
+Ostravachallenger,https://www.tennisabstract.com/current/2025OstravaChallenger.html,R16,Oriol Roca Batalla,Lukas Klein,100.0,0.0,1.0,,Sackmann,2025-05-01 06:04:49 UTC
+Ostravachallenger,https://www.tennisabstract.com/current/2025OstravaChallenger.html,R16,Edas Butvilas,Petr Brunclik,0.0,100.0,,1.0,Sackmann,2025-05-01 06:04:49 UTC
+Portoalegrechallenger,https://www.tennisabstract.com/current/2025PortoAlegreChallenger.html,R16,Matheus Pucinelli De Almeida,Conner Huertas Del Pino,72.0,28.0,1.39,3.57,Sackmann,2025-05-01 06:04:49 UTC
+Portoalegrechallenger,https://www.tennisabstract.com/current/2025PortoAlegreChallenger.html,R16,Lautaro Midon,Juan Carlos Prado Angelo,54.6,45.4,1.83,2.2,Sackmann,2025-05-01 06:04:49 UTC
+Portoalegrechallenger,https://www.tennisabstract.com/current/2025PortoAlegreChallenger.html,R16,Santiago Fa Rodriguez Taverna,Valerio Aboian,68.4,31.6,1.46,3.16,Sackmann,2025-05-01 06:04:49 UTC
+Portoalegrechallenger,https://www.tennisabstract.com/current/2025PortoAlegreChallenger.html,R16,Guido Ivan Justo,Hernan Casanova,37.0,63.0,2.7,1.59,Sackmann,2025-05-01 06:04:49 UTC
+Portoalegrechallenger,https://www.tennisabstract.com/current/2025PortoAlegreChallenger.html,QF,Eduardo Ribeiro,Nikolas Sanchez Izquierdo,52.3,47.7,1.91,2.1,Sackmann,2025-05-01 06:04:49 UTC
+Portoalegrechallenger,https://www.tennisabstract.com/current/2025PortoAlegreChallenger.html,QF,Alex Barrena,Joao Lucas Reis Da Silva,31.2,68.8,3.21,1.45,Sackmann,2025-05-01 06:04:49 UTC
+Aix En Provencechallenger,https://www.tennisabstract.com/current/2025Aix-en-ProvenceChallenger.html,R32,Stan Wawrinka,Ugo Blanchet,100.0,0.0,1.0,,Sackmann,2025-05-01 06:04:49 UTC
+Aix En Provencechallenger,https://www.tennisabstract.com/current/2025Aix-en-ProvenceChallenger.html,R32,Nishesh Basavareddy,Otto Virtanen,100.0,0.0,1.0,,Sackmann,2025-05-01 06:04:49 UTC
+Aix En Provencechallenger,https://www.tennisabstract.com/current/2025Aix-en-ProvenceChallenger.html,R32,Albert Ramos,Mattia Bellucci,100.0,0.0,1.0,,Sackmann,2025-05-01 06:04:49 UTC
+Aix En Provencechallenger,https://www.tennisabstract.com/current/2025Aix-en-ProvenceChallenger.html,R32,Arthur Gea,Valentin Vacherot,0.0,100.0,,1.0,Sackmann,2025-05-01 06:04:49 UTC
+Aix En Provencechallenger,https://www.tennisabstract.com/current/2025Aix-en-ProvenceChallenger.html,R32,Daniel Elahi Galan,Billy Harris,100.0,0.0,1.0,,Sackmann,2025-05-01 06:04:49 UTC
+Aix En Provencechallenger,https://www.tennisabstract.com/current/2025Aix-en-ProvenceChallenger.html,R32,Borna Gojo,Hugo Gaston,100.0,0.0,1.0,,Sackmann,2025-05-01 06:04:49 UTC
