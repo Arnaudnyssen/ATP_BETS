@@ -1,0 +1,13 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Estorilchallenger,https://www.tennisabstract.com/current/2025EstorilChallenger.html,SF,Andrea Pellegrino,Aleksandar Vukic,44.5,55.5,2.25,1.8,Sackmann,2025-05-03 06:04:23 UTC
+Estorilchallenger,https://www.tennisabstract.com/current/2025EstorilChallenger.html,SF,Miomir Kecmanovic,Alex Michelsen,65.5,34.5,1.53,2.9,Sackmann,2025-05-03 06:04:23 UTC
+Mauthausenchallenger,https://www.tennisabstract.com/current/2025MauthausenChallenger.html,SF,Jerome Kym,Tomas Barrios Vera,53.9,46.1,1.86,2.17,Sackmann,2025-05-03 06:04:23 UTC
+Mauthausenchallenger,https://www.tennisabstract.com/current/2025MauthausenChallenger.html,SF,Cristian Garin,Roman Andres Burruchaga,63.5,36.5,1.57,2.74,Sackmann,2025-05-03 06:04:23 UTC
+Guangzhouchallenger,https://www.tennisabstract.com/current/2025GuangzhouChallenger.html,SF,Alibek Kachmazov,Tristan Schoolkate,41.4,58.6,2.42,1.71,Sackmann,2025-05-03 06:04:23 UTC
+Guangzhouchallenger,https://www.tennisabstract.com/current/2025GuangzhouChallenger.html,SF,Terence Atmane,Brandon Holt,100.0,0.0,1.0,,Sackmann,2025-05-03 06:04:23 UTC
+Ostravachallenger,https://www.tennisabstract.com/current/2025OstravaChallenger.html,SF,Hady Habib,Oriol Roca Batalla,55.6,44.4,1.8,2.25,Sackmann,2025-05-03 06:04:23 UTC
+Ostravachallenger,https://www.tennisabstract.com/current/2025OstravaChallenger.html,SF,Zsombor Piros,Gauthier Onclin,67.7,32.3,1.48,3.1,Sackmann,2025-05-03 06:04:23 UTC
+Portoalegrechallenger,https://www.tennisabstract.com/current/2025PortoAlegreChallenger.html,SF,Matheus Pucinelli De Almeida,Santiago Fa Rodriguez Taverna,58.2,41.8,1.72,2.39,Sackmann,2025-05-03 06:04:23 UTC
+Portoalegrechallenger,https://www.tennisabstract.com/current/2025PortoAlegreChallenger.html,SF,Nikolas Sanchez Izquierdo,Alex Barrena,54.6,45.4,1.83,2.2,Sackmann,2025-05-03 06:04:23 UTC
+Aix En Provencechallenger,https://www.tennisabstract.com/current/2025Aix-en-ProvenceChallenger.html,SF,Stan Wawrinka,Borna Gojo,58.9,41.1,1.7,2.43,Sackmann,2025-05-03 06:04:23 UTC
+Aix En Provencechallenger,https://www.tennisabstract.com/current/2025Aix-en-ProvenceChallenger.html,SF,Borna Coric,Ignacio Buse,73.0,27.0,1.37,3.7,Sackmann,2025-05-03 06:04:23 UTC
