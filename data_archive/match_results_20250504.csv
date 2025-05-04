@@ -1,0 +1,679 @@
+ResultDate,TournamentKey,Round,WinnerName,LoserName,WinnerNameKey,LoserNameKey,Score,TournamentName
+2025-05-04,2025madrid,SF,Casper Ruud,Francisco Cerundolo,casperruud,franciscocerundolo,6-4 7-5,Atpmadrid
+2025-05-04,2025madrid,SF,Jack Draper,Lorenzo Musetti,jackdraper,lorenzomusetti,6-3 7-6(4),Atpmadrid
+2025-05-04,2025madrid,QF,Francisco Cerundolo,Jakub Mensik,franciscocerundolo,jakubmensik,3-6 7-6(5) 6-2,Atpmadrid
+2025-05-04,2025madrid,QF,Casper Ruud,Daniil Medvedev,casperruud,daniilmedvedev,6-3 7-5,Atpmadrid
+2025-05-04,2025madrid,QF,Jack Draper,Matteo Arnaldi,jackdraper,matteoarnaldi,6-0 6-4,Atpmadrid
+2025-05-04,2025madrid,QF,Lorenzo Musetti,Gabriel Diallo,lorenzomusetti,gabrieldiallo,6-4 6-3,Atpmadrid
+2025-05-04,2025madrid,R16,Francisco Cerundolo,Alexander Zverev,franciscocerundolo,alexanderzverev,7-5 6-3,Atpmadrid
+2025-05-04,2025madrid,R16,Jakub Mensik,Alexander Bublik,jakubmensik,alexanderbublik,6-3 6-2,Atpmadrid
+2025-05-04,2025madrid,R16,Casper Ruud,Taylor Fritz,casperruud,taylorfritz,7-5 6-4,Atpmadrid
+2025-05-04,2025madrid,R16,Daniil Medvedev,Brandon Nakashima,daniilmedvedev,brandonnakashima,3-6 6-1 6-4,Atpmadrid
+2025-05-04,2025madrid,R16,Jack Draper,Tommy Paul,jackdraper,tommypaul,6-2 6-2,Atpmadrid
+2025-05-04,2025madrid,R16,Matteo Arnaldi,Frances Tiafoe,matteoarnaldi,francestiafoe,6-3 7-5,Atpmadrid
+2025-05-04,2025madrid,R16,Lorenzo Musetti,Alex De Minaur,lorenzomusetti,alexdeminaur,6-4 6-2,Atpmadrid
+2025-05-04,2025madrid,R16,Gabriel Diallo,Grigor Dimitrov,gabrieldiallo,grigordimitrov,5-7 7-6(7) 6-4,Atpmadrid
+2025-05-04,2025madrid,R32,Alexander Zverev,Alejandro Davidovich Fokina,alexanderzverev,alejandrodavidovichfokina,2-6 7-6(3) 7-6(0),Atpmadrid
+2025-05-04,2025madrid,R32,Francisco Cerundolo,Francisco Comesana,franciscocerundolo,franciscocomesana,6-4 6-4,Atpmadrid
+2025-05-04,2025madrid,R32,Jakub Mensik,Ben Shelton,jakubmensik,benshelton,6-1 6-4,Atpmadrid
+2025-05-04,2025madrid,R32,Alexander Bublik,Andrey Rublev,alexanderbublik,andreyrublev,6-4 0-6 6-4,Atpmadrid
+2025-05-04,2025madrid,R32,Taylor Fritz,Benjamin Bonzi,taylorfritz,benjaminbonzi,4-6 7-5 0-0 RET,Atpmadrid
+2025-05-04,2025madrid,R32,Casper Ruud,Sebastian Korda,casperruud,sebastiankorda,6-3 6-3,Atpmadrid
+2025-05-04,2025madrid,R32,Daniil Medvedev,Juan Manuel Cerundolo,daniilmedvedev,juanmanuelcerundolo,6-2 6-2,Atpmadrid
+2025-05-04,2025madrid,R32,Brandon Nakashima,Flavio Cobolli,brandonnakashima,flaviocobolli,7-5 6-3,Atpmadrid
+2025-05-04,2025madrid,R32,Jack Draper,Matteo Berrettini,jackdraper,matteoberrettini,7-6(2) 0-0 RET,Atpmadrid
+2025-05-04,2025madrid,R32,Tommy Paul,Karen Khachanov,tommypaul,karenkhachanov,6-3 3-6 6-2,Atpmadrid
+2025-05-04,2025madrid,R32,Frances Tiafoe,Alexandre Muller,francestiafoe,alexandremuller,6-3 6-3,Atpmadrid
+2025-05-04,2025madrid,R32,Matteo Arnaldi,Damir Dzumhur,matteoarnaldi,damirdzumhur,6-3 6-4,Atpmadrid
+2025-05-04,2025madrid,R32,Alex De Minaur,Denis Shapovalov,alexdeminaur,denisshapovalov,6-3 7-6(3),Atpmadrid
+2025-05-04,2025madrid,R32,Lorenzo Musetti,Stefanos Tsitsipas,lorenzomusetti,stefanostsitsipas,7-5 7-6(3),Atpmadrid
+2025-05-04,2025madrid,R32,Grigor Dimitrov,Jacob Fearnley,grigordimitrov,jacobfearnley,6-4 7-6(3),Atpmadrid
+2025-05-04,2025madrid,R32,Gabriel Diallo,Cameron Norrie,gabrieldiallo,cameronnorrie,2-6 6-4 6-4,Atpmadrid
+2025-05-04,2025madrid,R64,Alexander Zverev,Roberto Bautista Agut,alexanderzverev,robertobautistaagut,6-2 6-2,Atpmadrid
+2025-05-04,2025madrid,R64,Alejandro Davidovich Fokina,Nuno Borges,alejandrodavidovichfokina,nunoborges,6-2 6-3,Atpmadrid
+2025-05-04,2025madrid,R64,Francisco Cerundolo,Harold Mayot,franciscocerundolo,haroldmayot,6-3 6-4,Atpmadrid
+2025-05-04,2025madrid,R64,Francisco Comesana,Arthur Fils,franciscocomesana,arthurfils,7-6(4) 6-4,Atpmadrid
+2025-05-04,2025madrid,R64,Ben Shelton,Mariano Navone,benshelton,marianonavone,4-6 7-6(5) 6-3,Atpmadrid
+2025-05-04,2025madrid,R64,Jakub Mensik,Ethan Quinn,jakubmensik,ethanquinn,7-6(4) 6-1,Atpmadrid
+2025-05-04,2025madrid,R64,Alexander Bublik,Alexei Popyrin,alexanderbublik,alexeipopyrin,6-4 7-6(4),Atpmadrid
+2025-05-04,2025madrid,R64,Taylor Fritz,Christopher Oconnell,taylorfritz,christopheroconnell,6-1 6-4,Atpmadrid
+2025-05-04,2025madrid,R64,Benjamin Bonzi,Hubert Hurkacz,benjaminbonzi,huberthurkacz,6-4 7-5,Atpmadrid
+2025-05-04,2025madrid,R64,Sebastian Korda,Federico Cina,sebastiankorda,federicocina,6-3 3-6 6-1,Atpmadrid
+2025-05-04,2025madrid,R64,Casper Ruud,Arthur Rinderknech,casperruud,arthurrinderknech,6-3 6-4,Atpmadrid
+2025-05-04,2025madrid,R64,Juan Manuel Cerundolo,Felix Auger Aliassime,juanmanuelcerundolo,felixaugeraliassime,7-6(5) 6-4,Atpmadrid
+2025-05-04,2025madrid,R64,Brandon Nakashima,Sebastian Ofner,brandonnakashima,sebastianofner,6-3 7-6(3),Atpmadrid
+2025-05-04,2025madrid,R64,Flavio Cobolli,Holger Rune,flaviocobolli,holgerrune,6-2 0-0 RET,Atpmadrid
+2025-05-04,2025madrid,R64,Jack Draper,Tallon Griekspoor,jackdraper,tallongriekspoor,6-3 6-4,Atpmadrid
+2025-05-04,2025madrid,R64,Matteo Berrettini,Marcos Giron,matteoberrettini,marcosgiron,6-7(3) 7-6(6) 6-1,Atpmadrid
+2025-05-04,2025madrid,R64,Karen Khachanov,Reilly Opelka,karenkhachanov,reillyopelka,7-6(3) 7-6(4),Atpmadrid
+2025-05-04,2025madrid,R64,Tommy Paul,Joao Fonseca,tommypaul,joaofonseca,7-6(7) 7-6(3),Atpmadrid
+2025-05-04,2025madrid,R64,Frances Tiafoe,Luciano Darderi,francestiafoe,lucianodarderi,7-5 3-1 RET,Atpmadrid
+2025-05-04,2025madrid,R64,Alexandre Muller,Ugo Humbert,alexandremuller,ugohumbert,6-2 6-7(3) 7-6(5),Atpmadrid
+2025-05-04,2025madrid,R64,Damir Dzumhur,Sebastian Baez,damirdzumhur,sebastianbaez,1-6 6-1 6-2,Atpmadrid
+2025-05-04,2025madrid,R64,Matteo Arnaldi,Novak Djokovic,matteoarnaldi,novakdjokovic,6-3 6-4,Atpmadrid
+2025-05-04,2025madrid,R64,Alex De Minaur,Lorenzo Sonego,alexdeminaur,lorenzosonego,6-2 6-3,Atpmadrid
+2025-05-04,2025madrid,R64,Denis Shapovalov,Kei Nishikori,denisshapovalov,keinishikori,6-1 6-4,Atpmadrid
+2025-05-04,2025madrid,R64,Stefanos Tsitsipas,Jan Lennard Struff,stefanostsitsipas,janlennardstruff,3-6 6-4 6-3,Atpmadrid
+2025-05-04,2025madrid,R64,Lorenzo Musetti,Tomas Martin Etcheverry,lorenzomusetti,tomasmartinetcheverry,7-6(3) 6-2,Atpmadrid
+2025-05-04,2025madrid,R64,Grigor Dimitrov,Nicolas Jarry,grigordimitrov,nicolasjarry,6-3 6-4,Atpmadrid
+2025-05-04,2025madrid,R64,Jacob Fearnley,Tomas Machac,jacobfearnley,tomasmachac,1-6 6-3 6-2,Atpmadrid
+2025-05-04,2025madrid,R64,Cameron Norrie,Jiri Lehecka,cameronnorrie,jirilehecka,2-6 6-4 6-0,Atpmadrid
+2025-05-04,2025madrid,R64,Gabriel Diallo,Kamil Majchrzak,gabrieldiallo,kamilmajchrzak,7-5 4-6 6-4,Atpmadrid
+2025-05-04,2025madrid,R128,Roberto Bautista Agut,Jaume Munar,robertobautistaagut,jaumemunar,6-4 2-6 6-3,Atpmadrid
+2025-05-04,2025madrid,R128,Nuno Borges,Pablo Carreno Busta,nunoborges,pablocarrenobusta,6-7(7) 7-6(3) 6-3,Atpmadrid
+2025-05-04,2025madrid,R128,Harold Mayot,Corentin Moutet,haroldmayot,corentinmoutet,6-3 4-2 RET,Atpmadrid
+2025-05-04,2025madrid,R128,Francisco Comesana,Pedro Martinez,franciscocomesana,pedromartinez,6-4 6-4,Atpmadrid
+2025-05-04,2025madrid,R128,Mariano Navone,Giovanni Mpetshi Perricard,marianonavone,giovannimpetshiperricard,6-4 6-4,Atpmadrid
+2025-05-04,2025madrid,R128,Ethan Quinn,Dusan Lajovic,ethanquinn,dusanlajovic,6-3 6-4,Atpmadrid
+2025-05-04,2025madrid,R128,Alexander Bublik,Alex Michelsen,alexanderbublik,alexmichelsen,7-6(2) 7-6(4),Atpmadrid
+2025-05-04,2025madrid,R128,Gael Monfils,Borna Gojo,gaelmonfils,bornagojo,1-6 6-2 6-4,Atpmadrid
+2025-05-04,2025madrid,R128,Christopher Oconnell,Camilo Ugo Carabelli,christopheroconnell,camilougocarabelli,6-3 6-4,Atpmadrid
+2025-05-04,2025madrid,R128,Benjamin Bonzi,Marin Cilic,benjaminbonzi,marincilic,6-3 6-2,Atpmadrid
+2025-05-04,2025madrid,R128,Federico Cina,Coleman Wong,federicocina,colemanwong,7-6(5) 6-1,Atpmadrid
+2025-05-04,2025madrid,R128,Arthur Rinderknech,Roman Safiullin,arthurrinderknech,romansafiullin,7-6(4) 6-1,Atpmadrid
+2025-05-04,2025madrid,R128,Laslo Djere,Fabio Fognini,laslodjere,fabiofognini,6-2 6-3,Atpmadrid
+2025-05-04,2025madrid,R128,Juan Manuel Cerundolo,Aleksandar Kovacevic,juanmanuelcerundolo,aleksandarkovacevic,3-6 7-5 6-2,Atpmadrid
+2025-05-04,2025madrid,R128,Sebastian Ofner,Hugo Gaston,sebastianofner,hugogaston,6-4 6-3,Atpmadrid
+2025-05-04,2025madrid,R128,Flavio Cobolli,Fabian Marozsan,flaviocobolli,fabianmarozsan,7-6(4) 7-5,Atpmadrid
+2025-05-04,2025madrid,R128,Tallon Griekspoor,Vit Kopriva,tallongriekspoor,vitkopriva,6-1 6-4,Atpmadrid
+2025-05-04,2025madrid,R128,Marcos Giron,Learner Tien,marcosgiron,learnertien,6-1 1-6 7-6(4),Atpmadrid
+2025-05-04,2025madrid,R128,Reilly Opelka,Rinky Hijikata,reillyopelka,rinkyhijikata,7-5 7-5,Atpmadrid
+2025-05-04,2025madrid,R128,Joao Fonseca,Elmer Moller,joaofonseca,elmermoller,6-2 6-3,Atpmadrid
+2025-05-04,2025madrid,R128,Luciano Darderi,Quentin Halys,lucianodarderi,quentinhalys,6-4 6-4,Atpmadrid
+2025-05-04,2025madrid,R128,Alexandre Muller,David Goffin,alexandremuller,davidgoffin,6-3 3-6 1-0 RET,Atpmadrid
+2025-05-04,2025madrid,R128,Damir Dzumhur,Mattia Bellucci,damirdzumhur,mattiabellucci,4-6 6-4 6-2,Atpmadrid
+2025-05-04,2025madrid,R128,Matteo Arnaldi,Borna Coric,matteoarnaldi,bornacoric,4-6 6-4 7-5,Atpmadrid
+2025-05-04,2025madrid,R128,Lorenzo Sonego,Miomir Kecmanovic,lorenzosonego,miomirkecmanovic,6-4 7-6(5),Atpmadrid
+2025-05-04,2025madrid,R128,Kei Nishikori,Aleksandar Vukic,keinishikori,aleksandarvukic,6-4 3-6 6-3,Atpmadrid
+2025-05-04,2025madrid,R128,Jan Lennard Struff,Botic Van De Zandschulp,janlennardstruff,boticvandezandschulp,7-5 2-6 4-1 RET,Atpmadrid
+2025-05-04,2025madrid,R128,Tomas Martin Etcheverry,Hamad Medjedovic,tomasmartinetcheverry,hamadmedjedovic,6-4 6-7(4) 6-4,Atpmadrid
+2025-05-04,2025madrid,R128,Nicolas Jarry,Daniel Altmaier,nicolasjarry,danielaltmaier,6-3 6-2,Atpmadrid
+2025-05-04,2025madrid,R128,Jacob Fearnley,Bu Yunchaokete,jacobfearnley,buyunchaokete,6-3 7-6(2),Atpmadrid
+2025-05-04,2025madrid,R128,Cameron Norrie,Martin Landaluce,cameronnorrie,martinlandaluce,6-7(4) 7-5 6-4,Atpmadrid
+2025-05-04,2025madrid,R128,Gabriel Diallo,Zizou Bergs,gabrieldiallo,zizoubergs,6-1 6-2,Atpmadrid
+2025-05-04,2025madrid,Q2,Daniel Altmaier,Daniel Elahi Galan,danielaltmaier,danielelahigalan,7-6(3) 3-6 6-1,Atpmadrid
+2025-05-04,2025madrid,Q2,Jacob Fearnley,Hugo Dellien,jacobfearnley,hugodellien,7-5 6-1,Atpmadrid
+2025-05-04,2025madrid,Q2,Borna Coric,Gabriel Diallo,bornacoric,gabrieldiallo,6-3 7-6(6),Atpmadrid
+2025-05-04,2025madrid,Q2,Hugo Gaston,Luca Nardi,hugogaston,lucanardi,6-4 6-2,Atpmadrid
+2025-05-04,2025madrid,Q2,Fabio Fognini,Rinky Hijikata,fabiofognini,rinkyhijikata,6-4 5-7 7-5,Atpmadrid
+2025-05-04,2025madrid,Q2,Juan Manuel Cerundolo,Botic Van De Zandschulp,juanmanuelcerundolo,boticvandezandschulp,7-6(3) 5-7 7-6(5),Atpmadrid
+2025-05-04,2025madrid,Q2,Borna Gojo,Jerome Kym,bornagojo,jeromekym,7-6(12) 6-3,Atpmadrid
+2025-05-04,2025madrid,Q2,Elmer Moller,Kamil Majchrzak,elmermoller,kamilmajchrzak,5-7 6-4 6-4,Atpmadrid
+2025-05-04,2025madrid,Q2,Ethan Quinn,Thiago Monteiro,ethanquinn,thiagomonteiro,2-6 7-6(5) 7-6(0),Atpmadrid
+2025-05-04,2025madrid,Q2,Harold Mayot,Tristan Boyer,haroldmayot,tristanboyer,7-5 6-2,Atpmadrid
+2025-05-04,2025madrid,Q2,Vit Kopriva,Valentin Royer,vitkopriva,valentinroyer,1-6 6-3 7-6(3),Atpmadrid
+2025-05-04,2025madrid,Q2,Dusan Lajovic,Cristian Garin,dusanlajovic,cristiangarin,6-4 6-2,Atpmadrid
+2025-05-04,2025madrid,Q1,Daniel Altmaier,Luca Van Assche,danielaltmaier,lucavanassche,7-6(10) 6-4,Atpmadrid
+2025-05-04,2025madrid,Q1,Daniel Elahi Galan,Diego Dedura Palomero,danielelahigalan,diegodedurapalomero,6-7(7) 6-4 6-1,Atpmadrid
+2025-05-04,2025madrid,Q1,Jacob Fearnley,Pavel Kotov,jacobfearnley,pavelkotov,4-6 6-4 6-1,Atpmadrid
+2025-05-04,2025madrid,Q1,Hugo Dellien,Adrian Mannarino,hugodellien,adrianmannarino,6-3 7-6(8),Atpmadrid
+2025-05-04,2025madrid,Q1,Gabriel Diallo,Nicolas Moreno De Alboran,gabrieldiallo,nicolasmorenodealboran,6-3 6-3,Atpmadrid
+2025-05-04,2025madrid,Q1,Borna Coric,Otto Virtanen,bornacoric,ottovirtanen,6-7(1) 7-5 6-2,Atpmadrid
+2025-05-04,2025madrid,Q1,Hugo Gaston,Yannick Hanfmann,hugogaston,yannickhanfmann,7-6(6) 4-6 6-4,Atpmadrid
+2025-05-04,2025madrid,Q1,Luca Nardi,Manas Dhamne,lucanardi,manasdhamne,6-4 6-4,Atpmadrid
+2025-05-04,2025madrid,Q1,Rinky Hijikata,Lloyd Harris,rinkyhijikata,lloydharris,6-4 6-7(11) 4-1 RET,Atpmadrid
+2025-05-04,2025madrid,Q1,Fabio Fognini,Alexander Ritschard,fabiofognini,alexanderritschard,6-1 7-6(6),Atpmadrid
+2025-05-04,2025madrid,Q1,Botic Van De Zandschulp,Moise Kouame,boticvandezandschulp,moisekouame,6-3 6-2,Atpmadrid
+2025-05-04,2025madrid,Q1,Juan Manuel Cerundolo,Thiago Seyboth Wild,juanmanuelcerundolo,thiagoseybothwild,6-4 6-4,Atpmadrid
+2025-05-04,2025madrid,Q1,Borna Gojo,Marton Fucsovics,bornagojo,martonfucsovics,2-6 6-3 6-2,Atpmadrid
+2025-05-04,2025madrid,Q1,Jerome Kym,Mackenzie Mcdonald,jeromekym,mackenziemcdonald,4-6 0-2 RET,Atpmadrid
+2025-05-04,2025madrid,Q1,Kamil Majchrzak,Darwin Blanch,kamilmajchrzak,darwinblanch,6-1 6-4,Atpmadrid
+2025-05-04,2025madrid,Q1,Elmer Moller,Nishesh Basavareddy,elmermoller,nisheshbasavareddy,6-1 6-1,Atpmadrid
+2025-05-04,2025madrid,Q1,Thiago Monteiro,Mitchell Krueger,thiagomonteiro,mitchellkrueger,7-5 6-3,Atpmadrid
+2025-05-04,2025madrid,Q1,Ethan Quinn,Billy Harris,ethanquinn,billyharris,6-3 6-4,Atpmadrid
+2025-05-04,2025madrid,Q1,Tristan Boyer,Jesper De Jong,tristanboyer,jesperdejong,3-6 7-6(4) 6-4,Atpmadrid
+2025-05-04,2025madrid,Q1,Harold Mayot,Alexander Shevchenko,haroldmayot,alexandershevchenko,6-2 7-5,Atpmadrid
+2025-05-04,2025madrid,Q1,Vit Kopriva,Roman Andres Burruchaga,vitkopriva,romanandresburruchaga,7-5 5-7 6-4,Atpmadrid
+2025-05-04,2025madrid,Q1,Valentin Royer,Taro Daniel,valentinroyer,tarodaniel,6-3 6-2,Atpmadrid
+2025-05-04,2025madrid,Q1,Dusan Lajovic,Thiago Agustin Tirante,dusanlajovic,thiagoagustintirante,6-3 7-6(6),Atpmadrid
+2025-05-04,2025madrid,Q1,Cristian Garin,Chun Hsin Tseng,cristiangarin,chunhsintseng,2-6 6-3 7-5,Atpmadrid
+2025-05-04,2025estoril,SF,Andrea Pellegrino,Aleksandar Vukic,andreapellegrino,aleksandarvukic,6-4 6-4,Estorilchallenger
+2025-05-04,2025estoril,SF,Alex Michelsen,Miomir Kecmanovic,alexmichelsen,miomirkecmanovic,6-4 6-2,Estorilchallenger
+2025-05-04,2025estoril,QF,Andrea Pellegrino,Nicolas Jarry,andreapellegrino,nicolasjarry,7-6(0) 5-7 6-1,Estorilchallenger
+2025-05-04,2025estoril,QF,Aleksandar Vukic,Bernabe Zapata Miralles,aleksandarvukic,bernabezapatamiralles,6-1 6-1,Estorilchallenger
+2025-05-04,2025estoril,QF,Miomir Kecmanovic,Nuno Borges,miomirkecmanovic,nunoborges,6-0 6-7(5) 6-4,Estorilchallenger
+2025-05-04,2025estoril,QF,Alex Michelsen,Luca Nardi,alexmichelsen,lucanardi,6-3 6-4,Estorilchallenger
+2025-05-04,2025estoril,R16,Andrea Pellegrino,Felix Auger Aliassime,andreapellegrino,felixaugeraliassime,7-5 6-4,Estorilchallenger
+2025-05-04,2025estoril,R16,Nicolas Jarry,Gastao Elias,nicolasjarry,gastaoelias,6-2 4-6 7-5,Estorilchallenger
+2025-05-04,2025estoril,R16,Aleksandar Vukic,Marcos Giron,aleksandarvukic,marcosgiron,6-3 6-1,Estorilchallenger
+2025-05-04,2025estoril,R16,Bernabe Zapata Miralles,Jesper De Jong,bernabezapatamiralles,jesperdejong,6-4 7-6(1),Estorilchallenger
+2025-05-04,2025estoril,R16,Miomir Kecmanovic,Denis Yevseyev,miomirkecmanovic,denisyevseyev,6-1 3-6 7-5,Estorilchallenger
+2025-05-04,2025estoril,R16,Nuno Borges,Marton Fucsovics,nunoborges,martonfucsovics,7-6(6) 6-7(4) 6-4,Estorilchallenger
+2025-05-04,2025estoril,R16,Luca Nardi,Alexey Vatutin,lucanardi,alexeyvatutin,6-3 6-2,Estorilchallenger
+2025-05-04,2025estoril,R16,Alex Michelsen,Giovanni Fonio,alexmichelsen,giovannifonio,6-4 7-6(3),Estorilchallenger
+2025-05-04,2025estoril,R32,Andrea Pellegrino,Dusan Lajovic,andreapellegrino,dusanlajovic,7-5 6-7(2) 6-3,Estorilchallenger
+2025-05-04,2025estoril,R32,Gastao Elias,Learner Tien,gastaoelias,learnertien,5-7 7-5 6-4,Estorilchallenger
+2025-05-04,2025estoril,R32,Nicolas Jarry,Henrique Rocha,nicolasjarry,henriquerocha,6-7(13) 6-3 6-4,Estorilchallenger
+2025-05-04,2025estoril,R32,Aleksandar Vukic,Nicolas Moreno De Alboran,aleksandarvukic,nicolasmorenodealboran,6-3 2-6 6-0,Estorilchallenger
+2025-05-04,2025estoril,R32,Bernabe Zapata Miralles,Jaime Faria,bernabezapatamiralles,jaimefaria,6-3 7-6(2),Estorilchallenger
+2025-05-04,2025estoril,R32,Jesper De Jong,Joao Fonseca,jesperdejong,joaofonseca,6-2 7-5,Estorilchallenger
+2025-05-04,2025estoril,R32,Miomir Kecmanovic,Jan Lennard Struff,miomirkecmanovic,janlennardstruff,6-1 7-5,Estorilchallenger
+2025-05-04,2025estoril,R32,Denis Yevseyev,Kimmer Coppejans,denisyevseyev,kimmercoppejans,6-2 6-4,Estorilchallenger
+2025-05-04,2025estoril,R32,Marton Fucsovics,Giulio Zeppieri,martonfucsovics,giuliozeppieri,2-6 7-6(3) 6-1,Estorilchallenger
+2025-05-04,2025estoril,R32,Alexey Vatutin,Pedro Martinez,alexeyvatutin,pedromartinez,6-4 6-3,Estorilchallenger
+2025-05-04,2025estoril,R32,Luca Nardi,Aleksandar Kovacevic,lucanardi,aleksandarkovacevic,6-2 6-3,Estorilchallenger
+2025-05-04,2025estoril,R32,Giovanni Fonio,Yannick Hanfmann,giovannifonio,yannickhanfmann,6-3 6-4,Estorilchallenger
+2025-05-04,2025estoril,Q2,Alexey Vatutin,Francisco Rocha,alexeyvatutin,franciscorocha,4-6 6-3 6-0,Estorilchallenger
+2025-05-04,2025estoril,Q2,Andrea Pellegrino,Bernabe Zapata Miralles,andreapellegrino,bernabezapatamiralles,7-5 6-0,Estorilchallenger
+2025-05-04,2025estoril,Q2,Giovanni Fonio,Denis Yevseyev,giovannifonio,denisyevseyev,6-3 6-3,Estorilchallenger
+2025-05-04,2025estoril,Q2,Giulio Zeppieri,Tiago Pereira,giuliozeppieri,tiagopereira,7-5 4-6 6-2,Estorilchallenger
+2025-05-04,2025estoril,Q1,Francisco Rocha,Beibit Zhukayev,franciscorocha,beibitzhukayev,6-4 1-6 7-6(6),Estorilchallenger
+2025-05-04,2025estoril,Q1,Alexey Vatutin,Marco Cecchinato,alexeyvatutin,marcocecchinato,6-2 6-1,Estorilchallenger
+2025-05-04,2025estoril,Q1,Andrea Pellegrino,Joao Graa,andreapellegrino,joaograa,6-3 6-2,Estorilchallenger
+2025-05-04,2025estoril,Q1,Bernabe Zapata Miralles,Alex Marti Pujolras,bernabezapatamiralles,alexmartipujolras,7-5 6-3,Estorilchallenger
+2025-05-04,2025estoril,Q1,Denis Yevseyev,Manas Dhamne,denisyevseyev,manasdhamne,6-0 6-3,Estorilchallenger
+2025-05-04,2025estoril,Q1,Giovanni Fonio,Ivan Gakhov,giovannifonio,ivangakhov,6-3 6-4,Estorilchallenger
+2025-05-04,2025estoril,Q1,Tiago Pereira,Patrick Zahraj,tiagopereira,patrickzahraj,7-5 4-6 7-6(6),Estorilchallenger
+2025-05-04,2025estoril,Q1,Giulio Zeppieri,Pedro Araujo,giuliozeppieri,pedroaraujo,6-2 6-2,Estorilchallenger
+2025-05-04,2025mauthausen,SF,Tomas Barrios Vera,Jerome Kym,tomasbarriosvera,jeromekym,6-3 7-5,Mauthausenchallenger
+2025-05-04,2025mauthausen,SF,Cristian Garin,Roman Andres Burruchaga,cristiangarin,romanandresburruchaga,3-6 6-4 6-0,Mauthausenchallenger
+2025-05-04,2025mauthausen,QF,Tomas Barrios Vera,Marco Trungelliti,tomasbarriosvera,marcotrungelliti,6-2 6-4,Mauthausenchallenger
+2025-05-04,2025mauthausen,QF,Cristian Garin,Neil Oberleitner,cristiangarin,neiloberleitner,6-2 6-7(6) 6-4,Mauthausenchallenger
+2025-05-04,2025mauthausen,QF,Roman Andres Burruchaga,Thiago Agustin Tirante,romanandresburruchaga,thiagoagustintirante,7-5 4-6 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,R16,Alexander Blockx,Thiago Seyboth Wild,alexanderblockx,thiagoseybothwild,7-5 4-6 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,R16,Jerome Kym,Lukas Neumayer,jeromekym,lukasneumayer,7-6(5) 6-0,Mauthausenchallenger
+2025-05-04,2025mauthausen,R16,Marco Trungelliti,Matteo Gigante,marcotrungelliti,matteogigante,4-6 7-6(10) 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,R16,Tomas Barrios Vera,Martin Landaluce,tomasbarriosvera,martinlandaluce,6-3 5-7 6-4,Mauthausenchallenger
+2025-05-04,2025mauthausen,R16,Cristian Garin,Vilius Gaubas,cristiangarin,viliusgaubas,3-6 6-3 6-4,Mauthausenchallenger
+2025-05-04,2025mauthausen,R16,Neil Oberleitner,Joel Schwaerzler,neiloberleitner,joelschwaerzler,6-4 7-6(2),Mauthausenchallenger
+2025-05-04,2025mauthausen,R16,Thiago Agustin Tirante,Filip Misolic,thiagoagustintirante,filipmisolic,7-6(3) 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,R16,Roman Andres Burruchaga,Shintaro Mochizuki,romanandresburruchaga,shintaromochizuki,6-4 6-2,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Alexander Blockx,Nerman Fatic,alexanderblockx,nermanfatic,7-5 7-5,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Thiago Seyboth Wild,Alejandro Moro Canas,thiagoseybothwild,alejandromorocanas,6-2 7-6(7),Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Lukas Neumayer,Nicolai Budkov Kjaer,lukasneumayer,nicolaibudkovkjaer,7-5 7-5,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Jerome Kym,David Pichler,jeromekym,davidpichler,6-1 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Matteo Gigante,Marin Cilic,matteogigante,marincilic,4-6 6-1 7-6(4),Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Marco Trungelliti,Timofey Skatov,marcotrungelliti,timofeyskatov,7-5 6-4,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Martin Landaluce,Benjamin Hassan,martinlandaluce,benjaminhassan,7-5 5-7 7-6(1),Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Tomas Barrios Vera,Jurij Rodionov,tomasbarriosvera,jurijrodionov,6-3 3-6 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Cristian Garin,Taro Daniel,cristiangarin,tarodaniel,6-0 6-1,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Vilius Gaubas,Jakub Paul,viliusgaubas,jakubpaul,3-6 6-4 6-4,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Joel Schwaerzler,Tadeas Paroulek,joelschwaerzler,tadeasparoulek,6-3 7-5,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Neil Oberleitner,Fabio Fognini,neiloberleitner,fabiofognini,5-7 6-3 6-2,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Thiago Agustin Tirante,Mika Brunold,thiagoagustintirante,mikabrunold,7-5 6-4,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Filip Misolic,Nikoloz Basilashvili,filipmisolic,nikolozbasilashvili,7-6(5) 6-7(5) 6-4,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Roman Andres Burruchaga,Dimitar Kuzmanov,romanandresburruchaga,dimitarkuzmanov,6-2 6-2,Mauthausenchallenger
+2025-05-04,2025mauthausen,R32,Shintaro Mochizuki,Thiago Monteiro,shintaromochizuki,thiagomonteiro,6-3 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q2,Thiago Seyboth Wild,Nerman Fatic,thiagoseybothwild,nermanfatic,6-1 7-6(5),Mauthausenchallenger
+2025-05-04,2025mauthausen,Q2,David Pichler,Stefano Napolitano,davidpichler,stefanonapolitano,6-4 7-6(5),Mauthausenchallenger
+2025-05-04,2025mauthausen,Q2,Dimitar Kuzmanov,Dennis Novak,dimitarkuzmanov,dennisnovak,6-3 4-6 6-2,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q2,Mika Brunold,Sebastian Sorger,mikabrunold,sebastiansorger,6-4 6-2,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q2,Jakub Paul,Marko Topo,jakubpaul,markotopo,6-3 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q2,Tadeas Paroulek,Martin Krumich,tadeasparoulek,martinkrumich,6-3 7-5,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q1,Nerman Fatic,Matthias Ujvary,nermanfatic,matthiasujvary,6-2 6-1,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q1,Stefano Napolitano,Manuel Lazic,stefanonapolitano,manuellazic,6-1 6-2,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q1,Dennis Novak,Mirza Basic,dennisnovak,mirzabasic,6-4 6-4,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q1,Sebastian Sorger,Daniel Masur,sebastiansorger,danielmasur,6-1 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q1,Jakub Paul,Florian Broska,jakubpaul,florianbroska,7-6(5) 2-6 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q1,Marko Topo,Nico Hipfl,markotopo,nicohipfl,6-2 6-2,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q1,Tadeas Paroulek,Matej Dodig,tadeasparoulek,matejdodig,4-6 6-1 6-3,Mauthausenchallenger
+2025-05-04,2025mauthausen,Q1,Martin Krumich,Syl Gaxherri,martinkrumich,sylgaxherri,6-0 6-2,Mauthausenchallenger
+2025-05-04,2025guangzhou,SF,Tristan Schoolkate,Alibek Kachmazov,tristanschoolkate,alibekkachmazov,6-3 6-7(4) 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,SF,Terence Atmane,Brandon Holt,terenceatmane,brandonholt,6-4 6-3,Guangzhouchallenger
+2025-05-04,2025guangzhou,QF,Alibek Kachmazov,James Mccabe,alibekkachmazov,jamesmccabe,7-6(5) 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,QF,Tristan Schoolkate,Hugo Grenier,tristanschoolkate,hugogrenier,6-4 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,QF,Terence Atmane,Ilia Simakin,terenceatmane,iliasimakin,1-6 7-6(4) 7-5,Guangzhouchallenger
+2025-05-04,2025guangzhou,QF,Brandon Holt,Yu Hsiou Hsu,brandonholt,yuhsiouhsu,6-4 6-3,Guangzhouchallenger
+2025-05-04,2025guangzhou,R16,Alibek Kachmazov,Adam Walton,alibekkachmazov,adamwalton,4-6 7-6(2) 6-2,Guangzhouchallenger
+2025-05-04,2025guangzhou,R16,James Mccabe,Omar Jasika,jamesmccabe,omarjasika,6-4 1-6 6-2,Guangzhouchallenger
+2025-05-04,2025guangzhou,R16,Tristan Schoolkate,Sho Shimabukuro,tristanschoolkate,shoshimabukuro,6-2 0-0 RET,Guangzhouchallenger
+2025-05-04,2025guangzhou,R16,Hugo Grenier,Moerani Bouzige,hugogrenier,moeranibouzige,6-4 7-5,Guangzhouchallenger
+2025-05-04,2025guangzhou,R16,Ilia Simakin,Yosuke Watanuki,iliasimakin,yosukewatanuki,6-4 7-6(6),Guangzhouchallenger
+2025-05-04,2025guangzhou,R16,Terence Atmane,Marat Sharipov,terenceatmane,maratsharipov,7-5 7-6(3),Guangzhouchallenger
+2025-05-04,2025guangzhou,R16,Yu Hsiou Hsu,Antoine Escoffier,yuhsiouhsu,antoineescoffier,6-3 3-6 6-2,Guangzhouchallenger
+2025-05-04,2025guangzhou,R16,Brandon Holt,Jie Cui,brandonholt,jiecui,7-6(7) 7-6(4),Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Adam Walton,Andre Ilagan,adamwalton,andreilagan,6-3 7-6(3),Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Alibek Kachmazov,Fajing Sun,alibekkachmazov,fajingsun,6-4 7-6(5),Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Omar Jasika,Christian Langmo,omarjasika,christianlangmo,6-4 7-6(5),Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,James Mccabe,Kasidit Samrej,jamesmccabe,kasiditsamrej,6-3 6-7(3) 6-3,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Tristan Schoolkate,Ryan Peniston,tristanschoolkate,ryanpeniston,6-4 4-6 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Sho Shimabukuro,Alex Bolt,shoshimabukuro,alexbolt,3-6 6-4 6-1,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Moerani Bouzige,Hoyoung Roh,moeranibouzige,hoyoungroh,6-3 6-1,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Hugo Grenier,Charles Chen,hugogrenier,charleschen,6-2 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Yosuke Watanuki,Li Tu,yosukewatanuki,litu,6-4 6-7(8) 6-3,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Ilia Simakin,Ye Cong Mo,iliasimakin,yecongmo,6-1 7-6(3),Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Marat Sharipov,Mats Rosenkranz,maratsharipov,matsrosenkranz,6-3 3-6 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Terence Atmane,Rigele Te,terenceatmane,rigelete,5-7 6-3 6-1,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Yu Hsiou Hsu,Constant Lestienne,yuhsiouhsu,constantlestienne,7-5 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Antoine Escoffier,Zachary Svajda,antoineescoffier,zacharysvajda,6-4 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Jie Cui,Yi Zhou,jiecui,yizhou,6-4 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,R32,Brandon Holt,Rio Noguchi,brandonholt,rionoguchi,7-6(3) 7-6(2),Guangzhouchallenger
+2025-05-04,2025guangzhou,Q2,Ryan Peniston,Daniel Cukierman,ryanpeniston,danielcukierman,6-2 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q2,Christian Langmo,Ajeet Rai,christianlangmo,ajeetrai,6-3 4-6 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q2,Mats Rosenkranz,Ramkumar Ramanathan,matsrosenkranz,ramkumarramanathan,4-6 6-3 7-6(4),Guangzhouchallenger
+2025-05-04,2025guangzhou,Q2,Andre Ilagan,Colin Sinclair,andreilagan,colinsinclair,6-3 7-5,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q2,Moerani Bouzige,Filip Peliwo,moeranibouzige,filippeliwo,6-4 6-2,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q2,Ye Cong Mo,Kasidit Samrej,yecongmo,kasiditsamrej,6-2 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Ryan Peniston,Zhan Zheng,ryanpeniston,zhanzheng,6-2 6-1,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Daniel Cukierman,Hiroki Moriya,danielcukierman,hirokimoriya,6-7(3) 6-4 7-5,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Christian Langmo,Yaojie Zeng,christianlangmo,yaojiezeng,7-5 6-2,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Ajeet Rai,Zijiang Yang,ajeetrai,zijiangyang,7-6(2) 7-5,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Mats Rosenkranz,Mitsuki Wei Kang Leong,matsrosenkranz,mitsukiweikangleong,6-2 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Ramkumar Ramanathan,Pengyu Lu,ramkumarramanathan,pengyulu,6-0 6-0,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Andre Ilagan,Hayden Jones,andreilagan,haydenjones,6-1 6-1,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Colin Sinclair,Jake Delaney,colinsinclair,jakedelaney,6-3 3-6 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Moerani Bouzige,Evan Zhu,moeranibouzige,evanzhu,7-5 6-2,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Filip Peliwo,Hyeon Chung,filippeliwo,hyeonchung,6-2 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Kasidit Samrej,Linang Xiao,kasiditsamrej,linangxiao,6-7(2) 6-4 6-4,Guangzhouchallenger
+2025-05-04,2025guangzhou,Q1,Ye Cong Mo,Jesse Delaney,yecongmo,jessedelaney,4-6 7-6(8) 6-2,Guangzhouchallenger
+2025-05-04,2025ostrava,SF,Hady Habib,Oriol Roca Batalla,hadyhabib,oriolrocabatalla,4-6 6-3 6-4,Ostravachallenger
+2025-05-04,2025ostrava,SF,Zsombor Piros,Gauthier Onclin,zsomborpiros,gauthieronclin,6-3 6-2,Ostravachallenger
+2025-05-04,2025ostrava,QF,Hady Habib,Vit Kopriva,hadyhabib,vitkopriva,6-3 6-4,Ostravachallenger
+2025-05-04,2025ostrava,QF,Oriol Roca Batalla,Henri Squire,oriolrocabatalla,henrisquire,7-5 6-1,Ostravachallenger
+2025-05-04,2025ostrava,QF,Zsombor Piros,Daniel Rincon,zsomborpiros,danielrincon,6-3 7-5,Ostravachallenger
+2025-05-04,2025ostrava,QF,Gauthier Onclin,Petr Brunclik,gauthieronclin,petrbrunclik,1-6 6-0 7-5,Ostravachallenger
+2025-05-04,2025ostrava,R16,Vit Kopriva,Filip Cristian Jianu,vitkopriva,filipcristianjianu,6-3 6-3,Ostravachallenger
+2025-05-04,2025ostrava,R16,Hady Habib,Daniel Evans,hadyhabib,danielevans,6-3 6-4,Ostravachallenger
+2025-05-04,2025ostrava,R16,Henri Squire,Vitaliy Sachko,henrisquire,vitaliysachko,7-5 6-2,Ostravachallenger
+2025-05-04,2025ostrava,R16,Oriol Roca Batalla,Lukas Klein,oriolrocabatalla,lukasklein,6-4 5-7 7-6(3),Ostravachallenger
+2025-05-04,2025ostrava,R16,Daniel Rincon,Norbert Gombos,danielrincon,norbertgombos,7-6(6) 1-6 7-5,Ostravachallenger
+2025-05-04,2025ostrava,R16,Zsombor Piros,Jan Kumstat,zsomborpiros,jankumstat,6-3 6-3,Ostravachallenger
+2025-05-04,2025ostrava,R16,Gauthier Onclin,Edas Butvilas,gauthieronclin,edasbutvilas,5-7 6-2 6-2,Ostravachallenger
+2025-05-04,2025ostrava,R16,Petr Brunclik,Aslan Karatsev,petrbrunclik,aslankaratsev,6-7(4) 6-3 6-3,Ostravachallenger
+2025-05-04,2025ostrava,R32,Vit Kopriva,Alex Martinez,vitkopriva,alexmartinez,6-2 6-1,Ostravachallenger
+2025-05-04,2025ostrava,R32,Filip Cristian Jianu,Rudolf Molleker,filipcristianjianu,rudolfmolleker,6-4 6-4,Ostravachallenger
+2025-05-04,2025ostrava,R32,Daniel Evans,Jan Jermar,danielevans,janjermar,6-0 6-2,Ostravachallenger
+2025-05-04,2025ostrava,R32,Hady Habib,Khumoyun Sultanov,hadyhabib,khumoyunsultanov,6-3 7-6(4),Ostravachallenger
+2025-05-04,2025ostrava,R32,Vitaliy Sachko,Adrian Mannarino,vitaliysachko,adrianmannarino,6-0 7-6(4),Ostravachallenger
+2025-05-04,2025ostrava,R32,Henri Squire,Luca Van Assche,henrisquire,lucavanassche,7-6(4) 6-2,Ostravachallenger
+2025-05-04,2025ostrava,R32,Oriol Roca Batalla,Max Houkes,oriolrocabatalla,maxhoukes,6-3 7-5,Ostravachallenger
+2025-05-04,2025ostrava,R32,Lukas Klein,August Holmgren,lukasklein,augustholmgren,6-3 3-6 6-3,Ostravachallenger
+2025-05-04,2025ostrava,R32,Daniel Rincon,Harold Mayot,danielrincon,haroldmayot,7-6(1) 6-4,Ostravachallenger
+2025-05-04,2025ostrava,R32,Norbert Gombos,Jelle Sels,norbertgombos,jellesels,2-6 6-0 7-5,Ostravachallenger
+2025-05-04,2025ostrava,R32,Jan Kumstat,Murphy Cassone,jankumstat,murphycassone,6-4 7-6(3),Ostravachallenger
+2025-05-04,2025ostrava,R32,Zsombor Piros,Dalibor Svrcina,zsomborpiros,daliborsvrcina,6-3 6-1,Ostravachallenger
+2025-05-04,2025ostrava,R32,Gauthier Onclin,Coleman Wong,gauthieronclin,colemanwong,6-2 5-7 6-3,Ostravachallenger
+2025-05-04,2025ostrava,R32,Edas Butvilas,Maxim Mrva,edasbutvilas,maximmrva,7-6(4) 6-1,Ostravachallenger
+2025-05-04,2025ostrava,R32,Petr Brunclik,Radu Albot,petrbrunclik,radualbot,6-2 6-1,Ostravachallenger
+2025-05-04,2025ostrava,R32,Aslan Karatsev,Elmer Moller,aslankaratsev,elmermoller,6-3 6-2,Ostravachallenger
+2025-05-04,2025ostrava,Q2,Norbert Gombos,Michael Vrbensky,norbertgombos,michaelvrbensky,6-2 7-6(3),Ostravachallenger
+2025-05-04,2025ostrava,Q2,Max Houkes,Jan Klimas,maxhoukes,janklimas,6-3 6-0,Ostravachallenger
+2025-05-04,2025ostrava,Q2,Petr Brunclik,Vitaliy Sachko,petrbrunclik,vitaliysachko,6-3 6-4,Ostravachallenger
+2025-05-04,2025ostrava,Q2,Alex Martinez,Mili Poljicak,alexmartinez,milipoljicak,6-4 7-5,Ostravachallenger
+2025-05-04,2025ostrava,Q2,Rudolf Molleker,Hynek Barton,rudolfmolleker,hynekbarton,6-3 6-1,Ostravachallenger
+2025-05-04,2025ostrava,Q2,Jelle Sels,Daniel Siniakov,jellesels,danielsiniakov,6-4 6-2,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Michael Vrbensky,Guy Den Ouden,michaelvrbensky,guydenouden,6-4 2-6 6-4,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Norbert Gombos,Dominik Kellovsky,norbertgombos,dominikkellovsky,6-2 4-6 7-5,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Max Houkes,Jiri Cizek,maxhoukes,jiricizek,6-4 6-3,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Jan Klimas,Daniel Michalski,janklimas,danielmichalski,2-1 RET,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Vitaliy Sachko,Jakub Filip,vitaliysachko,jakubfilip,6-3 6-1,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Petr Brunclik,Jacopo Berrettini,petrbrunclik,jacopoberrettini,6-2 6-0,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Mili Poljicak,James Watt,milipoljicak,jameswatt,4-6 7-6(2) 6-3,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Alex Martinez,Jiri Vesely,alexmartinez,jirivesely,6-7(5) 6-3 6-4,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Rudolf Molleker,Remy Bertola,rudolfmolleker,remybertola,6-2 6-2,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Hynek Barton,Oleg Prihodko,hynekbarton,olegprihodko,7-6(5) 6-3,Ostravachallenger
+2025-05-04,2025ostrava,Q1,Daniel Siniakov,Enrico Dalla Valle,danielsiniakov,enricodallavalle,7-6(4) 7-6(1),Ostravachallenger
+2025-05-04,2025ostrava,Q1,Jelle Sels,Raul Brancaccio,jellesels,raulbrancaccio,3-6 6-3 6-1,Ostravachallenger
+2025-05-04,2025portoalegre,SF,Santiago Fa Rodriguez Taverna,Matheus Pucinelli De Almeida,santiagofarodrigueztaverna,matheuspucinellidealmeida,6-3 6-7(4) 6-2,Portoalegrechallenger
+2025-05-04,2025portoalegre,SF,Nikolas Sanchez Izquierdo,Alex Barrena,nikolassanchezizquierdo,alexbarrena,1-6 7-5 6-4,Portoalegrechallenger
+2025-05-04,2025portoalegre,QF,Matheus Pucinelli De Almeida,Lautaro Midon,matheuspucinellidealmeida,lautaromidon,6-1 6-2,Portoalegrechallenger
+2025-05-04,2025portoalegre,QF,Santiago Fa Rodriguez Taverna,Guido Ivan Justo,santiagofarodrigueztaverna,guidoivanjusto,6-4 6-7(4) 6-3,Portoalegrechallenger
+2025-05-04,2025portoalegre,QF,Nikolas Sanchez Izquierdo,Eduardo Ribeiro,nikolassanchezizquierdo,eduardoribeiro,7-5 7-5,Portoalegrechallenger
+2025-05-04,2025portoalegre,QF,Alex Barrena,Joao Lucas Reis Da Silva,alexbarrena,joaolucasreisdasilva,4-6 6-3 6-3,Portoalegrechallenger
+2025-05-04,2025portoalegre,R16,Matheus Pucinelli De Almeida,Conner Huertas Del Pino,matheuspucinellidealmeida,connerhuertasdelpino,7-5 6-1,Portoalegrechallenger
+2025-05-04,2025portoalegre,R16,Lautaro Midon,Juan Carlos Prado Angelo,lautaromidon,juancarlospradoangelo,3-6 6-4 6-1,Portoalegrechallenger
+2025-05-04,2025portoalegre,R16,Santiago Fa Rodriguez Taverna,Valerio Aboian,santiagofarodrigueztaverna,valerioaboian,5-3 RET,Portoalegrechallenger
+2025-05-04,2025portoalegre,R16,Guido Ivan Justo,Hernan Casanova,guidoivanjusto,hernancasanova,6-3 6-1,Portoalegrechallenger
+2025-05-04,2025portoalegre,R16,Eduardo Ribeiro,Pedro Boscardin Dias,eduardoribeiro,pedroboscardindias,6-0 0-6 7-5,Portoalegrechallenger
+2025-05-04,2025portoalegre,R16,Nikolas Sanchez Izquierdo,Juan Bautista Torres,nikolassanchezizquierdo,juanbautistatorres,6-3 1-6 6-1,Portoalegrechallenger
+2025-05-04,2025portoalegre,R16,Alex Barrena,Daniel Dutra Da Silva,alexbarrena,danieldutradasilva,6-4 6-3,Portoalegrechallenger
+2025-05-04,2025portoalegre,R16,Joao Lucas Reis Da Silva,Murkel Alejandro Dellien Velasco,joaolucasreisdasilva,murkelalejandrodellienvelasco,6-2 6-1,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Matheus Pucinelli De Almeida,Alvaro Guillen Meza,matheuspucinellidealmeida,alvaroguillenmeza,6-1 3-6 6-0,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Conner Huertas Del Pino,Nicolas Kicker,connerhuertasdelpino,nicolaskicker,6-3 5-7 6-4,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Lautaro Midon,Mateus Alves,lautaromidon,mateusalves,7-6(1) 6-7(3) 6-4,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Juan Carlos Prado Angelo,Luciano Emanuel Ambrogi,juancarlospradoangelo,lucianoemanuelambrogi,6-4 6-2,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Santiago Fa Rodriguez Taverna,Zdenek Kolar,santiagofarodrigueztaverna,zdenekkolar,6-4 7-5,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Valerio Aboian,Alejo Lorenzo Lingua Lavallen,valerioaboian,alejolorenzolingualavallen,6-3 0-0 RET,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Guido Ivan Justo,Gonzalo Villanueva,guidoivanjusto,gonzalovillanueva,7-6(6) 7-5,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Hernan Casanova,Genaro Alberto Olivieri,hernancasanova,genaroalbertoolivieri,6-4 7-6(5),Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Pedro Boscardin Dias,Nicolas Alvarez Varona,pedroboscardindias,nicolasalvarezvarona,6-4 3-6 6-4,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Eduardo Ribeiro,Leonardo Aboian,eduardoribeiro,leonardoaboian,6-4 6-4,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Nikolas Sanchez Izquierdo,Pedro Sakamoto,nikolassanchezizquierdo,pedrosakamoto,6-2 6-0,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Juan Bautista Torres,Blaise Bicknell,juanbautistatorres,blaisebicknell,6-3 7-6(1),Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Daniel Dutra Da Silva,Renzo Olivo,danieldutradasilva,renzoolivo,6-2 6-3,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Alex Barrena,Bruno Kuzuhara,alexbarrena,brunokuzuhara,6-2 6-1,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Joao Lucas Reis Da Silva,Vicente Freda,joaolucasreisdasilva,vicentefreda,6-2 6-0,Portoalegrechallenger
+2025-05-04,2025portoalegre,R32,Murkel Alejandro Dellien Velasco,Luis Guto Miguel,murkelalejandrodellienvelasco,luisgutomiguel,6-2 3-6 6-3,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q2,Luciano Emanuel Ambrogi,Alexander Klintcharov,lucianoemanuelambrogi,alexanderklintcharov,7-5 6-3,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q2,Valerio Aboian,Bruno Kuzuhara,valerioaboian,brunokuzuhara,6-4 6-1,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q2,Conner Huertas Del Pino,Gianluca Mager,connerhuertasdelpino,gianlucamager,6-4 1-0 RET,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q2,Nicolas Kicker,Lorenzo Joaquin Rodriguez,nicolaskicker,lorenzojoaquinrodriguez,6-4 6-0,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q2,Hernan Casanova,Joao Eduardo Schiessl,hernancasanova,joaoeduardoschiessl,6-3 7-6(9),Portoalegrechallenger
+2025-05-04,2025portoalegre,Q2,Leonardo Aboian,Pedro Rodrigues,leonardoaboian,pedrorodrigues,6-4 6-3,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Luciano Emanuel Ambrogi,Percy Buffara,lucianoemanuelambrogi,percybuffara,6-0 6-0,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Alexander Klintcharov,Juan Estevez,alexanderklintcharov,juanestevez,6-4 6-7(3) 6-3,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Valerio Aboian,Paulo Andre Saraiva Dos Santos,valerioaboian,pauloandresaraivadossantos,6-1 2-6 6-2,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Bruno Kuzuhara,Pedro Pinto,brunokuzuhara,pedropinto,6-1 6-3,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Gianluca Mager,Mateo Barreiros Reyes,gianlucamager,mateobarreirosreyes,6-3 4-0 RET,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Conner Huertas Del Pino,Pedro Dietrich,connerhuertasdelpino,pedrodietrich,6-3 6-1,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Nicolas Kicker,Arklon Huertas Del Pino,nicolaskicker,arklonhuertasdelpino,6-2 4-6 4-0 RET,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Lorenzo Joaquin Rodriguez,Ignacio Monzon,lorenzojoaquinrodriguez,ignaciomonzon,6-3 6-2,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Hernan Casanova,Wilson Leite,hernancasanova,wilsonleite,6-4 6-0,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Joao Eduardo Schiessl,Igor Gimenez,joaoeduardoschiessl,igorgimenez,6-2 1-6 6-4,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Pedro Rodrigues,Jose Pereira,pedrorodrigues,josepereira,7-6(5) 6-1,Portoalegrechallenger
+2025-05-04,2025portoalegre,Q1,Leonardo Aboian,Fermin Tenti,leonardoaboian,fermintenti,6-2 6-7(8) 6-1,Portoalegrechallenger
+2025-05-04,2025aixenprovence,SF,Stan Wawrinka,Borna Gojo,stanwawrinka,bornagojo,6-4 6-4,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,SF,Borna Coric,Ignacio Buse,bornacoric,ignaciobuse,4-6 6-2 6-3,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,QF,Stan Wawrinka,Nishesh Basavareddy,stanwawrinka,nisheshbasavareddy,7-6(8) 6-3,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,QF,Borna Gojo,Valentin Vacherot,bornagojo,valentinvacherot,6-2 6-3,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,QF,Borna Coric,Mariano Navone,bornacoric,marianonavone,7-5 6-4,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,QF,Ignacio Buse,Reilly Opelka,ignaciobuse,reillyopelka,7-6(4) 2-3 RET,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R16,Stan Wawrinka,Alexei Popyrin,stanwawrinka,alexeipopyrin,6-3 3-6 6-1,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R16,Nishesh Basavareddy,Albert Ramos,nisheshbasavareddy,albertramos,7-5 7-5,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R16,Valentin Vacherot,Jaume Munar,valentinvacherot,jaumemunar,7-6(2) 6-2,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R16,Borna Gojo,Daniel Elahi Galan,bornagojo,danielelahigalan,4-6 7-6(5) 7-5,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R16,Borna Coric,Arthur Rinderknech,bornacoric,arthurrinderknech,7-6(3) 6-4,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R16,Mariano Navone,Quentin Halys,marianonavone,quentinhalys,6-2 6-4,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R16,Reilly Opelka,Corentin Moutet,reillyopelka,corentinmoutet,7-6(3) 7-6(3),Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R16,Ignacio Buse,Luciano Darderi,ignaciobuse,lucianodarderi,6-0 6-4,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Stan Wawrinka,Ugo Blanchet,stanwawrinka,ugoblanchet,6-4 6-3,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Nishesh Basavareddy,Otto Virtanen,nisheshbasavareddy,ottovirtanen,7-5 7-6(3),Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Albert Ramos,Mattia Bellucci,albertramos,mattiabellucci,6-2 6-2,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Valentin Vacherot,Arthur Gea,valentinvacherot,arthurgea,7-5 6-3,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Daniel Elahi Galan,Billy Harris,danielelahigalan,billyharris,6-2 6-2,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Borna Gojo,Hugo Gaston,bornagojo,hugogaston,7-6(4) 2-1 RET,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Arthur Rinderknech,Mark Lajal,arthurrinderknech,marklajal,6-4 6-7(3) 6-3,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Borna Coric,Pierre Hugues Herbert,bornacoric,pierrehuguesherbert,6-2 6-7(7) 6-1,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Mariano Navone,Gregoire Barrere,marianonavone,gregoirebarrere,7-6(3) 6-0,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Corentin Moutet,Pavel Kotov,corentinmoutet,pavelkotov,7-5 3-6 7-5,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Reilly Opelka,Kyrian Jacquet,reillyopelka,kyrianjacquet,4-6 6-3 6-2,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,R32,Ignacio Buse,Moise Kouame,ignaciobuse,moisekouame,6-2 6-4,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q2,Ignacio Buse,Calvin Hemery,ignaciobuse,calvinhemery,6-3 7-5,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q2,Valentin Vacherot,Arthur Bouquier,valentinvacherot,arthurbouquier,6-1 3-6 7-6(5),Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q2,Mark Lajal,Benoit Paire,marklajal,benoitpaire,6-0 6-1,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q2,Albert Ramos,Titouan Droguet,albertramos,titouandroguet,7-6(5) 2-0 RET,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q1,Calvin Hemery,Tommaso Compagnucci,calvinhemery,tommasocompagnucci,7-6(4) 6-3,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q1,Ignacio Buse,Laurent Lokoli,ignaciobuse,laurentlokoli,4-6 6-4 6-3,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q1,Arthur Bouquier,Mae Malige,arthurbouquier,maemalige,6-3 6-2,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q1,Valentin Vacherot,Maxime Janvier,valentinvacherot,maximejanvier,6-3 4-0 RET,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q1,Mark Lajal,Maxime Chazal,marklajal,maximechazal,6-2 4-6 6-4,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q1,Benoit Paire,Sascha Gueymard Wayenburg,benoitpaire,saschagueymardwayenburg,4-6 7-5 6-4,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q1,Titouan Droguet,Matteo Martineau,titouandroguet,matteomartineau,6-1 6-4,Aix En Provencechallenger
+2025-05-04,2025aixenprovence,Q1,Albert Ramos,Florent Bax,albertramos,florentbax,6-4 6-2,Aix En Provencechallenger
+2025-05-04,2025gwangju,F,Jason Kubler,Alibek Kachmazov,jasonkubler,alibekkachmazov,7-5 6-7(7) 6-3,Gwangjuchallenger
+2025-05-04,2025gwangju,SF,Jason Kubler,Tristan Schoolkate,jasonkubler,tristanschoolkate,7-5 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,SF,Alibek Kachmazov,Yosuke Watanuki,alibekkachmazov,yosukewatanuki,6-4 6-3,Gwangjuchallenger
+2025-05-04,2025gwangju,QF,Jason Kubler,Hugo Grenier,jasonkubler,hugogrenier,6-2 6-1,Gwangjuchallenger
+2025-05-04,2025gwangju,QF,Tristan Schoolkate,Hyeon Chung,tristanschoolkate,hyeonchung,6-3 6-1,Gwangjuchallenger
+2025-05-04,2025gwangju,QF,Yosuke Watanuki,Brandon Holt,yosukewatanuki,brandonholt,7-5 7-6(2),Gwangjuchallenger
+2025-05-04,2025gwangju,QF,Alibek Kachmazov,Omar Jasika,alibekkachmazov,omarjasika,6-4 6-2,Gwangjuchallenger
+2025-05-04,2025gwangju,R16,Jason Kubler,Adam Walton,jasonkubler,adamwalton,6-4 6-1,Gwangjuchallenger
+2025-05-04,2025gwangju,R16,Tristan Schoolkate,Ilia Simakin,tristanschoolkate,iliasimakin,6-4 6-2,Gwangjuchallenger
+2025-05-04,2025gwangju,R16,Hyeon Chung,James Trotter,hyeonchung,jamestrotter,6-2 7-6(1),Gwangjuchallenger
+2025-05-04,2025gwangju,R16,Yosuke Watanuki,Johannus Monday,yosukewatanuki,johannusmonday,6-3 6-7(7) 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,R16,Brandon Holt,Uisung Park,brandonholt,uisungpark,3-6 6-3 7-6(5),Gwangjuchallenger
+2025-05-04,2025gwangju,R16,Alibek Kachmazov,Rio Noguchi,alibekkachmazov,rionoguchi,7-6(3) 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,R16,Omar Jasika,Antoine Escoffier,omarjasika,antoineescoffier,4-6 7-5 6-1,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Adam Walton,Marat Sharipov,adamwalton,maratsharipov,6-3 6-2,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Jason Kubler,Soon Woo Kwon,jasonkubler,soonwookwon,6-3 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Yasutaka Uchiyama,Kaichi Uchida,yasutakauchiyama,kaichiuchida,7-5 3-6 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Hugo Grenier,Li Tu,hugogrenier,litu,6-4 6-2,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Tristan Schoolkate,Rei Sakamoto,tristanschoolkate,reisakamoto,7-6(4) 7-5,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Ilia Simakin,Emil Ruusuvuori,iliasimakin,emilruusuvuori,6-2 6-3,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Hyeon Chung,Constant Lestienne,hyeonchung,constantlestienne,6-1 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,James Trotter,Viktor Durasovic,jamestrotter,viktordurasovic,6-7(5) 6-4 6-3,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Yosuke Watanuki,James Mccabe,yosukewatanuki,jamesmccabe,7-6(12) 6-3,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Johannus Monday,Zachary Svajda,johannusmonday,zacharysvajda,6-2 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Uisung Park,Yunseong Chung,uisungpark,yunseongchung,4-6 6-3 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Brandon Holt,Yu Hsiou Hsu,brandonholt,yuhsiouhsu,6-3 6-0,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Alibek Kachmazov,Terence Atmane,alibekkachmazov,terenceatmane,7-6(1) 0-0 RET,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Rio Noguchi,Sho Shimabukuro,rionoguchi,shoshimabukuro,6-4 6-0,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Omar Jasika,Yi Zhou,omarjasika,yizhou,7-6(2) 4-6 6-2,Gwangjuchallenger
+2025-05-04,2025gwangju,R32,Antoine Escoffier,Christopher Eubanks,antoineescoffier,christophereubanks,6-3 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,Q2,Uisung Park,Petr Bar Biryukov,uisungpark,petrbarbiryukov,6-4 3-6 7-5,Gwangjuchallenger
+2025-05-04,2025gwangju,Q2,Yu Hsiou Hsu,Moerani Bouzige,yuhsiouhsu,moeranibouzige,6-1 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,Q2,Ilia Simakin,Viktor Durasovic,iliasimakin,viktordurasovic,6-2 6-2,Gwangjuchallenger
+2025-05-04,2025gwangju,Q2,Rio Noguchi,Kasidit Samrej,rionoguchi,kasiditsamrej,6-4 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,Q2,Marat Sharipov,Andre Ilagan,maratsharipov,andreilagan,6-3 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Uisung Park,Alex Bolt,uisungpark,alexbolt,6-3 5-7 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Petr Bar Biryukov,Ji Sung Nam,petrbarbiryukov,jisungnam,6-7(2) 5-1 RET,Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Yu Hsiou Hsu,Hoyoung Roh,yuhsiouhsu,hoyoungroh,7-6(6) 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Moerani Bouzige,Naoki Nakagawa,moeranibouzige,naokinakagawa,7-6(4) 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Yan Bai,Duck Hee Lee,yanbai,duckheelee,6-3 7-6(7),Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Kaichi Uchida,Jie Cui,kaichiuchida,jiecui,6-2 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Viktor Durasovic,Woobin Shin,viktordurasovic,woobinshin,6-7(3) 7-6(3) 6-0,Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Ilia Simakin,Gerard Campana Lee,iliasimakin,gerardcampanalee,6-4 6-4,Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Rio Noguchi,Mats Rosenkranz,rionoguchi,matsrosenkranz,6-4 7-6(9),Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Kasidit Samrej,Fajing Sun,kasiditsamrej,fajingsun,6-7(2) 6-4 7-5,Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Marat Sharipov,Hayden Jones,maratsharipov,haydenjones,6-1 6-7(6) 6-3,Gwangjuchallenger
+2025-05-04,2025gwangju,Q1,Andre Ilagan,Christian Langmo,andreilagan,christianlangmo,6-4 6-4,Gwangjuchallenger
+2025-05-04,2025savannah,F,Nicolas Mejia,Liam Draxl,nicolasmejia,liamdraxl,2-6 6-2 7-6(3),Savannahchallenger
+2025-05-04,2025savannah,SF,Nicolas Mejia,Eliot Spizzirri,nicolasmejia,eliotspizzirri,6-4 5-7 6-3,Savannahchallenger
+2025-05-04,2025savannah,SF,Liam Draxl,Genaro Alberto Olivieri,liamdraxl,genaroalbertoolivieri,7-5 6-4,Savannahchallenger
+2025-05-04,2025savannah,QF,Eliot Spizzirri,Stefan Kozlov,eliotspizzirri,stefankozlov,6-3 7-5,Savannahchallenger
+2025-05-04,2025savannah,QF,Nicolas Mejia,Tung Lin Wu,nicolasmejia,tunglinwu,6-2 3-6 7-6(4),Savannahchallenger
+2025-05-04,2025savannah,QF,Liam Draxl,Oliver Crawford,liamdraxl,olivercrawford,6-3 6-7(7) 6-2,Savannahchallenger
+2025-05-04,2025savannah,QF,Genaro Alberto Olivieri,Andres Martin,genaroalbertoolivieri,andresmartin,6-4 6-2,Savannahchallenger
+2025-05-04,2025savannah,R16,Eliot Spizzirri,Alfredo Perez,eliotspizzirri,alfredoperez,6-3 6-1,Savannahchallenger
+2025-05-04,2025savannah,R16,Stefan Kozlov,Geoffrey Blancaneaux,stefankozlov,geoffreyblancaneaux,6-1 3-1 RET,Savannahchallenger
+2025-05-04,2025savannah,R16,Nicolas Mejia,Joel Schwaerzler,nicolasmejia,joelschwaerzler,6-4 6-0,Savannahchallenger
+2025-05-04,2025savannah,R16,Tung Lin Wu,Matteo Martineau,tunglinwu,matteomartineau,6-2 6-3,Savannahchallenger
+2025-05-04,2025savannah,R16,Oliver Crawford,Joao Lucas Reis Da Silva,olivercrawford,joaolucasreisdasilva,6-3 4-6 6-4,Savannahchallenger
+2025-05-04,2025savannah,R16,Liam Draxl,Patrick Maloney,liamdraxl,patrickmaloney,7-5 7-5,Savannahchallenger
+2025-05-04,2025savannah,R16,Andres Martin,Bernard Tomic,andresmartin,bernardtomic,6-2 6-3,Savannahchallenger
+2025-05-04,2025savannah,R16,Genaro Alberto Olivieri,Andres Andrade,genaroalbertoolivieri,andresandrade,6-3 6-3,Savannahchallenger
+2025-05-04,2025savannah,R32,Eliot Spizzirri,Ryan Seggerman,eliotspizzirri,ryanseggerman,6-4 6-4,Savannahchallenger
+2025-05-04,2025savannah,R32,Alfredo Perez,Patrick Kypson,alfredoperez,patrickkypson,6-4 3-6 6-3,Savannahchallenger
+2025-05-04,2025savannah,R32,Stefan Kozlov,Max Wiskandt,stefankozlov,maxwiskandt,6-2 6-1,Savannahchallenger
+2025-05-04,2025savannah,R32,Geoffrey Blancaneaux,Jenson Brooksby,geoffreyblancaneaux,jensonbrooksby,6-4 6-3,Savannahchallenger
+2025-05-04,2025savannah,R32,Joel Schwaerzler,Emilio Nava,joelschwaerzler,emilionava,6-3 6-4,Savannahchallenger
+2025-05-04,2025savannah,R32,Nicolas Mejia,Maxime Janvier,nicolasmejia,maximejanvier,7-5 7-5,Savannahchallenger
+2025-05-04,2025savannah,R32,Matteo Martineau,Sascha Gueymard Wayenburg,matteomartineau,saschagueymardwayenburg,5-7 6-4 6-0,Savannahchallenger
+2025-05-04,2025savannah,R32,Tung Lin Wu,Tristan Mccormick,tunglinwu,tristanmccormick,6-3 6-2,Savannahchallenger
+2025-05-04,2025savannah,R32,Joao Lucas Reis Da Silva,Dmitry Popko,joaolucasreisdasilva,dmitrypopko,6-4 7-5,Savannahchallenger
+2025-05-04,2025savannah,R32,Oliver Crawford,Corentin Denolly,olivercrawford,corentindenolly,6-2 4-6 6-3,Savannahchallenger
+2025-05-04,2025savannah,R32,Patrick Maloney,Aidan Mayo,patrickmaloney,aidanmayo,6-3 6-3,Savannahchallenger
+2025-05-04,2025savannah,R32,Liam Draxl,Garrett Johns,liamdraxl,garrettjohns,7-5 6-1,Savannahchallenger
+2025-05-04,2025savannah,R32,Bernard Tomic,Michael Mmoh,bernardtomic,michaelmmoh,6-4 0-6 6-2,Savannahchallenger
+2025-05-04,2025savannah,R32,Andres Martin,Chris Rodesch,andresmartin,chrisrodesch,7-6(6) 3-6 7-6(3),Savannahchallenger
+2025-05-04,2025savannah,R32,Genaro Alberto Olivieri,Mathys Erhard,genaroalbertoolivieri,mathyserhard,7-5 7-6(1),Savannahchallenger
+2025-05-04,2025savannah,R32,Andres Andrade,Federico Agustin Gomez,andresandrade,federicoagustingomez,6-1 6-1,Savannahchallenger
+2025-05-04,2025savannah,Q2,Tristan Mccormick,Marc Polmans,tristanmccormick,marcpolmans,7-5 6-2,Savannahchallenger
+2025-05-04,2025savannah,Q2,Garrett Johns,Ryan Seggerman,garrettjohns,ryanseggerman,6-3 4-6 6-2,Savannahchallenger
+2025-05-04,2025savannah,Q2,Joao Lucas Reis Da Silva,Gabi Adrian Boitan,joaolucasreisdasilva,gabiadrianboitan,6-7(6) 6-1 6-3,Savannahchallenger
+2025-05-04,2025savannah,Q2,Patrick Maloney,Alex Rybakov,patrickmaloney,alexrybakov,6-3 5-7 7-6(4),Savannahchallenger
+2025-05-04,2025savannah,Q2,Stefan Kozlov,Christian Sigsgaard,stefankozlov,christiansigsgaard,6-4 6-4,Savannahchallenger
+2025-05-04,2025savannah,Q2,Patrick Kypson,Bruno Kuzuhara,patrickkypson,brunokuzuhara,6-3 7-6(4),Savannahchallenger
+2025-05-04,2025savannah,Q1,Tristan Mccormick,Joshua Charlton,tristanmccormick,joshuacharlton,6-4 3-6 6-2,Savannahchallenger
+2025-05-04,2025savannah,Q1,Marc Polmans,James Tracy,marcpolmans,jamestracy,6-3 6-4,Savannahchallenger
+2025-05-04,2025savannah,Q1,Garrett Johns,Felix Corwin,garrettjohns,felixcorwin,6-3 6-1,Savannahchallenger
+2025-05-04,2025savannah,Q1,Ryan Seggerman,Steven Diez,ryanseggerman,stevendiez,6-3 3-6 6-3,Savannahchallenger
+2025-05-04,2025savannah,Q1,Gabi Adrian Boitan,Quinn Vandecasteele,gabiadrianboitan,quinnvandecasteele,6-1 2-6 6-4,Savannahchallenger
+2025-05-04,2025savannah,Q1,Joao Lucas Reis Da Silva,Cannon Kingsley,joaolucasreisdasilva,cannonkingsley,6-3 6-2,Savannahchallenger
+2025-05-04,2025savannah,Q1,Patrick Maloney,Kiranpal Pannu,patrickmaloney,kiranpalpannu,6-2 6-1,Savannahchallenger
+2025-05-04,2025savannah,Q1,Alex Rybakov,Antoine Ghibaudo,alexrybakov,antoineghibaudo,6-1 6-7(2) 6-3,Savannahchallenger
+2025-05-04,2025savannah,Q1,Christian Sigsgaard,Tyler Zink,christiansigsgaard,tylerzink,6-3 7-5,Savannahchallenger
+2025-05-04,2025savannah,Q1,Stefan Kozlov,Ryan Fishback,stefankozlov,ryanfishback,7-5 6-3,Savannahchallenger
+2025-05-04,2025savannah,Q1,Bruno Kuzuhara,Govind Nanda,brunokuzuhara,govindnanda,7-6(7) 6-2,Savannahchallenger
+2025-05-04,2025savannah,Q1,Patrick Kypson,Joshua Sheehy,patrickkypson,joshuasheehy,6-3 7-6(1),Savannahchallenger
+2025-05-04,2025sanmigueldetucuman,F,Alex Barrena,Santiago Fa Rodriguez Taverna,alexbarrena,santiagofarodrigueztaverna,7-5 6-2,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,SF,Santiago Fa Rodriguez Taverna,Andrea Collarini,santiagofarodrigueztaverna,andreacollarini,7-6(7) 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,SF,Alex Barrena,Murkel Alejandro Dellien Velasco,alexbarrena,murkelalejandrodellienvelasco,6-7(4) 7-6(3) 6-2,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,QF,Andrea Collarini,Facundo Bagnis,andreacollarini,facundobagnis,3-6 7-6(3) 4-5 RET,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,QF,Santiago Fa Rodriguez Taverna,Juan Bautista Torres,santiagofarodrigueztaverna,juanbautistatorres,6-3 7-6(4),Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,QF,Murkel Alejandro Dellien Velasco,Pedro Boscardin Dias,murkelalejandrodellienvelasco,pedroboscardindias,1-6 6-3 6-1,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,QF,Alex Barrena,Mariano Kestelboim,alexbarrena,marianokestelboim,6-0 6-2,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R16,Andrea Collarini,Luciano Emanuel Ambrogi,andreacollarini,lucianoemanuelambrogi,6-2 7-6(6),Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R16,Facundo Bagnis,Renzo Olivo,facundobagnis,renzoolivo,7-5 5-7 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R16,Santiago Fa Rodriguez Taverna,Guido Ivan Justo,santiagofarodrigueztaverna,guidoivanjusto,6-4 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R16,Juan Bautista Torres,Valerio Aboian,juanbautistatorres,valerioaboian,6-2 6-2,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R16,Pedro Boscardin Dias,Lautaro Midon,pedroboscardindias,lautaromidon,4-6 6-3 6-4,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R16,Murkel Alejandro Dellien Velasco,Conner Huertas Del Pino,murkelalejandrodellienvelasco,connerhuertasdelpino,6-4 6-2,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R16,Alex Barrena,Franco Roncadelli,alexbarrena,francoroncadelli,6-4 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R16,Mariano Kestelboim,Fermin Tenti,marianokestelboim,fermintenti,7-5 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Andrea Collarini,Juan Manuel La Serna,andreacollarini,juanmanuellaserna,6-4 6-2,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Luciano Emanuel Ambrogi,Jose Pereira,lucianoemanuelambrogi,josepereira,6-7(5) 6-3 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Facundo Bagnis,Gonzalo Villanueva,facundobagnis,gonzalovillanueva,6-4 6-1,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Renzo Olivo,Hernan Casanova,renzoolivo,hernancasanova,6-4 1-6 7-5,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Santiago Fa Rodriguez Taverna,Juan Estevez,santiagofarodrigueztaverna,juanestevez,6-1 6-1,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Guido Ivan Justo,Mateo Barreiros Reyes,guidoivanjusto,mateobarreirosreyes,7-6(7) 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Valerio Aboian,Vladyslav Orlov,valerioaboian,vladyslavorlov,6-4 6-4,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Juan Bautista Torres,Ignacio Monzon,juanbautistatorres,ignaciomonzon,6-2 6-4,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Lautaro Midon,Joao Eduardo Schiessl,lautaromidon,joaoeduardoschiessl,6-3 6-4,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Pedro Boscardin Dias,Igor Gimenez,pedroboscardindias,igorgimenez,6-3 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Conner Huertas Del Pino,Lorenzo Joaquin Rodriguez,connerhuertasdelpino,lorenzojoaquinrodriguez,6-4 3-6 7-6(6),Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Murkel Alejandro Dellien Velasco,Maximo Zeitune,murkelalejandrodellienvelasco,maximozeitune,6-3 6-2,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Franco Roncadelli,Nicolas Zanellato,francoroncadelli,nicolaszanellato,6-1 7-5,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Alex Barrena,Nicolas Kicker,alexbarrena,nicolaskicker,6-4 6-2,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Fermin Tenti,Alejo Lorenzo Lingua Lavallen,fermintenti,alejolorenzolingualavallen,3-6 6-1 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,R32,Mariano Kestelboim,Alvaro Guillen Meza,marianokestelboim,alvaroguillenmeza,6-1 3-6 6-2,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q2,Fermin Tenti,Lucio Ratti,fermintenti,lucioratti,7-6(5) 6-4,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q2,Conner Huertas Del Pino,Wilson Leite,connerhuertasdelpino,wilsonleite,6-3 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q2,Ignacio Monzon,Joaquin Aguilar Cardozo,ignaciomonzon,joaquinaguilarcardozo,6-3 1-6 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q2,Nicolas Zanellato,Ezequiel Monferrer,nicolaszanellato,ezequielmonferrer,6-2 6-4,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q2,Igor Gimenez,Thiago Cigarran,igorgimenez,thiagocigarran,6-1 2-6 7-5,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q2,Mateo Barreiros Reyes,Tadeo Meneo,mateobarreirosreyes,tadeomeneo,6-4 6-1,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Lucio Ratti,Leonardo Aboian,lucioratti,leonardoaboian,6-3 5-1 RET,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Fermin Tenti,Franco Ribero,fermintenti,francoribero,7-6(5) 2-6 6-4,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Conner Huertas Del Pino,Ignacio Carou,connerhuertasdelpino,ignaciocarou,6-3 6-0,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Wilson Leite,Gonzalo Zeitune,wilsonleite,gonzalozeitune,6-3 6-2,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Ignacio Monzon,Valentin Basel,ignaciomonzon,valentinbasel,7-6(1) 7-5,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Joaquin Aguilar Cardozo,Santiago De La Fuente,joaquinaguilarcardozo,santiagodelafuente,6-2 7-6(4),Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Ezequiel Monferrer,Noah Schachter,ezequielmonferrer,noahschachter,6-2 0-0 RET,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Nicolas Zanellato,Paulo Andre Saraiva Dos Santos,nicolaszanellato,pauloandresaraivadossantos,3-6 7-6(4) 6-3,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Igor Gimenez,Nicolas Villalon,igorgimenez,nicolasvillalon,6-3 6-1,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Thiago Cigarran,Tomas Martinez,thiagocigarran,tomasmartinez,6-4 3-6 6-1,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Mateo Barreiros Reyes,Benjamin Torrealba,mateobarreirosreyes,benjamintorrealba,6-1 2-6 6-4,Sanmigueldetucumanchallenger
+2025-05-04,2025sanmigueldetucuman,Q1,Tadeo Meneo,Juan Sebastian Osorio,tadeomeneo,juansebastianosorio,6-4 6-0,Sanmigueldetucumanchallenger
+2025-05-04,2025abidjan,F,Eliakim Coulibaly,Aziz Dougaz,eliakimcoulibaly,azizdougaz,6-7(3) 6-4 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,SF,Aziz Dougaz,Michael Geerts,azizdougaz,michaelgeerts,7-5 7-6(5),Abidjan2Challenger
+2025-05-04,2025abidjan,SF,Eliakim Coulibaly,Ricardas Berankis,eliakimcoulibaly,ricardasberankis,3-6 6-3 7-5,Abidjan2Challenger
+2025-05-04,2025abidjan,QF,Aziz Dougaz,Philip Henning,azizdougaz,philiphenning,6-0 6-3,Abidjan2Challenger
+2025-05-04,2025abidjan,QF,Michael Geerts,Aryan Shah,michaelgeerts,aryanshah,7-6(7) 2-2 RET,Abidjan2Challenger
+2025-05-04,2025abidjan,QF,Ricardas Berankis,Clement Chidekh,ricardasberankis,clementchidekh,7-6(5) 7-6(3),Abidjan2Challenger
+2025-05-04,2025abidjan,QF,Eliakim Coulibaly,Aleksandre Bakshi,eliakimcoulibaly,aleksandrebakshi,6-2 6-0,Abidjan2Challenger
+2025-05-04,2025abidjan,R16,Aziz Dougaz,Moez Echargui,azizdougaz,moezechargui,7-5 6-2,Abidjan2Challenger
+2025-05-04,2025abidjan,R16,Philip Henning,Giles Hussey,philiphenning,gileshussey,7-5 3-6 6-2,Abidjan2Challenger
+2025-05-04,2025abidjan,R16,Michael Geerts,Dominik Kellovsky,michaelgeerts,dominikkellovsky,7-6(3) 6-2,Abidjan2Challenger
+2025-05-04,2025abidjan,R16,Aryan Shah,Ergi Kirkin,aryanshah,ergikirkin,6-1 4-6 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,R16,Clement Chidekh,Maximus Jones,clementchidekh,maximusjones,3-6 6-4 6-1,Abidjan2Challenger
+2025-05-04,2025abidjan,R16,Eliakim Coulibaly,Kirill Kivattsev,eliakimcoulibaly,kirillkivattsev,6-2 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,R16,Aleksandre Bakshi,Robin Bertrand,aleksandrebakshi,robinbertrand,6-3 7-5,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Aziz Dougaz,Constantin Bittoun Kouzmine,azizdougaz,constantinbittounkouzmine,6-4 7-5,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Moez Echargui,Lucas Poullain,moezechargui,lucaspoullain,6-4 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Giles Hussey,Toby Samuel,gileshussey,tobysamuel,6-4 1-6 4-1 RET,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Philip Henning,Guillaume Dalmasso,philiphenning,guillaumedalmasso,6-7(4) 7-6(6) 6-2,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Michael Geerts,Tibo Colson,michaelgeerts,tibocolson,6-4 3-6 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Dominik Kellovsky,Tommaso Compagnucci,dominikkellovsky,tommasocompagnucci,7-5 6-0,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Aryan Shah,Taha Baadi,aryanshah,tahabaadi,7-6(5) 6-2,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Ergi Kirkin,Nicolas Jadoun,ergikirkin,nicolasjadoun,6-1 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Ricardas Berankis,Benoit Paire,ricardasberankis,benoitpaire,7-6(4) 0-0 RET,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Yanki Erel,Daniil Glinka,yankierel,daniilglinka,6-4 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Maximus Jones,Aziz Ouakaa,maximusjones,azizouakaa,6-4 7-6(4),Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Clement Chidekh,Seydina Andre,clementchidekh,seydinaandre,7-5 4-6 7-6(2),Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Eliakim Coulibaly,Florent Bax,eliakimcoulibaly,florentbax,6-2 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Kirill Kivattsev,Kris Van Wyk,kirillkivattsev,krisvanwyk,7-5 7-5,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Aleksandre Bakshi,Karan Singh,aleksandrebakshi,karansingh,7-5 6-7(3) 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,R32,Robin Bertrand,Vadym Ursu,robinbertrand,vadymursu,6-3 6-0,Abidjan2Challenger
+2025-05-04,2025abidjan,Q2,Florent Bax,Joel Meda,florentbax,joelmeda,6-2 6-1,Abidjan2Challenger
+2025-05-04,2025abidjan,Q2,Constantin Bittoun Kouzmine,Massimo Giunta,constantinbittounkouzmine,massimogiunta,7-5 7-5,Abidjan2Challenger
+2025-05-04,2025abidjan,Q2,Guillaume Dalmasso,Luca Potenza,guillaumedalmasso,lucapotenza,7-6(5) 3-6 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,Q2,Aziz Ouakaa,Thijmen Loof,azizouakaa,thijmenloof,7-6(6) 6-2,Abidjan2Challenger
+2025-05-04,2025abidjan,Q2,Yanki Erel,S D Prajwal Dev,yankierel,sdprajwaldev,6-1 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,Q2,Nicolas Jadoun,Matt Hulme,nicolasjadoun,matthulme,6-4 3-6 6-3,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Florent Bax,Kwami Stanislas Dussey,florentbax,kwamistanislasdussey,6-0 6-2,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Joel Meda,Dragos Nicolae Cazacu,joelmeda,dragosnicolaecazacu,6-2 6-7(7) 7-5,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Constantin Bittoun Kouzmine,Damien Wenger,constantinbittounkouzmine,damienwenger,3-6 7-5 7-5,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Massimo Giunta,Aleksandr Lobanov,massimogiunta,aleksandrlobanov,6-2 6-3,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Luca Potenza,Dinko Dinev,lucapotenza,dinkodinev,6-4 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Guillaume Dalmasso,Abdoulaziz Bationo,guillaumedalmasso,abdoulazizbationo,6-3 6-4,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Thijmen Loof,Tanguy Genier,thijmenloof,tanguygenier,6-7(5) 6-3 7-6(3),Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Aziz Ouakaa,Adil Kalyanpur,azizouakaa,adilkalyanpur,6-1 3-2 RET,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Yanki Erel,Myko Yohann Himad Kouame,yankierel,mykoyohannhimadkouame,6-1 6-3,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,S D Prajwal Dev,Brandon Perez,sdprajwaldev,brandonperez,6-4 7-5,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Nicolas Jadoun,Dominik Palan,nicolasjadoun,dominikpalan,7-6(6) 6-7(4) 6-3,Abidjan2Challenger
+2025-05-04,2025abidjan,Q1,Matt Hulme,Matthias Ujvary,matthulme,matthiasujvary,6-3 7-6(7),Abidjan2Challenger
+2025-05-04,2025rome,F,Matteo Gigante,Vilius Gaubas,matteogigante,viliusgaubas,6-2 3-6 6-4,Romechallenger
+2025-05-04,2025rome,SF,Vilius Gaubas,Lukas Neumayer,viliusgaubas,lukasneumayer,4-6 6-3 6-1,Romechallenger
+2025-05-04,2025rome,QF,Vilius Gaubas,Andrea Pellegrino,viliusgaubas,andreapellegrino,6-3 4-6 6-4,Romechallenger
+2025-05-04,2025rome,QF,Lukas Neumayer,Timofey Skatov,lukasneumayer,timofeyskatov,6-3 7-6(3),Romechallenger
+2025-05-04,2025rome,QF,Sandro Kopp,Federico Arnaboldi,sandrokopp,federicoarnaboldi,6-2 6-4,Romechallenger
+2025-05-04,2025rome,QF,Matteo Gigante,Francesco Maestrelli,matteogigante,francescomaestrelli,6-7(6) 6-1 6-3,Romechallenger
+2025-05-04,2025rome,R16,Vilius Gaubas,Oleg Prihodko,viliusgaubas,olegprihodko,6-2 6-2,Romechallenger
+2025-05-04,2025rome,R16,Andrea Pellegrino,Remy Bertola,andreapellegrino,remybertola,1-6 6-3 6-4,Romechallenger
+2025-05-04,2025rome,R16,Lukas Neumayer,Lukas Pokorny,lukasneumayer,lukaspokorny,6-2 6-1,Romechallenger
+2025-05-04,2025rome,R16,Federico Arnaboldi,Dimitar Kuzmanov,federicoarnaboldi,dimitarkuzmanov,6-3 2-6 6-2,Romechallenger
+2025-05-04,2025rome,R16,Sandro Kopp,Hady Habib,sandrokopp,hadyhabib,7-5 7-6(3),Romechallenger
+2025-05-04,2025rome,R16,Matteo Gigante,Kimmer Coppejans,matteogigante,kimmercoppejans,5-7 6-4 6-1,Romechallenger
+2025-05-04,2025rome,R16,Francesco Maestrelli,Lorenzo Carboni,francescomaestrelli,lorenzocarboni,3-6 6-4 6-2,Romechallenger
+2025-05-04,2025rome,R32,Vilius Gaubas,Khumoyun Sultanov,viliusgaubas,khumoyunsultanov,3-6 6-4 6-2,Romechallenger
+2025-05-04,2025rome,R32,Oleg Prihodko,Oriol Roca Batalla,olegprihodko,oriolrocabatalla,5-7 7-6(6) 6-3,Romechallenger
+2025-05-04,2025rome,R32,Andrea Pellegrino,Jacopo Vasami,andreapellegrino,jacopovasami,5-7 6-4 6-4,Romechallenger
+2025-05-04,2025rome,R32,Remy Bertola,Arthur Bouquier,remybertola,arthurbouquier,7-6(5) 6-1,Romechallenger
+2025-05-04,2025rome,R32,Timofey Skatov,Antoine Cornut Chauvinc,timofeyskatov,antoinecornutchauvinc,7-6(1) 6-4,Romechallenger
+2025-05-04,2025rome,R32,Stefano Travaglia,Paul Jubb,stefanotravaglia,pauljubb,6-4 6-2,Romechallenger
+2025-05-04,2025rome,R32,Lukas Pokorny,Nick Hardt,lukaspokorny,nickhardt,6-4 6-3,Romechallenger
+2025-05-04,2025rome,R32,Lukas Neumayer,Mili Poljicak,lukasneumayer,milipoljicak,6-4 6-4,Romechallenger
+2025-05-04,2025rome,R32,Federico Arnaboldi,Gabriele Pennaforti,federicoarnaboldi,gabrielepennaforti,6-3 5-7 6-2,Romechallenger
+2025-05-04,2025rome,R32,Dimitar Kuzmanov,Abedallah Shelbayh,dimitarkuzmanov,abedallahshelbayh,6-4 6-2,Romechallenger
+2025-05-04,2025rome,R32,Sandro Kopp,Denis Yevseyev,sandrokopp,denisyevseyev,6-4 6-4,Romechallenger
+2025-05-04,2025rome,R32,Hady Habib,Mika Brunold,hadyhabib,mikabrunold,6-4 7-5,Romechallenger
+2025-05-04,2025rome,R32,Matteo Gigante,Lorenzo Giustino,matteogigante,lorenzogiustino,3-6 6-1 6-2,Romechallenger
+2025-05-04,2025rome,R32,Kimmer Coppejans,Dominic Stricker,kimmercoppejans,dominicstricker,6-2 6-2,Romechallenger
+2025-05-04,2025rome,R32,Francesco Maestrelli,Henri Squire,francescomaestrelli,henrisquire,7-5 2-6 7-6(3),Romechallenger
+2025-05-04,2025rome,R32,Lorenzo Carboni,Duje Ajdukovic,lorenzocarboni,dujeajdukovic,3-6 6-1 6-4,Romechallenger
+2025-05-04,2025rome,Q2,Sandro Kopp,Elias Ymer,sandrokopp,eliasymer,6-2 6-4,Romechallenger
+2025-05-04,2025rome,Q2,Kimmer Coppejans,Norbert Gombos,kimmercoppejans,norbertgombos,3-6 6-4 6-1,Romechallenger
+2025-05-04,2025rome,Q2,Stefano Travaglia,Jiri Vesely,stefanotravaglia,jirivesely,4-6 7-6(5) 7-6(2),Romechallenger
+2025-05-04,2025rome,Q2,Mika Brunold,Pablo Llamas Ruiz,mikabrunold,pablollamasruiz,7-5 0-6 6-0,Romechallenger
+2025-05-04,2025rome,Q2,Oleg Prihodko,Samuel Vincent Ruggeri,olegprihodko,samuelvincentruggeri,7-5 6-1,Romechallenger
+2025-05-04,2025rome,Q2,Lukas Pokorny,Giovanni Fonio,lukaspokorny,giovannifonio,7-6(4) 6-3,Romechallenger
+2025-05-04,2025rome,Q1,Elias Ymer,Gianluca Mager,eliasymer,gianlucamager,6-7(5) 6-3 6-2,Romechallenger
+2025-05-04,2025rome,Q1,Sandro Kopp,Federico Iannaccone,sandrokopp,federicoiannaccone,6-3 4-6 6-2,Romechallenger
+2025-05-04,2025rome,Q1,Kimmer Coppejans,Tiago Pereira,kimmercoppejans,tiagopereira,1-6 6-2 6-3,Romechallenger
+2025-05-04,2025rome,Q1,Norbert Gombos,Pedro Araujo,norbertgombos,pedroaraujo,6-2 6-2,Romechallenger
+2025-05-04,2025rome,Q1,Stefano Travaglia,Simone Rossolino,stefanotravaglia,simonerossolino,6-3 6-1,Romechallenger
+2025-05-04,2025rome,Q1,Jiri Vesely,Raul Brancaccio,jirivesely,raulbrancaccio,6-2 6-4,Romechallenger
+2025-05-04,2025rome,Q1,Mika Brunold,Alessio Balestrieri,mikabrunold,alessiobalestrieri,6-0 6-0,Romechallenger
+2025-05-04,2025rome,Q1,Pablo Llamas Ruiz,Rudolf Molleker,pablollamasruiz,rudolfmolleker,6-4 1-6 6-1,Romechallenger
+2025-05-04,2025rome,Q1,Oleg Prihodko,Tomasz Berkieta,olegprihodko,tomaszberkieta,7-6(2) 6-2,Romechallenger
+2025-05-04,2025rome,Q1,Samuel Vincent Ruggeri,Jacopo Bilardo,samuelvincentruggeri,jacopobilardo,6-4 6-1,Romechallenger
+2025-05-04,2025rome,Q1,Lukas Pokorny,Jacopo Berrettini,lukaspokorny,jacopoberrettini,6-3 6-7(4) 6-3,Romechallenger
+2025-05-04,2025rome,Q1,Giovanni Fonio,Marko Topo,giovannifonio,markotopo,6-3 7-5,Romechallenger
+2025-05-04,2025oeiras,F,Elmer Moller,Francisco Comesana,elmermoller,franciscocomesana,6-0 6-4,Oeiras4Challenger
+2025-05-04,2025oeiras,SF,Francisco Comesana,Carlos Taberner,franciscocomesana,carlostaberner,6-1 6-2,Oeiras4Challenger
+2025-05-04,2025oeiras,SF,Elmer Moller,Roman Safiullin,elmermoller,romansafiullin,6-2 6-4,Oeiras4Challenger
+2025-05-04,2025oeiras,QF,Francisco Comesana,Gregoire Barrere,franciscocomesana,gregoirebarrere,7-5 6-4,Oeiras4Challenger
+2025-05-04,2025oeiras,QF,Carlos Taberner,Raphael Collignon,carlostaberner,raphaelcollignon,7-6(4) 7-6(5),Oeiras4Challenger
+2025-05-04,2025oeiras,QF,Elmer Moller,Remy Bertola,elmermoller,remybertola,6-1 7-6(5),Oeiras4Challenger
+2025-05-04,2025oeiras,QF,Roman Safiullin,Dusan Lajovic,romansafiullin,dusanlajovic,6-4 3-0 RET,Oeiras4Challenger
+2025-05-04,2025oeiras,R16,Francisco Comesana,Tristan Boyer,franciscocomesana,tristanboyer,7-5 7-6(4),Oeiras4Challenger
+2025-05-04,2025oeiras,R16,Gregoire Barrere,Stefano Travaglia,gregoirebarrere,stefanotravaglia,6-4 7-6(12),Oeiras4Challenger
+2025-05-04,2025oeiras,R16,Raphael Collignon,Guy Den Ouden,raphaelcollignon,guydenouden,6-4 7-6(2),Oeiras4Challenger
+2025-05-04,2025oeiras,R16,Carlos Taberner,Shintaro Mochizuki,carlostaberner,shintaromochizuki,7-5 6-3,Oeiras4Challenger
+2025-05-04,2025oeiras,R16,Remy Bertola,Valentin Royer,remybertola,valentinroyer,7-6(3) 6-3,Oeiras4Challenger
+2025-05-04,2025oeiras,R16,Dusan Lajovic,Ugo Blanchet,dusanlajovic,ugoblanchet,6-4 6-2,Oeiras4Challenger
+2025-05-04,2025oeiras,R16,Roman Safiullin,Alejandro Moro Canas,romansafiullin,alejandromorocanas,5-7 7-5 7-6(8),Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Francisco Comesana,Gastao Elias,franciscocomesana,gastaoelias,4-6 6-3 6-2,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Tristan Boyer,Denis Yevseyev,tristanboyer,denisyevseyev,6-1 1-6 6-4,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Gregoire Barrere,Luca Van Assche,gregoirebarrere,lucavanassche,6-4 7-5,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Stefano Travaglia,Lukas Klein,stefanotravaglia,lukasklein,6-4 6-2,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Raphael Collignon,Jerome Kym,raphaelcollignon,jeromekym,6-2 6-2,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Guy Den Ouden,Bernabe Zapata Miralles,guydenouden,bernabezapatamiralles,7-5 4-6 7-6(5),Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Carlos Taberner,Nicolai Budkov Kjaer,carlostaberner,nicolaibudkovkjaer,6-3 7-6(4),Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Shintaro Mochizuki,Thiago Seyboth Wild,shintaromochizuki,thiagoseybothwild,2-6 6-1 7-5,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Valentin Royer,Juan Manuel Cerundolo,valentinroyer,juanmanuelcerundolo,0-6 7-6(5) 6-2,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Remy Bertola,Pedro Araujo,remybertola,pedroaraujo,6-3 6-1,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Mikhail Kukushkin,Matteo Gigante,mikhailkukushkin,matteogigante,6-4 6-4,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Elmer Moller,Thiago Monteiro,elmermoller,thiagomonteiro,6-3 6-7(2) 6-1,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Dusan Lajovic,Tiago Pereira,dusanlajovic,tiagopereira,6-2 7-6(0),Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Ugo Blanchet,Jan Choinski,ugoblanchet,janchoinski,6-1 6-3,Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Alejandro Moro Canas,Henrique Rocha,alejandromorocanas,henriquerocha,6-4 7-6(8),Oeiras4Challenger
+2025-05-04,2025oeiras,R32,Roman Safiullin,Alexander Blockx,romansafiullin,alexanderblockx,6-4 6-3,Oeiras4Challenger
+2025-05-04,2025oeiras,Q2,Juan Manuel Cerundolo,Max Houkes,juanmanuelcerundolo,maxhoukes,6-2 6-2,Oeiras4Challenger
+2025-05-04,2025oeiras,Q2,Remy Bertola,Alejandro Moro Canas,remybertola,alejandromorocanas,7-6(4) 3-6 7-6(7),Oeiras4Challenger
+2025-05-04,2025oeiras,Q2,Stefano Travaglia,Arthur Bouquier,stefanotravaglia,arthurbouquier,6-4 6-4,Oeiras4Challenger
+2025-05-04,2025oeiras,Q2,Guy Den Ouden,August Holmgren,guydenouden,augustholmgren,6-1 6-3,Oeiras4Challenger
+2025-05-04,2025oeiras,Q2,Bernabe Zapata Miralles,Kimmer Coppejans,bernabezapatamiralles,kimmercoppejans,7-6(5) 0-6 7-5,Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Juan Manuel Cerundolo,Joao Graa,juanmanuelcerundolo,joaograa,6-3 6-1,Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Max Houkes,Jelle Sels,maxhoukes,jellesels,6-1 4-2 RET,Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Alejandro Moro Canas,Joao Domingues,alejandromorocanas,joaodomingues,6-2 6-2,Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Remy Bertola,Andre Rodeia,remybertola,andrerodeia,6-1 6-2,Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Arthur Bouquier,Leonid Sheyngezikht,arthurbouquier,leonidsheyngezikht,6-3 6-2,Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Stefano Travaglia,Abedallah Shelbayh,stefanotravaglia,abedallahshelbayh,7-5 4-6 7-5,Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,August Holmgren,Alexander Donski,augustholmgren,alexanderdonski,6-4 7-6(8),Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Guy Den Ouden,Diogo Marques,guydenouden,diogomarques,6-1 6-1,Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Kimmer Coppejans,Radu Albot,kimmercoppejans,radualbot,6-3 7-5,Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Bernabe Zapata Miralles,Carlos Sanchez Jover,bernabezapatamiralles,carlossanchezjover,7-6(3) 7-6(5),Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Zsombor Piros,Dino Molokova Ferreira,zsomborpiros,dinomolokovaferreira,6-0 6-0,Oeiras4Challenger
+2025-05-04,2025oeiras,Q1,Denis Yevseyev,Francisco Rocha,denisyevseyev,franciscorocha,6-2 6-3,Oeiras4Challenger
