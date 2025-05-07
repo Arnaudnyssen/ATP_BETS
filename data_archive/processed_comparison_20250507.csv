@@ -1,0 +1,49 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atprome,R128,Mariano Navone,Federico Cina,90.5000,9.5000,,,1.1000,10.5300,,,,,,
+Atprome,R128,Jesper De Jong,Alexander Shevchenko,63.1000,36.9000,,,1.5800,2.7100,,,,,,
+Atprome,R128,Hugo Gaston,Nicolas Jarry,42.9000,57.1000,,,2.3300,1.7500,,,,,,
+Atprome,R128,Roberto Carballes Baena,Sebastian Ofner,61.1000,38.9000,,,1.6400,2.5700,,,,,,
+Atprome,R128,Tomas Barrios Vera,Jaume Munar,39.4000,60.6000,,,2.5400,1.6500,,,,,,
+Atprome,R128,Aleksandar Vukic,Nicolas Moreno De Alboran,49.5000,50.5000,,,2.0200,1.9800,,,,,,
+Atprome,R128,Jacob Fearnley,Fabio Fognini,58.1000,41.9000,,,1.7200,2.3900,,,,,,
+Atprome,R128,Alexander Bublik,Roman Safiullin,49.3000,50.7000,,,2.0300,1.9700,,,,,,
+Atprome,R128,Gabriel Diallo,Marcos Giron,59.6000,40.4000,,,1.6800,2.4800,,,,,,
+Atprome,R128,Mattia Bellucci,Pedro Martinez,32.1000,67.9000,,,3.1200,1.4700,,,,,,
+Atprome,R128,Arthur Rinderknech,Matteo Gigante,60.3000,39.7000,,,1.6600,2.5200,,,,,,
+Atprome,R128,Fabian Marozsan,Joao Fonseca,38.7000,61.3000,,,2.5800,1.6300,,,,,,
+Atprome,R128,Matteo Arnaldi,Roberto Bautista Agut,61.7000,38.3000,,,1.6200,2.6100,,,,,,
+Atprome,R128,Learner Tien,Reilly Opelka,21.4000,78.6000,,,4.6700,1.2700,,,,,,
+Atprome,R128,Nuno Borges,Thiago Seyboth Wild,77.1000,22.9000,,,1.3000,4.3700,,,,,,
+Atprome,R128,Luca Nardi,Flavio Cobolli,25.7000,74.3000,,,3.8900,1.3500,,,,,,
+Atprome,R128,Bu Yunchaokete,Luciano Darderi,25.7000,74.3000,,,3.8900,1.3500,,,,,,
+Atprome,R128,Vit Kopriva,Quentin Halys,49.5000,50.5000,,,2.0200,1.9800,,,,,,
+Atprome,R128,Rinky Hijikata,Corentin Moutet,18.6000,81.4000,,,5.3800,1.2300,,,,,,
+Atprome,R128,Daniel Altmaier,Francisco Comesana,47.3000,52.7000,,,2.1100,1.9000,,,,,,
+Atprome,R128,Francesco Passaro,Chun Hsin Tseng,62.5000,37.5000,,,1.6000,2.6700,,,,,,
+Atprome,R128,Lorenzo Sonego,Roman Andres Burruchaga,68.6000,31.4000,,,1.4600,3.1800,,,,,,
+Atprome,R128,Laslo Djere,Tomas Martin Etcheverry,58.6000,41.4000,,,1.7100,2.4200,,,,,,
+Atprome,R128,Yoshihito Nishioka,Dusan Lajovic,51.1000,48.9000,,,1.9600,2.0400,,,,,,
+Atprome,R128,Hamad Medjedovic,Otto Virtanen,85.6000,14.4000,,,1.1700,6.9400,,,,,,
+Atprome,R128,Jordan Thompson,Giovanni Mpetshi Perricard,49.0000,51.0000,,,2.0400,1.9600,,,,,,
+Atprome,R128,Carlos Taberner,Aleksandar Kovacevic,60.3000,39.7000,,,1.6600,2.5200,,,,,,
+Atprome,R128,Christopher Oconnell,Cameron Norrie,40.3000,59.7000,,,2.4800,1.6800,,,,,,
+Atprome,R128,Tallon Griekspoor,Miomir Kecmanovic,60.3000,39.7000,,,1.6600,2.5200,,,,,,
+Atprome,R128,Jiri Lehecka,Alexandre Muller,53.7000,46.3000,,,1.8600,2.1600,,,,,,
+Atprome,R128,Vilius Gaubas,Damir Dzumhur,35.6000,64.4000,,,2.8100,1.5500,,,,,,
+Atprome,R128,Camilo Ugo Carabelli,Pablo Carreno Busta,46.4000,53.6000,,,2.1600,1.8700,,,,,,
+Wuxichallenger,R16,Andre Ilagan,Yusuke Takahashi,66.8000,33.2000,59.1029,40.8971,1.5000,3.0100,1.5500,2.2400,0.0500,-0.7700,0.0333,-0.2558
+Wuxichallenger,R16,Ilia Simakin,Alibek Kachmazov,40.5000,59.5000,53.2609,46.7391,2.4700,1.6800,1.7200,1.9600,-0.7500,0.2800,-0.3036,0.1667
+Wuxichallenger,R16,Fajing Sun,Antoine Escoffier,29.4000,70.6000,40.8971,59.1029,3.4000,1.4200,2.2400,1.5500,-1.1600,0.1300,-0.3412,0.0915
+Wuxichallenger,R16,Yosuke Watanuki,Ryan Peniston,79.6000,20.4000,,,1.2600,4.9000,,,,,,
+Francavillaalmarechallenger,R16,Kyrian Jacquet,Dominic Stricker,58.3000,41.7000,,,1.7200,2.4000,,,,,,
+Francavillaalmarechallenger,R16,Kimmer Coppejans,Marco Trungelliti,44.4000,55.6000,,,2.2500,1.8000,,,,,,
+Francavillaalmarechallenger,R16,Timofey Skatov,Benoit Paire,65.8000,34.2000,,,1.5200,2.9200,,,,,,
+Francavillaalmarechallenger,R16,Francesco Maestrelli,Radu Albot,32.5000,67.5000,,,3.0800,1.4800,,,,,,
+Praguechallenger,R16,Petr Brunclik,Maxime Chazal,74.4000,25.6000,64.9254,35.0746,1.3400,3.9100,1.4100,2.6100,0.0700,-1.3000,0.0522,-0.3325
+Praguechallenger,R16,Lukas Klein,Mikhail Kukushkin,49.6000,50.4000,,,2.0200,1.9800,,,,,,
+Praguechallenger,R16,Sascha Gueymard Wayenburg,Mees Rottgering,38.7000,61.3000,51.4986,48.5014,2.5800,1.6300,1.7800,1.8900,-0.8000,0.2600,-0.3101,0.1595
+Praguechallenger,R16,Filip Misolic,Nikoloz Basilashvili,52.9000,47.1000,66.3415,33.6585,1.8900,2.1200,1.3800,2.7200,-0.5100,0.6000,-0.2698,0.2830
+Santoschallenger,R16,Alvaro Guillen Meza,Bruno Kuzuhara,74.8000,25.2000,71.5556,28.4444,1.3400,3.9700,1.2800,3.2200,-0.0600,-0.7500,-0.0448,-0.1889
+Santoschallenger,R16,Renzo Olivo,Juan Carlos Prado Angelo,49.5000,50.5000,41.6446,58.3554,2.0200,1.9800,2.2000,1.5700,0.1800,-0.4100,0.0891,-0.2071
+Santoschallenger,R16,Matias Soto,Franco Roncadelli,69.2000,30.8000,,,1.4500,3.2500,,,,,,
+Santoschallenger,R16,Gonzalo Villanueva,Juan Bautista Torres,39.5000,60.5000,36.8020,63.1980,2.5300,1.6500,2.4900,1.4500,-0.0400,-0.2000,-0.0158,-0.1212
