@@ -1,0 +1,7 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atprome,https://www.tennisabstract.com/current/2025ATPRome.html,R32,Jannik Sinner,Jesper De Jong,86.9,13.1,1.15,7.63,Sackmann,2025-05-11 06:03:59 UTC
+Atprome,https://www.tennisabstract.com/current/2025ATPRome.html,R32,Francisco Cerundolo,Sebastian Ofner,83.1,16.9,1.2,5.92,Sackmann,2025-05-11 06:03:59 UTC
+Atprome,https://www.tennisabstract.com/current/2025ATPRome.html,R32,Jaume Munar,Sebastian Korda,41.3,58.7,2.42,1.7,Sackmann,2025-05-11 06:03:59 UTC
+Atprome,https://www.tennisabstract.com/current/2025ATPRome.html,R32,Matteo Berrettini,Casper Ruud,43.7,56.3,2.29,1.78,Sackmann,2025-05-11 06:03:59 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,SF,Alvaro Guillen Meza,Franco Roncadelli,68.5,31.5,1.46,3.17,Sackmann,2025-05-11 06:03:59 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,SF,Matheus Pucinelli De Almeida,Nicolas Kicker,53.6,46.4,1.87,2.16,Sackmann,2025-05-11 06:03:59 UTC
