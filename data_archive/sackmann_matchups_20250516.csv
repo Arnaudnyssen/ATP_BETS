@@ -1,0 +1,28 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atprome,https://www.tennisabstract.com/current/2025ATPRome.html,SF,Jannik Sinner,Tommy Paul,63.5,36.5,1.57,2.74,Sackmann,2025-05-16 06:04:41 UTC
+Atprome,https://www.tennisabstract.com/current/2025ATPRome.html,SF,Carlos Alcaraz,Lorenzo Musetti,70.8,29.2,1.41,3.42,Sackmann,2025-05-16 06:04:41 UTC
+Oeiras5Challenger,https://www.tennisabstract.com/current/2025Oeiras5Challenger.html,SF,Mitchell Krueger,Hady Habib,42.1,57.9,2.38,1.73,Sackmann,2025-05-16 06:04:41 UTC
+Oeiras5Challenger,https://www.tennisabstract.com/current/2025Oeiras5Challenger.html,SF,Roman Andres Burruchaga,Cristian Garin,34.3,65.7,2.92,1.52,Sackmann,2025-05-16 06:04:41 UTC
+Tunischallenger,https://www.tennisabstract.com/current/2025TunisChallenger.html,SF,Chris Rodesch,Titouan Droguet,45.5,54.5,2.2,1.83,Sackmann,2025-05-16 06:04:41 UTC
+Tunischallenger,https://www.tennisabstract.com/current/2025TunisChallenger.html,SF,Ivan Gakhov,Zsombor Piros,24.8,75.2,4.03,1.33,Sackmann,2025-05-16 06:04:41 UTC
+Zagrebchallenger,https://www.tennisabstract.com/current/2025ZagrebChallenger.html,QF,Luka Pavlovic,Mili Poljicak,100.0,0.0,1.0,,Sackmann,2025-05-16 06:04:41 UTC
+Zagrebchallenger,https://www.tennisabstract.com/current/2025ZagrebChallenger.html,QF,Luca Van Assche,Filip Misolic,42.8,57.2,2.34,1.75,Sackmann,2025-05-16 06:04:41 UTC
+Zagrebchallenger,https://www.tennisabstract.com/current/2025ZagrebChallenger.html,QF,Marco Trungelliti,Harold Mayot,100.0,0.0,1.0,,Sackmann,2025-05-16 06:04:41 UTC
+Zagrebchallenger,https://www.tennisabstract.com/current/2025ZagrebChallenger.html,QF,Dino Prizmic,Jerome Kym,100.0,0.0,1.0,,Sackmann,2025-05-16 06:04:41 UTC
+Bogotachallenger,https://www.tennisabstract.com/current/2025BogotaChallenger.html,QF,Pedro Rodrigues,Nicolas Alvarez Varona,43.4,56.6,2.3,1.77,Sackmann,2025-05-16 06:04:41 UTC
+Bogotachallenger,https://www.tennisabstract.com/current/2025BogotaChallenger.html,QF,Mateo Barreiros Reyes,Pedro Sakamoto,22.2,77.8,4.5,1.29,Sackmann,2025-05-16 06:04:41 UTC
+Bogotachallenger,https://www.tennisabstract.com/current/2025BogotaChallenger.html,QF,Hernan Casanova,Zdenek Kolar,100.0,0.0,1.0,,Sackmann,2025-05-16 06:04:41 UTC
+Bogotachallenger,https://www.tennisabstract.com/current/2025BogotaChallenger.html,QF,Patrick Kypson,Elmar Ejupovic,100.0,0.0,1.0,,Sackmann,2025-05-16 06:04:41 UTC
+Bordeauxchallenger,https://www.tennisabstract.com/current/2025BordeauxChallenger.html,QF,Brandon Nakashima,Nikoloz Basilashvili,74.3,25.7,1.35,3.89,Sackmann,2025-05-16 06:04:41 UTC
+Bordeauxchallenger,https://www.tennisabstract.com/current/2025BordeauxChallenger.html,QF,Tallon Griekspoor,Terence Atmane,79.5,20.5,1.26,4.88,Sackmann,2025-05-16 06:04:41 UTC
+Bordeauxchallenger,https://www.tennisabstract.com/current/2025BordeauxChallenger.html,QF,Alexander Shevchenko,Giovanni Mpetshi Perricard,36.5,63.5,2.74,1.57,Sackmann,2025-05-16 06:04:41 UTC
+Bordeauxchallenger,https://www.tennisabstract.com/current/2025BordeauxChallenger.html,QF,Benjamin Hassan,Rinky Hijikata,64.4,35.6,1.55,2.81,Sackmann,2025-05-16 06:04:41 UTC
+Turinchallenger,https://www.tennisabstract.com/current/2025TurinChallenger.html,QF,Flavio Cobolli,Daniel Altmaier,61.2,38.8,1.63,2.58,Sackmann,2025-05-16 06:04:41 UTC
+Turinchallenger,https://www.tennisabstract.com/current/2025TurinChallenger.html,QF,Tomas Martin Etcheverry,Alexander Bublik,52.2,47.8,1.92,2.09,Sackmann,2025-05-16 06:04:41 UTC
+Turinchallenger,https://www.tennisabstract.com/current/2025TurinChallenger.html,QF,Camilo Ugo Carabelli,Chun Hsin Tseng,70.7,29.3,1.41,3.41,Sackmann,2025-05-16 06:04:41 UTC
+Turinchallenger,https://www.tennisabstract.com/current/2025TurinChallenger.html,QF,Bu Yunchaokete,Francesco Passaro,38.2,61.8,2.62,1.62,Sackmann,2025-05-16 06:04:41 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Alvaro Guillen Meza,Bruno Kuzuhara,100.0,0.0,1.0,,Sackmann,2025-05-16 06:04:41 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Renzo Olivo,Juan Carlos Prado Angelo,100.0,0.0,1.0,,Sackmann,2025-05-16 06:04:41 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Matias Soto,Franco Roncadelli,0.0,100.0,,1.0,Sackmann,2025-05-16 06:04:41 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Gonzalo Villanueva,Juan Bautista Torres,100.0,0.0,1.0,,Sackmann,2025-05-16 06:04:41 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,QF,Lautaro Midon,Matheus Pucinelli De Almeida,37.8,62.2,2.65,1.61,Sackmann,2025-05-16 06:04:41 UTC
