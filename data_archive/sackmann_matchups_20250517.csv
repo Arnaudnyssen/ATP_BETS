@@ -1,0 +1,10 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Bordeauxchallenger,https://www.tennisabstract.com/current/2025BordeauxChallenger.html,SF,Nikoloz Basilashvili,Tallon Griekspoor,19.5,80.5,5.13,1.24,Sackmann,2025-05-17 06:04:04 UTC
+Bordeauxchallenger,https://www.tennisabstract.com/current/2025BordeauxChallenger.html,SF,Giovanni Mpetshi Perricard,Rinky Hijikata,79.4,20.6,1.26,4.85,Sackmann,2025-05-17 06:04:04 UTC
+Turinchallenger,https://www.tennisabstract.com/current/2025TurinChallenger.html,SF,Daniel Altmaier,Alexander Bublik,46.1,53.9,2.17,1.86,Sackmann,2025-05-17 06:04:04 UTC
+Turinchallenger,https://www.tennisabstract.com/current/2025TurinChallenger.html,SF,Camilo Ugo Carabelli,Bu Yunchaokete,70.1,29.9,1.43,3.34,Sackmann,2025-05-17 06:04:04 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Alvaro Guillen Meza,Bruno Kuzuhara,100.0,0.0,1.0,,Sackmann,2025-05-17 06:04:04 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Renzo Olivo,Juan Carlos Prado Angelo,100.0,0.0,1.0,,Sackmann,2025-05-17 06:04:04 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Matias Soto,Franco Roncadelli,0.0,100.0,,1.0,Sackmann,2025-05-17 06:04:04 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Gonzalo Villanueva,Juan Bautista Torres,100.0,0.0,1.0,,Sackmann,2025-05-17 06:04:04 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,QF,Lautaro Midon,Matheus Pucinelli De Almeida,37.8,62.2,2.65,1.61,Sackmann,2025-05-17 06:04:04 UTC
