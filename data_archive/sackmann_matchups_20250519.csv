@@ -1,0 +1,25 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Jaume Munar,Quentin Halys,51.7,48.3,1.93,2.07,Sackmann,2025-05-19 06:05:01 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Arthur Rinderknech,Miomir Kecmanovic,37.6,62.4,2.66,1.6,Sackmann,2025-05-19 06:05:01 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Arthur Cazaux,Hubert Hurkacz,13.9,86.1,7.19,1.16,Sackmann,2025-05-19 06:05:01 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Kei Nishikori,Learner Tien,69.8,30.2,1.43,3.31,Sackmann,2025-05-19 06:05:01 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Sebastian Ofner,Ivan Gakhov,76.9,23.1,1.3,4.33,Sackmann,2025-05-19 06:05:01 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Nuno Borges,Alex Michelsen,100.0,0.0,1.0,,Sackmann,2025-05-19 06:05:01 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Alexander Zverev,Aleksandar Kovacevic,94.4,5.6,1.06,17.86,Sackmann,2025-05-19 06:05:01 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Elias Ymer,Alexandre Muller,22.4,77.6,4.46,1.29,Sackmann,2025-05-19 06:05:01 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Giovanni Mpetshi Perricard,Alexander Bublik,40.7,59.3,2.46,1.69,Sackmann,2025-05-19 06:05:01 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Daniel Altmaier,Felix Auger Aliassime,35.8,64.2,2.79,1.56,Sackmann,2025-05-19 06:05:01 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Alvaro Guillen Meza,Bruno Kuzuhara,100.0,0.0,1.0,,Sackmann,2025-05-19 06:05:01 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Renzo Olivo,Juan Carlos Prado Angelo,100.0,0.0,1.0,,Sackmann,2025-05-19 06:05:01 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Matias Soto,Franco Roncadelli,0.0,100.0,,1.0,Sackmann,2025-05-19 06:05:01 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,R16,Gonzalo Villanueva,Juan Bautista Torres,100.0,0.0,1.0,,Sackmann,2025-05-19 06:05:01 UTC
+Santoschallenger,https://www.tennisabstract.com/current/2025SantosChallenger.html,QF,Lautaro Midon,Matheus Pucinelli De Almeida,37.8,62.2,2.65,1.61,Sackmann,2025-05-19 06:05:01 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R32,Hugo Dellien,Qualifier1,87.7,12.3,1.14,8.13,Sackmann,2025-05-19 06:05:01 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R32,Luka Mikrut,Mika Brunold,67.6,32.4,1.48,3.09,Sackmann,2025-05-19 06:05:01 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R32,Corentin Denolly,Nicolai Budkov Kjaer,41.5,58.5,2.41,1.71,Sackmann,2025-05-19 06:05:01 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R32,Dino Prizmic,Max Houkes,64.4,35.6,1.55,2.81,Sackmann,2025-05-19 06:05:01 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Johannus Monday,Philip Henning,57.8,42.2,1.73,2.37,Sackmann,2025-05-19 06:05:01 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Alastair Gray,Qualifier1,47.8,52.2,2.09,1.92,Sackmann,2025-05-19 06:05:01 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Qualifier2,Evgeny Karlovskiy,51.3,48.7,1.95,2.05,Sackmann,2025-05-19 06:05:01 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Charles Broom,Ricardas Berankis,14.1,85.9,7.09,1.16,Sackmann,2025-05-19 06:05:01 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Daniil Glinka,Qualifier3,58.9,41.9,1.7,2.39,Sackmann,2025-05-19 06:05:01 UTC
