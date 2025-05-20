@@ -1,0 +1,23 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Alexander Zverev,Aleksandar Kovacevic,100.0,0.0,1.0,,Sackmann,2025-05-20 06:04:31 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Elias Ymer,Alexandre Muller,0.0,100.0,,1.0,Sackmann,2025-05-20 06:04:31 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Giovanni Mpetshi Perricard,Alexander Bublik,38.2,61.8,2.62,1.62,Sackmann,2025-05-20 06:04:31 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Daniel Altmaier,Felix Auger Aliassime,37.4,62.6,2.67,1.6,Sackmann,2025-05-20 06:04:31 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Justin Engel,Diego Dedura Palomero,100.0,0.0,1.0,,Sackmann,2025-05-20 06:04:31 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Luciano Darderi,Raphael Collignon,100.0,0.0,1.0,,Sackmann,2025-05-20 06:04:31 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R32,Jiri Lehecka,Pedro Martinez,100.0,0.0,1.0,,Sackmann,2025-05-20 06:04:31 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Jaume Munar,Quentin Halys,0.0,100.0,,1.0,Sackmann,2025-05-20 06:04:31 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Arthur Rinderknech,Miomir Kecmanovic,36.6,63.4,2.73,1.58,Sackmann,2025-05-20 06:04:31 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Arthur Cazaux,Hubert Hurkacz,12.9,87.1,7.75,1.15,Sackmann,2025-05-20 06:04:31 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Kei Nishikori,Learner Tien,100.0,0.0,1.0,,Sackmann,2025-05-20 06:04:31 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Sebastian Ofner,Ivan Gakhov,100.0,0.0,1.0,,Sackmann,2025-05-20 06:04:31 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R32,Nuno Borges,Alex Michelsen,100.0,0.0,1.0,,Sackmann,2025-05-20 06:04:31 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R32,Hugo Dellien,Toby Alex Kodat,85.9,14.1,1.16,7.09,Sackmann,2025-05-20 06:04:31 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R32,Luka Mikrut,Mika Brunold,0.0,100.0,,1.0,Sackmann,2025-05-20 06:04:31 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R32,Corentin Denolly,Nicolai Budkov Kjaer,29.4,70.6,3.4,1.42,Sackmann,2025-05-20 06:04:31 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R32,Dino Prizmic,Max Houkes,77.6,22.4,1.29,4.46,Sackmann,2025-05-20 06:04:31 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Johannus Monday,Philip Henning,100.0,0.0,1.0,,Sackmann,2025-05-20 06:04:31 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Alastair Gray,Lukas Pokorny,50.5,49.5,1.98,2.02,Sackmann,2025-05-20 06:04:31 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Clement Chidekh,Evgeny Karlovskiy,66.8,33.2,1.5,3.01,Sackmann,2025-05-20 06:04:31 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Charles Broom,Ricardas Berankis,14.1,85.9,7.09,1.16,Sackmann,2025-05-20 06:04:31 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Ilya Snitari,Petr Bar Biryukov,100.0,0.0,1.0,,Sackmann,2025-05-20 06:04:31 UTC
