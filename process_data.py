@@ -170,14 +170,6 @@ def load_and_prepare_betcenter_data(csv_filepath: str) -> Optional[pd.DataFrame]
         return df_out
     except Exception as e: print(f"  Error loading/preparing Betcenter data: {e}"); traceback.print_exc(); return None
 
-import pandas as pd
-import numpy as np
-from typing import Optional
-
-# Placeholder for the merge key columns, ensure this is defined in your actual code
-# Example: MERGE_KEY_COLS = ['DateKey', 'TournamentKey', 'Player1NameKey', 'Player2NameKey']
-MERGE_KEY_COLS = ['StandardizedDate', 'StandardizedTournament', 'Player1NameKey', 'Player2NameKey'] # Replace with your actual keys
-
 def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) -> pd.DataFrame:
     """Merges Sackmann and Betcenter dataframes based on standardized keys, handling swaps."""
     if sackmann_df is None or sackmann_df.empty:
@@ -188,13 +180,10 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
     # This is crucial because pd.merge on columns will reset the index for merged_df.
     original_sackmann_index = sackmann_df.index.copy()
 
-    placeholder_cols = ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 
-                        'p1_spread', 'p2_spread', 'rel_p1_spread', 'rel_p2_spread']
-
     if betcenter_df is None or betcenter_df.empty:
         print("Betcenter data is missing or empty. Adding placeholder columns to Sackmann data.")
         final_df = sackmann_df.copy()
-        for col in placeholder_cols:
+        for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread', 'rel_p1_spread', 'rel_p2_spread']:
             if col not in final_df.columns:
                 final_df[col] = np.nan
         return final_df
@@ -202,21 +191,16 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
         print("Attempting to merge Sackmann and Betcenter data on standardized keys...")
         try:
             if not all(key in sackmann_df.columns for key in MERGE_KEY_COLS):
-                print(f"Error: Sackmann DF missing one or more merge keys from {MERGE_KEY_COLS}. Sackmann columns: {sackmann_df.columns.tolist()}")
-                # Return a copy to avoid modifying original if it's passed around, with placeholders
-                final_df = sackmann_df.copy()
-                for col in placeholder_cols:
-                    if col not in final_df.columns:
-                        final_df[col] = np.nan
-                return final_df
+                print(f"Error: Sackmann DF missing keys ({MERGE_KEY_COLS}). Found: {sackmann_df.columns.tolist()}")
+                return sackmann_df.copy() # Return a copy to avoid modifying original if it's passed around
             if not all(key in betcenter_df.columns for key in MERGE_KEY_COLS):
-                print(f"Error: Betcenter DF missing one or more merge keys from {MERGE_KEY_COLS}. Betcenter columns: {betcenter_df.columns.tolist()}")
+                print(f"Error: Betcenter DF missing keys ({MERGE_KEY_COLS}). Found: {betcenter_df.columns.tolist()}")
                 # If Betcenter is faulty, return Sackmann with placeholders
                 final_df = sackmann_df.copy()
-                for col in placeholder_cols:
-                    if col not in final_df.columns:
-                        final_df[col] = np.nan
+                for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread', 'rel_p1_spread', 'rel_p2_spread']:
+                    if col not in final_df.columns: final_df[col] = np.nan
                 return final_df
+
 
             print("\n--- Debugging Merge ---")
             print(f"Sackmann DF Head (Keys - {len(sackmann_df)} rows, Index: {sackmann_df.index[:5].tolist()}...):")
@@ -226,19 +210,13 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
             print("-----------------------\n")
 
             # Prepare Betcenter data for merge (select necessary columns)
-            # Ensure all MERGE_KEY_COLS and the odds columns are present in betcenter_df before selection
-            betcenter_cols_to_select = [col for col in ['bc_p1_odds', 'bc_p2_odds'] + MERGE_KEY_COLS if col in betcenter_df.columns]
-            if not all(key in betcenter_cols_to_select for key in MERGE_KEY_COLS + ['bc_p1_odds', 'bc_p2_odds']):
-                 print(f"Warning: Betcenter DF is missing some expected columns for merge (bc_p1_odds, bc_p2_odds or merge keys). Available: {betcenter_df.columns.tolist()}")
-                 # Fallback if essential columns are missing from betcenter after key check
-                 final_df = sackmann_df.copy()
-                 for col_ph in placeholder_cols:
-                     if col_ph not in final_df.columns:
-                         final_df[col_ph] = np.nan
-                 return final_df
+            betcenter_merge_data = betcenter_df[['bc_p1_odds', 'bc_p2_odds'] + MERGE_KEY_COLS].copy()
 
-            betcenter_merge_data = betcenter_df[betcenter_cols_to_select].copy()
-
+            # IMPORTANT: When merging on columns, pandas creates a new default integer index for merged_df.
+            # We need to be mindful of this when trying to relate back to sackmann_df's original index.
+            # To preserve sackmann_df's original index through the merge, we can reset its index
+            # and add it as a column, then set it back after all merges.
+            # Or, more simply, understand that merged_df's rows correspond positionally.
 
             # Perform the initial merge (P1-P1, P2-P2)
             # The resulting merged_df will have a new RangeIndex [0, 1, ..., N-1]
@@ -247,7 +225,7 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
                 betcenter_merge_data,
                 on=MERGE_KEY_COLS,
                 how='left',
-                suffixes=('', '_bc_initial') # Suffix for any overlapping columns from betcenter_merge_data not in MERGE_KEY_COLS
+                suffixes=('', '_bc') # Suffix for any overlapping columns from betcenter_merge_data not in MERGE_KEY_COLS
             )
             print(f"  Left Merged (P1-P1, P2-P2) on keys. Shape: {merged_df.shape}")
             matches_found_count = merged_df['bc_p1_odds'].notna().sum()
@@ -262,18 +240,11 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
 
                 # Prepare Betcenter data for a swapped merge
                 betcenter_swapped = betcenter_merge_data.rename(columns={
-                    'Player1NameKey': 'Player2NameKey_temp', # Use temp to avoid immediate overwrite if Player2NameKey exists
-                    'Player2NameKey': 'Player1NameKey',
-                    'bc_p1_odds': 'temp_bc_p2_odds',
-                    'bc_p2_odds': 'temp_bc_p1_odds'
+                    'Player1NameKey': 'Player2NameKey', 'Player2NameKey': 'Player1NameKey',
+                    'bc_p1_odds': 'temp_bc_p2_odds', 'bc_p2_odds': 'temp_bc_p1_odds'
                 })
-                # Now rename Player2NameKey_temp to Player2NameKey
-                if 'Player2NameKey_temp' in betcenter_swapped.columns:
-                    betcenter_swapped.rename(columns={'Player2NameKey_temp': 'Player2NameKey'}, inplace=True)
-
                 betcenter_swapped.rename(columns={
-                    'temp_bc_p1_odds': 'bc_p1_odds',
-                    'temp_bc_p2_odds': 'bc_p2_odds'
+                    'temp_bc_p1_odds': 'bc_p1_odds', 'temp_bc_p2_odds': 'bc_p2_odds'
                 }, inplace=True)
 
                 # Get the subset of original sackmann_df that was unmatched.
@@ -281,20 +252,21 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
                 # This ensures we are working with the correct rows from sackmann_df and preserving its original index.
                 unmatched_sackmann_subset = sackmann_df[unmatched_mask_in_merged_df.values].copy()
                 
-                # Columns to drop if they exist in unmatched_sackmann_subset (they shouldn't from the initial merge's 'left' nature)
+                # Columns to drop if they exist in unmatched_sackmann_subset (they shouldn't from the initial merge)
                 # This is more of a safeguard.
-                cols_to_drop_if_exist_in_subset = ['bc_p1_odds', 'bc_p2_odds'] # Odds cols that might have been added if merge was different
-                existing_cols_to_drop = [col for col in cols_to_drop_if_exist_in_subset if col in unmatched_sackmann_subset.columns]
-                
+                cols_to_drop_if_exist = ['bc_p1_odds', 'bc_p2_odds']
+                cols_exist_in_subset = [col for col in cols_to_drop_if_exist if col in unmatched_sackmann_subset.columns]
+
+
                 # Perform the swapped merge.
                 # The left DataFrame (unmatched_sackmann_subset) has original sackmann_df indices.
                 # The result (swapped_merge_result) will also have these original sackmann_df indices.
                 swapped_merge_result = pd.merge(
-                    unmatched_sackmann_subset.drop(columns=existing_cols_to_drop, errors='ignore'),
+                    unmatched_sackmann_subset.drop(columns=cols_exist_in_subset, errors='ignore'),
                     betcenter_swapped,
                     on=MERGE_KEY_COLS,
                     how='left',
-                    suffixes=('', '_bc_swap') # Suffix for any new overlapping columns
+                    suffixes=('', '_swap') # Suffix for any new overlapping columns
                 )
 
                 # Identify rows that found a match in the swapped merge
@@ -315,21 +287,10 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
                     
                     # Filter out any -1s if a label wasn't found (should not happen if logic is correct)
                     valid_positions = positions_in_merged_df_to_update[positions_in_merged_df_to_update != -1]
-                    
-                    # Ensure we are selecting data from swapped_matches_found_df using its own index (which are sackmann_labels_of_swapped_matches)
-                    # and aligning it for assignment.
-                    # We need to ensure that the .values are taken from data indexed by sackmann_labels_of_swapped_matches[valid_positions_mask]
-                    # where valid_positions_mask corresponds to the valid original labels.
-                    
-                    # Get the actual labels that correspond to valid_positions
-                    valid_original_labels = original_sackmann_index[valid_positions]
-                    valid_swapped_data = swapped_matches_found_df.loc[valid_original_labels]
+                    valid_swapped_data = swapped_matches_found_df.loc[original_sackmann_index[valid_positions]]
+
 
                     if len(valid_positions) > 0:
-                        # Ensure columns exist in merged_df before assignment, though 'left' merge should create them as NaN
-                        if 'bc_p1_odds' not in merged_df.columns: merged_df['bc_p1_odds'] = np.nan
-                        if 'bc_p2_odds' not in merged_df.columns: merged_df['bc_p2_odds'] = np.nan
-                        
                         merged_df.loc[valid_positions, 'bc_p1_odds'] = valid_swapped_data['bc_p1_odds'].values
                         merged_df.loc[valid_positions, 'bc_p2_odds'] = valid_swapped_data['bc_p2_odds'].values
                         print(f"  Updated {len(valid_positions)} rows in main dataframe with swapped matches.")
@@ -344,7 +305,7 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
             traceback.print_exc()
             print("Fallback: Returning only Sackmann data due to merge error.")
             final_df = sackmann_df.copy()
-            for col in placeholder_cols:
+            for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread', 'rel_p1_spread', 'rel_p2_spread']:
                 if col not in final_df.columns:
                     final_df[col] = np.nan
         return final_df
