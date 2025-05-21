@@ -1,0 +1,13 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atphamburg,R16,Alexander Zverev,Alexandre Muller,82.6000,17.4000,,,1.2100,5.7500,,,,,,
+Atphamburg,R16,Giovanni Mpetshi Perricard,Felix Auger Aliassime,37.0000,63.0000,,,2.7000,1.5900,,,,,,
+Atphamburg,R16,Andrey Rublev,Justin Engel,97.7000,2.3000,,,1.0200,43.4800,,,,,,
+Atphamburg,R16,Luciano Darderi,Brandon Nakashima,51.1000,48.9000,,,1.9600,2.0400,,,,,,
+Atpgeneva,R16,Taylor Fritz,Quentin Halys,80.7000,19.3000,,,1.2400,5.1800,,,,,,
+Atpgeneva,R16,Arthur Rinderknech,Hubert Hurkacz,20.1000,79.9000,,,4.9800,1.2500,,,,,,
+Atpgeneva,R16,Karen Khachanov,Kei Nishikori,75.7000,24.3000,,,1.3200,4.1200,,,,,,
+Atpgeneva,R16,Sebastian Ofner,Nuno Borges,40.8000,59.2000,,,2.4500,1.6900,,,,,,
+Skopjechallenger,R16,Hugo Dellien,Mika Brunold,87.2000,12.8000,,,1.1500,7.8100,,,,,,
+Skopjechallenger,R16,Corentin Denolly,Daniel Michalski,45.6000,54.4000,,,2.1900,1.8400,,,,,,
+Skopjechallenger,R16,Jay Clarke,Pedro Cachin,27.4000,72.6000,,,3.6500,1.3800,,,,,,
+Skopjechallenger,R16,Joel Schwaerzler,Marat Sharipov,44.5000,55.5000,,,2.2500,1.8000,,,,,,

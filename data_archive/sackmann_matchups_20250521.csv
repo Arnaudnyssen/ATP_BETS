@@ -1,0 +1,20 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R16,Alexander Zverev,Alexandre Muller,82.6,17.4,1.21,5.75,Sackmann,2025-05-21 06:17:09 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R16,Giovanni Mpetshi Perricard,Felix Auger Aliassime,37.0,63.0,2.7,1.59,Sackmann,2025-05-21 06:17:09 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R16,Andrey Rublev,Justin Engel,97.7,2.3,1.02,43.48,Sackmann,2025-05-21 06:17:09 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,R16,Luciano Darderi,Brandon Nakashima,51.1,48.9,1.96,2.04,Sackmann,2025-05-21 06:17:09 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R16,Taylor Fritz,Quentin Halys,80.7,19.3,1.24,5.18,Sackmann,2025-05-21 06:17:09 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R16,Arthur Rinderknech,Hubert Hurkacz,20.1,79.9,4.98,1.25,Sackmann,2025-05-21 06:17:09 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R16,Karen Khachanov,Kei Nishikori,75.7,24.3,1.32,4.12,Sackmann,2025-05-21 06:17:09 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,R16,Sebastian Ofner,Nuno Borges,40.8,59.2,2.45,1.69,Sackmann,2025-05-21 06:17:09 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R16,Hugo Dellien,Mika Brunold,87.2,12.8,1.15,7.81,Sackmann,2025-05-21 06:17:09 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R16,Corentin Denolly,Daniel Michalski,45.6,54.4,2.19,1.84,Sackmann,2025-05-21 06:17:09 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R16,Jay Clarke,Pedro Cachin,27.4,72.6,3.65,1.38,Sackmann,2025-05-21 06:17:09 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,R16,Joel Schwaerzler,Marat Sharipov,44.5,55.5,2.25,1.8,Sackmann,2025-05-21 06:17:09 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Johannus Monday,Philip Henning,100.0,0.0,1.0,,Sackmann,2025-05-21 06:17:09 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Alastair Gray,Lukas Pokorny,0.0,100.0,,1.0,Sackmann,2025-05-21 06:17:09 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Clement Chidekh,Evgeny Karlovskiy,100.0,0.0,1.0,,Sackmann,2025-05-21 06:17:09 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Charles Broom,Ricardas Berankis,100.0,0.0,1.0,,Sackmann,2025-05-21 06:17:09 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Maximus Jones,Florent Bax,0.0,100.0,,1.0,Sackmann,2025-05-21 06:17:09 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Ilya Snitari,Petr Bar Biryukov,100.0,0.0,1.0,,Sackmann,2025-05-21 06:17:09 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,R32,Daniil Glinka,Fabrizio Andaloro,100.0,0.0,1.0,,Sackmann,2025-05-21 06:17:09 UTC
