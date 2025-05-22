@@ -1,0 +1,17 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,QF,Alexandre Muller,Felix Auger Aliassime,43.2,56.8,2.31,1.76,Sackmann,2025-05-22 06:18:14 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,QF,Andrey Rublev,Luciano Darderi,65.0,35.0,1.54,2.86,Sackmann,2025-05-22 06:18:14 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,QF,Tomas Martin Etcheverry,Jiri Lehecka,45.6,54.4,2.19,1.84,Sackmann,2025-05-22 06:18:14 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,QF,Flavio Cobolli,Roberto Bautista Agut,50.5,49.5,1.98,2.02,Sackmann,2025-05-22 06:18:14 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,QF,Taylor Fritz,Hubert Hurkacz,54.2,45.8,1.85,2.18,Sackmann,2025-05-22 06:18:14 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,QF,Karen Khachanov,Sebastian Ofner,71.6,28.4,1.4,3.52,Sackmann,2025-05-22 06:18:14 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,QF,Alexei Popyrin,Cameron Norrie,52.3,47.7,1.91,2.1,Sackmann,2025-05-22 06:18:14 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,QF,Matteo Arnaldi,Novak Djokovic,17.4,82.6,5.75,1.21,Sackmann,2025-05-22 06:18:14 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,QF,Hugo Dellien,Daniel Michalski,83.6,16.4,1.2,6.1,Sackmann,2025-05-22 06:18:14 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,QF,Jay Clarke,Joel Schwaerzler,50.3,49.7,1.99,2.01,Sackmann,2025-05-22 06:18:14 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,QF,Mili Poljicak,Michael Geerts,57.5,42.5,1.74,2.35,Sackmann,2025-05-22 06:18:14 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,QF,Nerman Fatic,Christoph Negritu,57.4,42.6,1.74,2.35,Sackmann,2025-05-22 06:18:14 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,QF,Lukas Pokorny,Charles Broom,66.2,33.8,1.51,2.96,Sackmann,2025-05-22 06:18:14 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,QF,Eliakim Coulibaly,Federico Cina,47.6,52.4,2.1,1.91,Sackmann,2025-05-22 06:18:14 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,QF,Daniil Glinka,Saba Purtseladze,63.2,36.8,1.58,2.72,Sackmann,2025-05-22 06:18:14 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,QF,Martin Damm,George Loffhagen,59.1,40.9,1.69,2.44,Sackmann,2025-05-22 06:18:14 UTC
