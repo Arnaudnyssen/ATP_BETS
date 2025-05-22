@@ -186,7 +186,7 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
         for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread', 'rel_p1_spread', 'rel_p2_spread']:
             if col not in final_df.columns:
                 final_df[col] = np.nan
-        return final_df
+        
     else:
         print("Attempting to merge Sackmann and Betcenter data on standardized keys...")
         try:
@@ -308,49 +308,49 @@ def merge_data(sackmann_df: pd.DataFrame, betcenter_df: Optional[pd.DataFrame]) 
             for col in ['bc_p1_odds', 'bc_p2_odds', 'bc_p1_prob', 'bc_p2_prob', 'p1_spread', 'p2_spread', 'rel_p1_spread', 'rel_p2_spread']:
                 if col not in final_df.columns:
                     final_df[col] = np.nan
+        
+
+        # --- Calculate Spread ---
+        print("Calculating odds spread (Betcenter - Sackmann)...")
+        final_df['Player1_Match_Odds'] = pd.to_numeric(final_df['Player1_Match_Odds'], errors='coerce')
+        final_df['Player2_Match_Odds'] = pd.to_numeric(final_df['Player2_Match_Odds'], errors='coerce')
+        final_df['bc_p1_odds'] = pd.to_numeric(final_df['bc_p1_odds'], errors='coerce')
+        final_df['bc_p2_odds'] = pd.to_numeric(final_df['bc_p2_odds'], errors='coerce')
+        final_df['p1_spread'] = np.where(final_df['bc_p1_odds'].notna() & final_df['Player1_Match_Odds'].notna(),
+                                    final_df['bc_p1_odds'] - final_df['Player1_Match_Odds'], np.nan)
+        final_df['p2_spread'] = np.where(final_df['bc_p2_odds'].notna() & final_df['Player2_Match_Odds'].notna(),
+                                    final_df['bc_p2_odds'] - final_df['Player2_Match_Odds'], np.nan)
+        print("Spread calculated.")
+
+        # --- Calculate Relative Spread ---
+        print("Calculating relative spread...")
+        # Calculate relative spread: spread / sackmann_odds
+        # Handle division by zero or NaN in sackmann_odds
+        final_df['rel_p1_spread'] = np.where(final_df['p1_spread'].notna() & final_df['Player1_Match_Odds'].notna() & (final_df['Player1_Match_Odds'] > 0),
+                                        final_df['p1_spread'] / final_df['Player1_Match_Odds'], np.nan)
+        final_df['rel_p2_spread'] = np.where(final_df['p2_spread'].notna() & final_df['Player2_Match_Odds'].notna() & (final_df['Player2_Match_Odds'] > 0),
+                                        final_df['p2_spread'] / final_df['Player2_Match_Odds'], np.nan)
+        print("Relative spread calculated.")
+
+        # --- Calculate Normalized Betcenter Probabilities ---
+        print("Calculating normalized Betcenter probabilities...")
+        raw_p1 = np.where(final_df['bc_p1_odds'] > 0, 1 / final_df['bc_p1_odds'], 0)
+        raw_p2 = np.where(final_df['bc_p2_odds'] > 0, 1 / final_df['bc_p2_odds'], 0)
+        total_raw_prob = raw_p1 + raw_p2
+        final_df['bc_p1_prob'] = np.where(total_raw_prob > 0, (raw_p1 / total_raw_prob) * 100, np.nan)
+        final_df['bc_p2_prob'] = np.where(total_raw_prob > 0, (raw_p2 / total_raw_prob) * 100, np.nan)
+        print("Betcenter probabilities calculated.")
+
+        # Drop the key columns before returning/saving
+        final_df.drop(columns=[col for col in MERGE_KEY_COLS if col in final_df.columns], errors='ignore', inplace=True)
+
+        # Reorder columns for final output
+        final_df = final_df[[col for col in FINAL_COLS if col in final_df.columns]]
+
+        print(f"Final processed data shape: {final_df.shape}")
+        print("Sample of final processed data (Head):")
+        print(final_df[['TournamentName', 'Player1Name', 'Player2Name', 'p1_spread', 'rel_p1_spread']].head())
         return final_df
-
-    # --- Calculate Spread ---
-    print("Calculating odds spread (Betcenter - Sackmann)...")
-    final_df['Player1_Match_Odds'] = pd.to_numeric(final_df['Player1_Match_Odds'], errors='coerce')
-    final_df['Player2_Match_Odds'] = pd.to_numeric(final_df['Player2_Match_Odds'], errors='coerce')
-    final_df['bc_p1_odds'] = pd.to_numeric(final_df['bc_p1_odds'], errors='coerce')
-    final_df['bc_p2_odds'] = pd.to_numeric(final_df['bc_p2_odds'], errors='coerce')
-    final_df['p1_spread'] = np.where(final_df['bc_p1_odds'].notna() & final_df['Player1_Match_Odds'].notna(),
-                                   final_df['bc_p1_odds'] - final_df['Player1_Match_Odds'], np.nan)
-    final_df['p2_spread'] = np.where(final_df['bc_p2_odds'].notna() & final_df['Player2_Match_Odds'].notna(),
-                                   final_df['bc_p2_odds'] - final_df['Player2_Match_Odds'], np.nan)
-    print("Spread calculated.")
-
-    # --- Calculate Relative Spread ---
-    print("Calculating relative spread...")
-    # Calculate relative spread: spread / sackmann_odds
-    # Handle division by zero or NaN in sackmann_odds
-    final_df['rel_p1_spread'] = np.where(final_df['p1_spread'].notna() & final_df['Player1_Match_Odds'].notna() & (final_df['Player1_Match_Odds'] > 0),
-                                       final_df['p1_spread'] / final_df['Player1_Match_Odds'], np.nan)
-    final_df['rel_p2_spread'] = np.where(final_df['p2_spread'].notna() & final_df['Player2_Match_Odds'].notna() & (final_df['Player2_Match_Odds'] > 0),
-                                       final_df['p2_spread'] / final_df['Player2_Match_Odds'], np.nan)
-    print("Relative spread calculated.")
-
-    # --- Calculate Normalized Betcenter Probabilities ---
-    print("Calculating normalized Betcenter probabilities...")
-    raw_p1 = np.where(final_df['bc_p1_odds'] > 0, 1 / final_df['bc_p1_odds'], 0)
-    raw_p2 = np.where(final_df['bc_p2_odds'] > 0, 1 / final_df['bc_p2_odds'], 0)
-    total_raw_prob = raw_p1 + raw_p2
-    final_df['bc_p1_prob'] = np.where(total_raw_prob > 0, (raw_p1 / total_raw_prob) * 100, np.nan)
-    final_df['bc_p2_prob'] = np.where(total_raw_prob > 0, (raw_p2 / total_raw_prob) * 100, np.nan)
-    print("Betcenter probabilities calculated.")
-
-    # Drop the key columns before returning/saving
-    final_df.drop(columns=[col for col in MERGE_KEY_COLS if col in final_df.columns], errors='ignore', inplace=True)
-
-    # Reorder columns for final output
-    final_df = final_df[[col for col in FINAL_COLS if col in final_df.columns]]
-
-    print(f"Final processed data shape: {final_df.shape}")
-    print("Sample of final processed data (Head):")
-    print(final_df[['TournamentName', 'Player1Name', 'Player2Name', 'p1_spread', 'rel_p1_spread']].head())
-    return final_df
 
 # --- Main Execution Logic ---
 # (Main execution block remains the same)
@@ -384,7 +384,7 @@ if __name__ == "__main__":
     if final_processed_data is not None and not final_processed_data.empty:
         print("\nSaving final processed data...")
         today_date_str = datetime.now().strftime(DATE_FORMAT)
-        output_filename = "today.csv"
+        output_filename = f"{PROCESSED_OUTPUT_FILENAME_BASE}_{today_date_str}.csv"
         output_path = os.path.join(data_dir_abs, output_filename)
         try:
             # Format floats: Use more precision for relative spread
