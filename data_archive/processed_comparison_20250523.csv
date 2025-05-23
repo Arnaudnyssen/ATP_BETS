@@ -1,0 +1,9 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atphamburg,SF,Felix Auger Aliassime,Andrey Rublev,42.4000,57.6000,,,2.3600,1.7400,,,,,,
+Atphamburg,SF,Tomas Martin Etcheverry,Flavio Cobolli,46.8000,53.2000,,,2.1400,1.8800,,,,,,
+Atpgeneva,SF,Hubert Hurkacz,Sebastian Ofner,74.1000,25.9000,,,1.3500,3.8600,,,,,,
+Atpgeneva,SF,Cameron Norrie,Novak Djokovic,14.1000,85.9000,,,7.0900,1.1600,,,,,,
+Skopjechallenger,SF,Hugo Dellien,Jay Clarke,83.4000,16.6000,,,1.2000,6.0200,,,,,,
+Skopjechallenger,SF,Mili Poljicak,Nerman Fatic,56.4000,43.6000,,,1.7700,2.2900,,,,,,
+Tbilisichallenger,SF,Charles Broom,Federico Cina,16.9000,83.1000,,,5.9200,1.2000,,,,,,
+Tbilisichallenger,SF,Saba Purtseladze,Martin Damm,35.0000,65.0000,,,2.8600,1.5400,,,,,,
