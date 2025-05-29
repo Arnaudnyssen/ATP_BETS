@@ -1,0 +1,13 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Littlerockchallenger,https://www.tennisabstract.com/current/2025LittleRockChallenger.html,R16,Patrick Kypson,Tyler Zink,70.6,29.4,1.42,3.4,Sackmann,2025-05-29 06:17:14 UTC
+Littlerockchallenger,https://www.tennisabstract.com/current/2025LittleRockChallenger.html,R16,Rio Noguchi,Paul Jubb,61.0,39.0,1.64,2.56,Sackmann,2025-05-29 06:17:14 UTC
+Littlerockchallenger,https://www.tennisabstract.com/current/2025LittleRockChallenger.html,R16,Alexis Galarneau,Naoki Nakagawa,86.4,13.6,1.16,7.35,Sackmann,2025-05-29 06:17:14 UTC
+Littlerockchallenger,https://www.tennisabstract.com/current/2025LittleRockChallenger.html,R16,Andres Andrade,Stefan Kozlov,47.5,52.5,2.11,1.9,Sackmann,2025-05-29 06:17:14 UTC
+Vicenzachallenger,https://www.tennisabstract.com/current/2025VicenzaChallenger.html,R16,Chun Hsin Tseng,Federico Bondioli,86.7,13.3,1.15,7.52,Sackmann,2025-05-29 06:17:14 UTC
+Vicenzachallenger,https://www.tennisabstract.com/current/2025VicenzaChallenger.html,R16,Joel Schwaerzler,Marco Cecchinato,37.5,62.5,2.67,1.6,Sackmann,2025-05-29 06:17:14 UTC
+Vicenzachallenger,https://www.tennisabstract.com/current/2025VicenzaChallenger.html,R16,Chris Rodesch,Martin Klizan,58.7,41.3,1.7,2.42,Sackmann,2025-05-29 06:17:14 UTC
+Vicenzachallenger,https://www.tennisabstract.com/current/2025VicenzaChallenger.html,R16,Facundo Mena,Yu Hsiou Hsu,61.7,38.3,1.62,2.61,Sackmann,2025-05-29 06:17:14 UTC
+Chisinauchallenger,https://www.tennisabstract.com/current/2025ChisinauChallenger.html,R16,Ilia Simakin,Philip Henning,69.7,30.3,1.43,3.3,Sackmann,2025-05-29 06:17:14 UTC
+Chisinauchallenger,https://www.tennisabstract.com/current/2025ChisinauChallenger.html,R16,Cem Ilkel,Petr Bar Biryukov,64.0,36.0,1.56,2.78,Sackmann,2025-05-29 06:17:14 UTC
+Chisinauchallenger,https://www.tennisabstract.com/current/2025ChisinauChallenger.html,R16,Denis Yevseyev,Kaichi Uchida,70.8,29.2,1.41,3.42,Sackmann,2025-05-29 06:17:14 UTC
+Chisinauchallenger,https://www.tennisabstract.com/current/2025ChisinauChallenger.html,R16,Masamichi Imamura,Giles Hussey,45.5,54.5,2.2,1.83,Sackmann,2025-05-29 06:17:14 UTC
