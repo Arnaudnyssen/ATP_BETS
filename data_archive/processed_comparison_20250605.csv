@@ -1,0 +1,13 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Birminghamchallenger,R16,Martin Landaluce,Lloyd Harris,28.7000,71.3000,38.1443,61.8557,3.4800,1.4000,2.4000,1.4800,-1.0800,0.0800,-0.3103,0.0571
+Birminghamchallenger,R16,Colton Smith,Nicolas Moreno De Alboran,63.5000,36.5000,55.5256,44.4744,1.5700,2.7400,1.6500,2.0600,0.0800,-0.6800,0.0510,-0.2482
+Heilbronnchallenger,R16,Daniel Rincon,Facundo Mena,63.2000,36.8000,60.2094,39.7906,1.5800,2.7200,1.5200,2.3000,-0.0600,-0.4200,-0.0380,-0.1544
+Heilbronnchallenger,R16,Dominic Stricker,Marko Topo,66.9000,33.1000,52.3161,47.6839,1.4900,3.0200,1.7500,1.9200,0.2600,-1.1000,0.1745,-0.3642
+Heilbronnchallenger,R16,Guy Den Ouden,Gauthier Onclin,67.5000,32.5000,59.1029,40.8971,1.4800,3.0800,1.5500,2.2400,0.0700,-0.8400,0.0473,-0.2727
+Heilbronnchallenger,R16,Diego Dedura Palomero,Emilio Nava,13.8000,86.2000,21.0526,78.9474,7.2500,1.1600,4.3500,1.1600,-2.9000,0.0000,-0.4000,0.0000
+Prostejovchallenger,QF,Vitaliy Sachko,Alexander Shevchenko,35.7000,64.3000,,,2.8000,1.5600,,,,,,
+Prostejovchallenger,QF,Hugo Dellien,Dimitar Kuzmanov,71.1000,28.9000,61.8557,38.1443,1.4100,3.4600,1.4800,2.4000,0.0700,-1.0600,0.0496,-0.3064
+Prostejovchallenger,QF,Chun Hsin Tseng,Jurij Rodionov,66.8000,33.2000,65.4321,34.5679,1.5000,3.0100,1.4000,2.6500,-0.1000,-0.3600,-0.0667,-0.1196
+Prostejovchallenger,QF,Zsombor Piros,Alejandro Tabilo,42.9000,57.1000,49.7268,50.2732,2.3300,1.7500,1.8400,1.8200,-0.4900,0.0700,-0.2103,0.0400
+Tylerchallenger,R16,Antoine Escoffier,Yibing Wu,17.7000,82.3000,25.5717,74.4283,5.6500,1.2200,3.5800,1.2300,-2.0700,0.0100,-0.3664,0.0082
+Tylerchallenger,R16,Alex Rybakov,Nicolas Mejia,46.6000,53.4000,43.1635,56.8365,2.1500,1.8700,2.1200,1.6100,-0.0300,-0.2600,-0.0140,-0.1390
