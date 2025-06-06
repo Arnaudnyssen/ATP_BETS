@@ -1,0 +1,16 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Birminghamchallenger,https://www.tennisabstract.com/current/2025BirminghamChallenger.html,R16,Martin Landaluce,Lloyd Harris,0.0,100.0,,1.0,Sackmann,2025-06-06 06:18:21 UTC
+Birminghamchallenger,https://www.tennisabstract.com/current/2025BirminghamChallenger.html,R16,Colton Smith,Nicolas Moreno De Alboran,63.5,36.5,1.57,2.74,Sackmann,2025-06-06 06:18:21 UTC
+Birminghamchallenger,https://www.tennisabstract.com/current/2025BirminghamChallenger.html,R16,Rinky Hijikata,Yosuke Watanuki,100.0,0.0,1.0,,Sackmann,2025-06-06 06:18:21 UTC
+Birminghamchallenger,https://www.tennisabstract.com/current/2025BirminghamChallenger.html,R16,Li Tu,Alex Bolt,0.0,100.0,,1.0,Sackmann,2025-06-06 06:18:21 UTC
+Birminghamchallenger,https://www.tennisabstract.com/current/2025BirminghamChallenger.html,R16,Coleman Wong,Marc Andrea Huesler,100.0,0.0,1.0,,Sackmann,2025-06-06 06:18:21 UTC
+Heilbronnchallenger,https://www.tennisabstract.com/current/2025HeilbronnChallenger.html,QF,Facundo Mena,Marko Topo,50.5,49.5,1.98,2.02,Sackmann,2025-06-06 06:18:21 UTC
+Heilbronnchallenger,https://www.tennisabstract.com/current/2025HeilbronnChallenger.html,QF,Guy Den Ouden,Emilio Nava,45.6,54.4,2.19,1.84,Sackmann,2025-06-06 06:18:21 UTC
+Heilbronnchallenger,https://www.tennisabstract.com/current/2025HeilbronnChallenger.html,QF,Rodrigo Pacheco Mendez,Marco Trungelliti,22.7,77.3,4.41,1.29,Sackmann,2025-06-06 06:18:21 UTC
+Heilbronnchallenger,https://www.tennisabstract.com/current/2025HeilbronnChallenger.html,QF,Francesco Passaro,Ignacio Buse,65.7,34.3,1.52,2.92,Sackmann,2025-06-06 06:18:21 UTC
+Prostejovchallenger,https://www.tennisabstract.com/current/2025ProstejovChallenger.html,SF,Vitaliy Sachko,Hugo Dellien,32.8,67.2,3.05,1.49,Sackmann,2025-06-06 06:18:21 UTC
+Prostejovchallenger,https://www.tennisabstract.com/current/2025ProstejovChallenger.html,SF,Chun Hsin Tseng,Alejandro Tabilo,31.2,68.8,3.21,1.45,Sackmann,2025-06-06 06:18:21 UTC
+Tylerchallenger,https://www.tennisabstract.com/current/2025TylerChallenger.html,QF,Karue Sell,Andres Martin,46.5,53.5,2.15,1.87,Sackmann,2025-06-06 06:18:21 UTC
+Tylerchallenger,https://www.tennisabstract.com/current/2025TylerChallenger.html,QF,Yibing Wu,Alex Rybakov,86.8,13.2,1.15,7.58,Sackmann,2025-06-06 06:18:21 UTC
+Tylerchallenger,https://www.tennisabstract.com/current/2025TylerChallenger.html,QF,Rio Noguchi,Yi Zhou,78.6,21.4,1.27,4.67,Sackmann,2025-06-06 06:18:21 UTC
+Tylerchallenger,https://www.tennisabstract.com/current/2025TylerChallenger.html,QF,Patrick Kypson,Trevor Svajda,63.6,36.4,1.57,2.75,Sackmann,2025-06-06 06:18:21 UTC
