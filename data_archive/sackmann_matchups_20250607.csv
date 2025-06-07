@@ -1,0 +1,9 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Birminghamchallenger,https://www.tennisabstract.com/current/2025BirminghamChallenger.html,SF,Colton Smith,Rinky Hijikata,53.2,46.8,1.88,2.14,Sackmann,2025-06-07 06:16:44 UTC
+Birminghamchallenger,https://www.tennisabstract.com/current/2025BirminghamChallenger.html,SF,Otto Virtanen,Brandon Holt,55.6,44.4,1.8,2.25,Sackmann,2025-06-07 06:16:44 UTC
+Heilbronnchallenger,https://www.tennisabstract.com/current/2025HeilbronnChallenger.html,QF,Facundo Mena,Marko Topo,50.5,49.5,1.98,2.02,Sackmann,2025-06-07 06:16:44 UTC
+Heilbronnchallenger,https://www.tennisabstract.com/current/2025HeilbronnChallenger.html,QF,Guy Den Ouden,Emilio Nava,45.6,54.4,2.19,1.84,Sackmann,2025-06-07 06:16:44 UTC
+Heilbronnchallenger,https://www.tennisabstract.com/current/2025HeilbronnChallenger.html,QF,Rodrigo Pacheco Mendez,Marco Trungelliti,0.0,100.0,,1.0,Sackmann,2025-06-07 06:16:44 UTC
+Heilbronnchallenger,https://www.tennisabstract.com/current/2025HeilbronnChallenger.html,QF,Francesco Passaro,Ignacio Buse,0.0,100.0,,1.0,Sackmann,2025-06-07 06:16:44 UTC
+Tylerchallenger,https://www.tennisabstract.com/current/2025TylerChallenger.html,SF,Karue Sell,Yibing Wu,16.4,83.6,6.1,1.2,Sackmann,2025-06-07 06:16:44 UTC
+Tylerchallenger,https://www.tennisabstract.com/current/2025TylerChallenger.html,SF,Yi Zhou,Patrick Kypson,100.0,0.0,1.0,,Sackmann,2025-06-07 06:16:44 UTC
