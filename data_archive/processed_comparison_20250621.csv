@@ -1,0 +1,5 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atplondon,SF,Carlos Alcaraz,Roberto Bautista Agut,90.1000,9.9000,,,1.1100,10.1000,,,,,,
+Atplondon,SF,Jiri Lehecka,Jack Draper,28.1000,71.9000,,,3.5600,1.3900,,,,,,
+Atphalle,SF,Alexander Bublik,Karen Khachanov,59.6000,40.4000,,,1.6800,2.4800,,,,,,
+Atphalle,SF,Daniil Medvedev,Alexander Zverev,46.5000,53.5000,48.0000,52.0000,2.1500,1.8700,1.9500,1.8000,-0.2000,-0.0700,-0.0930,-0.0374
