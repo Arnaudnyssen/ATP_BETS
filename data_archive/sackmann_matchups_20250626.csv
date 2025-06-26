@@ -1,0 +1,19 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpmallorca,https://www.tennisabstract.com/current/2025ATPMallorca.html,QF,Learner Tien,Corentin Moutet,31.7,68.3,3.15,1.46,Sackmann,2025-06-26 06:19:00 UTC
+Atpmallorca,https://www.tennisabstract.com/current/2025ATPMallorca.html,QF,Alex Michelsen,Roberto Bautista Agut,44.4,55.6,2.25,1.8,Sackmann,2025-06-26 06:19:00 UTC
+Atpmallorca,https://www.tennisabstract.com/current/2025ATPMallorca.html,QF,Gabriel Diallo,Tallon Griekspoor,42.3,57.7,2.36,1.73,Sackmann,2025-06-26 06:19:00 UTC
+Atpmallorca,https://www.tennisabstract.com/current/2025ATPMallorca.html,QF,Hamad Medjedovic,Felix Auger Aliassime,33.6,66.4,2.98,1.51,Sackmann,2025-06-26 06:19:00 UTC
+Atpeastbourne,https://www.tennisabstract.com/current/2025ATPEastbourne.html,R16,Taylor Fritz,Joao Fonseca,82.7,17.3,1.21,5.78,Sackmann,2025-06-26 06:19:00 UTC
+Atpeastbourne,https://www.tennisabstract.com/current/2025ATPEastbourne.html,R16,Marcos Giron,Jacob Fearnley,100.0,0.0,1.0,,Sackmann,2025-06-26 06:19:00 UTC
+Atpeastbourne,https://www.tennisabstract.com/current/2025ATPEastbourne.html,R16,Jakub Mensik,Reilly Opelka,100.0,0.0,1.0,,Sackmann,2025-06-26 06:19:00 UTC
+Atpeastbourne,https://www.tennisabstract.com/current/2025ATPEastbourne.html,R16,James Duckworth,Alejandro Davidovich Fokina,0.0,100.0,,1.0,Sackmann,2025-06-26 06:19:00 UTC
+Atpeastbourne,https://www.tennisabstract.com/current/2025ATPEastbourne.html,R16,Ugo Humbert,Nuno Borges,100.0,0.0,1.0,,Sackmann,2025-06-26 06:19:00 UTC
+Atpeastbourne,https://www.tennisabstract.com/current/2025ATPEastbourne.html,QF,Jenson Brooksby,Daniel Evans,55.8,44.2,1.79,2.26,Sackmann,2025-06-26 06:19:00 UTC
+Milanchallenger,https://www.tennisabstract.com/current/2025MilanChallenger.html,QF,Dino Prizmic,Christoph Negritu,87.4,12.6,1.14,7.94,Sackmann,2025-06-26 06:19:00 UTC
+Milanchallenger,https://www.tennisabstract.com/current/2025MilanChallenger.html,QF,Rafael Jodar,Arthur Gea,31.3,68.7,3.19,1.46,Sackmann,2025-06-26 06:19:00 UTC
+Milanchallenger,https://www.tennisabstract.com/current/2025MilanChallenger.html,QF,Marco Cecchinato,Max Houkes,61.6,38.4,1.62,2.6,Sackmann,2025-06-26 06:19:00 UTC
+Milanchallenger,https://www.tennisabstract.com/current/2025MilanChallenger.html,QF,Jacopo Vasami,Luka Mikrut,34.7,65.3,2.88,1.53,Sackmann,2025-06-26 06:19:00 UTC
+Limachallenger,https://www.tennisabstract.com/current/2025LimaChallenger.html,QF,Nicolas Mejia,Juan Carlos Prado Angelo,70.8,29.2,1.41,3.42,Sackmann,2025-06-26 06:19:00 UTC
+Limachallenger,https://www.tennisabstract.com/current/2025LimaChallenger.html,QF,Pedro Boscardin Dias,Alex Barrena,19.4,80.6,5.15,1.24,Sackmann,2025-06-26 06:19:00 UTC
+Limachallenger,https://www.tennisabstract.com/current/2025LimaChallenger.html,QF,Gonzalo Bueno,Matheus Pucinelli De Almeida,35.4,64.6,2.82,1.55,Sackmann,2025-06-26 06:19:00 UTC
+Limachallenger,https://www.tennisabstract.com/current/2025LimaChallenger.html,QF,Genaro Alberto Olivieri,Dali Blanch,70.6,29.4,1.42,3.4,Sackmann,2025-06-26 06:19:00 UTC
