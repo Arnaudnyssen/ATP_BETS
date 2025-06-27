@@ -1,0 +1,9 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpmallorca,https://www.tennisabstract.com/current/2025ATPMallorca.html,SF,Corentin Moutet,Alex Michelsen,46.6,53.4,2.15,1.87,Sackmann,2025-06-27 06:18:10 UTC
+Atpmallorca,https://www.tennisabstract.com/current/2025ATPMallorca.html,SF,Tallon Griekspoor,Felix Auger Aliassime,59.0,41.0,1.69,2.44,Sackmann,2025-06-27 06:18:10 UTC
+Atpeastbourne,https://www.tennisabstract.com/current/2025ATPEastbourne.html,SF,Taylor Fritz,Alejandro Davidovich Fokina,78.7,21.3,1.27,4.69,Sackmann,2025-06-27 06:18:10 UTC
+Atpeastbourne,https://www.tennisabstract.com/current/2025ATPEastbourne.html,SF,Ugo Humbert,Jenson Brooksby,63.1,36.9,1.58,2.71,Sackmann,2025-06-27 06:18:10 UTC
+Milanchallenger,https://www.tennisabstract.com/current/2025MilanChallenger.html,SF,Dino Prizmic,Rafael Jodar,91.4,8.6,1.09,11.63,Sackmann,2025-06-27 06:18:10 UTC
+Milanchallenger,https://www.tennisabstract.com/current/2025MilanChallenger.html,SF,Marco Cecchinato,Jacopo Vasami,71.3,28.7,1.4,3.48,Sackmann,2025-06-27 06:18:10 UTC
+Limachallenger,https://www.tennisabstract.com/current/2025LimaChallenger.html,SF,Juan Carlos Prado Angelo,Pedro Boscardin Dias,54.0,46.0,1.85,2.17,Sackmann,2025-06-27 06:18:10 UTC
+Limachallenger,https://www.tennisabstract.com/current/2025LimaChallenger.html,SF,Gonzalo Bueno,Dali Blanch,63.5,36.5,1.57,2.74,Sackmann,2025-06-27 06:18:10 UTC
