@@ -1,0 +1,37 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpkitzbuhel,https://www.tennisabstract.com/current/2025ATPKitzbuhel.html,R16,Alexander Bublik,Thiago Agustin Tirante,81.7,18.3,1.22,5.46,Sackmann,2025-07-23 06:20:17 UTC
+Atpkitzbuhel,https://www.tennisabstract.com/current/2025ATPKitzbuhel.html,R16,Alexander Shevchenko,Marton Fucsovics,33.0,67.0,3.03,1.49,Sackmann,2025-07-23 06:20:17 UTC
+Atpkitzbuhel,https://www.tennisabstract.com/current/2025ATPKitzbuhel.html,R16,Roberto Bautista Agut,Thiago Seyboth Wild,73.7,26.3,1.36,3.8,Sackmann,2025-07-23 06:20:17 UTC
+Atpkitzbuhel,https://www.tennisabstract.com/current/2025ATPKitzbuhel.html,R16,Botic Van De Zandschulp,Filip Misolic,31.2,68.8,3.21,1.45,Sackmann,2025-07-23 06:20:17 UTC
+Atpumag,https://www.tennisabstract.com/current/2025ATPUmag.html,R16,Francisco Cerundolo,Carlos Taberner,80.9,19.1,1.24,5.24,Sackmann,2025-07-23 06:20:17 UTC
+Atpumag,https://www.tennisabstract.com/current/2025ATPUmag.html,R16,Jesper De Jong,Mariano Navone,37.4,62.6,2.67,1.6,Sackmann,2025-07-23 06:20:17 UTC
+Atpumag,https://www.tennisabstract.com/current/2025ATPUmag.html,R16,Damir Dzumhur,Stan Wawrinka,55.9,44.1,1.79,2.27,Sackmann,2025-07-23 06:20:17 UTC
+Atpumag,https://www.tennisabstract.com/current/2025ATPUmag.html,R16,Titouan Droguet,Vit Kopriva,46.9,53.1,2.13,1.88,Sackmann,2025-07-23 06:20:17 UTC
+Atpwashington,https://www.tennisabstract.com/current/2025ATPWashington.html,R32,Taylor Fritz,Aleksandar Vukic,89.0,11.0,1.12,9.09,Sackmann,2025-07-23 06:20:17 UTC
+Atpwashington,https://www.tennisabstract.com/current/2025ATPWashington.html,R32,Matteo Arnaldi,Lorenzo Sonego,57.3,42.7,1.75,2.34,Sackmann,2025-07-23 06:20:17 UTC
+Atpwashington,https://www.tennisabstract.com/current/2025ATPWashington.html,R32,Alejandro Davidovich Fokina,Jaume Munar,66.9,33.1,1.49,3.02,Sackmann,2025-07-23 06:20:17 UTC
+Atpwashington,https://www.tennisabstract.com/current/2025ATPWashington.html,R32,Learner Tien,Andrey Rublev,33.6,66.4,2.98,1.51,Sackmann,2025-07-23 06:20:17 UTC
+Atpwashington,https://www.tennisabstract.com/current/2025ATPWashington.html,R32,Daniel Evans,Alexandre Muller,100.0,0.0,1.0,,Sackmann,2025-07-23 06:20:17 UTC
+Atpwashington,https://www.tennisabstract.com/current/2025ATPWashington.html,R32,Ethan Quinn,Cameron Norrie,0.0,100.0,,1.0,Sackmann,2025-07-23 06:20:17 UTC
+Zugchallenger,https://www.tennisabstract.com/current/2025ZugChallenger.html,R16,Zsombor Piros,Nerman Fatic,67.4,32.6,1.48,3.07,Sackmann,2025-07-23 06:20:17 UTC
+Zugchallenger,https://www.tennisabstract.com/current/2025ZugChallenger.html,R16,Geoffrey Blancaneaux,Stefanos Sakellaridis,57.4,42.6,1.74,2.35,Sackmann,2025-07-23 06:20:17 UTC
+Zugchallenger,https://www.tennisabstract.com/current/2025ZugChallenger.html,R16,Harold Mayot,Elias Ymer,47.2,52.8,2.12,1.89,Sackmann,2025-07-23 06:20:17 UTC
+Zugchallenger,https://www.tennisabstract.com/current/2025ZugChallenger.html,R16,Andrea Collarini,Mika Brunold,60.1,39.9,1.66,2.51,Sackmann,2025-07-23 06:20:17 UTC
+Bloomfieldhillschallenger,https://www.tennisabstract.com/current/2025BloomfieldHillsChallenger.html,R16,Yu Hsiou Hsu,Aidan Mayo,61.9,38.1,1.62,2.62,Sackmann,2025-07-23 06:20:17 UTC
+Bloomfieldhillschallenger,https://www.tennisabstract.com/current/2025BloomfieldHillsChallenger.html,R16,Tung Lin Wu,Li Tu,31.9,68.1,3.13,1.47,Sackmann,2025-07-23 06:20:17 UTC
+Bloomfieldhillschallenger,https://www.tennisabstract.com/current/2025BloomfieldHillsChallenger.html,R16,Alexander Blockx,Arthur Fery,66.9,33.1,1.49,3.02,Sackmann,2025-07-23 06:20:17 UTC
+Bloomfieldhillschallenger,https://www.tennisabstract.com/current/2025BloomfieldHillsChallenger.html,R16,Mark Lajal,August Holmgren,48.1,51.9,2.08,1.93,Sackmann,2025-07-23 06:20:17 UTC
+Segoviachallenger,https://www.tennisabstract.com/current/2025SegoviaChallenger.html,R16,Aryan Shah,Saba Purtseladze,54.0,46.0,1.85,2.17,Sackmann,2025-07-23 06:20:17 UTC
+Segoviachallenger,https://www.tennisabstract.com/current/2025SegoviaChallenger.html,R16,Robin Bertrand,Oliver Crawford,27.6,72.4,3.62,1.38,Sackmann,2025-07-23 06:20:17 UTC
+Segoviachallenger,https://www.tennisabstract.com/current/2025SegoviaChallenger.html,R16,Aziz Dougaz,Nicolas Alvarez Varona,55.8,44.2,1.79,2.26,Sackmann,2025-07-23 06:20:17 UTC
+Segoviachallenger,https://www.tennisabstract.com/current/2025SegoviaChallenger.html,R16,Inaki Montes De La Torre,Johannus Monday,48.5,51.5,2.06,1.94,Sackmann,2025-07-23 06:20:17 UTC
+Segoviachallenger,https://www.tennisabstract.com/current/2025SegoviaChallenger.html,R16,Adria Soriano Barrera,Matteo Martineau,46.2,53.3,2.16,1.88,Sackmann,2025-07-23 06:20:17 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,R32,Jay Clarke,Sumit Nagal,0.0,100.0,,1.0,Sackmann,2025-07-23 06:20:17 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,R32,Vesa Ahti,Max Houkes,0.0,100.0,,1.0,Sackmann,2025-07-23 06:20:17 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,R32,Nicolas Kicker,Michael Geerts,100.0,0.0,1.0,,Sackmann,2025-07-23 06:20:17 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,R32,Patrick Zahraj,Viktor Durasovic,0.0,100.0,,1.0,Sackmann,2025-07-23 06:20:17 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,R32,Gilles Arnaud Bailly,Timofey Skatov,100.0,0.0,1.0,,Sackmann,2025-07-23 06:20:17 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,R32,Ivan Gakhov,Daniel Michalski,100.0,0.0,1.0,,Sackmann,2025-07-23 06:20:17 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,R32,Hynek Barton,Christoph Negritu,100.0,0.0,1.0,,Sackmann,2025-07-23 06:20:17 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,R32,Eero Vasa,Nicolai Budkov Kjaer,0.0,100.0,,1.0,Sackmann,2025-07-23 06:20:17 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,R32,Alex Barrena,Mathys Erhard,0.0,100.0,,1.0,Sackmann,2025-07-23 06:20:17 UTC
