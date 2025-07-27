@@ -968,3 +968,6 @@ BetDate,Strategy,Tournament,Player1,Player2,BetOnPlayer,BetType,TriggerValue,Bet
 2025-07-19,S3_Kelly,Granbychallenger,Liam Draxl,Alexander Blockx,P1,KellyEdge>0%,0.0014,0.0004,1.9000,52.7000,48.6486,Result Missing,
 2025-07-19,S3_Kelly,Bunschotenchallenger,Jan Choinski,Guy Den Ouden,P2,KellyEdge>0%,0.0216,0.0054,1.6600,61.1000,55.7333,Result Missing,
 2025-07-19,S3_Kelly,Pozoblancochallenger,Tiago Pereira,Fajing Sun,P2,KellyEdge>0%,0.5830,0.1458,2.2300,77.0000,41.4698,Result Missing,
+2025-07-27,S1_ProbDiff,Zugchallenger,Jakub Paul,Lukas Klein,P2,ProbDiff>5.0%,19.9500,1.0000,1.3400,89.0000,69.0531,Result Missing,
+2025-07-27,S2_MaxSpread,Zugchallenger,Jakub Paul,Lukas Klein,P2,MaxSpread,0.2200,1.0000,1.3400,89.0000,69.0531,Result Missing,
+2025-07-27,S3_Kelly,Zugchallenger,Jakub Paul,Lukas Klein,P2,KellyEdge>0%,0.5665,0.1416,1.3400,89.0000,69.0531,Result Missing,
