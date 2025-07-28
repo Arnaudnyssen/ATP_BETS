@@ -1,0 +1,33 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Adam Walton,Benjamin Bonzi,100.0,0.0,1.0,,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Tristan Schoolkate,Joao Fonseca,18.4,81.6,5.43,1.23,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Pierre Hugues Herbert,Tomas Martin Etcheverry,0.0,100.0,,1.0,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Dan Martin,Jaume Munar,35.3,64.7,2.83,1.55,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Alexander Blockx,Dalibor Svrcina,54.6,45.4,1.83,2.2,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Nicolas Arseneault,Valentin Royer,100.0,0.0,1.0,,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Miomir Kecmanovic,Quentin Halys,100.0,0.0,1.0,,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Shintaro Mochizuki,Giovanni Mpetshi Perricard,0.0,100.0,,1.0,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Juncheng Shang,James Duckworth,0.0,100.0,,1.0,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Gael Monfils,Tomas Barrios Vera,0.0,100.0,,1.0,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Colton Smith,Learner Tien,0.0,100.0,,1.0,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Sebastian Ofner,Reilly Opelka,0.0,100.0,,1.0,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Jacob Fearnley,Juan Pablo Ficovich,0.0,100.0,,1.0,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Emilio Nava,Zizou Bergs,100.0,0.0,1.0,,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Facundo Bagnis,Vasek Pospisil,100.0,0.0,1.0,,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Roman Safiullin,Ugo Blanchet,100.0,0.0,1.0,,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Yosuke Watanuki,Daniel Altmaier,47.2,52.8,2.12,1.89,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Aleksandar Vukic,Pedro Martinez,50.8,49.2,1.97,2.03,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Christopher Oconnell,Chun Hsin Tseng,72.6,27.4,1.38,3.65,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Francisco Comesana,Damir Dzumhur,45.2,54.8,2.21,1.82,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Arthur Rinderknech,Alexis Galarneau,69.5,30.5,1.44,3.28,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Fabian Marozsan,Hugo Dellien,78.1,21.9,1.28,4.57,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Ethan Quinn,Yoshihito Nishioka,46.2,53.8,2.16,1.86,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Marcos Giron,Adrian Mannarino,75.9,24.1,1.32,4.15,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Mattia Bellucci,Hugo Gaston,50.1,49.9,2.0,2.0,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Vit Kopriva,Bu Yunchaokete,48.7,51.3,2.05,1.95,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Corentin Moutet,Jenson Brooksby,43.4,56.6,2.3,1.77,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Tristan Boyer,Aleksandar Kovacevic,30.9,69.1,3.24,1.45,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Liam Draxl,Pablo Carreno Busta,40.3,59.7,2.48,1.68,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Mackenzie Mcdonald,David Goffin,44.0,56.0,2.27,1.79,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Borna Coric,Matteo Gigante,70.9,29.1,1.41,3.44,Sackmann,2025-07-28 06:21:09 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R128,Roberto Carballes Baena,Camilo Ugo Carabelli,55.8,44.2,1.79,2.26,Sackmann,2025-07-28 06:21:09 UTC
