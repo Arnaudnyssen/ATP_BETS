@@ -1,0 +1,26 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,QF,Alexander Zverev,Alexei Popyrin,100.0,0.0,1.0,,Sackmann,2025-08-05 06:21:36 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,QF,Alex Michelsen,Karen Khachanov,0.0,100.0,,1.0,Sackmann,2025-08-05 06:21:36 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,QF,Alex De Minaur,Ben Shelton,60.8,39.2,1.64,2.55,Sackmann,2025-08-05 06:21:36 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,QF,Andrey Rublev,Taylor Fritz,31.8,68.2,3.14,1.47,Sackmann,2025-08-05 06:21:36 UTC
+Chicagochallenger,https://www.tennisabstract.com/current/2025ChicagoChallenger.html,R32,August Holmgren,Darian King,51.6,48.4,1.94,2.07,Sackmann,2025-08-05 06:21:36 UTC
+Chicagochallenger,https://www.tennisabstract.com/current/2025ChicagoChallenger.html,R32,Antoine Ghibaudo,Adolfo Daniel Vallejo,54.3,45.7,1.84,2.19,Sackmann,2025-08-05 06:21:36 UTC
+Chicagochallenger,https://www.tennisabstract.com/current/2025ChicagoChallenger.html,R32,Giles Hussey,Martin Damm,47.5,52.5,2.11,1.9,Sackmann,2025-08-05 06:21:36 UTC
+Chicagochallenger,https://www.tennisabstract.com/current/2025ChicagoChallenger.html,R32,Stefan Dostanic,Bernard Tomic,26.8,73.2,3.73,1.37,Sackmann,2025-08-05 06:21:36 UTC
+Chicagochallenger,https://www.tennisabstract.com/current/2025ChicagoChallenger.html,R32,Andre Ilagan,Naoki Nakagawa,0.0,100.0,,1.0,Sackmann,2025-08-05 06:21:36 UTC
+Bonnchallenger,https://www.tennisabstract.com/current/2025BonnChallenger.html,R32,Mats Rosenkranz,Clement Tabur,26.9,73.1,3.72,1.37,Sackmann,2025-08-05 06:21:36 UTC
+Bonnchallenger,https://www.tennisabstract.com/current/2025BonnChallenger.html,R32,Pedro Boscardin Dias,Lautaro Midon,41.0,59.0,2.44,1.69,Sackmann,2025-08-05 06:21:36 UTC
+Bonnchallenger,https://www.tennisabstract.com/current/2025BonnChallenger.html,R32,Jamie Mackenzie,Matheus Pucinelli De Almeida,100.0,0.0,1.0,,Sackmann,2025-08-05 06:21:36 UTC
+Bonnchallenger,https://www.tennisabstract.com/current/2025BonnChallenger.html,R32,Sumit Nagal,Jurij Rodionov,0.0,100.0,,1.0,Sackmann,2025-08-05 06:21:36 UTC
+Bonnchallenger,https://www.tennisabstract.com/current/2025BonnChallenger.html,R16,Filip Cristian Jianu,Timofey Skatov,43.7,56.3,2.29,1.78,Sackmann,2025-08-05 06:21:36 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Kamil Majchrzak,Ilya Ivashka,100.0,0.0,1.0,,Sackmann,2025-08-05 06:21:36 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Tomasz Berkieta,Matias Soto,55.2,44.8,1.81,2.23,Sackmann,2025-08-05 06:21:36 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Daniil Glinka,Radu Albot,24.1,75.9,4.15,1.32,Sackmann,2025-08-05 06:21:36 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Maks Kasnikowski,Hugo Grenier,41.7,58.3,2.4,1.72,Sackmann,2025-08-05 06:21:36 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Jie Cui,Clement Chidekh,57.1,43.2,1.75,2.31,Sackmann,2025-08-05 06:21:36 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Olaf Pieczkowski,Gauthier Onclin,100.0,0.0,1.0,,Sackmann,2025-08-05 06:21:36 UTC
+Cordenonschallenger,https://www.tennisabstract.com/current/2025CordenonsChallenger.html,R32,Carlos Taberner,Federico Bondioli,89.3,10.7,1.12,9.35,Sackmann,2025-08-05 06:21:36 UTC
+Cordenonschallenger,https://www.tennisabstract.com/current/2025CordenonsChallenger.html,R32,Max Alcala Gurri,Lorenzo Giustino,25.5,74.5,3.92,1.34,Sackmann,2025-08-05 06:21:36 UTC
+Cordenonschallenger,https://www.tennisabstract.com/current/2025CordenonsChallenger.html,R32,Gonzalo Bueno,Ryan Nijboer,81.0,19.0,1.23,5.26,Sackmann,2025-08-05 06:21:36 UTC
+Cordenonschallenger,https://www.tennisabstract.com/current/2025CordenonsChallenger.html,R32,Juan Bautista Torres,Jay Clarke,41.1,58.9,2.43,1.7,Sackmann,2025-08-05 06:21:36 UTC
+Cordenonschallenger,https://www.tennisabstract.com/current/2025CordenonsChallenger.html,R32,Tiago Pereira,Federico Arnaboldi,100.0,0.0,1.0,,Sackmann,2025-08-05 06:21:36 UTC
