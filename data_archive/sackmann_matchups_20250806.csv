@@ -1,0 +1,57 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,SF,Alexander Zverev,Karen Khachanov,71.9,28.1,1.39,3.56,Sackmann,2025-08-06 06:22:24 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,SF,Ben Shelton,Taylor Fritz,37.2,62.8,2.69,1.59,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Qualifier1,Vit Kopriva,44.5,55.5,2.25,1.8,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Sebastian Baez,David Goffin,30.0,70.0,3.33,1.43,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Jordan Thompson,Qualifier2,79.5,20.5,1.26,4.88,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Pedro Martinez,Nicolas Jarry,37.4,62.6,2.67,1.6,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Arthur Rinderknech,Nuno Borges,36.8,63.2,2.72,1.58,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Tomas Martin Etcheverry,Juncheng Shang,60.0,40.0,1.67,2.5,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Qualifier3,Fabian Marozsan,30.5,69.5,3.28,1.44,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Benjamin Bonzi,Matteo Arnaldi,33.0,67.0,3.03,1.49,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Borna Coric,Christopher Oconnell,59.7,40.3,1.68,2.48,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Zizou Bergs,Jacob Fearnley,46.1,53.9,2.17,1.86,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Joao Fonseca,Bu Yunchaokete,80.2,19.8,1.25,5.05,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Qualifier4,Yoshihito Nishioka,30.3,69.7,3.3,1.43,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Roberto Carballes Baena,Hugo Gaston,57.6,42.4,1.74,2.36,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Giovanni Mpetshi Perricard,Qualifier5,68.3,31.7,1.46,3.15,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Corentin Moutet,Mackenzie Mcdonald,59.1,40.9,1.69,2.44,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Roman Safiullin,Alejandro Tabilo,54.0,46.0,1.85,2.17,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Camilo Ugo Carabelli,Kei Nishikori,33.4,66.6,2.99,1.5,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Daniel Altmaier,Roberto Bautista Agut,38.9,61.1,2.57,1.64,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Tristan Boyer,Brandon Holt,36.0,64.0,2.78,1.56,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Adam Walton,Qualifier6,57.7,42.3,1.73,2.36,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Sebastian Ofner,Qualifier7,61.8,38.2,1.62,2.62,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Jenson Brooksby,Alexandre Muller,60.8,39.2,1.64,2.55,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Marcos Giron,Qualifier8,75.4,24.6,1.33,4.07,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Gael Monfils,Nishesh Basavareddy,77.8,22.2,1.29,4.5,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Hugo Dellien,Reilly Opelka,20.9,79.1,4.78,1.26,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Francisco Comesana,Jaume Munar,34.9,65.1,2.87,1.54,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Qualifier9,Qualifier10,50.0,50.0,2.0,2.0,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Learner Tien,Qualifier11,72.0,28.0,1.39,3.57,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Miomir Kecmanovic,Ethan Quinn,50.9,49.1,1.96,2.04,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Qualifier12,Qualifier13,50.0,50.0,2.0,2.0,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Hamad Medjedovic,Aleksandar Kovacevic,60.9,39.1,1.64,2.56,Sackmann,2025-08-06 06:22:24 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R128,Mattia Bellucci,Damir Dzumhur,46.8,53.2,2.14,1.88,Sackmann,2025-08-06 06:22:24 UTC
+Chicagochallenger,https://www.tennisabstract.com/current/2025ChicagoChallenger.html,R16,August Holmgren,Antoine Ghibaudo,72.9,27.1,1.37,3.69,Sackmann,2025-08-06 06:22:24 UTC
+Chicagochallenger,https://www.tennisabstract.com/current/2025ChicagoChallenger.html,R16,Giles Hussey,Stefan Dostanic,61.7,38.3,1.62,2.61,Sackmann,2025-08-06 06:22:24 UTC
+Chicagochallenger,https://www.tennisabstract.com/current/2025ChicagoChallenger.html,R16,Yibing Wu,Naoki Nakagawa,94.9,5.1,1.05,19.61,Sackmann,2025-08-06 06:22:24 UTC
+Chicagochallenger,https://www.tennisabstract.com/current/2025ChicagoChallenger.html,R16,Karue Sell,Yu Hsiou Hsu,37.1,62.9,2.7,1.59,Sackmann,2025-08-06 06:22:24 UTC
+Bonnchallenger,https://www.tennisabstract.com/current/2025BonnChallenger.html,R16,Mats Rosenkranz,Lautaro Midon,29.2,70.8,3.42,1.41,Sackmann,2025-08-06 06:22:24 UTC
+Bonnchallenger,https://www.tennisabstract.com/current/2025BonnChallenger.html,R16,Jamie Mackenzie,Jurij Rodionov,20.8,79.2,4.81,1.26,Sackmann,2025-08-06 06:22:24 UTC
+Bonnchallenger,https://www.tennisabstract.com/current/2025BonnChallenger.html,R16,Vilius Gaubas,Martin Krumich,83.4,16.6,1.2,6.02,Sackmann,2025-08-06 06:22:24 UTC
+Bonnchallenger,https://www.tennisabstract.com/current/2025BonnChallenger.html,R16,Joel Schwaerzler,Federico Coria,27.4,72.6,3.65,1.38,Sackmann,2025-08-06 06:22:24 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Kamil Majchrzak,Ilya Ivashka,100.0,0.0,1.0,,Sackmann,2025-08-06 06:22:24 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Tomasz Berkieta,Matias Soto,100.0,0.0,1.0,,Sackmann,2025-08-06 06:22:24 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Daniil Glinka,Radu Albot,100.0,0.0,1.0,,Sackmann,2025-08-06 06:22:24 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Maks Kasnikowski,Hugo Grenier,100.0,0.0,1.0,,Sackmann,2025-08-06 06:22:24 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Federico Cina,Filip Pieczonka,100.0,0.0,1.0,,Sackmann,2025-08-06 06:22:24 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Aslan Karatsev,Abedallah Shelbayh,100.0,0.0,1.0,,Sackmann,2025-08-06 06:22:24 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Ugo Blanchet,Rafael Jodar,100.0,0.0,1.0,,Sackmann,2025-08-06 06:22:24 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Petr Brunclik,Johannus Monday,100.0,0.0,1.0,,Sackmann,2025-08-06 06:22:24 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Maximus Jones,Justin Engel,0.0,100.0,,1.0,Sackmann,2025-08-06 06:22:24 UTC
+Grodziskmazowieckichallenger,https://www.tennisabstract.com/current/2025GrodziskMazowieckiChallenger.html,R32,Olaf Pieczkowski,Gauthier Onclin,100.0,0.0,1.0,,Sackmann,2025-08-06 06:22:24 UTC
+Cordenonschallenger,https://www.tennisabstract.com/current/2025CordenonsChallenger.html,R16,Carlos Taberner,Max Alcala Gurri,94.3,5.7,1.06,17.54,Sackmann,2025-08-06 06:22:24 UTC
+Cordenonschallenger,https://www.tennisabstract.com/current/2025CordenonsChallenger.html,R16,Gonzalo Bueno,Jay Clarke,51.6,48.4,1.94,2.07,Sackmann,2025-08-06 06:22:24 UTC
+Cordenonschallenger,https://www.tennisabstract.com/current/2025CordenonsChallenger.html,R16,Lukas Neumayer,Gabriele Piraino,85.3,14.7,1.17,6.8,Sackmann,2025-08-06 06:22:24 UTC
+Cordenonschallenger,https://www.tennisabstract.com/current/2025CordenonsChallenger.html,R16,Nicolas Kicker,Oleg Prihodko,64.0,36.0,1.56,2.78,Sackmann,2025-08-06 06:22:24 UTC
