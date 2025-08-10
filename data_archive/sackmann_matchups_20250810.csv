@@ -1,0 +1,9 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R64,Jannik Sinner,Daniel Elahi Galan,100.0,0.0,1.0,,Sackmann,2025-08-10 06:17:12 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R64,Sebastian Baez,Gabriel Diallo,0.0,100.0,,1.0,Sackmann,2025-08-10 06:17:12 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R64,Tomas Machac,Adrian Mannarino,0.0,100.0,,1.0,Sackmann,2025-08-10 06:17:12 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R64,Pedro Martinez,Tommy Paul,0.0,100.0,,1.0,Sackmann,2025-08-10 06:17:12 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R64,Arthur Rinderknech,Tomas Martin Etcheverry,100.0,0.0,1.0,,Sackmann,2025-08-10 06:17:12 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R64,Fabian Marozsan,Benjamin Bonzi,0.0,100.0,,1.0,Sackmann,2025-08-10 06:17:12 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R64,Lorenzo Sonego,Alejandro Davidovich Fokina,100.0,0.0,1.0,,Sackmann,2025-08-10 06:17:12 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R32,Joao Fonseca,Terence Atmane,83.3,16.7,1.2,5.99,Sackmann,2025-08-10 06:17:12 UTC
