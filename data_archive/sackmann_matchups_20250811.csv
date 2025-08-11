@@ -1,0 +1,30 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R32,Jannik Sinner,Gabriel Diallo,91.4,8.6,1.09,11.63,Sackmann,2025-08-11 06:21:19 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R32,Adrian Mannarino,Tommy Paul,14.0,86.0,7.14,1.16,Sackmann,2025-08-11 06:21:19 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R32,Arthur Rinderknech,Felix Auger Aliassime,27.8,72.2,3.6,1.39,Sackmann,2025-08-11 06:21:19 UTC
+Atpcincinnati,https://www.tennisabstract.com/current/2025ATPCincinnati.html,R32,Stefanos Tsitsipas,Benjamin Bonzi,75.3,24.7,1.33,4.05,Sackmann,2025-08-11 06:21:19 UTC
+Barranquillachallenger,https://www.tennisabstract.com/current/2025BarranquillaChallenger.html,R32,Juan Pablo Ficovich,Paulo Andre Saraiva Dos Santos,85.1,14.9,1.18,6.71,Sackmann,2025-08-11 06:21:19 UTC
+Barranquillachallenger,https://www.tennisabstract.com/current/2025BarranquillaChallenger.html,R32,Samuel Heredia,Peter Bertran,45.4,54.6,2.2,1.83,Sackmann,2025-08-11 06:21:19 UTC
+Barranquillachallenger,https://www.tennisabstract.com/current/2025BarranquillaChallenger.html,R32,Alfredo Perez,Dan Martin,43.1,56.9,2.32,1.76,Sackmann,2025-08-11 06:21:19 UTC
+Barranquillachallenger,https://www.tennisabstract.com/current/2025BarranquillaChallenger.html,R32,Qualifier1,Pol Martin Tiffon,45.4,54.6,2.2,1.83,Sackmann,2025-08-11 06:21:19 UTC
+Barranquillachallenger,https://www.tennisabstract.com/current/2025BarranquillaChallenger.html,R32,Adhithya Ganesan,Adria Soriano Barrera,44.4,56.0,2.25,1.79,Sackmann,2025-08-11 06:21:19 UTC
+Todichallenger,https://www.tennisabstract.com/current/2025TodiChallenger.html,R32,Matej Dodig,Qualifier1,79.5,20.5,1.26,4.88,Sackmann,2025-08-11 06:21:19 UTC
+Todichallenger,https://www.tennisabstract.com/current/2025TodiChallenger.html,R32,Jan Kumstat,Lorenzo Carboni,48.7,51.3,2.05,1.95,Sackmann,2025-08-11 06:21:19 UTC
+Todichallenger,https://www.tennisabstract.com/current/2025TodiChallenger.html,R32,Qualifier2,Qualifier3,50.0,50.0,2.0,2.0,Sackmann,2025-08-11 06:21:19 UTC
+Todichallenger,https://www.tennisabstract.com/current/2025TodiChallenger.html,R32,Timofey Skatov,Gonzalo Bueno,42.7,57.3,2.34,1.75,Sackmann,2025-08-11 06:21:19 UTC
+Hersonissos3Challenger,https://www.tennisabstract.com/current/2025Hersonissos3Challenger.html,R32,George Loffhagen,Vadym Ursu,90.9,9.1,1.1,10.99,Sackmann,2025-08-11 06:21:19 UTC
+Hersonissos3Challenger,https://www.tennisabstract.com/current/2025Hersonissos3Challenger.html,R32,Rafael Jodar,Luca Potenza,72.4,27.6,1.38,3.62,Sackmann,2025-08-11 06:21:19 UTC
+Hersonissos3Challenger,https://www.tennisabstract.com/current/2025Hersonissos3Challenger.html,R32,Harry Wendelken,Lucas Poullain,27.0,73.0,3.7,1.37,Sackmann,2025-08-11 06:21:19 UTC
+Hersonissos3Challenger,https://www.tennisabstract.com/current/2025Hersonissos3Challenger.html,R32,Qualifier1,Christian Langmo,60.9,39.1,1.64,2.56,Sackmann,2025-08-11 06:21:19 UTC
+Hersonissos3Challenger,https://www.tennisabstract.com/current/2025Hersonissos3Challenger.html,R32,Qualifier3,Qualifier4,59.2,41.3,1.69,2.42,Sackmann,2025-08-11 06:21:19 UTC
+Sofia1Challenger,https://www.tennisabstract.com/current/2025Sofia1Challenger.html,R32,Nerman Fatic,Kilian Feldbausch,71.9,28.1,1.39,3.56,Sackmann,2025-08-11 06:21:19 UTC
+Sofia1Challenger,https://www.tennisabstract.com/current/2025Sofia1Challenger.html,R32,Luciano Emanuel Ambrogi,Joel Schwaerzler,28.5,71.5,3.51,1.4,Sackmann,2025-08-11 06:21:19 UTC
+Sofia1Challenger,https://www.tennisabstract.com/current/2025Sofia1Challenger.html,R32,Franco Roncadelli,Qualifier1,59.7,40.3,1.68,2.48,Sackmann,2025-08-11 06:21:19 UTC
+Sofia1Challenger,https://www.tennisabstract.com/current/2025Sofia1Challenger.html,R32,Jelle Sels,Daniel Rincon,33.6,66.4,2.98,1.51,Sackmann,2025-08-11 06:21:19 UTC
+Sofia1Challenger,https://www.tennisabstract.com/current/2025Sofia1Challenger.html,R32,Qualifier2,Zdenek Kolar,29.4,69.8,3.4,1.43,Sackmann,2025-08-11 06:21:19 UTC
+Sumterscchallenger,https://www.tennisabstract.com/current/2025SumterSCChallenger.html,R32,Mark Lajal,Jaime Faria,65.4,34.6,1.53,2.89,Sackmann,2025-08-11 06:21:19 UTC
+Sumterscchallenger,https://www.tennisabstract.com/current/2025SumterSCChallenger.html,R32,Kaylan Bigun,Rei Sakamoto,22.2,77.8,4.5,1.29,Sackmann,2025-08-11 06:21:19 UTC
+Sumterscchallenger,https://www.tennisabstract.com/current/2025SumterSCChallenger.html,R32,Hady Habib,Alexander Shevchenko,33.0,67.0,3.03,1.49,Sackmann,2025-08-11 06:21:19 UTC
+Sumterscchallenger,https://www.tennisabstract.com/current/2025SumterSCChallenger.html,R32,Henrique Rocha,Qualifier1,72.5,27.5,1.38,3.64,Sackmann,2025-08-11 06:21:19 UTC
+Sumterscchallenger,https://www.tennisabstract.com/current/2025SumterSCChallenger.html,R32,James Mccabe,Qualifier2,63.8,36.2,1.57,2.76,Sackmann,2025-08-11 06:21:19 UTC
+Sumterscchallenger,https://www.tennisabstract.com/current/2025SumterSCChallenger.html,R32,Qualifier3,Lukas Klein,15.4,84.6,6.49,1.18,Sackmann,2025-08-11 06:21:19 UTC
