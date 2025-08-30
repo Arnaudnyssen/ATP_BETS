@@ -1,0 +1,11 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Porto2Challenger,https://www.tennisabstract.com/current/2025Porto2Challenger.html,SF,Alejandro Moro Canas,Gilles Arnaud Bailly,52.8,47.2,1.89,2.12,Sackmann,2025-08-30 06:17:56 UTC
+Porto2Challenger,https://www.tennisabstract.com/current/2025Porto2Challenger.html,SF,Frederico Ferreira Silva,Guy Den Ouden,16.2,83.8,6.17,1.19,Sackmann,2025-08-30 06:17:56 UTC
+Comochallenger,https://www.tennisabstract.com/current/2025ComoChallenger.html,QF,Nicolai Budkov Kjaer,Raul Brancaccio,83.5,16.5,1.2,6.06,Sackmann,2025-08-30 06:17:56 UTC
+Comochallenger,https://www.tennisabstract.com/current/2025ComoChallenger.html,QF,Henri Squire,Luka Mikrut,54.7,45.3,1.83,2.21,Sackmann,2025-08-30 06:17:56 UTC
+Comochallenger,https://www.tennisabstract.com/current/2025ComoChallenger.html,QF,Juan Bautista Torres,Jacopo Berrettini,36.3,63.7,2.75,1.57,Sackmann,2025-08-30 06:17:56 UTC
+Comochallenger,https://www.tennisabstract.com/current/2025ComoChallenger.html,QF,Duje Ajdukovic,Thiago Monteiro,37.0,63.0,2.7,1.59,Sackmann,2025-08-30 06:17:56 UTC
+Zhangjiagangchallenger,https://www.tennisabstract.com/current/2025ZhangjiagangChallenger.html,SF,Oliver Crawford,Kokoro Isomura,78.7,21.3,1.27,4.69,Sackmann,2025-08-30 06:17:56 UTC
+Zhangjiagangchallenger,https://www.tennisabstract.com/current/2025ZhangjiagangChallenger.html,SF,Sho Shimabukuro,Yasutaka Uchiyama,53.5,46.5,1.87,2.15,Sackmann,2025-08-30 06:17:56 UTC
+Manacorchallenger,https://www.tennisabstract.com/current/2025ManacorChallenger.html,SF,Daniel Rincon,Harold Mayot,33.1,66.9,3.02,1.49,Sackmann,2025-08-30 06:17:56 UTC
+Manacorchallenger,https://www.tennisabstract.com/current/2025ManacorChallenger.html,SF,Jurij Rodionov,Edas Butvilas,54.7,45.3,1.83,2.21,Sackmann,2025-08-30 06:17:56 UTC
