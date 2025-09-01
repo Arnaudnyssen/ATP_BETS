@@ -1,0 +1,100 @@
+tournament,p1_name,p2_name,p1_odds,p2_odds,scrape_timestamp_utc
+ATP US Open,"Riedi, Leandro","De Minaur, Alex",9.26,1.04,2025-09-01 06:20:54 UTC
+ATP US Open,"Auger-Aliassime, Félix",Rublev Andrey,2.16,1.65,2025-09-01 06:20:54 UTC
+ATP US Open,"Musetti, Lorenzo","Munar, Jaume",1.4,2.82,2025-09-01 06:20:54 UTC
+ATP US Open,"Sinner, Jannik",Bublik Alexander,1.06,7.93,2025-09-01 06:20:54 UTC
+ATP US Open,"Lehecka, Jiri","Alcaraz Garfia, Carlos",10.14,1.03,2025-09-01 06:20:54 UTC
+ATP US Open,"Djokovic, Novak","Fritz, Taylor",1.52,2.43,2025-09-01 06:20:54 UTC
+Challenger Gênes,"Holmgren, August","Tirante, Thiago Agustin",3.83,1.22,2025-09-01 06:20:54 UTC
+Challenger Gênes,"Feldbausch, Kilian","Carboni, Lorenzo",1.59,2.21,2025-09-01 06:20:54 UTC
+Challenger Gênes,"Travaglia, Stefano","Ajdukovic, Duje",1.55,2.29,2025-09-01 06:20:54 UTC
+Challenger Gênes,"Budkov Kjaer, Nicolai","Coric, Borna",2.62,1.43,2025-09-01 06:20:54 UTC
+Challenger Gênes,"Darderi, Luciano","Arnaboldi, Feder.",1.09,6.11,2025-09-01 06:20:54 UTC
+Challenger Gênes,"Pellegrino, Andrea","Bertola, Remy",1.52,2.36,2025-09-01 06:20:54 UTC
+Challenger Gênes,"Monteiro, Thiago","Passaro, Francesco",2.25,1.57,2025-09-01 06:20:54 UTC
+Challenger Gênes,"Sanchez-Izquierdo, Nikolas","Dodig, Matej",1.57,2.25,2025-09-01 06:20:54 UTC
+Challenger Gênes,"Herbert, Pierre-Hugues","Caniato, Carlo Alberto",1.41,2.69,2025-09-01 06:20:54 UTC
+Challenger Séville,"Lajovic, Dusan","Ymer, Elias",1.27,3.41,2025-09-01 06:20:54 UTC
+Challenger Séville,"Alvarez Varona, Nicolas","Faria, Jaime",2.09,1.66,2025-09-01 06:20:54 UTC
+Challenger Séville,"Carballes Baena, Roberto","Olivieri, Genaro Alberto",1.3,3.21,2025-09-01 06:20:54 UTC
+Challenger Séville,"Merida, Daniel","Negritu, Christoph",1.43,2.62,2025-09-01 06:20:54 UTC
+Challenger Séville,"Diaz Acosta, Facundo","Llamas Ruiz, Pablo",2.07,1.67,2025-09-01 06:20:54 UTC
+Challenger Séville,"Martin Tiffon, Pol","Rocha, Henrique",2.62,1.43,2025-09-01 06:20:54 UTC
+Challenger Séville,"Bueno, Gonzalo","Barranco Cosano, Javier",1.4,2.73,2025-09-01 06:20:54 UTC
+Challenger Séville,"Rincon, Daniel","Carreno Busta, Pablo",2.62,1.43,2025-09-01 06:20:54 UTC
+Challenger Séville,Ramos Vinolas Albert,"Gaubas, Vilius",2.56,1.45,2025-09-01 06:20:54 UTC
+Challenger Séville,"Buse, Ignacio","Zapata Miralles, Bernabe",1.15,4.73,2025-09-01 06:20:54 UTC
+Challenger Shanghai,"Te, Rigele","Jasika, Omar",2.44,1.49,2025-09-01 06:20:54 UTC
+Challenger Shanghai,"Cui, Jie","Hsu, Yu Hsiou",3.09,1.32,2025-09-01 06:20:54 UTC
+Challenger Shanghai,"Mccabe, James","Sun, Fajing",1.42,2.65,2025-09-01 06:20:54 UTC
+Challenger Shanghai,"Nishioka, Yoshihito","Zhou, Yi",1.48,2.47,2025-09-01 06:20:54 UTC
+Challenger Shanghai,"Noguchi, Rio","Watanuki, Yosuke",2.62,1.43,2025-09-01 06:20:54 UTC
+Challenger Shanghai,"Uchiyama, Yasutaka","Gea, Arthur",2.11,1.65,2025-09-01 06:20:54 UTC
+Challenger Shanghai,"Zeppieri, Giulio","Onclin, Gauthier",1.6,2.19,2025-09-01 06:20:54 UTC
+Challenger Shanghai,"Evans, Daniel","Xiao, Linang",1.13,5.1,2025-09-01 06:20:54 UTC
+Challenger Shanghai,"Shimizu, Yuta","Shimabukuro, Sho",1.85,1.85,2025-09-01 06:20:54 UTC
+Challenger Cassis,"Shah, Aryan","Harris, Billy",2.81,1.38,2025-09-01 06:20:54 UTC
+Challenger Cassis,"Fery, Arthur","Geerts, Michaël",1.27,3.41,2025-09-01 06:20:54 UTC
+Challenger Cassis,"Skatov, Timofey","Escoffier, Antoine",1.45,2.56,2025-09-01 06:20:54 UTC
+Challenger Cassis,"Gueymard-Wayenburg, Sascha","Donnet, Etienne",1.62,2.16,2025-09-01 06:20:54 UTC
+Challenger Cassis,"Paris, Tom","Wallin, Olle",1.53,2.34,2025-09-01 06:20:54 UTC
+Challenger Cassis,"Rodionov, Jurij","Martineau, Matteo",1.43,2.62,2025-09-01 06:20:54 UTC
+Challenger Cassis,"Bertrand, Robin","Butvilas, Edas",2.19,1.6,2025-09-01 06:20:54 UTC
+Challenger Cassis,Paire Benoit,"Malige, Mae",2.0,1.72,2025-09-01 06:20:54 UTC
+Challenger Cassis,"Poullain, Lucas","Mmoh, Michael",2.19,1.6,2025-09-01 06:20:54 UTC
+Challenger Cassis,"Chidekh, Clement","Vacherot, Valentin",2.47,1.48,2025-09-01 06:20:54 UTC
+Challenger Cassis,"Halys, Quentin","Glinka, Daniil",1.13,5.1,2025-09-01 06:20:54 UTC
+Challenger Cassis Qualification,"Pieczkowski, Olaf","Kingsley, Cannon",2.18,1.58,2025-09-01 06:20:54 UTC
+Challenger Cassis Qualification,"Engel, Justin","Corwin, Felix",1.35,2.85,2025-09-01 06:20:54 UTC
+Challenger Cassis Qualification,"Tepmahc, Nicolas","Janvier, Maxime",2.68,1.39,2025-09-01 06:20:54 UTC
+Challenger Cassis Qualification,"Stewart, Hamish","Gerasimov, Egor",1.44,2.52,2025-09-01 06:20:54 UTC
+Challenger Cassis Qualification,"Moroni, Filippo","De Schepper, Kenny",1.42,2.58,2025-09-01 06:20:54 UTC
+Challenger Cassis Qualification,"Paul, Jakub","Pichler, David",1.2,3.87,2025-09-01 06:20:54 UTC
+Challenger Gênes Qualification,"Picchione, Andrea","Vasa, Eero",1.58,2.18,2025-09-01 06:20:54 UTC
+Challenger Gênes Qualification,"Piraino, Gabriele","Compagnucci, Tom.",1.33,2.94,2025-09-01 06:20:54 UTC
+Challenger Gênes Qualification,"Gentzsch, Tom","Bondioli, Federico",1.67,2.03,2025-09-01 06:20:54 UTC
+Challenger Gênes Qualification,"Ingildsen, Johannes","Dalla Valle, Enrico",5.23,1.11,2025-09-01 06:20:54 UTC
+Challenger Gênes Qualification,"Cadenasso, Gianluca","Oradini, Giovanni",1.85,1.81,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Mayot, Harold","Gombos, Norbert",1.35,2.94,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Sakellaridis, Stefanos","Langmo, Christian",1.48,2.47,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Klein, Lukas","Purtseladze, Saba",1.21,3.93,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Rosenkranz, Mats","Durasovic, Viktor",1.85,1.85,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Arinc, Kaya","Turker, Mert Naci",3.93,1.21,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Hüsler, Marc-Andrea","Gray, Alastair",1.26,3.48,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Echargui, Moez","Shelbayh, Abdullah",1.31,3.15,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Ivashka, Ilya","Mejia, Nicolas",1.85,1.85,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Kotov, Pavel","Virtanen, Otto",2.36,1.52,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Gengel, Marek","Hassan, Benjamin",3.34,1.28,2025-09-01 06:20:54 UTC
+Challenger Istanbul,"Pacheco Mendez, Rodrigo","Gombos, Norbert",1.74,1.98,2025-09-01 06:20:54 UTC
+Challenger Istanbul Qualification,"Potenza, Luca","Azkara, Arda",1.55,2.24,2025-09-01 06:20:54 UTC
+Challenger Istanbul Qualification,"Krajci, Michal","Mert, Alkaya",2.35,1.5,2025-09-01 06:20:54 UTC
+Challenger Istanbul Qualification,"Ursu, Vadym",Wessels Louis,1.77,1.9,2025-09-01 06:20:54 UTC
+Challenger Istanbul Qualification,"Makk, Peter","Tobon, Miguel",2.07,1.64,2025-09-01 06:20:54 UTC
+Challenger Istanbul Qualification,"Hernandez, Alex",Masur Daniel,2.49,1.45,2025-09-01 06:20:54 UTC
+Challenger Séville Qualification,Jorda Sanchis David,"Sperle, John",1.26,3.35,2025-09-01 06:20:54 UTC
+Challenger Séville Qualification,"Strombachs, Robert","Perez Contri, Sergi",2.06,1.65,2025-09-01 06:20:54 UTC
+Challenger Séville Qualification,"Montes De La Torre, Inaki","Forejtek, Jonas",1.79,1.87,2025-09-01 06:20:54 UTC
+Challenger Séville Qualification,"Brancaccio, Raul","Lopez Montagud, Carlos",1.45,2.49,2025-09-01 06:20:54 UTC
+Challenger Séville Qualification,"Alcala Gurri, Max","Kellovsky, Dominik",1.3,3.1,2025-09-01 06:20:54 UTC
+Challenger Séville Qualification,"Damas, Miguel","Martinez, Alex",1.33,2.94,2025-09-01 06:20:54 UTC
+Challenger Shanghai Qualification,"Huang, Tsung-Hao","Fomin, Sergey",2.17,1.58,2025-09-01 06:20:54 UTC
+Challenger Shanghai Qualification,"Moriya, Hiroki","Zeng, Yaojie",1.26,3.35,2025-09-01 06:20:54 UTC
+Challenger Shanghai Qualification,"Charlton, Joshua","Tokuda, Renta",3.97,1.19,2025-09-01 06:20:54 UTC
+Challenger Shanghai Qualification,"Samrej, Kasidit","Imamura, Masamic.",1.57,2.2,2025-09-01 06:20:54 UTC
+Challenger Shanghai Qualification,"Bar Biryukov, Petr","Isomura, Kokoro",1.55,2.24,2025-09-01 06:20:54 UTC
+Challenger Shanghai Qualification,"Watt, James","Peliwo, Filip",2.12,1.61,2025-09-01 06:20:54 UTC
+Challenger Tulln,Nagal Sumit,"Poljicak, Mili",1.61,2.17,2025-09-01 06:20:54 UTC
+Challenger Tulln,"Denolly, Corentin","Kopp, Sandro",3.21,1.3,2025-09-01 06:20:54 UTC
+Challenger Tulln,"Sels, Jelle","Dedura-Palomero, Diego",2.65,1.42,2025-09-01 06:20:54 UTC
+Challenger Tulln,"Trungelliti, Marco","Gakhov, Ivan",1.45,2.56,2025-09-01 06:20:54 UTC
+Challenger Tulln,"Paulson, Andrew","Berrettini, Jacopo",2.94,1.35,2025-09-01 06:20:54 UTC
+Challenger Tulln,"Rodriguez Taverna, Santiago","Erhard, Mathys",2.11,1.65,2025-09-01 06:20:54 UTC
+Challenger Tulln,"Kuzmanov, Dimitar","Maestrelli, Francesco",1.72,2.0,2025-09-01 06:20:54 UTC
+Challenger Tulln,"Stricker, Dominic","Topo, Marko",1.57,2.25,2025-09-01 06:20:54 UTC
+Challenger Tulln,"Schwaerzler, Joel","Pereira, Tiago",1.43,2.62,2025-09-01 06:20:54 UTC
+Challenger Tulln,"Prihodko, Oleg","Neumayer, Lukas",2.94,1.35,2025-09-01 06:20:54 UTC
+Challenger Tulln Qualification,"Molleker, Rudolf","Gima, Sebastian",1.57,2.2,2025-09-01 06:20:54 UTC
+Challenger Tulln Qualification,"Mrva, Maxim","Matusevich, Anton",1.4,2.65,2025-09-01 06:20:54 UTC
+Challenger Tulln Qualification,"Novak, Dennis","Kovalik, Jozef",2.03,1.67,2025-09-01 06:20:54 UTC
+Challenger Tulln Qualification,"Poljak, David","Martin, Dan",2.65,1.4,2025-09-01 06:20:54 UTC
+Challenger Tulln Qualification,"Kolar, Zdenek","Krumich, Martin",1.58,2.18,2025-09-01 06:20:54 UTC
