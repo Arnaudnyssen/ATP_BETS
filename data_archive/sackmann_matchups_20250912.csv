@@ -1,0 +1,27 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Szczecinchallenger,https://www.tennisabstract.com/current/2025SzczecinChallenger.html,R16,Vit Kopriva,Diego Dedura Palomero,100.0,0.0,1.0,,Sackmann,2025-09-12 06:16:33 UTC
+Szczecinchallenger,https://www.tennisabstract.com/current/2025SzczecinChallenger.html,R16,Dimitar Kuzmanov,Pablo Llamas Ruiz,0.0,100.0,,1.0,Sackmann,2025-09-12 06:16:33 UTC
+Szczecinchallenger,https://www.tennisabstract.com/current/2025SzczecinChallenger.html,R16,Francesco Passaro,Henri Squire,0.0,100.0,,1.0,Sackmann,2025-09-12 06:16:33 UTC
+Szczecinchallenger,https://www.tennisabstract.com/current/2025SzczecinChallenger.html,R16,Facundo Diaz Acosta,Hynek Barton,100.0,0.0,1.0,,Sackmann,2025-09-12 06:16:33 UTC
+Szczecinchallenger,https://www.tennisabstract.com/current/2025SzczecinChallenger.html,R16,Rudolf Molleker,Geoffrey Blancaneaux,0.0,100.0,,1.0,Sackmann,2025-09-12 06:16:33 UTC
+Szczecinchallenger,https://www.tennisabstract.com/current/2025SzczecinChallenger.html,R16,Daniel Elahi Galan,Vitaliy Sachko,0.0,100.0,,1.0,Sackmann,2025-09-12 06:16:33 UTC
+Guangzhouhuangpu Challenger,https://www.tennisabstract.com/current/2025Guangzhou(Huangpu)Challenger.html,QF,Christopher Oconnell,Marat Sharipov,81.9,18.1,1.22,5.52,Sackmann,2025-09-12 06:16:33 UTC
+Guangzhouhuangpu Challenger,https://www.tennisabstract.com/current/2025Guangzhou(Huangpu)Challenger.html,QF,Nishesh Basavareddy,Alejandro Tabilo,55.5,44.5,1.8,2.25,Sackmann,2025-09-12 06:16:33 UTC
+Guangzhouhuangpu Challenger,https://www.tennisabstract.com/current/2025Guangzhou(Huangpu)Challenger.html,QF,Billy Harris,Gauthier Onclin,69.3,30.7,1.44,3.26,Sackmann,2025-09-12 06:16:33 UTC
+Guangzhouhuangpu Challenger,https://www.tennisabstract.com/current/2025Guangzhou(Huangpu)Challenger.html,QF,Daniel Evans,Juan Manuel Cerundolo,55.7,44.3,1.8,2.26,Sackmann,2025-09-12 06:16:33 UTC
+Renneschallenger,https://www.tennisabstract.com/current/2025RennesChallenger.html,QF,Hugo Gaston,Eliakim Coulibaly,71.3,28.7,1.4,3.48,Sackmann,2025-09-12 06:16:33 UTC
+Renneschallenger,https://www.tennisabstract.com/current/2025RennesChallenger.html,QF,Harold Mayot,Clement Chidekh,69.1,30.9,1.45,3.24,Sackmann,2025-09-12 06:16:33 UTC
+Renneschallenger,https://www.tennisabstract.com/current/2025RennesChallenger.html,QF,Patrick Zahraj,Cannon Kingsley,59.6,40.4,1.68,2.48,Sackmann,2025-09-12 06:16:33 UTC
+Renneschallenger,https://www.tennisabstract.com/current/2025RennesChallenger.html,QF,Michael Geerts,Stan Wawrinka,14.5,85.5,6.9,1.17,Sackmann,2025-09-12 06:16:33 UTC
+Winstonsalemchallenger,https://www.tennisabstract.com/current/2025WinstonSalemChallenger.html,QF,Christian Langmo,Antoine Ghibaudo,34.3,65.7,2.92,1.52,Sackmann,2025-09-12 06:16:33 UTC
+Winstonsalemchallenger,https://www.tennisabstract.com/current/2025WinstonSalemChallenger.html,QF,Jack Pinnington Jones,Aidan Kim,64.0,36.0,1.56,2.78,Sackmann,2025-09-12 06:16:33 UTC
+Winstonsalemchallenger,https://www.tennisabstract.com/current/2025WinstonSalemChallenger.html,QF,Rafael Jodar,Mitchell Krueger,64.2,35.8,1.56,2.79,Sackmann,2025-09-12 06:16:33 UTC
+Winstonsalemchallenger,https://www.tennisabstract.com/current/2025WinstonSalemChallenger.html,QF,Trevor Svajda,Murphy Cassone,50.0,50.0,2.0,2.0,Sackmann,2025-09-12 06:16:33 UTC
+Biellachallenger,https://www.tennisabstract.com/current/2025BiellaChallenger.html,QF,Stefano Napolitano,Pol Martin Tiffon,72.0,28.0,1.39,3.57,Sackmann,2025-09-12 06:16:33 UTC
+Biellachallenger,https://www.tennisabstract.com/current/2025BiellaChallenger.html,QF,Gianluca Cadenasso,Jelle Sels,47.2,52.8,2.12,1.89,Sackmann,2025-09-12 06:16:33 UTC
+Biellachallenger,https://www.tennisabstract.com/current/2025BiellaChallenger.html,QF,Marko Topo,Kilian Feldbausch,67.8,32.2,1.47,3.11,Sackmann,2025-09-12 06:16:33 UTC
+Biellachallenger,https://www.tennisabstract.com/current/2025BiellaChallenger.html,QF,Luka Mikrut,Zdenek Kolar,60.0,40.0,1.67,2.5,Sackmann,2025-09-12 06:16:33 UTC
+Targumureschallenger,https://www.tennisabstract.com/current/2025TarguMuresChallenger.html,R32,Mihai Alexandru Coman,Marco Trungelliti,11.4,88.6,8.77,1.13,Sackmann,2025-09-12 06:16:33 UTC
+Targumureschallenger,https://www.tennisabstract.com/current/2025TarguMuresChallenger.html,R32,Bernabe Zapata Miralles,Mika Brunold,52.2,47.8,1.92,2.09,Sackmann,2025-09-12 06:16:33 UTC
+Targumureschallenger,https://www.tennisabstract.com/current/2025TarguMuresChallenger.html,R32,Dan Martin,Franco Agamenone,28.4,71.6,3.52,1.4,Sackmann,2025-09-12 06:16:33 UTC
+Targumureschallenger,https://www.tennisabstract.com/current/2025TarguMuresChallenger.html,R32,Max Alcala Gurri,Imanol Lopez Morillo,30.4,69.6,3.29,1.44,Sackmann,2025-09-12 06:16:33 UTC
