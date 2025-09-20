@@ -1,0 +1,22 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,R16,Lorenzo Musetti,Dino Prizmic,72.0,28.0,1.39,3.57,Sackmann,2025-09-20 06:15:15 UTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,R16,Mackenzie Mcdonald,Nikoloz Basilashvili,60.0,40.0,1.67,2.5,Sackmann,2025-09-20 06:15:15 UTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,R16,Tallon Griekspoor,Taro Daniel,86.7,13.3,1.15,7.52,Sackmann,2025-09-20 06:15:15 UTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,R16,Alexander Shevchenko,Giovanni Mpetshi Perricard,37.4,62.6,2.67,1.6,Sackmann,2025-09-20 06:15:15 UTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,R16,Marcos Giron,Juncheng Shang,100.0,0.0,1.0,,Sackmann,2025-09-20 06:15:15 UTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,R16,Brandon Nakashima,Yi Zhou,100.0,0.0,1.0,,Sackmann,2025-09-20 06:15:15 UTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,QF,Christopher Oconnell,Alejandro Tabilo,51.6,48.4,1.94,2.07,Sackmann,2025-09-20 06:15:15 UTC
+Atphangzhou,https://www.tennisabstract.com/current/2025ATPHangzhou.html,R16,Andrey Rublev,Valentin Royer,83.1,16.9,1.2,5.92,Sackmann,2025-09-20 06:15:15 UTC
+Atphangzhou,https://www.tennisabstract.com/current/2025ATPHangzhou.html,R16,Giulio Zeppieri,Learner Tien,0.0,100.0,,1.0,Sackmann,2025-09-20 06:15:15 UTC
+Atphangzhou,https://www.tennisabstract.com/current/2025ATPHangzhou.html,R16,Corentin Moutet,Arthur Cazaux,62.8,37.2,1.59,2.69,Sackmann,2025-09-20 06:15:15 UTC
+Atphangzhou,https://www.tennisabstract.com/current/2025ATPHangzhou.html,R16,Tomas Martin Etcheverry,Rinky Hijikata,63.9,36.1,1.56,2.77,Sackmann,2025-09-20 06:15:15 UTC
+Badwaltersdorfchallenger,https://www.tennisabstract.com/current/2025BadWaltersdorfChallenger.html,SF,Jan Choinski,Zdenek Kolar,61.1,38.9,1.64,2.57,Sackmann,2025-09-20 06:15:15 UTC
+Badwaltersdorfchallenger,https://www.tennisabstract.com/current/2025BadWaltersdorfChallenger.html,SF,Roberto Carballes Baena,Vit Kopriva,51.2,48.8,1.95,2.05,Sackmann,2025-09-20 06:15:15 UTC
+Saint Tropezchallenger,https://www.tennisabstract.com/current/2025Saint-TropezChallenger.html,SF,Stan Wawrinka,Dan Added,77.4,22.6,1.29,4.42,Sackmann,2025-09-20 06:15:15 UTC
+Saint Tropezchallenger,https://www.tennisabstract.com/current/2025Saint-TropezChallenger.html,SF,Moez Echargui,Mark Lajal,46.1,53.9,2.17,1.86,Sackmann,2025-09-20 06:15:15 UTC
+Villamariachallenger,https://www.tennisabstract.com/current/2025VillaMariaChallenger.html,SF,Emilio Nava,Murkel Alejandro Dellien Velasco,81.0,19.0,1.23,5.26,Sackmann,2025-09-20 06:15:15 UTC
+Villamariachallenger,https://www.tennisabstract.com/current/2025VillaMariaChallenger.html,SF,Federico Agustin Gomez,Alex Barrena,56.9,43.1,1.76,2.32,Sackmann,2025-09-20 06:15:15 UTC
+Columbuschallenger,https://www.tennisabstract.com/current/2025ColumbusChallenger.html,SF,Michael Zheng,Daniel Masur,78.8,21.2,1.27,4.72,Sackmann,2025-09-20 06:15:15 UTC
+Columbuschallenger,https://www.tennisabstract.com/current/2025ColumbusChallenger.html,SF,Martin Damm,Samir Banerjee,77.8,22.2,1.29,4.5,Sackmann,2025-09-20 06:15:15 UTC
+Targumures2Challenger,https://www.tennisabstract.com/current/2025TarguMures2Challenger.html,SF,Jay Clarke,Miguel Damas,84.5,15.5,1.18,6.45,Sackmann,2025-09-20 06:15:15 UTC
+Targumures2Challenger,https://www.tennisabstract.com/current/2025TarguMures2Challenger.html,SF,Mathys Erhard,Franco Agamenone,38.1,61.9,2.62,1.62,Sackmann,2025-09-20 06:15:15 UTC
