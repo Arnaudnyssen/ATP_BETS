@@ -1,0 +1,9 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,QF,Lorenzo Musetti,Nikoloz Basilashvili,82.3,17.7,1.22,5.65,Sackmann,2025-09-21 06:17:05 UTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,QF,Taro Daniel,Alexander Shevchenko,29.3,70.7,3.41,1.41,Sackmann,2025-09-21 06:17:05 UTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,QF,Marcos Giron,Brandon Nakashima,41.1,58.9,2.43,1.7,Sackmann,2025-09-21 06:17:05 UTC
+Atpchengdu,https://www.tennisabstract.com/current/2025ATPChengdu.html,QF,Christopher Oconnell,Alejandro Tabilo,51.6,48.4,1.94,2.07,Sackmann,2025-09-21 06:17:05 UTC
+Atphangzhou,https://www.tennisabstract.com/current/2025ATPHangzhou.html,QF,Valentin Royer,Learner Tien,26.2,73.8,3.82,1.36,Sackmann,2025-09-21 06:17:05 UTC
+Atphangzhou,https://www.tennisabstract.com/current/2025ATPHangzhou.html,QF,Corentin Moutet,Tomas Martin Etcheverry,57.0,43.0,1.75,2.33,Sackmann,2025-09-21 06:17:05 UTC
+Atphangzhou,https://www.tennisabstract.com/current/2025ATPHangzhou.html,QF,Dalibor Svrcina,Alexander Bublik,27.3,72.7,3.66,1.38,Sackmann,2025-09-21 06:17:05 UTC
+Atphangzhou,https://www.tennisabstract.com/current/2025ATPHangzhou.html,QF,Yibing Wu,Daniil Medvedev,27.4,72.6,3.65,1.38,Sackmann,2025-09-21 06:17:05 UTC

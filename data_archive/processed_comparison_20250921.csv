@@ -1,0 +1,9 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atpchengdu,QF,Lorenzo Musetti,Nikoloz Basilashvili,82.3000,17.7000,,,1.2200,5.6500,,,,,,
+Atpchengdu,QF,Taro Daniel,Alexander Shevchenko,29.3000,70.7000,,,3.4100,1.4100,,,,,,
+Atpchengdu,QF,Marcos Giron,Brandon Nakashima,41.1000,58.9000,,,2.4300,1.7000,,,,,,
+Atpchengdu,QF,Christopher Oconnell,Alejandro Tabilo,51.6000,48.4000,,,1.9400,2.0700,,,,,,
+Atphangzhou,QF,Valentin Royer,Learner Tien,26.2000,73.8000,,,3.8200,1.3600,,,,,,
+Atphangzhou,QF,Corentin Moutet,Tomas Martin Etcheverry,57.0000,43.0000,,,1.7500,2.3300,,,,,,
+Atphangzhou,QF,Dalibor Svrcina,Alexander Bublik,27.3000,72.7000,,,3.6600,1.3800,,,,,,
+Atphangzhou,QF,Yibing Wu,Daniil Medvedev,27.4000,72.6000,,,3.6500,1.3800,,,,,,
