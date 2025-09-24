@@ -1,0 +1,38 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R32,Carlos Alcaraz,Sebastian Baez,96.9,3.1,1.03,32.26,Sackmann,2025-09-24 06:19:02 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R32,Zizou Bergs,Alejandro Tabilo,37.9,62.1,2.64,1.61,Sackmann,2025-09-24 06:19:02 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R32,Jordan Thompson,Brandon Nakashima,46.9,53.1,2.13,1.88,Sackmann,2025-09-24 06:19:02 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R32,Marton Fucsovics,Frances Tiafoe,41.1,58.9,2.43,1.7,Sackmann,2025-09-24 06:19:02 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R32,Jannik Sinner,Marin Cilic,93.5,6.5,1.07,15.38,Sackmann,2025-09-24 06:19:02 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R32,Qualifier1,Zhizhen Zhang,41.3,58.7,2.42,1.7,Sackmann,2025-09-24 06:19:02 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R32,Benjamin Bonzi,Fabian Marozsan,53.4,46.6,1.87,2.15,Sackmann,2025-09-24 06:19:02 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R32,Alexandre Muller,Karen Khachanov,22.8,77.2,4.39,1.3,Sackmann,2025-09-24 06:19:02 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R32,Raphael Collignon,Lucas Poullain,92.8,7.2,1.08,13.89,Sackmann,2025-09-24 06:19:02 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R32,Moez Echargui,Kimmer Coppejans,74.2,25.8,1.35,3.88,Sackmann,2025-09-24 06:19:02 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R32,Alexis Galarneau,Emil Ruusuvuori,100.0,0.0,1.0,,Sackmann,2025-09-24 06:19:02 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R32,Marc Andrea Huesler,Pierre Hugues Herbert,0.0,100.0,,1.0,Sackmann,2025-09-24 06:19:02 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R32,Hugo Grenier,Patrick Kypson,0.0,100.0,,1.0,Sackmann,2025-09-24 06:19:02 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R32,Maxime Janvier,Justin Engel,0.0,100.0,,1.0,Sackmann,2025-09-24 06:19:02 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R32,Dominic Stricker,Mae Malige,0.0,100.0,,1.0,Sackmann,2025-09-24 06:19:02 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R16,Edas Butvilas,Nicolai Budkov Kjaer,30.3,69.7,3.3,1.43,Sackmann,2025-09-24 06:19:02 UTC
+Jingshanchallenger,https://www.tennisabstract.com/current/2025JingshanChallenger.html,R32,Valentin Royer,Borna Gojo,57.9,42.1,1.73,2.38,Sackmann,2025-09-24 06:19:02 UTC
+Jingshanchallenger,https://www.tennisabstract.com/current/2025JingshanChallenger.html,R32,Colton Smith,Adria Soriano Barrera,100.0,0.0,1.0,,Sackmann,2025-09-24 06:19:02 UTC
+Jingshanchallenger,https://www.tennisabstract.com/current/2025JingshanChallenger.html,R32,Chun Hsin Tseng,Tung Lin Wu,100.0,0.0,1.0,,Sackmann,2025-09-24 06:19:02 UTC
+Jingshanchallenger,https://www.tennisabstract.com/current/2025JingshanChallenger.html,R32,Yannick Hanfmann,Tristan Boyer,100.0,0.0,1.0,,Sackmann,2025-09-24 06:19:02 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,R16,Vit Kopriva,Alexander Ritschard,69.4,30.6,1.44,3.27,Sackmann,2025-09-24 06:19:02 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,R16,Stefano Travaglia,Jaime Faria,48.5,51.5,2.06,1.94,Sackmann,2025-09-24 06:19:02 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,R16,Roberto Carballes Baena,Pablo Llamas Ruiz,48.6,51.4,2.06,1.95,Sackmann,2025-09-24 06:19:02 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,R16,Henrique Rocha,Jan Choinski,31.5,68.5,3.17,1.46,Sackmann,2025-09-24 06:19:02 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Adolfo Daniel Vallejo,Genaro Alberto Olivieri,31.1,68.9,3.22,1.45,Sackmann,2025-09-24 06:19:02 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Andrea Collarini,Roman Andres Burruchaga,38.7,61.3,2.58,1.63,Sackmann,2025-09-24 06:19:02 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Nicolas Kicker,Facundo Bagnis,27.0,73.0,3.7,1.37,Sackmann,2025-09-24 06:19:02 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Gonzalo Bueno,Francesco Maestrelli,44.0,56.0,2.27,1.79,Sackmann,2025-09-24 06:19:02 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R32,Jurij Rodionov,Garrett Johns,100.0,0.0,1.0,,Sackmann,2025-09-24 06:19:02 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R32,Mats Rosenkranz,Cooper Williams,0.0,100.0,,1.0,Sackmann,2025-09-24 06:19:02 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R32,Abedallah Shelbayh,Alfredo Perez,100.0,0.0,1.0,,Sackmann,2025-09-24 06:19:02 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R32,Tyler Zink,Nicolas Mejia,40.5,59.5,2.47,1.68,Sackmann,2025-09-24 06:19:02 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R32,Patrick Maloney,Andrew Fenty,0.0,100.0,,1.0,Sackmann,2025-09-24 06:19:02 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R16,Philip Sekulic,Pietro Fellin,64.3,35.7,1.56,2.8,Sackmann,2025-09-24 06:19:02 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R32,Federico Bondioli,Alex Rybakov,0.0,100.0,,1.0,Sackmann,2025-09-24 06:19:02 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R32,Andre Ilagan,Theo Papamalamis,100.0,0.0,1.0,,Sackmann,2025-09-24 06:19:02 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R16,Moerani Bouzige,Olle Wallin,39.9,60.1,2.51,1.66,Sackmann,2025-09-24 06:19:02 UTC
