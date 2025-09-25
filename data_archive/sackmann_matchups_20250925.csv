@@ -1,0 +1,36 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R32,Carlos Alcaraz,Sebastian Baez,96.9,3.1,1.03,32.26,Sackmann,2025-09-25 06:18:50 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R32,Zizou Bergs,Alejandro Tabilo,37.9,62.1,2.64,1.61,Sackmann,2025-09-25 06:18:50 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R32,Jordan Thompson,Brandon Nakashima,46.9,53.1,2.13,1.88,Sackmann,2025-09-25 06:18:50 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R32,Marton Fucsovics,Frances Tiafoe,100.0,0.0,1.0,,Sackmann,2025-09-25 06:18:50 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R32,Jenson Brooksby,Yoshihito Nishioka,100.0,0.0,1.0,,Sackmann,2025-09-25 06:18:50 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R32,Sebastian Korda,Yosuke Watanuki,100.0,0.0,1.0,,Sackmann,2025-09-25 06:18:50 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R32,Jannik Sinner,Marin Cilic,93.5,6.5,1.07,15.38,Sackmann,2025-09-25 06:18:50 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R32,Terence Atmane,Zhizhen Zhang,57.7,42.3,1.73,2.36,Sackmann,2025-09-25 06:18:50 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R32,Benjamin Bonzi,Fabian Marozsan,53.4,46.6,1.87,2.15,Sackmann,2025-09-25 06:18:50 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R32,Alexandre Muller,Karen Khachanov,22.8,77.2,4.39,1.3,Sackmann,2025-09-25 06:18:50 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R32,Alexander Bublik,Giovanni Mpetshi Perricard,71.3,28.1,1.4,3.56,Sackmann,2025-09-25 06:18:50 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R16,Raphael Collignon,Kimmer Coppejans,81.8,18.2,1.22,5.49,Sackmann,2025-09-25 06:18:50 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R16,Alexis Galarneau,Pierre Hugues Herbert,44.7,55.3,2.24,1.81,Sackmann,2025-09-25 06:18:50 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R16,Lukas Klein,Patrick Kypson,0.0,100.0,,1.0,Sackmann,2025-09-25 06:18:50 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,R16,Justin Engel,Matteo Gigante,100.0,0.0,1.0,,Sackmann,2025-09-25 06:18:50 UTC
+Jingshanchallenger,https://www.tennisabstract.com/current/2025JingshanChallenger.html,R16,Denis Yevseyev,Colton Smith,15.9,84.1,6.29,1.19,Sackmann,2025-09-25 06:18:50 UTC
+Jingshanchallenger,https://www.tennisabstract.com/current/2025JingshanChallenger.html,R16,Chun Hsin Tseng,Yannick Hanfmann,31.2,68.8,3.21,1.45,Sackmann,2025-09-25 06:18:50 UTC
+Jingshanchallenger,https://www.tennisabstract.com/current/2025JingshanChallenger.html,R16,Dalibor Svrcina,Eliot Spizzirri,62.3,37.7,1.61,2.65,Sackmann,2025-09-25 06:18:50 UTC
+Jingshanchallenger,https://www.tennisabstract.com/current/2025JingshanChallenger.html,R16,Christopher Eubanks,Lloyd Harris,28.6,71.4,3.5,1.4,Sackmann,2025-09-25 06:18:50 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,R16,Vit Kopriva,Alexander Ritschard,69.4,30.6,1.44,3.27,Sackmann,2025-09-25 06:18:50 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,R16,Stefano Travaglia,Jaime Faria,48.5,51.5,2.06,1.94,Sackmann,2025-09-25 06:18:50 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,R16,Roberto Carballes Baena,Pablo Llamas Ruiz,0.0,100.0,,1.0,Sackmann,2025-09-25 06:18:50 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,R16,Henrique Rocha,Jan Choinski,100.0,0.0,1.0,,Sackmann,2025-09-25 06:18:50 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,R16,Daniel Merida Aguilar,Frederico Ferreira Silva,100.0,0.0,1.0,,Sackmann,2025-09-25 06:18:50 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Adolfo Daniel Vallejo,Genaro Alberto Olivieri,31.1,68.9,3.22,1.45,Sackmann,2025-09-25 06:18:50 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Andrea Collarini,Roman Andres Burruchaga,38.7,61.3,2.58,1.63,Sackmann,2025-09-25 06:18:50 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Nicolas Kicker,Facundo Bagnis,27.0,73.0,3.7,1.37,Sackmann,2025-09-25 06:18:50 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Gonzalo Bueno,Francesco Maestrelli,44.0,56.0,2.27,1.79,Sackmann,2025-09-25 06:18:50 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Lorenzo Joaquin Rodriguez,Alex Barrena,0.0,100.0,,1.0,Sackmann,2025-09-25 06:18:50 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Hugo Dellien,Alvaro Guillen Meza,0.0,100.0,,1.0,Sackmann,2025-09-25 06:18:50 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,R16,Juan Carlos Prado Angelo,Matheus Pucinelli De Almeida,0.0,100.0,,1.0,Sackmann,2025-09-25 06:18:50 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R16,Jurij Rodionov,Cooper Williams,100.0,0.0,1.0,,Sackmann,2025-09-25 06:18:50 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R16,Abedallah Shelbayh,Nicolas Mejia,47.3,52.7,2.11,1.9,Sackmann,2025-09-25 06:18:50 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R16,Benjamin Hassan,Andres Martin,48.2,51.8,2.07,1.93,Sackmann,2025-09-25 06:18:50 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,R16,Blaise Bicknell,Andrew Fenty,0.0,100.0,,1.0,Sackmann,2025-09-25 06:18:50 UTC
