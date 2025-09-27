@@ -1,0 +1,22 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R16,Carlos Alcaraz,Zizou Bergs,94.5,5.5,1.06,18.18,Sackmann,2025-09-27 06:14:38 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R16,Brandon Nakashima,Marton Fucsovics,58.9,41.1,1.7,2.43,Sackmann,2025-09-27 06:14:38 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R16,Casper Ruud,Matteo Berrettini,100.0,0.0,1.0,,Sackmann,2025-09-27 06:14:38 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R16,Aleksandar Vukic,Daniel Altmaier,100.0,0.0,1.0,,Sackmann,2025-09-27 06:14:38 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,R16,Sebastian Korda,Nuno Borges,100.0,0.0,1.0,,Sackmann,2025-09-27 06:14:38 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R16,Jannik Sinner,Terence Atmane,94.3,5.7,1.06,17.54,Sackmann,2025-09-27 06:14:38 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R16,Fabian Marozsan,Alexandre Muller,100.0,0.0,1.0,,Sackmann,2025-09-27 06:14:38 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R16,Alex De Minaur,Arthur Rinderknech,79.0,21.0,1.27,4.76,Sackmann,2025-09-27 06:14:38 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R16,Arthur Cazaux,Jakub Mensik,27.9,72.1,3.58,1.39,Sackmann,2025-09-27 06:14:38 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,SF,Raphael Collignon,Justin Engel,81.8,18.2,1.22,5.49,Sackmann,2025-09-27 06:14:38 UTC
+Orleanschallenger,https://www.tennisabstract.com/current/2025OrleansChallenger.html,SF,Mark Lajal,Martin Landaluce,57.0,43.0,1.75,2.33,Sackmann,2025-09-27 06:14:38 UTC
+Jingshanchallenger,https://www.tennisabstract.com/current/2025JingshanChallenger.html,SF,Yannick Hanfmann,Eliot Spizzirri,55.2,44.8,1.81,2.23,Sackmann,2025-09-27 06:14:38 UTC
+Jingshanchallenger,https://www.tennisabstract.com/current/2025JingshanChallenger.html,SF,Alex Bolt,Mackenzie Mcdonald,24.3,75.7,4.12,1.32,Sackmann,2025-09-27 06:14:38 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,SF,Stefano Travaglia,Henrique Rocha,56.1,43.9,1.78,2.28,Sackmann,2025-09-27 06:14:38 UTC
+Lisbonchallenger,https://www.tennisabstract.com/current/2025LisbonChallenger.html,SF,Ignacio Buse,Vilius Gaubas,79.5,20.5,1.26,4.88,Sackmann,2025-09-27 06:14:38 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,SF,Roman Andres Burruchaga,Nicolas Kicker,71.3,28.7,1.4,3.48,Sackmann,2025-09-27 06:14:38 UTC
+Buenosaireschallenger,https://www.tennisabstract.com/current/2025BuenosAiresChallenger.html,SF,Alex Barrena,Alvaro Guillen Meza,52.8,47.2,1.89,2.12,Sackmann,2025-09-27 06:14:38 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,QF,Jurij Rodionov,Abedallah Shelbayh,0.0,100.0,,1.0,Sackmann,2025-09-27 06:14:38 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,QF,Benjamin Hassan,Andrew Fenty,100.0,0.0,1.0,,Sackmann,2025-09-27 06:14:38 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,QF,Philip Sekulic,Alex Rybakov,0.0,100.0,,1.0,Sackmann,2025-09-27 06:14:38 UTC
+Lasvegaschallenger,https://www.tennisabstract.com/current/2025LasVegasChallenger.html,QF,Andre Ilagan,Moerani Bouzige,72.9,27.1,1.37,3.69,Sackmann,2025-09-27 06:14:38 UTC
