@@ -1,0 +1,61 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,SF,Jannik Sinner,Alex De Minaur,80.2,19.8,1.25,5.05,Sackmann,2025-09-30 06:19:14 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,SF,Learner Tien,Daniil Medvedev,34.0,66.0,2.94,1.52,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Learner Tien,Miomir Kecmanovic,59.5,40.5,1.68,2.47,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Arthur Cazaux,Pedro Martinez,61.9,38.1,1.62,2.62,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Matteo Arnaldi,Qualifier1,69.2,30.8,1.45,3.25,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Yibing Wu,Qualifier2,74.2,25.8,1.35,3.88,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Aleksandar Kovacevic,Juncheng Shang,53.9,46.1,1.86,2.17,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Botic Van De Zandschulp,Nuno Borges,51.2,48.8,1.95,2.05,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Kamil Majchrzak,Ethan Quinn,59.3,40.7,1.69,2.46,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Camilo Ugo Carabelli,Terence Atmane,35.6,64.4,2.81,1.55,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Qualifier3,Mariano Navone,48.4,51.6,2.07,1.94,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Arthur Rinderknech,Hamad Medjedovic,41.8,58.2,2.39,1.72,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Damir Dzumhur,Christopher Oconnell,37.9,62.1,2.64,1.61,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Qualifier4,Quentin Halys,43.0,57.0,2.33,1.75,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Marcos Giron,Qualifier5,70.8,29.2,1.41,3.42,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Yi Zhou,Jesper De Jong,30.8,69.2,3.25,1.45,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Bu Yunchaokete,Juan Manuel Cerundolo,51.4,48.6,1.95,2.06,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Francisco Comesana,Qualifier6,57.9,42.1,1.73,2.38,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,David Goffin,Alexandre Muller,51.6,48.4,1.94,2.07,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Reilly Opelka,Benjamin Bonzi,54.5,45.5,1.83,2.2,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Adrian Mannarino,Matteo Berrettini,42.0,58.0,2.38,1.72,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Sebastian Korda,Zizou Bergs,69.6,30.4,1.44,3.29,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Qualifier7,Alexander Shevchenko,38.1,61.9,2.62,1.62,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Jaume Munar,Marton Fucsovics,47.3,52.7,2.11,1.9,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Lorenzo Sonego,Qualifier8,66.2,33.8,1.51,2.96,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Marin Cilic,Corentin Moutet,44.4,55.6,2.25,1.8,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Fabian Marozsan,Stan Wawrinka,51.9,48.1,1.93,2.08,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Sebastian Ofner,Luca Nardi,46.4,53.6,2.16,1.87,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Jordan Thompson,Qualifier9,74.8,25.2,1.34,3.97,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Zhizhen Zhang,Sebastian Baez,59.2,40.8,1.69,2.45,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Laslo Djere,Qualifier10,63.7,36.3,1.57,2.75,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Adam Walton,Mattia Bellucci,50.9,49.1,1.96,2.04,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Jenson Brooksby,Qualifier11,71.8,28.2,1.39,3.55,Sackmann,2025-09-30 06:19:14 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R128,Qualifier12,Daniel Altmaier,41.0,59.0,2.44,1.69,Sackmann,2025-09-30 06:19:14 UTC
+Villenachallenger,https://www.tennisabstract.com/current/2025VillenaChallenger.html,R32,Jan Lennard Struff,Edas Butvilas,75.7,24.3,1.32,4.12,Sackmann,2025-09-30 06:19:14 UTC
+Villenachallenger,https://www.tennisabstract.com/current/2025VillenaChallenger.html,R32,Darwin Blanch,Luca Potenza,54.0,46.0,1.85,2.17,Sackmann,2025-09-30 06:19:14 UTC
+Villenachallenger,https://www.tennisabstract.com/current/2025VillenaChallenger.html,R32,Neil Oberleitner,Arthur Gea,31.1,68.9,3.22,1.45,Sackmann,2025-09-30 06:19:14 UTC
+Villenachallenger,https://www.tennisabstract.com/current/2025VillenaChallenger.html,R32,Petr Brunclik,Jerome Kym,14.9,85.1,6.71,1.18,Sackmann,2025-09-30 06:19:14 UTC
+Villenachallenger,https://www.tennisabstract.com/current/2025VillenaChallenger.html,R32,Ryan Peniston,Albert Ramos,35.8,65.1,2.79,1.54,Sackmann,2025-09-30 06:19:14 UTC
+Antofagastachallenger,https://www.tennisabstract.com/current/2025AntofagastaChallenger.html,R32,Emilio Nava,Matheus Pucinelli De Almeida,82.3,17.7,1.22,5.65,Sackmann,2025-09-30 06:19:14 UTC
+Antofagastachallenger,https://www.tennisabstract.com/current/2025AntofagastaChallenger.html,R32,Federico Agustin Gomez,Joaquin Aguilar Cardozo,76.8,23.2,1.3,4.31,Sackmann,2025-09-30 06:19:14 UTC
+Antofagastachallenger,https://www.tennisabstract.com/current/2025AntofagastaChallenger.html,R32,Matias Soto,Joao Lucas Reis Da Silva,33.9,66.1,2.95,1.51,Sackmann,2025-09-30 06:19:14 UTC
+Antofagastachallenger,https://www.tennisabstract.com/current/2025AntofagastaChallenger.html,R32,Facundo Bagnis,Francesco Maestrelli,100.0,0.0,1.0,,Sackmann,2025-09-30 06:19:14 UTC
+Antofagastachallenger,https://www.tennisabstract.com/current/2025AntofagastaChallenger.html,R32,Alvaro Guillen Meza,Rodrigo Pacheco Mendez,32.9,67.9,3.04,1.47,Sackmann,2025-09-30 06:19:14 UTC
+Antofagastachallenger,https://www.tennisabstract.com/current/2025AntofagastaChallenger.html,R32,Facundo Diaz Acosta,Juan Bautista Torres,75.1,25.5,1.33,3.92,Sackmann,2025-09-30 06:19:14 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Jurij Rodionov,Abedallah Shelbayh,76.9,23.1,1.3,4.33,Sackmann,2025-09-30 06:19:14 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Alfredo Perez,Trevor Svajda,100.0,0.0,1.0,,Sackmann,2025-09-30 06:19:14 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Bor Artnak,Renta Tokuda,60.4,39.6,1.66,2.53,Sackmann,2025-09-30 06:19:14 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Federico Bondioli,Dmitry Popko,0.0,100.0,,1.0,Sackmann,2025-09-30 06:19:14 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Andres Martin,Mats Rosenkranz,0.0,100.0,,1.0,Sackmann,2025-09-30 06:19:14 UTC
+Bragachallenger,https://www.tennisabstract.com/current/2025BragaChallenger.html,R32,Carlos Taberner,Thiago Seyboth Wild,66.0,34.0,1.52,2.94,Sackmann,2025-09-30 06:19:14 UTC
+Bragachallenger,https://www.tennisabstract.com/current/2025BragaChallenger.html,R32,Javier Barranco Cosano,Pedro Araujo,78.7,21.3,1.27,4.69,Sackmann,2025-09-30 06:19:14 UTC
+Bragachallenger,https://www.tennisabstract.com/current/2025BragaChallenger.html,R32,Max Houkes,Zdenek Kolar,35.6,64.4,2.81,1.55,Sackmann,2025-09-30 06:19:14 UTC
+Bragachallenger,https://www.tennisabstract.com/current/2025BragaChallenger.html,R32,Stefano Travaglia,Jaime Faria,48.5,51.5,2.06,1.94,Sackmann,2025-09-30 06:19:14 UTC
+Bragachallenger,https://www.tennisabstract.com/current/2025BragaChallenger.html,R32,Daniel Rincon,Luka Mikrut,0.0,100.0,,1.0,Sackmann,2025-09-30 06:19:14 UTC
+Mouilleronlecaptifchallenger,https://www.tennisabstract.com/current/2025MouilleronleCaptifChallenger.html,R32,Raphael Collignon,Jelle Sels,87.8,12.2,1.14,8.2,Sackmann,2025-09-30 06:19:14 UTC
+Mouilleronlecaptifchallenger,https://www.tennisabstract.com/current/2025MouilleronleCaptifChallenger.html,R32,Lucas Poullain,Stuart Parker,28.9,71.1,3.46,1.41,Sackmann,2025-09-30 06:19:14 UTC
+Mouilleronlecaptifchallenger,https://www.tennisabstract.com/current/2025MouilleronleCaptifChallenger.html,R32,Hamish Stewart,Arthur Fery,27.9,72.1,3.58,1.39,Sackmann,2025-09-30 06:19:14 UTC
+Mouilleronlecaptifchallenger,https://www.tennisabstract.com/current/2025MouilleronleCaptifChallenger.html,R32,Geoffrey Blancaneaux,Remy Bertola,65.0,35.0,1.54,2.86,Sackmann,2025-09-30 06:19:14 UTC
+Mouilleronlecaptifchallenger,https://www.tennisabstract.com/current/2025MouilleronleCaptifChallenger.html,R32,Mees Rottgering,Sascha Gueymard Wayenburg,100.0,0.0,1.0,,Sackmann,2025-09-30 06:19:14 UTC
