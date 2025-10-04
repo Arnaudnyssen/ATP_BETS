@@ -1,0 +1,25 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R64,Corentin Moutet,Learner Tien,38.3,61.7,2.61,1.62,Sackmann,2025-10-04 06:16:23 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R64,Arthur Cazaux,Cameron Norrie,44.5,55.5,2.25,1.8,Sackmann,2025-10-04 06:16:23 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R64,Alejandro Davidovich Fokina,Matteo Arnaldi,65.4,34.6,1.53,2.89,Sackmann,2025-10-04 06:16:23 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R64,Dalibor Svrcina,Daniil Medvedev,18.4,81.6,5.43,1.23,Sackmann,2025-10-04 06:16:23 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R64,David Goffin,Benjamin Bonzi,100.0,0.0,1.0,,Sackmann,2025-10-04 06:16:23 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R64,Adrian Mannarino,Zizou Bergs,0.0,100.0,,1.0,Sackmann,2025-10-04 06:16:23 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R64,Yannick Hanfmann,Marin Cilic,100.0,0.0,1.0,,Sackmann,2025-10-04 06:16:23 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,R64,Valentin Vacherot,Mattia Bellucci,100.0,0.0,1.0,,Sackmann,2025-10-04 06:16:23 UTC
+Villenachallenger,https://www.tennisabstract.com/current/2025VillenaChallenger.html,SF,Petr Brunclik,Pablo Carreno Busta,11.5,88.5,8.7,1.13,Sackmann,2025-10-04 06:16:23 UTC
+Villenachallenger,https://www.tennisabstract.com/current/2025VillenaChallenger.html,SF,Daniel Merida Aguilar,Hugo Grenier,55.3,44.7,1.81,2.24,Sackmann,2025-10-04 06:16:23 UTC
+Antofagastachallenger,https://www.tennisabstract.com/current/2025AntofagastaChallenger.html,SF,Joao Lucas Reis Da Silva,Facundo Diaz Acosta,28.2,71.8,3.55,1.39,Sackmann,2025-10-04 06:16:23 UTC
+Antofagastachallenger,https://www.tennisabstract.com/current/2025AntofagastaChallenger.html,SF,Adolfo Daniel Vallejo,Cristian Garin,17.6,82.4,5.68,1.21,Sackmann,2025-10-04 06:16:23 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Jurij Rodionov,Abedallah Shelbayh,0.0,100.0,,1.0,Sackmann,2025-10-04 06:16:23 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Alfredo Perez,Trevor Svajda,100.0,0.0,1.0,,Sackmann,2025-10-04 06:16:23 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Bor Artnak,Renta Tokuda,100.0,0.0,1.0,,Sackmann,2025-10-04 06:16:23 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Federico Bondioli,Dmitry Popko,0.0,100.0,,1.0,Sackmann,2025-10-04 06:16:23 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Andres Martin,Mats Rosenkranz,0.0,100.0,,1.0,Sackmann,2025-10-04 06:16:23 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Marek Gengel,Rafael Jodar,0.0,100.0,,1.0,Sackmann,2025-10-04 06:16:23 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Oliver Tarvet,Olle Wallin,0.0,100.0,,1.0,Sackmann,2025-10-04 06:16:23 UTC
+Tiburonchallenger,https://www.tennisabstract.com/current/2025TiburonChallenger.html,R32,Mitchell Krueger,Moerani Bouzige,100.0,0.0,1.0,,Sackmann,2025-10-04 06:16:23 UTC
+Bragachallenger,https://www.tennisabstract.com/current/2025BragaChallenger.html,SF,Zdenek Kolar,Vilius Gaubas,29.7,70.3,3.37,1.42,Sackmann,2025-10-04 06:16:23 UTC
+Bragachallenger,https://www.tennisabstract.com/current/2025BragaChallenger.html,SF,Alejandro Moro Canas,Luka Mikrut,37.1,62.9,2.7,1.59,Sackmann,2025-10-04 06:16:23 UTC
+Mouilleronlecaptifchallenger,https://www.tennisabstract.com/current/2025MouilleronleCaptifChallenger.html,SF,Raphael Collignon,Patrick Kypson,73.7,26.3,1.36,3.8,Sackmann,2025-10-04 06:16:23 UTC
+Mouilleronlecaptifchallenger,https://www.tennisabstract.com/current/2025MouilleronleCaptifChallenger.html,SF,Nicolai Budkov Kjaer,Clement Chidekh,75.2,24.8,1.33,4.03,Sackmann,2025-10-04 06:16:23 UTC
