@@ -1,0 +1,32 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,QF,Daniil Medvedev,Alex De Minaur,42.2,57.8,2.37,1.73,Sackmann,2025-10-09 06:19:50 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,QF,Arthur Rinderknech,Felix Auger Aliassime,28.4,71.6,3.52,1.4,Sackmann,2025-10-09 06:19:50 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,QF,Zizou Bergs,Novak Djokovic,13.4,86.6,7.46,1.15,Sackmann,2025-10-09 06:19:50 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,QF,Holger Rune,Valentin Vacherot,83.9,16.1,1.19,6.21,Sackmann,2025-10-09 06:19:50 UTC
+Jinanchallenger,https://www.tennisabstract.com/current/2025JinanChallenger.html,R16,Arthur Cazaux,Liam Draxl,100.0,0.0,1.0,,Sackmann,2025-10-09 06:19:50 UTC
+Jinanchallenger,https://www.tennisabstract.com/current/2025JinanChallenger.html,R16,Rinky Hijikata,Yi Zhou,0.0,100.0,,1.0,Sackmann,2025-10-09 06:19:50 UTC
+Jinanchallenger,https://www.tennisabstract.com/current/2025JinanChallenger.html,R16,Bernard Tomic,Billy Harris,100.0,0.0,1.0,,Sackmann,2025-10-09 06:19:50 UTC
+Jinanchallenger,https://www.tennisabstract.com/current/2025JinanChallenger.html,R16,Kyrian Jacquet,Shintaro Mochizuki,40.9,59.1,2.44,1.69,Sackmann,2025-10-09 06:19:50 UTC
+Valenciachallenger,https://www.tennisabstract.com/current/2025ValenciaChallenger.html,QF,Albert Ramos,Jan Choinski,35.9,64.1,2.79,1.56,Sackmann,2025-10-09 06:19:50 UTC
+Valenciachallenger,https://www.tennisabstract.com/current/2025ValenciaChallenger.html,QF,Sumit Nagal,Henri Squire,55.1,44.9,1.81,2.23,Sackmann,2025-10-09 06:19:50 UTC
+Valenciachallenger,https://www.tennisabstract.com/current/2025ValenciaChallenger.html,QF,Marco Trungelliti,Carlos Taberner,51.3,48.7,1.95,2.05,Sackmann,2025-10-09 06:19:50 UTC
+Valenciachallenger,https://www.tennisabstract.com/current/2025ValenciaChallenger.html,QF,Luka Mikrut,Christoph Negritu,85.8,14.2,1.17,7.04,Sackmann,2025-10-09 06:19:50 UTC
+Roannechallenger,https://www.tennisabstract.com/current/2025RoanneChallenger.html,R16,Jacob Fearnley,Dominic Stricker,0.0,100.0,,1.0,Sackmann,2025-10-09 06:19:50 UTC
+Roannechallenger,https://www.tennisabstract.com/current/2025RoanneChallenger.html,R16,Matej Dodig,Francesco Passaro,100.0,0.0,1.0,,Sackmann,2025-10-09 06:19:50 UTC
+Roannechallenger,https://www.tennisabstract.com/current/2025RoanneChallenger.html,R16,Henry Bernet,Nicolai Budkov Kjaer,10.8,89.2,9.26,1.12,Sackmann,2025-10-09 06:19:50 UTC
+Roannechallenger,https://www.tennisabstract.com/current/2025RoanneChallenger.html,R16,Borna Gojo,Hugo Gaston,56.2,43.8,1.78,2.28,Sackmann,2025-10-09 06:19:50 UTC
+Calichallenger,https://www.tennisabstract.com/current/2025CaliChallenger.html,R16,Tomas Barrios Vera,Luciano Emanuel Ambrogi,88.1,11.9,1.14,8.4,Sackmann,2025-10-09 06:19:50 UTC
+Calichallenger,https://www.tennisabstract.com/current/2025CaliChallenger.html,R16,Mateus Alves,Federico Agustin Gomez,19.9,80.1,5.03,1.25,Sackmann,2025-10-09 06:19:50 UTC
+Calichallenger,https://www.tennisabstract.com/current/2025CaliChallenger.html,R16,Daniel Dutra Da Silva,Juan Bautista Torres,41.4,58.6,2.42,1.71,Sackmann,2025-10-09 06:19:50 UTC
+Calichallenger,https://www.tennisabstract.com/current/2025CaliChallenger.html,R16,Franco Roncadelli,Nicolas Mejia,29.7,70.3,3.37,1.42,Sackmann,2025-10-09 06:19:50 UTC
+Calichallenger,https://www.tennisabstract.com/current/2025CaliChallenger.html,R16,Andrea Collarini,Matias Soto,0.0,100.0,,1.0,Sackmann,2025-10-09 06:19:50 UTC
+Fairfieldchallenger,https://www.tennisabstract.com/current/2025FairfieldChallenger.html,R16,Benjamin Hassan,Andre Ilagan,0.0,100.0,,1.0,Sackmann,2025-10-09 06:19:50 UTC
+Fairfieldchallenger,https://www.tennisabstract.com/current/2025FairfieldChallenger.html,R16,Dominique Rolland,Tyler Zink,100.0,0.0,1.0,,Sackmann,2025-10-09 06:19:50 UTC
+Fairfieldchallenger,https://www.tennisabstract.com/current/2025FairfieldChallenger.html,R16,Marek Gengel,Edward Winter,59.0,41.0,1.69,2.44,Sackmann,2025-10-09 06:19:50 UTC
+Fairfieldchallenger,https://www.tennisabstract.com/current/2025FairfieldChallenger.html,R16,Roger Pascual Ferra,Abedallah Shelbayh,27.0,73.0,3.7,1.37,Sackmann,2025-10-09 06:19:50 UTC
+Hersonissos5Challenger,https://www.tennisabstract.com/current/2025Hersonissos5Challenger.html,R16,Kimmer Coppejans,Toby Samuel,61.5,38.5,1.63,2.6,Sackmann,2025-10-09 06:19:50 UTC
+Hersonissos5Challenger,https://www.tennisabstract.com/current/2025Hersonissos5Challenger.html,R16,Radu Albot,Dimitar Kuzmanov,48.9,51.1,2.04,1.96,Sackmann,2025-10-09 06:19:50 UTC
+Hersonissos5Challenger,https://www.tennisabstract.com/current/2025Hersonissos5Challenger.html,R16,Inaki Montes De La Torre,Harry Wendelken,64.7,35.3,1.55,2.83,Sackmann,2025-10-09 06:19:50 UTC
+Hersonissos5Challenger,https://www.tennisabstract.com/current/2025Hersonissos5Challenger.html,R16,Hynek Barton,George Loffhagen,32.1,67.9,3.12,1.47,Sackmann,2025-10-09 06:19:50 UTC
+Hersonissos5Challenger,https://www.tennisabstract.com/current/2025Hersonissos5Challenger.html,R16,Eliakim Coulibaly,Niels Visker,100.0,0.0,1.0,,Sackmann,2025-10-09 06:19:50 UTC
+Hersonissos5Challenger,https://www.tennisabstract.com/current/2025Hersonissos5Challenger.html,R16,Petros Tsitsipas,Michael Geerts,0.0,100.0,,1.0,Sackmann,2025-10-09 06:19:50 UTC
