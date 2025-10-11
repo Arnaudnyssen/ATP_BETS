@@ -1,0 +1,17 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,SF,Daniil Medvedev,Arthur Rinderknech,74.0,26.0,1.35,3.85,Sackmann,2025-10-11 06:22:12 UTC
+Atpshanghai,https://www.tennisabstract.com/current/2025ATPShanghai.html,SF,Novak Djokovic,Valentin Vacherot,93.1,6.9,1.07,14.49,Sackmann,2025-10-11 06:22:12 UTC
+Jinanchallenger,https://www.tennisabstract.com/current/2025JinanChallenger.html,SF,Arthur Cazaux,Shintaro Mochizuki,65.0,35.0,1.54,2.86,Sackmann,2025-10-11 06:22:12 UTC
+Jinanchallenger,https://www.tennisabstract.com/current/2025JinanChallenger.html,SF,Petr Bar Biryukov,Mackenzie Mcdonald,10.3,89.7,9.71,1.11,Sackmann,2025-10-11 06:22:12 UTC
+Valenciachallenger,https://www.tennisabstract.com/current/2025ValenciaChallenger.html,SF,Jan Choinski,Henri Squire,68.6,31.4,1.46,3.18,Sackmann,2025-10-11 06:22:12 UTC
+Valenciachallenger,https://www.tennisabstract.com/current/2025ValenciaChallenger.html,SF,Carlos Taberner,Luka Mikrut,45.1,54.9,2.22,1.82,Sackmann,2025-10-11 06:22:12 UTC
+Roannechallenger,https://www.tennisabstract.com/current/2025RoanneChallenger.html,SF,Matej Dodig,Hugo Gaston,21.8,78.2,4.59,1.28,Sackmann,2025-10-11 06:22:12 UTC
+Roannechallenger,https://www.tennisabstract.com/current/2025RoanneChallenger.html,SF,Matteo Martineau,Otto Virtanen,23.4,76.6,4.27,1.31,Sackmann,2025-10-11 06:22:12 UTC
+Calichallenger,https://www.tennisabstract.com/current/2025CaliChallenger.html,QF,Tomas Barrios Vera,Mateus Alves,100.0,0.0,1.0,,Sackmann,2025-10-11 06:22:12 UTC
+Calichallenger,https://www.tennisabstract.com/current/2025CaliChallenger.html,QF,Juan Bautista Torres,Nicolas Mejia,100.0,0.0,1.0,,Sackmann,2025-10-11 06:22:12 UTC
+Calichallenger,https://www.tennisabstract.com/current/2025CaliChallenger.html,QF,Juan Pablo Varillas,Gonzalo Bueno,47.2,52.8,2.12,1.89,Sackmann,2025-10-11 06:22:12 UTC
+Calichallenger,https://www.tennisabstract.com/current/2025CaliChallenger.html,QF,Juan Carlos Prado Angelo,Matias Soto,71.4,28.6,1.4,3.5,Sackmann,2025-10-11 06:22:12 UTC
+Fairfieldchallenger,https://www.tennisabstract.com/current/2025FairfieldChallenger.html,SF,Andre Ilagan,Edward Winter,75.9,24.1,1.32,4.15,Sackmann,2025-10-11 06:22:12 UTC
+Fairfieldchallenger,https://www.tennisabstract.com/current/2025FairfieldChallenger.html,SF,Garrett Johns,Jay Dylan Hara Friend,57.5,42.5,1.74,2.35,Sackmann,2025-10-11 06:22:12 UTC
+Hersonissos5Challenger,https://www.tennisabstract.com/current/2025Hersonissos5Challenger.html,SF,Kimmer Coppejans,Hynek Barton,56.0,44.0,1.79,2.27,Sackmann,2025-10-11 06:22:12 UTC
+Hersonissos5Challenger,https://www.tennisabstract.com/current/2025Hersonissos5Challenger.html,SF,Ryan Peniston,Antoine Escoffier,49.6,50.4,2.02,1.98,Sackmann,2025-10-11 06:22:12 UTC
