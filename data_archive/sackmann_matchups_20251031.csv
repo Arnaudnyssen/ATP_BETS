@@ -1,0 +1,25 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,QF,Valentin Vacherot,Felix Auger Aliassime,33.0,67.0,3.03,1.49,Sackmann,2025-10-31 06:18:13 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,QF,Alexander Bublik,Alex De Minaur,31.9,68.1,3.13,1.47,Sackmann,2025-10-31 06:18:13 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,QF,Daniil Medvedev,Alexander Zverev,41.6,58.4,2.4,1.71,Sackmann,2025-10-31 06:18:13 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,QF,Ben Shelton,Jannik Sinner,16.1,83.9,6.21,1.19,Sackmann,2025-10-31 06:18:13 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,QF,Raphael Collignon,Mark Lajal,67.8,32.2,1.47,3.11,Sackmann,2025-10-31 06:18:13 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,QF,Alexander Blockx,Otto Virtanen,47.6,52.4,2.1,1.91,Sackmann,2025-10-31 06:18:13 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,QF,Francesco Maestrelli,Titouan Droguet,42.7,57.3,2.34,1.75,Sackmann,2025-10-31 06:18:13 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,QF,Eliot Spizzirri,Chris Rodesch,82.4,17.6,1.21,5.68,Sackmann,2025-10-31 06:18:13 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,QF,Sho Shimabukuro,Kasidit Samrej,88.6,11.4,1.13,8.77,Sackmann,2025-10-31 06:18:13 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,QF,Jurij Rodionov,Elias Ymer,57.0,43.0,1.75,2.33,Sackmann,2025-10-31 06:18:13 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,QF,Yi Zhou,Frederico Ferreira Silva,65.4,34.6,1.53,2.89,Sackmann,2025-10-31 06:18:13 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,QF,Coleman Wong,Bu Yunchaokete,40.3,59.7,2.48,1.68,Sackmann,2025-10-31 06:18:13 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,QF,Mats Rosenkranz,Oliver Tarvet,43.8,56.2,2.28,1.78,Sackmann,2025-10-31 06:18:13 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,QF,Daniil Glinka,Martin Damm,44.0,56.0,2.27,1.79,Sackmann,2025-10-31 06:18:13 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,QF,Rafael Jodar,Dylan Dietrich,90.8,9.2,1.1,10.87,Sackmann,2025-10-31 06:18:13 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,QF,Johannus Monday,Mitchell Krueger,52.0,48.0,1.92,2.08,Sackmann,2025-10-31 06:18:13 UTC
+Lima Losinkaschallenger,https://www.tennisabstract.com/current/2025Lima-LosInkasChallenger.html,QF,Mariano Navone,Alex Barrena,79.8,20.2,1.25,4.95,Sackmann,2025-10-31 06:18:13 UTC
+Lima Losinkaschallenger,https://www.tennisabstract.com/current/2025Lima-LosInkasChallenger.html,QF,Ignacio Buse,Alvaro Guillen Meza,78.4,21.6,1.28,4.63,Sackmann,2025-10-31 06:18:13 UTC
+Lima Losinkaschallenger,https://www.tennisabstract.com/current/2025Lima-LosInkasChallenger.html,QF,Tristan Boyer,Zdenek Kolar,43.7,56.3,2.29,1.78,Sackmann,2025-10-31 06:18:13 UTC
+Lima Losinkaschallenger,https://www.tennisabstract.com/current/2025Lima-LosInkasChallenger.html,QF,Marco Cecchinato,Arklon Huertas Del Pino,74.0,26.0,1.35,3.85,Sackmann,2025-10-31 06:18:13 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,QF,Luka Mikrut,Alejandro Moro Canas,47.7,52.3,2.1,1.91,Sackmann,2025-10-31 06:18:13 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,QF,Lorenzo Giustino,Dan Added,25.9,74.1,3.86,1.35,Sackmann,2025-10-31 06:18:13 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,QF,Arthur Gea,Remy Bertola,33.1,66.9,3.02,1.49,Sackmann,2025-10-31 06:18:13 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,QF,Petr Brunclik,Mert Alkaya,53.1,46.9,1.88,2.13,Sackmann,2025-10-31 06:18:13 UTC
