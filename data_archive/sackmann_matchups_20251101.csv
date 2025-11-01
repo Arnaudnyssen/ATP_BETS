@@ -1,0 +1,13 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,SF,Felix Auger Aliassime,Alexander Bublik,61.9,38.1,1.62,2.62,Sackmann,2025-11-01 06:15:37 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,SF,Alexander Zverev,Jannik Sinner,23.2,76.8,4.31,1.3,Sackmann,2025-11-01 06:15:37 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,SF,Raphael Collignon,Alexander Blockx,71.5,28.5,1.4,3.51,Sackmann,2025-11-01 06:15:37 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,SF,Titouan Droguet,Chris Rodesch,60.3,39.7,1.66,2.52,Sackmann,2025-11-01 06:15:37 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,SF,Sho Shimabukuro,Elias Ymer,55.9,44.1,1.79,2.27,Sackmann,2025-11-01 06:15:37 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,SF,Yi Zhou,Coleman Wong,0.0,100.0,,1.0,Sackmann,2025-11-01 06:15:37 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,SF,Mats Rosenkranz,Martin Damm,35.0,65.0,2.86,1.54,Sackmann,2025-11-01 06:15:37 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,SF,Rafael Jodar,Johannus Monday,75.2,24.8,1.33,4.03,Sackmann,2025-11-01 06:15:37 UTC
+Lima Losinkaschallenger,https://www.tennisabstract.com/current/2025Lima-LosInkasChallenger.html,SF,Mariano Navone,Alvaro Guillen Meza,77.8,22.2,1.29,4.5,Sackmann,2025-11-01 06:15:37 UTC
+Lima Losinkaschallenger,https://www.tennisabstract.com/current/2025Lima-LosInkasChallenger.html,SF,Tristan Boyer,Marco Cecchinato,51.6,48.4,1.94,2.07,Sackmann,2025-11-01 06:15:37 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,SF,Alejandro Moro Canas,Lorenzo Giustino,75.1,24.9,1.33,4.02,Sackmann,2025-11-01 06:15:37 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,SF,Arthur Gea,Petr Brunclik,45.9,54.1,2.18,1.85,Sackmann,2025-11-01 06:15:37 UTC
