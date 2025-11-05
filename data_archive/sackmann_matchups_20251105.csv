@@ -1,0 +1,42 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpathens,https://www.tennisabstract.com/current/2025ATPAthens.html,R16,Novak Djokovic,Alejandro Tabilo,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Atpathens,https://www.tennisabstract.com/current/2025ATPAthens.html,R16,Eliot Spizzirri,Nuno Borges,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Atpathens,https://www.tennisabstract.com/current/2025ATPAthens.html,R16,Brandon Nakashima,Marcos Giron,60.3,39.7,1.66,2.52,Sackmann,2025-11-05 06:18:30 UTC
+Atpathens,https://www.tennisabstract.com/current/2025ATPAthens.html,R16,Yannick Hanfmann,Vit Kopriva,67.6,32.4,1.48,3.09,Sackmann,2025-11-05 06:18:30 UTC
+Atpmetz,https://www.tennisabstract.com/current/2025ATPMetz.html,R16,Dan Added,Kyrian Jacquet,40.0,60.0,2.5,1.67,Sackmann,2025-11-05 06:18:30 UTC
+Atpmetz,https://www.tennisabstract.com/current/2025ATPMetz.html,R16,Arthur Cazaux,Cameron Norrie,45.6,54.4,2.19,1.84,Sackmann,2025-11-05 06:18:30 UTC
+Atpmetz,https://www.tennisabstract.com/current/2025ATPMetz.html,R16,Flavio Cobolli,Lorenzo Sonego,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Atpmetz,https://www.tennisabstract.com/current/2025ATPMetz.html,R16,Hugo Gaston,Daniel Altmaier,49.1,50.9,2.04,1.96,Sackmann,2025-11-05 06:18:30 UTC
+Helsinkichallenger,https://www.tennisabstract.com/current/2025HelsinkiChallenger.html,R32,Marin Cilic,Benjamin Hassan,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Helsinkichallenger,https://www.tennisabstract.com/current/2025HelsinkiChallenger.html,R32,Stefano Napolitano,Alexis Galarneau,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Helsinkichallenger,https://www.tennisabstract.com/current/2025HelsinkiChallenger.html,R32,Emil Ruusuvuori,Lukas Neumayer,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Helsinkichallenger,https://www.tennisabstract.com/current/2025HelsinkiChallenger.html,R32,Gauthier Onclin,Otto Virtanen,25.7,74.3,3.89,1.35,Sackmann,2025-11-05 06:18:30 UTC
+Helsinkichallenger,https://www.tennisabstract.com/current/2025HelsinkiChallenger.html,R16,Matej Dodig,Sascha Gueymard Wayenburg,72.7,27.3,1.38,3.66,Sackmann,2025-11-05 06:18:30 UTC
+Helsinkichallenger,https://www.tennisabstract.com/current/2025HelsinkiChallenger.html,R32,Borna Gojo,Chris Rodesch,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Helsinkichallenger,https://www.tennisabstract.com/current/2025HelsinkiChallenger.html,R16,Eero Vasa,Stefano Travaglia,23.8,76.2,4.2,1.31,Sackmann,2025-11-05 06:18:30 UTC
+Helsinkichallenger,https://www.tennisabstract.com/current/2025HelsinkiChallenger.html,R32,Stuart Parker,Viktor Durasovic,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Taipeichallenger,https://www.tennisabstract.com/current/2025TaipeiChallenger.html,R32,James Duckworth,Taro Daniel,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Taipeichallenger,https://www.tennisabstract.com/current/2025TaipeiChallenger.html,R32,Sidharth Rawat,Michael Vrbensky,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Taipeichallenger,https://www.tennisabstract.com/current/2025TaipeiChallenger.html,R32,Sasi Kumar Mukund,Kaichi Uchida,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Taipeichallenger,https://www.tennisabstract.com/current/2025TaipeiChallenger.html,R32,Marek Gengel,Yuta Shimizu,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Taipeichallenger,https://www.tennisabstract.com/current/2025TaipeiChallenger.html,R32,Luca Castelnuovo,Tsung Hao Huang,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Taipeichallenger,https://www.tennisabstract.com/current/2025TaipeiChallenger.html,R32,Evan Zhu,Maxime Janvier,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Taipeichallenger,https://www.tennisabstract.com/current/2025TaipeiChallenger.html,R32,Neil Oberleitner,Wishaya Trongcharoenchaikul,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Taipeichallenger,https://www.tennisabstract.com/current/2025TaipeiChallenger.html,R32,Masamichi Imamura,Ji Sung Nam,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,R32,Mariano Navone,Murkel Alejandro Dellien Velasco,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,R32,Juan Bautista Torres,Juan Carlos Prado Angelo,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,R32,Hady Habib,Adolfo Daniel Vallejo,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,R32,Zdenek Kolar,Tomas Barrios Vera,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,R32,Juan Pablo Varillas,Mariano Kestelboim,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,R16,Nicolas Kicker,Alvaro Guillen Meza,32.2,67.8,3.11,1.47,Sackmann,2025-11-05 06:18:30 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,R32,Gonzalo Bueno,Franco Roncadelli,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,R32,Miguel Tobon,Joao Lucas Reis Da Silva,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,R32,Rodrigo Pacheco Mendez,Genaro Alberto Olivieri,70.4,30.1,1.42,3.32,Sackmann,2025-11-05 06:18:30 UTC
+Matsuyamachallenger,https://www.tennisabstract.com/current/2025MatsuyamaChallenger.html,R16,Henrique Rocha,Renta Tokuda,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Matsuyamachallenger,https://www.tennisabstract.com/current/2025MatsuyamaChallenger.html,R16,Philip Sekulic,Rio Noguchi,39.8,60.2,2.51,1.66,Sackmann,2025-11-05 06:18:30 UTC
+Matsuyamachallenger,https://www.tennisabstract.com/current/2025MatsuyamaChallenger.html,R16,Oliver Crawford,Marc Andrea Huesler,100.0,0.0,1.0,,Sackmann,2025-11-05 06:18:30 UTC
+Matsuyamachallenger,https://www.tennisabstract.com/current/2025MatsuyamaChallenger.html,R16,Max Basing,Frederico Ferreira Silva,0.0,100.0,,1.0,Sackmann,2025-11-05 06:18:30 UTC
+Knoxvillechallenger,https://www.tennisabstract.com/current/2025KnoxvilleChallenger.html,R16,James Trotter,Inaki Montes De La Torre,61.6,38.4,1.62,2.6,Sackmann,2025-11-05 06:18:30 UTC
+Knoxvillechallenger,https://www.tennisabstract.com/current/2025KnoxvilleChallenger.html,R16,Antoine Ghibaudo,Mitchell Krueger,48.8,51.2,2.05,1.95,Sackmann,2025-11-05 06:18:30 UTC
+Knoxvillechallenger,https://www.tennisabstract.com/current/2025KnoxvilleChallenger.html,R16,Nicolas Mejia,Murphy Cassone,50.2,49.8,1.99,2.01,Sackmann,2025-11-05 06:18:30 UTC
+Knoxvillechallenger,https://www.tennisabstract.com/current/2025KnoxvilleChallenger.html,R16,Oliver Tarvet,Cedrik Marcel Stebe,43.8,56.2,2.28,1.78,Sackmann,2025-11-05 06:18:30 UTC
