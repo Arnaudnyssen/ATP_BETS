@@ -1,0 +1,11 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Helsinkichallenger,https://www.tennisabstract.com/current/2025HelsinkiChallenger.html,SF,Otto Virtanen,Sascha Gueymard Wayenburg,85.2,14.8,1.17,6.76,Sackmann,2025-11-08 06:15:57 UTC
+Helsinkichallenger,https://www.tennisabstract.com/current/2025HelsinkiChallenger.html,SF,Patrick Kypson,Stefano Travaglia,73.8,26.2,1.36,3.82,Sackmann,2025-11-08 06:15:57 UTC
+Taipeichallenger,https://www.tennisabstract.com/current/2025TaipeiChallenger.html,SF,James Duckworth,Coleman Wong,43.9,56.1,2.28,1.78,Sackmann,2025-11-08 06:15:57 UTC
+Taipeichallenger,https://www.tennisabstract.com/current/2025TaipeiChallenger.html,SF,James Mccabe,Yoshihito Nishioka,18.2,81.8,5.49,1.22,Sackmann,2025-11-08 06:15:57 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,QF,Juan Bautista Torres,Tomas Barrios Vera,0.0,100.0,,1.0,Sackmann,2025-11-08 06:15:57 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,QF,Roman Andres Burruchaga,Alvaro Guillen Meza,0.0,100.0,,1.0,Sackmann,2025-11-08 06:15:57 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,QF,Gonzalo Bueno,Cristian Garin,100.0,0.0,1.0,,Sackmann,2025-11-08 06:15:57 UTC
+Lima2Challenger,https://www.tennisabstract.com/current/2025Lima2Challenger.html,QF,Joao Lucas Reis Da Silva,Genaro Alberto Olivieri,41.8,58.2,2.39,1.72,Sackmann,2025-11-08 06:15:57 UTC
+Knoxvillechallenger,https://www.tennisabstract.com/current/2025KnoxvilleChallenger.html,SF,Mitchell Krueger,Cedrik Marcel Stebe,41.5,58.5,2.41,1.71,Sackmann,2025-11-08 06:15:57 UTC
+Knoxvillechallenger,https://www.tennisabstract.com/current/2025KnoxvilleChallenger.html,SF,Daniil Glinka,Darwin Blanch,80.4,19.6,1.24,5.1,Sackmann,2025-11-08 06:15:57 UTC
