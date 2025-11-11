@@ -1,0 +1,23 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Montevideochallenger,https://www.tennisabstract.com/current/2025MontevideoChallenger.html,R32,Sebastian Baez,Alvaro Guillen Meza,62.6,37.4,1.6,2.67,Sackmann,2025-11-11 06:30:50 UTC
+Montevideochallenger,https://www.tennisabstract.com/current/2025MontevideoChallenger.html,R32,Guido Ivan Justo,Adolfo Daniel Vallejo,16.7,83.3,5.99,1.2,Sackmann,2025-11-11 06:30:50 UTC
+Montevideochallenger,https://www.tennisabstract.com/current/2025MontevideoChallenger.html,R32,Alex Barrena,Tristan Boyer,53.7,46.3,1.86,2.16,Sackmann,2025-11-11 06:30:50 UTC
+Montevideochallenger,https://www.tennisabstract.com/current/2025MontevideoChallenger.html,R32,Andrea Collarini,Cristian Garin,19.8,80.2,5.05,1.25,Sackmann,2025-11-11 06:30:50 UTC
+Brisbane3Challenger,https://www.tennisabstract.com/current/2025Brisbane3Challenger.html,R32,James Duckworth,Omar Jasika,81.8,18.2,1.22,5.49,Sackmann,2025-11-11 06:30:50 UTC
+Brisbane3Challenger,https://www.tennisabstract.com/current/2025Brisbane3Challenger.html,R32,Blake Ellis,Moerani Bouzige,69.0,31.0,1.45,3.23,Sackmann,2025-11-11 06:30:50 UTC
+Brisbane3Challenger,https://www.tennisabstract.com/current/2025Brisbane3Challenger.html,R32,Marc Polmans,Aryan Shah,100.0,0.0,1.0,,Sackmann,2025-11-11 06:30:50 UTC
+Brisbane3Challenger,https://www.tennisabstract.com/current/2025Brisbane3Challenger.html,R32,Filip Peliwo,Alex Bolt,17.1,82.9,5.85,1.21,Sackmann,2025-11-11 06:30:50 UTC
+Brisbane3Challenger,https://www.tennisabstract.com/current/2025Brisbane3Challenger.html,R32,Li Tu,Marek Gengel,0.0,100.0,,1.0,Sackmann,2025-11-11 06:30:50 UTC
+Brisbane3Challenger,https://www.tennisabstract.com/current/2025Brisbane3Challenger.html,R32,Karan Singh,Tai Sach,0.0,100.0,,1.0,Sackmann,2025-11-11 06:30:50 UTC
+Brisbane3Challenger,https://www.tennisabstract.com/current/2025Brisbane3Challenger.html,R16,Jake Delaney,Mees Rottgering,17.1,82.9,5.85,1.21,Sackmann,2025-11-11 06:30:50 UTC
+Brisbane3Challenger,https://www.tennisabstract.com/current/2025Brisbane3Challenger.html,R16,Emile Hudd,Hayato Matsuoka,45.1,54.9,2.22,1.82,Sackmann,2025-11-11 06:30:50 UTC
+Drummondvillechallenger,https://www.tennisabstract.com/current/2025DrummondvilleChallenger.html,R32,Liam Draxl,Mikael Arseneault,75.6,24.4,1.32,4.1,Sackmann,2025-11-11 06:30:50 UTC
+Drummondvillechallenger,https://www.tennisabstract.com/current/2025DrummondvilleChallenger.html,R32,Justin Boulais,Tristan Mccormick,27.0,73.0,3.7,1.37,Sackmann,2025-11-11 06:30:50 UTC
+Drummondvillechallenger,https://www.tennisabstract.com/current/2025DrummondvilleChallenger.html,R32,Maks Kasnikowski,Max Wiskandt,71.0,29.0,1.41,3.45,Sackmann,2025-11-11 06:30:50 UTC
+Drummondvillechallenger,https://www.tennisabstract.com/current/2025DrummondvilleChallenger.html,R32,Cleeve Harper,Michael Mmoh,12.3,87.7,8.13,1.14,Sackmann,2025-11-11 06:30:50 UTC
+Drummondvillechallenger,https://www.tennisabstract.com/current/2025DrummondvilleChallenger.html,R32,Edward Winter,Keegan Rice,0.0,100.0,,1.0,Sackmann,2025-11-11 06:30:50 UTC
+Drummondvillechallenger,https://www.tennisabstract.com/current/2025DrummondvilleChallenger.html,R32,Samir Banerjee,Andre Ilagan,0.0,100.0,,1.0,Sackmann,2025-11-11 06:30:50 UTC
+Champaignchallenger,https://www.tennisabstract.com/current/2025ChampaignChallenger.html,R32,Nicolas Mejia,Cedrik Marcel Stebe,33.2,66.8,3.01,1.5,Sackmann,2025-11-11 06:30:50 UTC
+Champaignchallenger,https://www.tennisabstract.com/current/2025ChampaignChallenger.html,R32,Alfredo Perez,Jay Dylan Hara Friend,0.0,100.0,,1.0,Sackmann,2025-11-11 06:30:50 UTC
+Champaignchallenger,https://www.tennisabstract.com/current/2025ChampaignChallenger.html,R32,Keegan Smith,Adam Jilly,0.0,100.0,,1.0,Sackmann,2025-11-11 06:30:50 UTC
+Champaignchallenger,https://www.tennisabstract.com/current/2025ChampaignChallenger.html,R32,Alex Martinez,Saba Purtseladze,100.0,0.0,1.0,,Sackmann,2025-11-11 06:30:50 UTC
