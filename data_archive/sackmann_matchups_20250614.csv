@@ -1,0 +1,15 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,SF,Alexander Zverev,Ben Shelton,70.7,29.3,1.41,3.41,Sackmann,2025-06-14 06:15:24 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,SF,Felix Auger Aliassime,Taylor Fritz,30.0,70.0,3.33,1.43,Sackmann,2025-06-14 06:15:24 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,SF,Reilly Opelka,Zizou Bergs,42.7,57.3,2.34,1.75,Sackmann,2025-06-14 06:15:24 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,SF,Gabriel Diallo,Ugo Humbert,27.1,72.9,3.69,1.37,Sackmann,2025-06-14 06:15:24 UTC
+Perugiachallenger,https://www.tennisabstract.com/current/2025PerugiaChallenger.html,SF,Andrea Pellegrino,Luca Nardi,44.9,55.1,2.23,1.81,Sackmann,2025-06-14 06:15:24 UTC
+Perugiachallenger,https://www.tennisabstract.com/current/2025PerugiaChallenger.html,SF,Nerman Fatic,Pierluigi Basile,80.6,19.4,1.24,5.15,Sackmann,2025-06-14 06:15:24 UTC
+Ilkleychallenger,https://www.tennisabstract.com/current/2025IlkleyChallenger.html,SF,Tristan Schoolkate,Zachary Svajda,52.3,47.7,1.91,2.1,Sackmann,2025-06-14 06:15:24 UTC
+Ilkleychallenger,https://www.tennisabstract.com/current/2025IlkleyChallenger.html,SF,Jack Pinnington Jones,Shintaro Mochizuki,45.0,55.0,2.22,1.82,Sackmann,2025-06-14 06:15:24 UTC
+Bratislavachallenger,https://www.tennisabstract.com/current/2025BratislavaChallenger.html,SF,Alexander Shevchenko,Valentin Royer,50.3,49.7,1.99,2.01,Sackmann,2025-06-14 06:15:24 UTC
+Bratislavachallenger,https://www.tennisabstract.com/current/2025BratislavaChallenger.html,SF,Cristian Garin,Dino Prizmic,59.6,40.4,1.68,2.48,Sackmann,2025-06-14 06:15:24 UTC
+Lyonchallenger,https://www.tennisabstract.com/current/2025LyonChallenger.html,SF,Gauthier Onclin,Daniel Merida Aguilar,63.7,36.3,1.57,2.75,Sackmann,2025-06-14 06:15:24 UTC
+Lyonchallenger,https://www.tennisabstract.com/current/2025LyonChallenger.html,SF,Marco Trungelliti,Clement Tabur,61.7,38.3,1.62,2.61,Sackmann,2025-06-14 06:15:24 UTC
+Santafechallenger,https://www.tennisabstract.com/current/2025SantaFeChallenger.html,SF,Joao Lucas Reis Da Silva,Andrea Collarini,37.9,62.1,2.64,1.61,Sackmann,2025-06-14 06:15:24 UTC
+Santafechallenger,https://www.tennisabstract.com/current/2025SantaFeChallenger.html,SF,Dali Blanch,Lautaro Midon,14.9,85.1,6.71,1.18,Sackmann,2025-06-14 06:15:24 UTC

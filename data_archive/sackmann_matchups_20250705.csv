@@ -1,0 +1,9 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Carychallenger,https://www.tennisabstract.com/current/2025CaryChallenger.html,SF,Rei Sakamoto,Patrick Kypson,34.0,66.0,2.94,1.52,Sackmann,2025-07-05 06:16:24 UTC
+Carychallenger,https://www.tennisabstract.com/current/2025CaryChallenger.html,SF,Yibing Wu,Liam Draxl,71.9,28.1,1.39,3.56,Sackmann,2025-07-05 06:16:24 UTC
+Brasovchallenger,https://www.tennisabstract.com/current/2025BrasovChallenger.html,SF,Francesco Maestrelli,Tom Paris,81.7,18.3,1.22,5.46,Sackmann,2025-07-05 06:16:24 UTC
+Brasovchallenger,https://www.tennisabstract.com/current/2025BrasovChallenger.html,SF,Luka Pavlovic,Juan Pablo Ficovich,53.5,46.5,1.87,2.15,Sackmann,2025-07-05 06:16:24 UTC
+Modenachallenger,https://www.tennisabstract.com/current/2025ModenaChallenger.html,SF,Jerome Kym,Thiago Seyboth Wild,51.8,48.2,1.93,2.07,Sackmann,2025-07-05 06:16:24 UTC
+Modenachallenger,https://www.tennisabstract.com/current/2025ModenaChallenger.html,SF,Federico Cina,Stefano Travaglia,48.8,51.2,2.05,1.95,Sackmann,2025-07-05 06:16:24 UTC
+Troyeschallenger,https://www.tennisabstract.com/current/2025TroyesChallenger.html,SF,Marco Trungelliti,Jan Choinski,64.2,35.8,1.56,2.79,Sackmann,2025-07-05 06:16:24 UTC
+Troyeschallenger,https://www.tennisabstract.com/current/2025TroyesChallenger.html,SF,Jacopo Berrettini,Calvin Hemery,43.0,57.0,2.33,1.75,Sackmann,2025-07-05 06:16:24 UTC

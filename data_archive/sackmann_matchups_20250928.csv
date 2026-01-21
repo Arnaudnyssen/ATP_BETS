@@ -1,0 +1,9 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,QF,Carlos Alcaraz,Brandon Nakashima,90.2,9.8,1.11,10.2,Sackmann,2025-09-28 06:16:54 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,QF,Casper Ruud,Aleksandar Vukic,81.8,18.2,1.22,5.49,Sackmann,2025-09-28 06:16:54 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,QF,Jenson Brooksby,Holger Rune,34.5,65.5,2.9,1.53,Sackmann,2025-09-28 06:16:54 UTC
+Atptokyo,https://www.tennisabstract.com/current/2025ATPTokyo.html,QF,Sebastian Korda,Taylor Fritz,0.0,100.0,,1.0,Sackmann,2025-09-28 06:16:54 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R16,Jannik Sinner,Terence Atmane,100.0,0.0,1.0,,Sackmann,2025-09-28 06:16:54 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R16,Fabian Marozsan,Alexandre Muller,100.0,0.0,1.0,,Sackmann,2025-09-28 06:16:54 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R16,Alex De Minaur,Arthur Rinderknech,100.0,0.0,1.0,,Sackmann,2025-09-28 06:16:54 UTC
+Atpbeijing,https://www.tennisabstract.com/current/2025ATPBeijing.html,R16,Arthur Cazaux,Jakub Mensik,0.0,100.0,,1.0,Sackmann,2025-09-28 06:16:54 UTC

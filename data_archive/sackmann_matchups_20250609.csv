@@ -1,0 +1,13 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Fabio Fognini,Corentin Moutet,48.3,51.7,2.07,1.93,Sackmann,2025-06-09 06:19:40 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Learner Tien,Yoshihito Nishioka,41.1,58.9,2.43,1.7,Sackmann,2025-06-09 06:19:40 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Jacob Fearnley,Brandon Nakashima,49.8,50.2,2.01,1.99,Sackmann,2025-06-09 06:19:40 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Damir Dzumhur,Pierre Hugues Herbert,53.7,46.3,1.86,2.16,Sackmann,2025-06-09 06:19:40 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Matteo Arnaldi,Jan Lennard Struff,56.0,44.0,1.79,2.27,Sackmann,2025-06-09 06:19:40 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Benjamin Bonzi,Jiri Lehecka,43.3,56.7,2.31,1.76,Sackmann,2025-06-09 06:19:40 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Qualifier1,Christopher Oconnell,24.6,75.4,4.07,1.33,Sackmann,2025-06-09 06:19:40 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Qualifier2,Jesper De Jong,36.9,63.1,2.71,1.58,Sackmann,2025-06-09 06:19:40 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Nicolas Jarry,Luciano Darderi,59.1,40.9,1.69,2.44,Sackmann,2025-06-09 06:19:40 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Zizou Bergs,Qualifier3,79.1,20.9,1.26,4.78,Sackmann,2025-06-09 06:19:40 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Laslo Djere,Qualifier4,72.4,27.6,1.38,3.62,Sackmann,2025-06-09 06:19:40 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Roberto Bautista Agut,Hubert Hurkacz,35.6,64.4,2.81,1.55,Sackmann,2025-06-09 06:19:40 UTC

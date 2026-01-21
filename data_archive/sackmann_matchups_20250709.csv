@@ -1,0 +1,34 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Newportchallenger,https://www.tennisabstract.com/current/2025NewportChallenger.html,R32,Brandon Holt,Murphy Cassone,100.0,0.0,1.0,,Sackmann,2025-07-09 06:19:28 UTC
+Newportchallenger,https://www.tennisabstract.com/current/2025NewportChallenger.html,R32,Quinn Vandecasteele,Zachary Svajda,0.0,100.0,,1.0,Sackmann,2025-07-09 06:19:28 UTC
+Newportchallenger,https://www.tennisabstract.com/current/2025NewportChallenger.html,R32,Karl Poling,Oscar Weightman,38.0,62.0,2.63,1.61,Sackmann,2025-07-09 06:19:28 UTC
+Newportchallenger,https://www.tennisabstract.com/current/2025NewportChallenger.html,R32,Omar Jasika,Yosuke Watanuki,0.0,100.0,,1.0,Sackmann,2025-07-09 06:19:28 UTC
+Newportchallenger,https://www.tennisabstract.com/current/2025NewportChallenger.html,R32,Alex Bolt,James Mccabe,0.0,100.0,,1.0,Sackmann,2025-07-09 06:19:28 UTC
+Newportchallenger,https://www.tennisabstract.com/current/2025NewportChallenger.html,R32,Aidan Mayo,Evan Zhu,100.0,0.0,1.0,,Sackmann,2025-07-09 06:19:28 UTC
+Newportchallenger,https://www.tennisabstract.com/current/2025NewportChallenger.html,R32,Bernard Tomic,Trey Hilderbrand,100.0,0.0,1.0,,Sackmann,2025-07-09 06:19:28 UTC
+Newportchallenger,https://www.tennisabstract.com/current/2025NewportChallenger.html,R32,Tyler Zink,Yasutaka Uchiyama,100.0,0.0,1.0,,Sackmann,2025-07-09 06:19:28 UTC
+Newportchallenger,https://www.tennisabstract.com/current/2025NewportChallenger.html,R32,Antoine Ghibaudo,Tristan Mccormick,100.0,0.0,1.0,,Sackmann,2025-07-09 06:19:28 UTC
+Newportchallenger,https://www.tennisabstract.com/current/2025NewportChallenger.html,R16,James Watt,Patrick Maloney,41.6,58.4,2.4,1.71,Sackmann,2025-07-09 06:19:28 UTC
+Braunschweigchallenger,https://www.tennisabstract.com/current/2025BraunschweigChallenger.html,R16,Luka Pavlovic,Yannick Hanfmann,31.1,68.9,3.22,1.45,Sackmann,2025-07-09 06:19:28 UTC
+Braunschweigchallenger,https://www.tennisabstract.com/current/2025BraunschweigChallenger.html,R16,Tom Gentzsch,Filip Misolic,3.4,96.6,29.41,1.04,Sackmann,2025-07-09 06:19:28 UTC
+Braunschweigchallenger,https://www.tennisabstract.com/current/2025BraunschweigChallenger.html,R16,Mariano Navone,Diego Dedura Palomero,93.5,6.5,1.07,15.38,Sackmann,2025-07-09 06:19:28 UTC
+Braunschweigchallenger,https://www.tennisabstract.com/current/2025BraunschweigChallenger.html,R16,David Jorda Sanchis,Botic Van De Zandschulp,20.2,79.8,4.95,1.25,Sackmann,2025-07-09 06:19:28 UTC
+Triestechallenger,https://www.tennisabstract.com/current/2025TriesteChallenger.html,R32,Chun Hsin Tseng,Sumit Nagal,69.0,31.0,1.45,3.23,Sackmann,2025-07-09 06:19:28 UTC
+Triestechallenger,https://www.tennisabstract.com/current/2025TriesteChallenger.html,R32,Marco Cecchinato,Facundo Mena,100.0,0.0,1.0,,Sackmann,2025-07-09 06:19:28 UTC
+Triestechallenger,https://www.tennisabstract.com/current/2025TriesteChallenger.html,R32,Juan Pablo Ficovich,Federico Cina,0.0,100.0,,1.0,Sackmann,2025-07-09 06:19:28 UTC
+Triestechallenger,https://www.tennisabstract.com/current/2025TriesteChallenger.html,R32,Maxim Mrva,Nikoloz Basilashvili,21.1,78.9,4.74,1.27,Sackmann,2025-07-09 06:19:28 UTC
+Triestechallenger,https://www.tennisabstract.com/current/2025TriesteChallenger.html,R16,Lukas Klein,Facundo Diaz Acosta,34.6,65.4,2.89,1.53,Sackmann,2025-07-09 06:19:28 UTC
+Triestechallenger,https://www.tennisabstract.com/current/2025TriesteChallenger.html,R32,Kyrian Jacquet,Vitaliy Sachko,0.0,100.0,,1.0,Sackmann,2025-07-09 06:19:28 UTC
+Iasichallenger,https://www.tennisabstract.com/current/2025IasiChallenger.html,R16,Hugo Dellien,Titouan Droguet,48.7,51.3,2.05,1.95,Sackmann,2025-07-09 06:19:28 UTC
+Iasichallenger,https://www.tennisabstract.com/current/2025IasiChallenger.html,R16,Joao Lucas Reis Da Silva,Felipe Meligeni Alves,31.2,68.8,3.21,1.45,Sackmann,2025-07-09 06:19:28 UTC
+Iasichallenger,https://www.tennisabstract.com/current/2025IasiChallenger.html,R16,Carlos Taberner,Murkel Alejandro Dellien Velasco,81.9,18.1,1.22,5.52,Sackmann,2025-07-09 06:19:28 UTC
+Iasichallenger,https://www.tennisabstract.com/current/2025IasiChallenger.html,R16,Luca Preda,Duje Ajdukovic,47.8,52.2,2.09,1.92,Sackmann,2025-07-09 06:19:28 UTC
+Winnipegchallenger,https://www.tennisabstract.com/current/2025WinnipegChallenger.html,R32,Alexander Blockx,Alvin Nicholas Tudorica,81.3,18.7,1.23,5.35,Sackmann,2025-07-09 06:19:28 UTC
+Winnipegchallenger,https://www.tennisabstract.com/current/2025WinnipegChallenger.html,R32,Naoki Nakagawa,Rei Sakamoto,23.5,76.5,4.26,1.31,Sackmann,2025-07-09 06:19:28 UTC
+Winnipegchallenger,https://www.tennisabstract.com/current/2025WinnipegChallenger.html,R32,Moerani Bouzige,Marek Gengel,41.2,58.8,2.43,1.7,Sackmann,2025-07-09 06:19:28 UTC
+Winnipegchallenger,https://www.tennisabstract.com/current/2025WinnipegChallenger.html,R32,Karue Sell,Yuta Shimizu,54.8,45.2,1.82,2.21,Sackmann,2025-07-09 06:19:28 UTC
+Winnipegchallenger,https://www.tennisabstract.com/current/2025WinnipegChallenger.html,R32,Tung Lin Wu,Andres Martin,0.0,100.0,,1.0,Sackmann,2025-07-09 06:19:28 UTC
+Nottingham3Challenger,https://www.tennisabstract.com/current/2025Nottingham3Challenger.html,R16,Liam Broady,Kyle Edmund,48.3,51.7,2.07,1.93,Sackmann,2025-07-09 06:19:28 UTC
+Nottingham3Challenger,https://www.tennisabstract.com/current/2025Nottingham3Challenger.html,R16,Patrick Zahraj,Kenny De Schepper,45.3,54.7,2.21,1.83,Sackmann,2025-07-09 06:19:28 UTC
+Nottingham3Challenger,https://www.tennisabstract.com/current/2025Nottingham3Challenger.html,R16,Ryan Peniston,Henry Searle,55.2,44.8,1.81,2.23,Sackmann,2025-07-09 06:19:28 UTC
+Nottingham3Challenger,https://www.tennisabstract.com/current/2025Nottingham3Challenger.html,R16,Hamish Stewart,George Loffhagen,41.4,58.6,2.42,1.71,Sackmann,2025-07-09 06:19:28 UTC

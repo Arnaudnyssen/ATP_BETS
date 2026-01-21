@@ -1,0 +1,40 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Cameron Norrie,Sebastian Baez,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Fabian Marozsan,Arthur Rinderknech,0.0,100.0,,1.0,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Valentin Vacherot,Jiri Lehecka,34.6,65.4,2.89,1.53,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Brandon Nakashima,Daniel Altmaier,0.0,100.0,,1.0,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Aleksandar Vukic,Terence Atmane,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Corentin Moutet,Reilly Opelka,57.7,42.3,1.73,2.36,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Alexei Popyrin,Alexander Bublik,0.0,100.0,,1.0,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Lorenzo Sonego,Sebastian Korda,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Giovanni Mpetshi Perricard,Grigor Dimitrov,0.0,100.0,,1.0,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Jaume Munar,Daniil Medvedev,28.9,71.1,3.46,1.41,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Flavio Cobolli,Tomas Machac,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Learner Tien,Nuno Borges,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Jacob Fearnley,Andrey Rublev,0.0,100.0,,1.0,Sackmann,2025-10-28 06:19:05 UTC
+Atpparis,https://www.tennisabstract.com/current/2025ATPParis.html,R64,Miomir Kecmanovic,Alex Michelsen,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,R32,Raphael Collignon,Lukas Klein,78.2,21.8,1.28,4.59,Sackmann,2025-10-28 06:19:05 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,R32,Vitaliy Sachko,Stan Wawrinka,15.3,84.7,6.54,1.18,Sackmann,2025-10-28 06:19:05 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,R32,Mark Lajal,Norbert Gombos,67.9,32.1,1.47,3.12,Sackmann,2025-10-28 06:19:05 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,R32,Francesco Passaro,Thiago Agustin Tirante,50.1,49.9,2.0,2.0,Sackmann,2025-10-28 06:19:05 UTC
+Bratislava2Challenger,https://www.tennisabstract.com/current/2025Bratislava2Challenger.html,R32,Otto Virtanen,Colton Smith,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,R32,James Duckworth,Rio Noguchi,0.0,100.0,,1.0,Sackmann,2025-10-28 06:19:05 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,R32,Omar Jasika,Sho Shimabukuro,0.0,100.0,,1.0,Sackmann,2025-10-28 06:19:05 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,R32,Kasidit Samrej,Yuki Mochizuki,30.9,69.1,3.24,1.45,Sackmann,2025-10-28 06:19:05 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,R32,Oliver Crawford,Henrique Rocha,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,R16,Elias Ymer,Kokoro Isomura,78.9,21.1,1.27,4.74,Sackmann,2025-10-28 06:19:05 UTC
+Seoulchallenger,https://www.tennisabstract.com/current/2025SeoulChallenger.html,R32,Yu Hsiou Hsu,Woobin Shin,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,R32,Rinky Hijikata,Matias Soto,85.1,14.9,1.18,6.71,Sackmann,2025-10-28 06:19:05 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,R32,Andres Martin,Mats Rosenkranz,56.8,43.2,1.76,2.31,Sackmann,2025-10-28 06:19:05 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,R32,Inaki Montes De La Torre,Andre Ilagan,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,R32,Oliver Tarvet,Nicolas Mejia,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Charlottesvillechallenger,https://www.tennisabstract.com/current/2025CharlottesvilleChallenger.html,R32,Mitchell Krueger,Dhakshineswar Suresh,52.3,48.4,1.91,2.07,Sackmann,2025-10-28 06:19:05 UTC
+Lima Losinkaschallenger,https://www.tennisabstract.com/current/2025Lima-LosInkasChallenger.html,R32,Mariano Navone,Genaro Alberto Olivieri,79.3,20.7,1.26,4.83,Sackmann,2025-10-28 06:19:05 UTC
+Lima Losinkaschallenger,https://www.tennisabstract.com/current/2025Lima-LosInkasChallenger.html,R32,Mariano Kestelboim,David Jorda Sanchis,25.7,74.3,3.89,1.35,Sackmann,2025-10-28 06:19:05 UTC
+Lima Losinkaschallenger,https://www.tennisabstract.com/current/2025Lima-LosInkasChallenger.html,R32,Timofey Skatov,Gonzalo Villanueva,0.0,100.0,,1.0,Sackmann,2025-10-28 06:19:05 UTC
+Lima Losinkaschallenger,https://www.tennisabstract.com/current/2025Lima-LosInkasChallenger.html,R32,Andrea Collarini,Alex Barrena,45.0,55.0,2.22,1.82,Sackmann,2025-10-28 06:19:05 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,R32,Luka Mikrut,Corentin Denolly,76.4,23.6,1.31,4.24,Sackmann,2025-10-28 06:19:05 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,R32,Robin Bertrand,Christoph Negritu,53.1,46.9,1.88,2.13,Sackmann,2025-10-28 06:19:05 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,R32,Adrian Andreev,Clement Tabur,100.0,0.0,1.0,,Sackmann,2025-10-28 06:19:05 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,R32,Giles Hussey,Alejandro Moro Canas,36.6,63.4,2.73,1.58,Sackmann,2025-10-28 06:19:05 UTC
+Monastirchallenger,https://www.tennisabstract.com/current/2025MonastirChallenger.html,R32,Max Houkes,Petr Brunclik,0.0,100.0,,1.0,Sackmann,2025-10-28 06:19:05 UTC

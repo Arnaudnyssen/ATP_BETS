@@ -1,0 +1,4 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atptokyo,QF,Carlos Alcaraz,Brandon Nakashima,90.2000,9.8000,,,1.1100,10.2000,,,,,,
+Atptokyo,QF,Casper Ruud,Aleksandar Vukic,81.8000,18.2000,,,1.2200,5.4900,,,,,,
+Atptokyo,QF,Jenson Brooksby,Holger Rune,34.5000,65.5000,,,2.9000,1.5300,,,,,,

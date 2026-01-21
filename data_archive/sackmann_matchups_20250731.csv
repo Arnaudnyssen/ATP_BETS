@@ -1,0 +1,30 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R32,Alexander Zverev,Matteo Arnaldi,77.6,22.4,1.29,4.46,Sackmann,2025-07-31 06:20:16 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R32,Tomas Martin Etcheverry,Francisco Cerundolo,26.2,73.8,3.82,1.36,Sackmann,2025-07-31 06:20:16 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R32,Daniil Medvedev,Alexei Popyrin,74.0,26.0,1.35,3.85,Sackmann,2025-07-31 06:20:16 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R32,Alexandre Muller,Holger Rune,22.7,77.3,4.41,1.29,Sackmann,2025-07-31 06:20:16 UTC
+Portochallenger,https://www.tennisabstract.com/current/2025PortoChallenger.html,R16,Elias Ymer,Mikhail Kukushkin,100.0,0.0,1.0,,Sackmann,2025-07-31 06:20:16 UTC
+Portochallenger,https://www.tennisabstract.com/current/2025PortoChallenger.html,R16,Matias Soto,Hugo Grenier,0.0,100.0,,1.0,Sackmann,2025-07-31 06:20:16 UTC
+Portochallenger,https://www.tennisabstract.com/current/2025PortoChallenger.html,R16,Frederico Ferreira Silva,Moez Echargui,54.4,45.6,1.84,2.19,Sackmann,2025-07-31 06:20:16 UTC
+Portochallenger,https://www.tennisabstract.com/current/2025PortoChallenger.html,R16,Edas Butvilas,Luca Van Assche,39.9,60.1,2.51,1.66,Sackmann,2025-07-31 06:20:16 UTC
+Portochallenger,https://www.tennisabstract.com/current/2025PortoChallenger.html,R16,Eliakim Coulibaly,Alejandro Moro Canas,0.0,100.0,,1.0,Sackmann,2025-07-31 06:20:16 UTC
+Lexingtonchallenger,https://www.tennisabstract.com/current/2025LexingtonChallenger.html,R16,Nishesh Basavareddy,Alibek Kachmazov,100.0,0.0,1.0,,Sackmann,2025-07-31 06:20:16 UTC
+Lexingtonchallenger,https://www.tennisabstract.com/current/2025LexingtonChallenger.html,R16,Ryuki Matsuda,Zachary Svajda,0.0,100.0,,1.0,Sackmann,2025-07-31 06:20:16 UTC
+Lexingtonchallenger,https://www.tennisabstract.com/current/2025LexingtonChallenger.html,R16,Daniel Evans,Michael Zheng,72.7,27.3,1.38,3.66,Sackmann,2025-07-31 06:20:16 UTC
+Lexingtonchallenger,https://www.tennisabstract.com/current/2025LexingtonChallenger.html,R16,Yu Hsiou Hsu,Christopher Eubanks,44.1,55.9,2.27,1.79,Sackmann,2025-07-31 06:20:16 UTC
+Lexingtonchallenger,https://www.tennisabstract.com/current/2025LexingtonChallenger.html,QF,Giles Hussey,Bernard Tomic,37.1,62.9,2.7,1.59,Sackmann,2025-07-31 06:20:16 UTC
+Hagenchallenger,https://www.tennisabstract.com/current/2025HagenChallenger.html,R16,Botic Van De Zandschulp,Daniel Masur,83.8,16.2,1.19,6.17,Sackmann,2025-07-31 06:20:16 UTC
+Hagenchallenger,https://www.tennisabstract.com/current/2025HagenChallenger.html,R16,Christoph Negritu,Guy Den Ouden,21.5,78.5,4.65,1.27,Sackmann,2025-07-31 06:20:16 UTC
+Hagenchallenger,https://www.tennisabstract.com/current/2025HagenChallenger.html,R16,Jerome Kym,Marco Cecchinato,61.8,38.2,1.62,2.62,Sackmann,2025-07-31 06:20:16 UTC
+Hagenchallenger,https://www.tennisabstract.com/current/2025HagenChallenger.html,R16,Sumit Nagal,Niels Mcdonald,80.4,19.6,1.24,5.1,Sackmann,2025-07-31 06:20:16 UTC
+Hagenchallenger,https://www.tennisabstract.com/current/2025HagenChallenger.html,R16,Yannick Hanfmann,Clement Tabur,100.0,0.0,1.0,,Sackmann,2025-07-31 06:20:16 UTC
+Hagenchallenger,https://www.tennisabstract.com/current/2025HagenChallenger.html,R16,Olle Wallin,Joel Schwaerzler,100.0,0.0,1.0,,Sackmann,2025-07-31 06:20:16 UTC
+Liberecchallenger,https://www.tennisabstract.com/current/2025LiberecChallenger.html,R16,Federico Coria,Daniel Michalski,0.0,100.0,,1.0,Sackmann,2025-07-31 06:20:16 UTC
+Liberecchallenger,https://www.tennisabstract.com/current/2025LiberecChallenger.html,R16,Valentin Vacherot,Sascha Gueymard Wayenburg,100.0,0.0,1.0,,Sackmann,2025-07-31 06:20:16 UTC
+Liberecchallenger,https://www.tennisabstract.com/current/2025LiberecChallenger.html,R16,Jack Pinnington Jones,Jakub Nicod,100.0,0.0,1.0,,Sackmann,2025-07-31 06:20:16 UTC
+Liberecchallenger,https://www.tennisabstract.com/current/2025LiberecChallenger.html,R16,Genaro Alberto Olivieri,Alex Barrena,100.0,0.0,1.0,,Sackmann,2025-07-31 06:20:16 UTC
+Astanachallenger,https://www.tennisabstract.com/current/2025AstanaChallenger.html,R16,Clement Chidekh,Mitsuki Wei Kang Leong,88.1,11.9,1.14,8.4,Sackmann,2025-07-31 06:20:16 UTC
+Astanachallenger,https://www.tennisabstract.com/current/2025AstanaChallenger.html,R16,Woobin Shin,Abedallah Shelbayh,37.8,62.2,2.65,1.61,Sackmann,2025-07-31 06:20:16 UTC
+Astanachallenger,https://www.tennisabstract.com/current/2025AstanaChallenger.html,R16,Ivan Gakhov,Karan Singh,0.0,100.0,,1.0,Sackmann,2025-07-31 06:20:16 UTC
+Astanachallenger,https://www.tennisabstract.com/current/2025AstanaChallenger.html,R16,Olaf Pieczkowski,Alexandr Binda,0.0,100.0,,1.0,Sackmann,2025-07-31 06:20:16 UTC
+Astanachallenger,https://www.tennisabstract.com/current/2025AstanaChallenger.html,QF,Shintaro Imai,Aleksandre Bakshi,54.5,45.5,1.83,2.2,Sackmann,2025-07-31 06:20:16 UTC

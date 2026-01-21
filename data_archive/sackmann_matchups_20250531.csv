@@ -1,0 +1,7 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Littlerockchallenger,https://www.tennisabstract.com/current/2025LittleRockChallenger.html,SF,Patrick Kypson,Andres Andrade,60.5,39.5,1.65,2.53,Sackmann,2025-05-31 06:15:14 UTC
+Littlerockchallenger,https://www.tennisabstract.com/current/2025LittleRockChallenger.html,SF,Michael Zheng,Liam Draxl,22.1,77.9,4.52,1.28,Sackmann,2025-05-31 06:15:14 UTC
+Vicenzachallenger,https://www.tennisabstract.com/current/2025VicenzaChallenger.html,SF,Chun Hsin Tseng,Chris Rodesch,50.4,49.6,1.98,2.02,Sackmann,2025-05-31 06:15:14 UTC
+Vicenzachallenger,https://www.tennisabstract.com/current/2025VicenzaChallenger.html,SF,Lukas Neumayer,Jerome Kym,42.3,57.7,2.36,1.73,Sackmann,2025-05-31 06:15:14 UTC
+Chisinauchallenger,https://www.tennisabstract.com/current/2025ChisinauChallenger.html,SF,Ilia Simakin,Giles Hussey,76.3,23.7,1.31,4.22,Sackmann,2025-05-31 06:15:14 UTC
+Chisinauchallenger,https://www.tennisabstract.com/current/2025ChisinauChallenger.html,SF,Toby Samuel,Clement Chidekh,25.0,75.0,4.0,1.33,Sackmann,2025-05-31 06:15:14 UTC

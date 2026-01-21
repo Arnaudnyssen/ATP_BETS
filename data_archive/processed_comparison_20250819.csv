@@ -1,0 +1,13 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atpwinston Salem,R32,Stefanos Tsitsipas,Bu Yunchaokete,76.2000,23.8000,,,1.3100,4.2000,,,,,,
+Atpwinston Salem,R32,Mariano Navone,Marcos Giron,27.6000,72.4000,,,3.6200,1.3800,,,,,,
+Atpwinston Salem,R32,Sebastian Baez,Pablo Carreno Busta,29.4000,70.6000,,,3.4000,1.4200,,,,,,
+Atpwinston Salem,R32,Botic Van De Zandschulp,Matteo Arnaldi,35.5000,64.5000,,,2.8200,1.5500,,,,,,
+Sofia2Challenger,R32,Federico Coria,Sumit Nagal,58.9000,41.1000,,,1.7000,2.4300,,,,,,
+Sofia2Challenger,R32,Nino Serdarusic,Andrej Nedic,63.6000,36.4000,,,1.5700,2.7500,,,,,,
+Hersonissos4Challenger,R32,Luca Castagnola,Pavlos Tsitsipas,40.7000,59.3000,,,2.4600,1.6900,,,,,,
+Hersonissos4Challenger,R32,Aristotelis Thanos,Mats Rosenkranz,64.1000,35.9000,,,1.5600,2.7900,,,,,,
+Hersonissos4Challenger,R16,Ioannis Xilas,Stuart Parker,65.0000,35.0000,,,1.5400,2.8600,,,,,,
+Augsburgchallenger,R32,Juan Carlos Prado Angelo,Gilles Arnaud Bailly,46.2000,53.8000,,,2.1600,1.8600,,,,,,
+Augsburgchallenger,R32,Daniel Masur,Benito Sanchez Martinez,68.8000,31.2000,,,1.4500,3.2100,,,,,,
+Augsburgchallenger,R32,Zdenek Kolar,Luka Mikrut,50.1000,49.9000,,,2.0000,2.0000,,,,,,

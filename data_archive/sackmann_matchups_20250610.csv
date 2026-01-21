@@ -1,0 +1,38 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Fabio Fognini,Corentin Moutet,47.6,52.4,2.1,1.91,Sackmann,2025-06-10 06:18:37 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Learner Tien,Yoshihito Nishioka,43.7,56.3,2.29,1.78,Sackmann,2025-06-10 06:18:37 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Jacob Fearnley,Brandon Nakashima,0.0,100.0,,1.0,Sackmann,2025-06-10 06:18:37 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Damir Dzumhur,Pierre Hugues Herbert,54.3,45.7,1.84,2.19,Sackmann,2025-06-10 06:18:37 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Matteo Arnaldi,Jan Lennard Struff,0.0,100.0,,1.0,Sackmann,2025-06-10 06:18:37 UTC
+Atpstuttgart,https://www.tennisabstract.com/current/2025ATPStuttgart.html,R32,Benjamin Bonzi,Jiri Lehecka,0.0,100.0,,1.0,Sackmann,2025-06-10 06:18:37 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Adrian Mannarino,Christopher Oconnell,49.3,50.7,2.03,1.97,Sackmann,2025-06-10 06:18:37 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Reilly Opelka,Jesper De Jong,60.7,39.3,1.65,2.54,Sackmann,2025-06-10 06:18:37 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Nicolas Jarry,Luciano Darderi,100.0,0.0,1.0,,Sackmann,2025-06-10 06:18:37 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Zizou Bergs,Alexander Blockx,74.7,25.3,1.34,3.95,Sackmann,2025-06-10 06:18:37 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Laslo Djere,Mark Lajal,52.1,47.9,1.92,2.09,Sackmann,2025-06-10 06:18:37 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Roberto Bautista Agut,Hubert Hurkacz,36.1,63.9,2.77,1.56,Sackmann,2025-06-10 06:18:37 UTC
+Atp'S Hertogenbosch,https://www.tennisabstract.com/current/2025ATP's-Hertogenbosch.html,R32,Aleksandar Kovacevic,Gabriel Diallo,0.0,100.0,,1.0,Sackmann,2025-06-10 06:18:37 UTC
+Perugiachallenger,https://www.tennisabstract.com/current/2025PerugiaChallenger.html,R32,Andrea Pellegrino,Gabriele Piraino,84.5,15.5,1.18,6.45,Sackmann,2025-06-10 06:18:37 UTC
+Perugiachallenger,https://www.tennisabstract.com/current/2025PerugiaChallenger.html,R32,Vitaliy Sachko,Federico Bondioli,78.1,21.9,1.28,4.57,Sackmann,2025-06-10 06:18:37 UTC
+Perugiachallenger,https://www.tennisabstract.com/current/2025PerugiaChallenger.html,R32,Viktor Durasovic,Gerard Campana Lee,45.5,54.5,2.2,1.83,Sackmann,2025-06-10 06:18:37 UTC
+Perugiachallenger,https://www.tennisabstract.com/current/2025PerugiaChallenger.html,R32,Francesco Maestrelli,Francesco Passaro,25.7,74.3,3.89,1.35,Sackmann,2025-06-10 06:18:37 UTC
+Perugiachallenger,https://www.tennisabstract.com/current/2025PerugiaChallenger.html,R32,Saba Purtseladze,Elias Ymer,0.0,100.0,,1.0,Sackmann,2025-06-10 06:18:37 UTC
+Ilkleychallenger,https://www.tennisabstract.com/current/2025IlkleyChallenger.html,R32,Kamil Majchrzak,Sho Shimabukuro,0.0,100.0,,1.0,Sackmann,2025-06-10 06:18:37 UTC
+Ilkleychallenger,https://www.tennisabstract.com/current/2025IlkleyChallenger.html,R32,James Trotter,Chris Rodesch,100.0,0.0,1.0,,Sackmann,2025-06-10 06:18:37 UTC
+Ilkleychallenger,https://www.tennisabstract.com/current/2025IlkleyChallenger.html,R32,Henry Searle,Coleman Wong,100.0,0.0,1.0,,Sackmann,2025-06-10 06:18:37 UTC
+Ilkleychallenger,https://www.tennisabstract.com/current/2025IlkleyChallenger.html,R32,Harold Mayot,Tristan Schoolkate,0.0,100.0,,1.0,Sackmann,2025-06-10 06:18:37 UTC
+Ilkleychallenger,https://www.tennisabstract.com/current/2025IlkleyChallenger.html,R16,Colton Smith,Jenson Brooksby,61.1,39.3,1.64,2.54,Sackmann,2025-06-10 06:18:37 UTC
+Bratislavachallenger,https://www.tennisabstract.com/current/2025BratislavaChallenger.html,R32,Alexander Shevchenko,Christoph Negritu,58.5,41.5,1.71,2.41,Sackmann,2025-06-10 06:18:37 UTC
+Bratislavachallenger,https://www.tennisabstract.com/current/2025BratislavaChallenger.html,R32,Jan Choinski,Jozef Kovalik,48.0,52.0,2.08,1.92,Sackmann,2025-06-10 06:18:37 UTC
+Bratislavachallenger,https://www.tennisabstract.com/current/2025BratislavaChallenger.html,R32,Qualifier1,Federico Cina,34.2,65.8,2.92,1.52,Sackmann,2025-06-10 06:18:37 UTC
+Bratislavachallenger,https://www.tennisabstract.com/current/2025BratislavaChallenger.html,R32,Andrej Martin,Emilio Nava,29.2,70.8,3.42,1.41,Sackmann,2025-06-10 06:18:37 UTC
+Lyonchallenger,https://www.tennisabstract.com/current/2025LyonChallenger.html,R32,Pablo Carreno Busta,Titouan Droguet,100.0,0.0,1.0,,Sackmann,2025-06-10 06:18:37 UTC
+Lyonchallenger,https://www.tennisabstract.com/current/2025LyonChallenger.html,R32,Javier Barranco Cosano,Pol Martin Tiffon,100.0,0.0,1.0,,Sackmann,2025-06-10 06:18:37 UTC
+Lyonchallenger,https://www.tennisabstract.com/current/2025LyonChallenger.html,R32,Timo Legout,Lucas Poullain,50.9,49.1,1.96,2.04,Sackmann,2025-06-10 06:18:37 UTC
+Lyonchallenger,https://www.tennisabstract.com/current/2025LyonChallenger.html,R32,Gauthier Onclin,Juan Pablo Ficovich,100.0,0.0,1.0,,Sackmann,2025-06-10 06:18:37 UTC
+Lyonchallenger,https://www.tennisabstract.com/current/2025LyonChallenger.html,R32,Arthur Gea,Matteo Martineau,51.7,49.2,1.93,2.03,Sackmann,2025-06-10 06:18:37 UTC
+Santafechallenger,https://www.tennisabstract.com/current/2025SantaFeChallenger.html,R32,Alvaro Guillen Meza,Mariano Kestelboim,0.0,100.0,,1.0,Sackmann,2025-06-10 06:18:37 UTC
+Santafechallenger,https://www.tennisabstract.com/current/2025SantaFeChallenger.html,R32,Joao Lucas Reis Da Silva,Igor Gimenez,85.7,14.3,1.17,6.99,Sackmann,2025-06-10 06:18:37 UTC
+Santafechallenger,https://www.tennisabstract.com/current/2025SantaFeChallenger.html,R32,Pedro Boscardin Dias,Juan Manuel La Serna,100.0,0.0,1.0,,Sackmann,2025-06-10 06:18:37 UTC
+Santafechallenger,https://www.tennisabstract.com/current/2025SantaFeChallenger.html,R32,Gonzalo Bueno,Juan Bautista Torres,100.0,0.0,1.0,,Sackmann,2025-06-10 06:18:37 UTC
+Santafechallenger,https://www.tennisabstract.com/current/2025SantaFeChallenger.html,R32,Franco Roncadelli,Luciano Emanuel Ambrogi,0.0,100.0,,1.0,Sackmann,2025-06-10 06:18:37 UTC

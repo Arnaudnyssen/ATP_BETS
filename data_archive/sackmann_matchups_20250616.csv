@@ -1,0 +1,32 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atplondon,https://www.tennisabstract.com/current/2025ATPLondon.html,R32,Carlos Alcaraz,Alejandro Davidovich Fokina,93.3,6.7,1.07,14.93,Sackmann,2025-06-16 06:20:28 UTC
+Atplondon,https://www.tennisabstract.com/current/2025ATPLondon.html,R32,Jordan Thompson,Jaume Munar,78.2,21.8,1.28,4.59,Sackmann,2025-06-16 06:20:28 UTC
+Atplondon,https://www.tennisabstract.com/current/2025ATPLondon.html,R32,Reilly Opelka,Camilo Ugo Carabelli,65.7,34.3,1.52,2.92,Sackmann,2025-06-16 06:20:28 UTC
+Atplondon,https://www.tennisabstract.com/current/2025ATPLondon.html,R32,Arthur Rinderknech,Ben Shelton,25.9,74.1,3.86,1.35,Sackmann,2025-06-16 06:20:28 UTC
+Atphalle,https://www.tennisabstract.com/current/2025ATPHalle.html,R32,Jannik Sinner,Yannick Hanfmann,92.3,7.7,1.08,12.99,Sackmann,2025-06-16 06:20:28 UTC
+Atphalle,https://www.tennisabstract.com/current/2025ATPHalle.html,R32,Alexandre Muller,Alexander Bublik,26.9,73.1,3.72,1.37,Sackmann,2025-06-16 06:20:28 UTC
+Atphalle,https://www.tennisabstract.com/current/2025ATPHalle.html,R32,Fabian Marozsan,Miomir Kecmanovic,44.0,56.0,2.27,1.79,Sackmann,2025-06-16 06:20:28 UTC
+Atphalle,https://www.tennisabstract.com/current/2025ATPHalle.html,R32,Hubert Hurkacz,Tomas Machac,66.7,33.3,1.5,3.0,Sackmann,2025-06-16 06:20:28 UTC
+Sassuolochallenger,https://www.tennisabstract.com/current/2025SassuoloChallenger.html,R32,Carlos Taberner,Jozef Kovalik,63.4,36.6,1.58,2.73,Sackmann,2025-06-16 06:20:28 UTC
+Sassuolochallenger,https://www.tennisabstract.com/current/2025SassuoloChallenger.html,R32,Sascha Gueymard Wayenburg,Federico Bondioli,50.6,49.4,1.98,2.02,Sackmann,2025-06-16 06:20:28 UTC
+Sassuolochallenger,https://www.tennisabstract.com/current/2025SassuoloChallenger.html,R32,Geoffrey Blancaneaux,Luca Van Assche,35.6,64.4,2.81,1.55,Sackmann,2025-06-16 06:20:28 UTC
+Sassuolochallenger,https://www.tennisabstract.com/current/2025SassuoloChallenger.html,R32,Rei Sakamoto,Alvaro Guillen Meza,35.1,64.9,2.85,1.54,Sackmann,2025-06-16 06:20:28 UTC
+Nottingham2Challenger,https://www.tennisabstract.com/current/2025Nottingham2Challenger.html,R32,James Mccabe,George Loffhagen,60.5,39.5,1.65,2.53,Sackmann,2025-06-16 06:20:28 UTC
+Nottingham2Challenger,https://www.tennisabstract.com/current/2025Nottingham2Challenger.html,R32,Marco Trungelliti,Colton Smith,19.5,80.5,5.13,1.24,Sackmann,2025-06-16 06:20:28 UTC
+Nottingham2Challenger,https://www.tennisabstract.com/current/2025Nottingham2Challenger.html,R32,Jack Pinnington Jones,Emilio Nava,38.4,61.6,2.6,1.62,Sackmann,2025-06-16 06:20:28 UTC
+Nottingham2Challenger,https://www.tennisabstract.com/current/2025Nottingham2Challenger.html,R32,Ryan Peniston,Daniel Elahi Galan,100.0,0.0,1.0,,Sackmann,2025-06-16 06:20:28 UTC
+Nottingham2Challenger,https://www.tennisabstract.com/current/2025Nottingham2Challenger.html,R32,Jan Choinski,Pierre Hugues Herbert,33.9,65.9,2.95,1.52,Sackmann,2025-06-16 06:20:28 UTC
+Poznanchallenger,https://www.tennisabstract.com/current/2025PoznanChallenger.html,R32,Cristian Garin,Alexey Vatutin,86.8,13.2,1.15,7.58,Sackmann,2025-06-16 06:20:28 UTC
+Poznanchallenger,https://www.tennisabstract.com/current/2025PoznanChallenger.html,R32,Alan Wazny,Sumit Nagal,19.9,80.1,5.03,1.25,Sackmann,2025-06-16 06:20:28 UTC
+Poznanchallenger,https://www.tennisabstract.com/current/2025PoznanChallenger.html,R32,Qualifier1,Qualifier2,50.0,50.0,2.0,2.0,Sackmann,2025-06-16 06:20:28 UTC
+Poznanchallenger,https://www.tennisabstract.com/current/2025PoznanChallenger.html,R32,Faris Zakaryia,Andrea Pellegrino,16.9,83.1,5.92,1.2,Sackmann,2025-06-16 06:20:28 UTC
+Poznanchallenger,https://www.tennisabstract.com/current/2025PoznanChallenger.html,R32,Maks Kasnikowski,Mili Poljicak,23.5,76.9,4.26,1.3,Sackmann,2025-06-16 06:20:28 UTC
+Poznanchallenger,https://www.tennisabstract.com/current/2025PoznanChallenger.html,R32,Radu Albot,Qualifier5,50.0,50.0,2.0,2.0,Sackmann,2025-06-16 06:20:28 UTC
+Santacruzdelasierrachallenger,https://www.tennisabstract.com/current/2025SantaCruzdelaSierraChallenger.html,R32,Murkel Alejandro Dellien Velasco,Pedro Boscardin Dias,66.9,33.1,1.49,3.02,Sackmann,2025-06-16 06:20:28 UTC
+Santacruzdelasierrachallenger,https://www.tennisabstract.com/current/2025SantaCruzdelaSierraChallenger.html,R32,Mariano Kestelboim,Gonzalo Villanueva,43.5,56.5,2.3,1.77,Sackmann,2025-06-16 06:20:28 UTC
+Santacruzdelasierrachallenger,https://www.tennisabstract.com/current/2025SantaCruzdelaSierraChallenger.html,R32,Franco Roncadelli,Tomas Farjat,55.2,44.8,1.81,2.23,Sackmann,2025-06-16 06:20:28 UTC
+Santacruzdelasierrachallenger,https://www.tennisabstract.com/current/2025SantaCruzdelaSierraChallenger.html,R32,Gonzalo Bueno,Juan Carlos Prado Angelo,58.0,42.0,1.72,2.38,Sackmann,2025-06-16 06:20:28 UTC
+Royanchallenger,https://www.tennisabstract.com/current/2025RoyanChallenger.html,R32,Calvin Hemery,Cedrik Marcel Stebe,79.9,20.1,1.25,4.98,Sackmann,2025-06-16 06:20:28 UTC
+Royanchallenger,https://www.tennisabstract.com/current/2025RoyanChallenger.html,R32,Gabi Adrian Boitan,Enzo Couacaud,40.2,59.8,2.49,1.67,Sackmann,2025-06-16 06:20:28 UTC
+Royanchallenger,https://www.tennisabstract.com/current/2025RoyanChallenger.html,R32,Norbert Gombos,Kalin Ivanovski,86.6,13.4,1.15,7.46,Sackmann,2025-06-16 06:20:28 UTC
+Royanchallenger,https://www.tennisabstract.com/current/2025RoyanChallenger.html,R32,Qualifier1,Dimitar Kuzmanov,22.9,77.1,4.37,1.3,Sackmann,2025-06-16 06:20:28 UTC

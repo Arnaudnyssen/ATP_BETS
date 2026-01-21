@@ -1,0 +1,17 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Porto2Challenger,https://www.tennisabstract.com/current/2025Porto2Challenger.html,R16,Nikolas Sanchez Izquierdo,Matej Dodig,31.6,68.4,3.16,1.46,Sackmann,2025-08-27 06:17:41 UTC
+Porto2Challenger,https://www.tennisabstract.com/current/2025Porto2Challenger.html,R16,Alejandro Moro Canas,Genaro Alberto Olivieri,47.6,52.4,2.1,1.91,Sackmann,2025-08-27 06:17:41 UTC
+Porto2Challenger,https://www.tennisabstract.com/current/2025Porto2Challenger.html,R16,Alex Barrena,Nicolas Alvarez Varona,75.0,25.0,1.33,4.0,Sackmann,2025-08-27 06:17:41 UTC
+Porto2Challenger,https://www.tennisabstract.com/current/2025Porto2Challenger.html,R16,Gilles Arnaud Bailly,Pedro Araujo,79.3,20.7,1.26,4.83,Sackmann,2025-08-27 06:17:41 UTC
+Comochallenger,https://www.tennisabstract.com/current/2025ComoChallenger.html,R16,Nicolai Budkov Kjaer,Giovanni Fonio,84.7,15.3,1.18,6.54,Sackmann,2025-08-27 06:17:41 UTC
+Comochallenger,https://www.tennisabstract.com/current/2025ComoChallenger.html,R16,Raul Brancaccio,Alvaro Guillen Meza,41.3,58.7,2.42,1.7,Sackmann,2025-08-27 06:17:41 UTC
+Comochallenger,https://www.tennisabstract.com/current/2025ComoChallenger.html,R16,Gonzalo Bueno,Henri Squire,62.4,37.6,1.6,2.66,Sackmann,2025-08-27 06:17:41 UTC
+Comochallenger,https://www.tennisabstract.com/current/2025ComoChallenger.html,R16,Luka Mikrut,Carlo Alberto Caniato,54.7,45.3,1.83,2.21,Sackmann,2025-08-27 06:17:41 UTC
+Zhangjiagangchallenger,https://www.tennisabstract.com/current/2025ZhangjiagangChallenger.html,R16,Philip Sekulic,Renta Tokuda,61.4,38.6,1.63,2.59,Sackmann,2025-08-27 06:17:41 UTC
+Zhangjiagangchallenger,https://www.tennisabstract.com/current/2025ZhangjiagangChallenger.html,R16,Hiroki Moriya,Oliver Crawford,34.4,65.6,2.91,1.52,Sackmann,2025-08-27 06:17:41 UTC
+Zhangjiagangchallenger,https://www.tennisabstract.com/current/2025ZhangjiagangChallenger.html,R16,Fajing Sun,San Hui Sin,79.0,21.0,1.27,4.76,Sackmann,2025-08-27 06:17:41 UTC
+Zhangjiagangchallenger,https://www.tennisabstract.com/current/2025ZhangjiagangChallenger.html,R16,Kokoro Isomura,Jie Cui,29.8,70.2,3.36,1.42,Sackmann,2025-08-27 06:17:41 UTC
+Manacorchallenger,https://www.tennisabstract.com/current/2025ManacorChallenger.html,R32,Otto Virtanen,Hamish Stewart,73.3,26.7,1.36,3.75,Sackmann,2025-08-27 06:17:41 UTC
+Manacorchallenger,https://www.tennisabstract.com/current/2025ManacorChallenger.html,R32,Abedallah Shelbayh,Daniel Rincon,40.0,60.0,2.5,1.67,Sackmann,2025-08-27 06:17:41 UTC
+Manacorchallenger,https://www.tennisabstract.com/current/2025ManacorChallenger.html,R32,Eliakim Coulibaly,Marek Gengel,69.7,30.3,1.43,3.3,Sackmann,2025-08-27 06:17:41 UTC
+Manacorchallenger,https://www.tennisabstract.com/current/2025ManacorChallenger.html,R32,Miguel Tobon,Calvin Hemery,100.0,0.0,1.0,,Sackmann,2025-08-27 06:17:41 UTC

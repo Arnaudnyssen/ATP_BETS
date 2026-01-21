@@ -1,0 +1,13 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Littlerockchallenger,https://www.tennisabstract.com/current/2025LittleRockChallenger.html,QF,Patrick Kypson,Rio Noguchi,54.4,45.6,1.84,2.19,Sackmann,2025-05-30 06:16:35 UTC
+Littlerockchallenger,https://www.tennisabstract.com/current/2025LittleRockChallenger.html,QF,Naoki Nakagawa,Andres Andrade,25.9,74.1,3.86,1.35,Sackmann,2025-05-30 06:16:35 UTC
+Littlerockchallenger,https://www.tennisabstract.com/current/2025LittleRockChallenger.html,QF,Michael Zheng,Andres Martin,40.4,59.6,2.48,1.68,Sackmann,2025-05-30 06:16:35 UTC
+Littlerockchallenger,https://www.tennisabstract.com/current/2025LittleRockChallenger.html,QF,Kenta Miyoshi,Liam Draxl,23.2,76.8,4.31,1.3,Sackmann,2025-05-30 06:16:35 UTC
+Vicenzachallenger,https://www.tennisabstract.com/current/2025VicenzaChallenger.html,QF,Chun Hsin Tseng,Joel Schwaerzler,76.5,23.5,1.31,4.26,Sackmann,2025-05-30 06:16:35 UTC
+Vicenzachallenger,https://www.tennisabstract.com/current/2025VicenzaChallenger.html,QF,Chris Rodesch,Facundo Mena,72.3,27.7,1.38,3.61,Sackmann,2025-05-30 06:16:35 UTC
+Vicenzachallenger,https://www.tennisabstract.com/current/2025VicenzaChallenger.html,QF,Lukas Neumayer,Ignacio Buse,43.2,56.8,2.31,1.76,Sackmann,2025-05-30 06:16:35 UTC
+Vicenzachallenger,https://www.tennisabstract.com/current/2025VicenzaChallenger.html,QF,Duje Ajdukovic,Jerome Kym,33.0,67.0,3.03,1.49,Sackmann,2025-05-30 06:16:35 UTC
+Chisinauchallenger,https://www.tennisabstract.com/current/2025ChisinauChallenger.html,QF,Ilia Simakin,Petr Bar Biryukov,77.8,22.2,1.29,4.5,Sackmann,2025-05-30 06:16:35 UTC
+Chisinauchallenger,https://www.tennisabstract.com/current/2025ChisinauChallenger.html,QF,Kaichi Uchida,Giles Hussey,42.6,57.4,2.35,1.74,Sackmann,2025-05-30 06:16:35 UTC
+Chisinauchallenger,https://www.tennisabstract.com/current/2025ChisinauChallenger.html,QF,Stuart Parker,Toby Samuel,76.8,23.2,1.3,4.31,Sackmann,2025-05-30 06:16:35 UTC
+Chisinauchallenger,https://www.tennisabstract.com/current/2025ChisinauChallenger.html,QF,Clement Chidekh,Robert Strombachs,52.7,47.3,1.9,2.11,Sackmann,2025-05-30 06:16:35 UTC

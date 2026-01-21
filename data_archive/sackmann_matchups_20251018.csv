@@ -1,0 +1,17 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpalmaty,https://www.tennisabstract.com/current/2025ATPAlmaty.html,SF,Corentin Moutet,Alex Michelsen,55.4,44.6,1.81,2.24,Sackmann,2025-10-18 06:15:20 UTC
+Atpalmaty,https://www.tennisabstract.com/current/2025ATPAlmaty.html,SF,James Duckworth,Daniil Medvedev,9.8,90.2,10.2,1.11,Sackmann,2025-10-18 06:15:20 UTC
+Atpbrussels,https://www.tennisabstract.com/current/2025ATPBrussels.html,SF,Giovanni Mpetshi Perricard,Jiri Lehecka,25.2,74.8,3.97,1.34,Sackmann,2025-10-18 06:15:20 UTC
+Atpbrussels,https://www.tennisabstract.com/current/2025ATPBrussels.html,SF,Raphael Collignon,Felix Auger Aliassime,27.2,72.8,3.68,1.37,Sackmann,2025-10-18 06:15:20 UTC
+Atpstockholm,https://www.tennisabstract.com/current/2025ATPStockholm.html,SF,Holger Rune,Ugo Humbert,55.1,44.9,1.81,2.23,Sackmann,2025-10-18 06:15:20 UTC
+Atpstockholm,https://www.tennisabstract.com/current/2025ATPStockholm.html,SF,Denis Shapovalov,Casper Ruud,42.5,57.5,2.35,1.74,Sackmann,2025-10-18 06:15:20 UTC
+Olbiachallenger,https://www.tennisabstract.com/current/2025OlbiaChallenger.html,SF,Pablo Carreno Busta,Martin Landaluce,59.2,40.8,1.69,2.45,Sackmann,2025-10-18 06:15:20 UTC
+Olbiachallenger,https://www.tennisabstract.com/current/2025OlbiaChallenger.html,SF,Hugo Grenier,Luca Van Assche,49.3,50.7,2.03,1.97,Sackmann,2025-10-18 06:15:20 UTC
+Curitibachallenger,https://www.tennisabstract.com/current/2025CuritibaChallenger.html,SF,Adolfo Daniel Vallejo,Joao Eduardo Schiessl,70.9,29.1,1.41,3.44,Sackmann,2025-10-18 06:15:20 UTC
+Curitibachallenger,https://www.tennisabstract.com/current/2025CuritibaChallenger.html,SF,Roman Andres Burruchaga,Pedro Boscardin Dias,85.7,14.3,1.17,6.99,Sackmann,2025-10-18 06:15:20 UTC
+Lincolnchallenger,https://www.tennisabstract.com/current/2025LincolnChallenger.html,SF,Rafael Jodar,Patrick Kypson,48.1,51.9,2.08,1.93,Sackmann,2025-10-18 06:15:20 UTC
+Lincolnchallenger,https://www.tennisabstract.com/current/2025LincolnChallenger.html,SF,Johannus Monday,Martin Damm,23.0,77.0,4.35,1.3,Sackmann,2025-10-18 06:15:20 UTC
+Shenzhenfutian Challenger,https://www.tennisabstract.com/current/2025Shenzhen(Futian)Challenger.html,SF,Jie Cui,Yi Zhou,22.0,78.0,4.55,1.28,Sackmann,2025-10-18 06:15:20 UTC
+Shenzhenfutian Challenger,https://www.tennisabstract.com/current/2025Shenzhen(Futian)Challenger.html,SF,Kyrian Jacquet,Sho Shimabukuro,42.3,57.7,2.36,1.73,Sackmann,2025-10-18 06:15:20 UTC
+Hersonissos6Challenger,https://www.tennisabstract.com/current/2025Hersonissos6Challenger.html,SF,Maxim Mrva,Dimitar Kuzmanov,35.8,64.2,2.79,1.56,Sackmann,2025-10-18 06:15:20 UTC
+Hersonissos6Challenger,https://www.tennisabstract.com/current/2025Hersonissos6Challenger.html,SF,Inaki Montes De La Torre,Harry Wendelken,53.1,46.9,1.88,2.13,Sackmann,2025-10-18 06:15:20 UTC

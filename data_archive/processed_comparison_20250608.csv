@@ -1,0 +1,10 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atpstuttgart,R32,Fabio Fognini,Corentin Moutet,48.3000,51.7000,,,2.0700,1.9300,,,,,,
+Atpstuttgart,R32,Learner Tien,Yoshihito Nishioka,41.1000,58.9000,60.8247,39.1753,2.4300,1.7000,1.5200,2.3600,-0.9100,0.6600,-0.3745,0.3882
+Atpstuttgart,R32,Jacob Fearnley,Brandon Nakashima,49.8000,50.2000,,,2.0100,1.9900,,,,,,
+Atpstuttgart,R32,Matteo Arnaldi,Jan Lennard Struff,56.0000,44.0000,63.8404,36.1596,1.7900,2.2700,1.4500,2.5600,-0.3400,0.2900,-0.1899,0.1278
+Atpstuttgart,R32,Benjamin Bonzi,Jiri Lehecka,43.3000,56.7000,30.4348,69.5652,2.3100,1.7600,3.0400,1.3300,0.7300,-0.4300,0.3160,-0.2443
+Atp'S Hertogenbosch,R32,Alejandro Tabilo,Jesper De Jong,68.0000,32.0000,52.2911,47.7089,1.4700,3.1200,1.7700,1.9400,0.3000,-1.1800,0.2041,-0.3782
+Atp'S Hertogenbosch,R32,Nicolas Jarry,Luciano Darderi,59.1000,40.9000,56.1170,43.8830,1.6900,2.4400,1.6500,2.1100,-0.0400,-0.3300,-0.0237,-0.1352
+Atp'S Hertogenbosch,R32,Roberto Bautista Agut,Hubert Hurkacz,35.6000,64.4000,,,2.8100,1.5500,,,,,,
+Birminghamchallenger,SF,Colton Smith,Rinky Hijikata,53.2000,46.8000,,,1.8800,2.1400,,,,,,

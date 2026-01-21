@@ -1,0 +1,13 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpwashington,https://www.tennisabstract.com/current/2025ATPWashington.html,QF,Taylor Fritz,Alejandro Davidovich Fokina,71.7,28.3,1.39,3.53,Sackmann,2025-07-26 06:17:01 UTC
+Atpwashington,https://www.tennisabstract.com/current/2025ATPWashington.html,QF,Ben Shelton,Frances Tiafoe,100.0,0.0,1.0,,Sackmann,2025-07-26 06:17:01 UTC
+Atpwashington,https://www.tennisabstract.com/current/2025ATPWashington.html,QF,Daniil Medvedev,Corentin Moutet,0.0,100.0,,1.0,Sackmann,2025-07-26 06:17:01 UTC
+Atpwashington,https://www.tennisabstract.com/current/2025ATPWashington.html,QF,Alex De Minaur,Brandon Nakashima,100.0,0.0,1.0,,Sackmann,2025-07-26 06:17:01 UTC
+Zugchallenger,https://www.tennisabstract.com/current/2025ZugChallenger.html,SF,Stefanos Sakellaridis,Harold Mayot,33.1,66.9,3.02,1.49,Sackmann,2025-07-26 06:17:01 UTC
+Zugchallenger,https://www.tennisabstract.com/current/2025ZugChallenger.html,SF,Jakub Paul,Lukas Klein,11.0,89.0,9.09,1.12,Sackmann,2025-07-26 06:17:01 UTC
+Bloomfieldhillschallenger,https://www.tennisabstract.com/current/2025BloomfieldHillsChallenger.html,SF,Yu Hsiou Hsu,Mark Lajal,38.2,61.8,2.62,1.62,Sackmann,2025-07-26 06:17:01 UTC
+Bloomfieldhillschallenger,https://www.tennisabstract.com/current/2025BloomfieldHillsChallenger.html,SF,Eliot Spizzirri,Andres Martin,69.3,30.7,1.44,3.26,Sackmann,2025-07-26 06:17:01 UTC
+Segoviachallenger,https://www.tennisabstract.com/current/2025SegoviaChallenger.html,SF,Aryan Shah,Nicolas Alvarez Varona,51.8,48.2,1.93,2.07,Sackmann,2025-07-26 06:17:01 UTC
+Segoviachallenger,https://www.tennisabstract.com/current/2025SegoviaChallenger.html,SF,Edas Butvilas,George Loffhagen,58.6,41.4,1.71,2.42,Sackmann,2025-07-26 06:17:01 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,SF,Sumit Nagal,Sascha Gueymard Wayenburg,75.3,24.7,1.33,4.05,Sackmann,2025-07-26 06:17:01 UTC
+Tamperechallenger,https://www.tennisabstract.com/current/2025TampereChallenger.html,SF,Hynek Barton,Nicolai Budkov Kjaer,35.4,64.6,2.82,1.55,Sackmann,2025-07-26 06:17:01 UTC

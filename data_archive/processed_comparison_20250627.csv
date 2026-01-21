@@ -1,0 +1,9 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atpmallorca,SF,Corentin Moutet,Alex Michelsen,46.6000,53.4000,,,2.1500,1.8700,,,,,,
+Atpmallorca,SF,Tallon Griekspoor,Felix Auger Aliassime,59.0000,41.0000,,,1.6900,2.4400,,,,,,
+Atpeastbourne,SF,Taylor Fritz,Alejandro Davidovich Fokina,78.7000,21.3000,69.5652,30.4348,1.2700,4.6900,1.3300,3.0400,0.0600,-1.6500,0.0472,-0.3518
+Atpeastbourne,SF,Ugo Humbert,Jenson Brooksby,63.1000,36.9000,63.3166,36.6834,1.5800,2.7100,1.4600,2.5200,-0.1200,-0.1900,-0.0759,-0.0701
+Milanchallenger,SF,Dino Prizmic,Rafael Jodar,91.4000,8.6000,72.0879,27.9121,1.0900,11.6300,1.2700,3.2800,0.1800,-8.3500,0.1651,-0.7180
+Milanchallenger,SF,Marco Cecchinato,Jacopo Vasami,71.3000,28.7000,48.2289,51.7711,1.4000,3.4800,1.9000,1.7700,0.5000,-1.7100,0.3571,-0.4914
+Limachallenger,SF,Juan Carlos Prado Angelo,Pedro Boscardin Dias,54.0000,46.0000,,,1.8500,2.1700,,,,,,
+Limachallenger,SF,Gonzalo Bueno,Dali Blanch,63.5000,36.5000,,,1.5700,2.7400,,,,,,

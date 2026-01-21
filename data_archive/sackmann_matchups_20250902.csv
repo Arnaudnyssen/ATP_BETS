@@ -1,0 +1,27 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Genoachallenger,https://www.tennisabstract.com/current/2025GenoaChallenger.html,R32,Luciano Darderi,Federico Arnaboldi,93.1,6.9,1.07,14.49,Sackmann,2025-09-02 06:19:44 UTC
+Genoachallenger,https://www.tennisabstract.com/current/2025GenoaChallenger.html,R32,Marco Cecchinato,Dmitry Popko,61.2,38.8,1.63,2.58,Sackmann,2025-09-02 06:19:44 UTC
+Genoachallenger,https://www.tennisabstract.com/current/2025GenoaChallenger.html,R32,Geoffrey Blancaneaux,Enrico Dalla Valle,54.8,45.2,1.82,2.21,Sackmann,2025-09-02 06:19:44 UTC
+Genoachallenger,https://www.tennisabstract.com/current/2025GenoaChallenger.html,R32,Thiago Monteiro,Francesco Passaro,37.8,62.2,2.65,1.61,Sackmann,2025-09-02 06:19:44 UTC
+Sevillechallenger,https://www.tennisabstract.com/current/2025SevilleChallenger.html,R32,Roberto Carballes Baena,Genaro Alberto Olivieri,0.0,100.0,,1.0,Sackmann,2025-09-02 06:19:44 UTC
+Sevillechallenger,https://www.tennisabstract.com/current/2025SevilleChallenger.html,R32,Pol Martin Tiffon,Henrique Rocha,30.7,69.3,3.26,1.44,Sackmann,2025-09-02 06:19:44 UTC
+Sevillechallenger,https://www.tennisabstract.com/current/2025SevilleChallenger.html,R32,Jonas Forejtek,Lorenzo Giustino,57.1,42.9,1.75,2.33,Sackmann,2025-09-02 06:19:44 UTC
+Sevillechallenger,https://www.tennisabstract.com/current/2025SevilleChallenger.html,R32,Albert Ramos,Vilius Gaubas,44.6,55.4,2.24,1.81,Sackmann,2025-09-02 06:19:44 UTC
+Shanghaichallenger,https://www.tennisabstract.com/current/2025ShanghaiChallenger.html,R32,Daniel Evans,Linang Xiao,89.6,10.4,1.12,9.62,Sackmann,2025-09-02 06:19:44 UTC
+Shanghaichallenger,https://www.tennisabstract.com/current/2025ShanghaiChallenger.html,R32,Filip Peliwo,Luca Van Assche,10.9,89.1,9.17,1.12,Sackmann,2025-09-02 06:19:44 UTC
+Shanghaichallenger,https://www.tennisabstract.com/current/2025ShanghaiChallenger.html,R32,Giulio Zeppieri,Gauthier Onclin,64.6,35.4,1.55,2.82,Sackmann,2025-09-02 06:19:44 UTC
+Shanghaichallenger,https://www.tennisabstract.com/current/2025ShanghaiChallenger.html,R32,Yuta Shimizu,Sho Shimabukuro,43.6,56.4,2.29,1.77,Sackmann,2025-09-02 06:19:44 UTC
+Shanghaichallenger,https://www.tennisabstract.com/current/2025ShanghaiChallenger.html,R32,Fajing Sun,Rigele Te,100.0,0.0,1.0,,Sackmann,2025-09-02 06:19:44 UTC
+Tullnchallenger,https://www.tennisabstract.com/current/2025TullnChallenger.html,R32,Jan Choinski,Jozef Kovalik,63.3,36.7,1.58,2.72,Sackmann,2025-09-02 06:19:44 UTC
+Tullnchallenger,https://www.tennisabstract.com/current/2025TullnChallenger.html,R32,Joel Schwaerzler,Tiago Pereira,77.3,22.7,1.29,4.41,Sackmann,2025-09-02 06:19:44 UTC
+Tullnchallenger,https://www.tennisabstract.com/current/2025TullnChallenger.html,R32,Sumit Nagal,Mili Poljicak,100.0,0.0,1.0,,Sackmann,2025-09-02 06:19:44 UTC
+Tullnchallenger,https://www.tennisabstract.com/current/2025TullnChallenger.html,R32,Filip Cristian Jianu,Alex Barrena,100.0,0.0,1.0,,Sackmann,2025-09-02 06:19:44 UTC
+Tullnchallenger,https://www.tennisabstract.com/current/2025TullnChallenger.html,R32,Jacopo Berrettini,Kai Wehnelt,53.0,47.5,1.89,2.11,Sackmann,2025-09-02 06:19:44 UTC
+Istanbulchallenger,https://www.tennisabstract.com/current/2025IstanbulChallenger.html,R32,Lukas Klein,Saba Purtseladze,100.0,0.0,1.0,,Sackmann,2025-09-02 06:19:44 UTC
+Istanbulchallenger,https://www.tennisabstract.com/current/2025IstanbulChallenger.html,R32,Michal Krajci,Milos Karol,57.5,42.5,1.74,2.35,Sackmann,2025-09-02 06:19:44 UTC
+Istanbulchallenger,https://www.tennisabstract.com/current/2025IstanbulChallenger.html,R32,Ilya Ivashka,Nicolas Mejia,71.3,28.7,1.4,3.48,Sackmann,2025-09-02 06:19:44 UTC
+Istanbulchallenger,https://www.tennisabstract.com/current/2025IstanbulChallenger.html,R32,Marek Gengel,Benjamin Hassan,21.0,79.0,4.76,1.27,Sackmann,2025-09-02 06:19:44 UTC
+Cassischallenger,https://www.tennisabstract.com/current/2025CassisChallenger.html,R32,Quentin Halys,Daniil Glinka,84.4,15.6,1.18,6.41,Sackmann,2025-09-02 06:19:44 UTC
+Cassischallenger,https://www.tennisabstract.com/current/2025CassisChallenger.html,R32,Qualifier1,Dan Added,31.5,68.5,3.17,1.46,Sackmann,2025-09-02 06:19:44 UTC
+Cassischallenger,https://www.tennisabstract.com/current/2025CassisChallenger.html,R32,Arthur Fery,Michael Geerts,80.3,19.7,1.25,5.08,Sackmann,2025-09-02 06:19:44 UTC
+Cassischallenger,https://www.tennisabstract.com/current/2025CassisChallenger.html,R32,Qualifier2,Titouan Droguet,19.8,80.2,5.05,1.25,Sackmann,2025-09-02 06:19:44 UTC

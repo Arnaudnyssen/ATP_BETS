@@ -1,0 +1,6 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Birminghamchallenger,SF,Colton Smith,Rinky Hijikata,53.2000,46.8000,49.1803,50.8197,1.8800,2.1400,1.8600,1.8000,-0.0200,-0.3400,-0.0106,-0.1589
+Birminghamchallenger,SF,Otto Virtanen,Brandon Holt,55.6000,44.4000,62.3077,37.6923,1.8000,2.2500,1.4700,2.4300,-0.3300,0.1800,-0.1833,0.0800
+Heilbronnchallenger,QF,Facundo Mena,Marko Topo,50.5000,49.5000,40.8971,59.1029,1.9800,2.0200,2.2400,1.5500,0.2600,-0.4700,0.1313,-0.2327
+Heilbronnchallenger,QF,Guy Den Ouden,Emilio Nava,45.6000,54.4000,43.1635,56.8365,2.1900,1.8400,2.1200,1.6100,-0.0700,-0.2300,-0.0320,-0.1250
+Tylerchallenger,SF,Karue Sell,Yibing Wu,16.4000,83.6000,28.9888,71.0112,6.1000,1.2000,3.1600,1.2900,-2.9400,0.0900,-0.4820,0.0750

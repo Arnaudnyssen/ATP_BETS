@@ -1,0 +1,9 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Carychallenger,SF,Rei Sakamoto,Patrick Kypson,34.0000,66.0000,38.1443,61.8557,2.9400,1.5200,2.4000,1.4800,-0.5400,-0.0400,-0.1837,-0.0263
+Carychallenger,SF,Yibing Wu,Liam Draxl,71.9000,28.1000,,,1.3900,3.5600,,,,,,
+Brasovchallenger,SF,Francesco Maestrelli,Tom Paris,81.7000,18.3000,70.4545,29.5455,1.2200,5.4600,1.3000,3.1000,0.0800,-2.3600,0.0656,-0.4322
+Brasovchallenger,SF,Luka Pavlovic,Juan Pablo Ficovich,53.5000,46.5000,56.1828,43.8172,1.8700,2.1500,1.6300,2.0900,-0.2400,-0.0600,-0.1283,-0.0279
+Modenachallenger,SF,Jerome Kym,Thiago Seyboth Wild,51.8000,48.2000,,,1.9300,2.0700,,,,,,
+Modenachallenger,SF,Federico Cina,Stefano Travaglia,48.8000,51.2000,60.6771,39.3229,2.0500,1.9500,1.5100,2.3300,-0.5400,0.3800,-0.2634,0.1949
+Troyeschallenger,SF,Marco Trungelliti,Jan Choinski,64.2000,35.8000,51.4986,48.5014,1.5600,2.7900,1.7800,1.8900,0.2200,-0.9000,0.1410,-0.3226
+Troyeschallenger,SF,Jacopo Berrettini,Calvin Hemery,43.0000,57.0000,42.7807,57.2193,2.3300,1.7500,2.1400,1.6000,-0.1900,-0.1500,-0.0815,-0.0857

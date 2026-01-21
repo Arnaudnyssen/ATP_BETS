@@ -1,0 +1,9 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,SF,Felix Auger Aliassime,Andrey Rublev,42.4,57.6,2.36,1.74,Sackmann,2025-05-23 06:16:41 UTC
+Atphamburg,https://www.tennisabstract.com/current/2025ATPHamburg.html,SF,Tomas Martin Etcheverry,Flavio Cobolli,46.8,53.2,2.14,1.88,Sackmann,2025-05-23 06:16:41 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,SF,Hubert Hurkacz,Sebastian Ofner,74.1,25.9,1.35,3.86,Sackmann,2025-05-23 06:16:41 UTC
+Atpgeneva,https://www.tennisabstract.com/current/2025ATPGeneva.html,SF,Cameron Norrie,Novak Djokovic,14.1,85.9,7.09,1.16,Sackmann,2025-05-23 06:16:41 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,SF,Hugo Dellien,Jay Clarke,83.4,16.6,1.2,6.02,Sackmann,2025-05-23 06:16:41 UTC
+Skopjechallenger,https://www.tennisabstract.com/current/2025SkopjeChallenger.html,SF,Mili Poljicak,Nerman Fatic,56.4,43.6,1.77,2.29,Sackmann,2025-05-23 06:16:41 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,SF,Charles Broom,Federico Cina,16.9,83.1,5.92,1.2,Sackmann,2025-05-23 06:16:41 UTC
+Tbilisichallenger,https://www.tennisabstract.com/current/2025TbilisiChallenger.html,SF,Saba Purtseladze,Martin Damm,35.0,65.0,2.86,1.54,Sackmann,2025-05-23 06:16:41 UTC

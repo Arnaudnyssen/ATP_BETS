@@ -1,0 +1,52 @@
+tournament,p1_name,p2_name,p1_odds,p2_odds,scrape_timestamp_utc
+ATP Londres,"Alcaraz Garfia, Carlos","Lehecka, Jiri",1.23,3.9,2025-06-22 06:17:31 UTC
+ATP Halle,Bublik Alexander,"Medvedev, Daniil",2.21,1.62,2025-06-22 06:17:31 UTC
+ATP Eastbourne,"Borges, Nuno","Pinnington Jones, Jack",1.5,2.41,2025-06-22 06:17:31 UTC
+ATP Eastbourne,"Fearnley, Jacob","Cobolli, Flavio",2.0,1.72,2025-06-22 06:17:31 UTC
+ATP Eastbourne,"Bergs, Zizou","Fonseca, Joao",2.41,1.5,2025-06-22 06:17:31 UTC
+ATP Eastbourne,"Mpetshi-Perricard, Giovanni","Norrie, Cameron",2.0,1.72,2025-06-22 06:17:31 UTC
+ATP Eastbourne,"Arnaldi, Matteo","Opelka, Reilly",2.03,1.7,2025-06-22 06:17:31 UTC
+ATP Eastbourne,"Darderi, Luciano",Giron Marcos,2.19,1.6,2025-06-22 06:17:31 UTC
+ATP Eastbourne,"Marozsan, Fabian","Sonego, Lorenzo",1.9,1.8,2025-06-22 06:17:31 UTC
+ATP Eastbourne,"Evans, Daniel","Kecmanovic, Miomir",2.09,1.66,2025-06-22 06:17:31 UTC
+ATP Eastbourne,Bublik Alexander,"Comesana, Francisco",1.2,4.04,2025-06-22 06:17:31 UTC
+ATP Majorque,"Yunchaokete, Bu","Djere, Laslo",2.35,1.53,2025-06-22 06:17:31 UTC
+ATP Majorque,"Fognini, Fabio","Altmaier, Daniel",2.73,1.4,2025-06-22 06:17:31 UTC
+ATP Majorque,"Dzumhur, Damir","Rinderknech, Arthur",2.89,1.36,2025-06-22 06:17:31 UTC
+ATP Majorque,"Etcheverry, Tomas Martin","Bautista Agut, Roberto",2.19,1.6,2025-06-22 06:17:31 UTC
+ATP Majorque,"Müller, Alexandre",Safiullin Roman,2.0,1.72,2025-06-22 06:17:31 UTC
+ATP Majorque,"Diallo, Gabriel","Munar, Jaume",1.4,2.73,2025-06-22 06:17:31 UTC
+ATP Majorque,"Martinez Portero, Pedro",Moutet Corentin,4.04,1.2,2025-06-22 06:17:31 UTC
+ATP Majorque,"Tien, Learner","Engel, Justin",1.76,1.95,2025-06-22 06:17:31 UTC
+ATP Qualification d'Eastbourne,"Vukic, Aleksandar","Brooksby, Jenson",1.66,2.05,2025-06-22 06:17:31 UTC
+ATP Qualification d'Eastbourne,"Monday, Johannus","Duckworth, James",1.95,1.73,2025-06-22 06:17:31 UTC
+ATP Qualification d'Eastbourne,"Harris, Billy","Loffhagen, George",1.57,2.2,2025-06-22 06:17:31 UTC
+ATP Qualification d'Eastbourne,"Bellucci, Mattia","Tseng, Chun Hsin",1.45,2.49,2025-06-22 06:17:31 UTC
+ATP Qualification de Majorque,"Holt, Brandon","Ymer, Elias",1.5,2.35,2025-06-22 06:17:31 UTC
+ATP Qualification de Majorque,"Navone, Mariano","Basavareddy, Nishesh",2.14,1.6,2025-06-22 06:17:31 UTC
+ATP Qualification de Majorque,"Kovacevic, Aleksandar","Tomic, Bernard",1.32,2.99,2025-06-22 06:17:31 UTC
+ATP Qualification de Majorque,"Kopriva, Vit","Quinn, Ethan",2.3,1.52,2025-06-22 06:17:31 UTC
+Challenger Lima Qualification,"Kuzuhara, Bruno","Alvarez Valdes, Luis Carlos",1.6,2.14,2025-06-22 06:17:31 UTC
+Challenger Lima Qualification,"De La Fuente, Santiago","Barreto Sanchez, Diego Augusto",2.14,1.6,2025-06-22 06:17:31 UTC
+Challenger Lima Qualification,"Rodriguez, Loren.","Tobon, Miguel",1.25,3.42,2025-06-22 06:17:31 UTC
+Challenger Lima Qualification,"Vilicich, Bautista","Gimenez, Igor",1.6,2.14,2025-06-22 06:17:31 UTC
+Challenger Lima Qualification,"Carou, Ignacio","Barreiros Reyes, Mateo",3.42,1.25,2025-06-22 06:17:31 UTC
+Challenger Lima Qualification,"Farjat, Tomas","Rubini, Alessandro",1.03,8.26,2025-06-22 06:17:31 UTC
+Challenger Lima Qualification,"Gerch, Lucas","Meneo, Tadeo",1.02,8.96,2025-06-22 06:17:31 UTC
+Challenger Milan,"Prihodko, Oleg","Albot, Radu",2.01,1.68,2025-06-22 06:17:31 UTC
+Challenger Milan,"Mikrut, Luka","Coppejans, Kimmer",2.52,1.44,2025-06-22 06:17:31 UTC
+Challenger Milan,"Prizmic, Dino","Piraino, Gabriele",1.12,5.02,2025-06-22 06:17:31 UTC
+Challenger Milan,"Ferreira Silva, Frederico","Vatutin, Alexey",2.2,1.57,2025-06-22 06:17:31 UTC
+Challenger Milan,"Forti, Francesco","Houkes, Max",1.96,1.72,2025-06-22 06:17:31 UTC
+Challenger Milan,"Erhard, Mathys","Negritu, Christoph",1.58,2.18,2025-06-22 06:17:31 UTC
+Challenger Milan,"Dedura-Palomero, Diego","Gea, Arthur",2.06,1.65,2025-06-22 06:17:31 UTC
+Challenger Milan,"Jodar, Rafael","Giustino, Lorenzo",2.61,1.41,2025-06-22 06:17:31 UTC
+Challenger Milan Qualification,"Gombos, Norbert","Bondioli, Federico",1.73,1.95,2025-06-22 06:17:31 UTC
+Challenger Milan Qualification,"Alves, Mateus","Faurel, Thomas",1.34,2.9,2025-06-22 06:17:31 UTC
+Challenger Milan Qualification,"Berrettini, Jacopo","Wiskandt, Max",1.35,2.85,2025-06-22 06:17:31 UTC
+Challenger Milan Qualification,"Mager, Gianluca","Fonio, Giovanni",2.58,1.42,2025-06-22 06:17:31 UTC
+Challenger Milan Qualification,"Ymer, Mikael","Zapata Miralles, Bernabe",1.6,2.14,2025-06-22 06:17:31 UTC
+Challenger Milan Qualification,"Castagnola, Luca","Alcala Gurri, Max",3.04,1.31,2025-06-22 06:17:31 UTC
+Challenger Milan Qualification,"Kasnikowski, Maks","Gentzsch, Tom",1.6,2.15,2025-06-22 06:17:31 UTC
+Challenger Milan Qualification,"Pereira, Tiago","Janvier, Maxime",1.64,2.07,2025-06-22 06:17:31 UTC
+Challenger Milan Qualification,"Santamarta Roig, Andres","Kopp, Sandro",1.2,3.87,2025-06-22 06:17:31 UTC

@@ -1,0 +1,7 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R16,Alexander Zverev,Francisco Cerundolo,100.0,0.0,1.0,,Sackmann,2025-08-03 06:17:59 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R16,Alexei Popyrin,Holger Rune,100.0,0.0,1.0,,Sackmann,2025-08-03 06:17:59 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R16,Alex Michelsen,Learner Tien,100.0,0.0,1.0,,Sackmann,2025-08-03 06:17:59 UTC
+Atptoronto,https://www.tennisabstract.com/current/2025ATPToronto.html,R16,Karen Khachanov,Casper Ruud,100.0,0.0,1.0,,Sackmann,2025-08-03 06:17:59 UTC
+Hagenchallenger,https://www.tennisabstract.com/current/2025HagenChallenger.html,SF,Guy Den Ouden,Jerome Kym,59.0,41.0,1.69,2.44,Sackmann,2025-08-03 06:17:59 UTC
+Hagenchallenger,https://www.tennisabstract.com/current/2025HagenChallenger.html,SF,Yannick Hanfmann,Olle Wallin,89.2,10.8,1.12,9.26,Sackmann,2025-08-03 06:17:59 UTC

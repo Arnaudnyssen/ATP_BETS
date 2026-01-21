@@ -1,0 +1,15 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atpmallorca,QF,Learner Tien,Corentin Moutet,31.7000,68.3000,,,3.1500,1.4600,,,,,,
+Atpmallorca,QF,Alex Michelsen,Roberto Bautista Agut,44.4000,55.6000,,,2.2500,1.8000,,,,,,
+Atpmallorca,QF,Gabriel Diallo,Tallon Griekspoor,42.3000,57.7000,,,2.3600,1.7300,,,,,,
+Atpmallorca,QF,Hamad Medjedovic,Felix Auger Aliassime,33.6000,66.4000,,,2.9800,1.5100,,,,,,
+Atpeastbourne,R16,Taylor Fritz,Joao Fonseca,82.7000,17.3000,,,1.2100,5.7800,,,,,,
+Atpeastbourne,QF,Jenson Brooksby,Daniel Evans,55.8000,44.2000,50.0000,50.0000,1.7900,2.2600,1.8500,1.8500,0.0600,-0.4100,0.0335,-0.1814
+Milanchallenger,QF,Dino Prizmic,Christoph Negritu,87.4000,12.6000,84.0176,15.9824,1.1400,7.9400,1.0900,5.7300,-0.0500,-2.2100,-0.0439,-0.2783
+Milanchallenger,QF,Rafael Jodar,Arthur Gea,31.3000,68.7000,48.2289,51.7711,3.1900,1.4600,1.9000,1.7700,-1.2900,0.3100,-0.4044,0.2123
+Milanchallenger,QF,Marco Cecchinato,Max Houkes,61.6000,38.4000,55.1351,44.8649,1.6200,2.6000,1.6600,2.0400,0.0400,-0.5600,0.0247,-0.2154
+Milanchallenger,QF,Jacopo Vasami,Luka Mikrut,34.7000,65.3000,41.2698,58.7302,2.8800,1.5300,2.2200,1.5600,-0.6600,0.0300,-0.2292,0.0196
+Limachallenger,QF,Nicolas Mejia,Juan Carlos Prado Angelo,70.8000,29.2000,54.8649,45.1351,1.4100,3.4200,1.6700,2.0300,0.2600,-1.3900,0.1844,-0.4064
+Limachallenger,QF,Pedro Boscardin Dias,Alex Barrena,19.4000,80.6000,,,5.1500,1.2400,,,,,,
+Limachallenger,QF,Gonzalo Bueno,Matheus Pucinelli De Almeida,35.4000,64.6000,40.8971,59.1029,2.8200,1.5500,2.2400,1.5500,-0.5800,0.0000,-0.2057,0.0000
+Limachallenger,QF,Genaro Alberto Olivieri,Dali Blanch,70.6000,29.4000,62.7551,37.2449,1.4200,3.4000,1.4600,2.4600,0.0400,-0.9400,0.0282,-0.2765

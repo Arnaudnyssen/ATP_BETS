@@ -1,0 +1,33 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Atpvienna,https://www.tennisabstract.com/current/2025ATPVienna.html,QF,Jannik Sinner,Alexander Bublik,89.3,10.7,1.12,9.35,Sackmann,2025-10-24 06:24:04 UTC
+Atpvienna,https://www.tennisabstract.com/current/2025ATPVienna.html,QF,Alex De Minaur,Matteo Berrettini,79.1,20.9,1.26,4.78,Sackmann,2025-10-24 06:24:04 UTC
+Atpvienna,https://www.tennisabstract.com/current/2025ATPVienna.html,QF,Corentin Moutet,Lorenzo Musetti,40.0,60.0,2.5,1.67,Sackmann,2025-10-24 06:24:04 UTC
+Atpvienna,https://www.tennisabstract.com/current/2025ATPVienna.html,QF,Tallon Griekspoor,Alexander Zverev,23.0,77.0,4.35,1.3,Sackmann,2025-10-24 06:24:04 UTC
+Atpbasel,https://www.tennisabstract.com/current/2025ATPBasel.html,QF,Ugo Humbert,Reilly Opelka,67.5,32.5,1.48,3.08,Sackmann,2025-10-24 06:24:04 UTC
+Atpbasel,https://www.tennisabstract.com/current/2025ATPBasel.html,QF,Casper Ruud,Alejandro Davidovich Fokina,60.6,39.4,1.65,2.54,Sackmann,2025-10-24 06:24:04 UTC
+Atpbasel,https://www.tennisabstract.com/current/2025ATPBasel.html,QF,Joao Fonseca,Denis Shapovalov,56.8,43.2,1.76,2.31,Sackmann,2025-10-24 06:24:04 UTC
+Atpbasel,https://www.tennisabstract.com/current/2025ATPBasel.html,QF,Felix Auger Aliassime,Jaume Munar,73.7,26.3,1.36,3.8,Sackmann,2025-10-24 06:24:04 UTC
+Costadosauipechallenger,https://www.tennisabstract.com/current/2025CostadoSauipeChallenger.html,R32,Mariano Navone,Hady Habib,100.0,0.0,1.0,,Sackmann,2025-10-24 06:24:04 UTC
+Costadosauipechallenger,https://www.tennisabstract.com/current/2025CostadoSauipeChallenger.html,R32,Pedro Boscardin Dias,Juan Pablo Ficovich,100.0,0.0,1.0,,Sackmann,2025-10-24 06:24:04 UTC
+Costadosauipechallenger,https://www.tennisabstract.com/current/2025CostadoSauipeChallenger.html,R32,Luis Guto Miguel,Andrea Collarini,0.0,100.0,,1.0,Sackmann,2025-10-24 06:24:04 UTC
+Costadosauipechallenger,https://www.tennisabstract.com/current/2025CostadoSauipeChallenger.html,R32,Genaro Alberto Olivieri,Cristian Garin,0.0,100.0,,1.0,Sackmann,2025-10-24 06:24:04 UTC
+Costadosauipechallenger,https://www.tennisabstract.com/current/2025CostadoSauipeChallenger.html,R32,Alex Barrena,Facundo Diaz Acosta,0.0,100.0,,1.0,Sackmann,2025-10-24 06:24:04 UTC
+Costadosauipechallenger,https://www.tennisabstract.com/current/2025CostadoSauipeChallenger.html,R16,Adolfo Daniel Vallejo,Matheus Pucinelli De Almeida,67.8,32.2,1.47,3.11,Sackmann,2025-10-24 06:24:04 UTC
+Costadosauipechallenger,https://www.tennisabstract.com/current/2025CostadoSauipeChallenger.html,R32,Santiago Fa Rodriguez Taverna,Federico Agustin Gomez,100.0,0.0,1.0,,Sackmann,2025-10-24 06:24:04 UTC
+Costadosauipechallenger,https://www.tennisabstract.com/current/2025CostadoSauipeChallenger.html,R32,Gustavo Heide,Sebastian Gima,100.0,0.0,1.0,,Sackmann,2025-10-24 06:24:04 UTC
+Siouxfallschallenger,https://www.tennisabstract.com/current/2025SiouxFallsChallenger.html,QF,Jordan Thompson,Mats Rosenkranz,91.3,8.7,1.1,11.49,Sackmann,2025-10-24 06:24:04 UTC
+Siouxfallschallenger,https://www.tennisabstract.com/current/2025SiouxFallsChallenger.html,QF,Andres Martin,Johannus Monday,61.1,38.9,1.64,2.57,Sackmann,2025-10-24 06:24:04 UTC
+Siouxfallschallenger,https://www.tennisabstract.com/current/2025SiouxFallsChallenger.html,QF,Patrick Kypson,Rinky Hijikata,52.1,47.9,1.92,2.09,Sackmann,2025-10-24 06:24:04 UTC
+Siouxfallschallenger,https://www.tennisabstract.com/current/2025SiouxFallsChallenger.html,QF,Antoine Ghibaudo,Martin Damm,30.9,69.1,3.24,1.45,Sackmann,2025-10-24 06:24:04 UTC
+Brestchallenger,https://www.tennisabstract.com/current/2025BrestChallenger.html,QF,Giulio Zeppieri,Eliot Spizzirri,38.7,61.3,2.58,1.63,Sackmann,2025-10-24 06:24:04 UTC
+Brestchallenger,https://www.tennisabstract.com/current/2025BrestChallenger.html,QF,Dan Added,Francesco Passaro,35.5,64.5,2.82,1.55,Sackmann,2025-10-24 06:24:04 UTC
+Brestchallenger,https://www.tennisabstract.com/current/2025BrestChallenger.html,QF,Arthur Fery,Hugo Gaston,53.4,46.6,1.87,2.15,Sackmann,2025-10-24 06:24:04 UTC
+Brestchallenger,https://www.tennisabstract.com/current/2025BrestChallenger.html,QF,Clement Tabur,Alexis Galarneau,27.4,72.6,3.65,1.38,Sackmann,2025-10-24 06:24:04 UTC
+Suzhouchallenger,https://www.tennisabstract.com/current/2025SuzhouChallenger.html,QF,Yoshihito Nishioka,Frederico Ferreira Silva,82.9,17.1,1.21,5.85,Sackmann,2025-10-24 06:24:04 UTC
+Suzhouchallenger,https://www.tennisabstract.com/current/2025SuzhouChallenger.html,QF,Duje Ajdukovic,Lloyd Harris,100.0,0.0,1.0,,Sackmann,2025-10-24 06:24:04 UTC
+Suzhouchallenger,https://www.tennisabstract.com/current/2025SuzhouChallenger.html,QF,Harold Mayot,Yuta Shimizu,70.9,29.1,1.41,3.44,Sackmann,2025-10-24 06:24:04 UTC
+Suzhouchallenger,https://www.tennisabstract.com/current/2025SuzhouChallenger.html,QF,James Mccabe,Yu Hsiou Hsu,0.0,100.0,,1.0,Sackmann,2025-10-24 06:24:04 UTC
+Hamburgchallenger,https://www.tennisabstract.com/current/2025HamburgChallenger.html,QF,Buvaysar Gadamauri,Alejandro Moro Canas,16.0,84.0,6.25,1.19,Sackmann,2025-10-24 06:24:04 UTC
+Hamburgchallenger,https://www.tennisabstract.com/current/2025HamburgChallenger.html,QF,Justin Engel,Matej Dodig,48.1,51.9,2.08,1.93,Sackmann,2025-10-24 06:24:04 UTC
+Hamburgchallenger,https://www.tennisabstract.com/current/2025HamburgChallenger.html,QF,George Loffhagen,Henri Squire,61.1,38.9,1.64,2.57,Sackmann,2025-10-24 06:24:04 UTC
+Hamburgchallenger,https://www.tennisabstract.com/current/2025HamburgChallenger.html,QF,Federico Cina,Tom Gentzsch,57.2,42.8,1.75,2.34,Sackmann,2025-10-24 06:24:04 UTC

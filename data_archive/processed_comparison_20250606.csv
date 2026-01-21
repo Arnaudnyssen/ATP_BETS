@@ -1,0 +1,12 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Birminghamchallenger,R16,Colton Smith,Nicolas Moreno De Alboran,63.5000,36.5000,,,1.5700,2.7400,,,,,,
+Heilbronnchallenger,QF,Facundo Mena,Marko Topo,50.5000,49.5000,,,1.9800,2.0200,,,,,,
+Heilbronnchallenger,QF,Guy Den Ouden,Emilio Nava,45.6000,54.4000,,,2.1900,1.8400,,,,,,
+Heilbronnchallenger,QF,Rodrigo Pacheco Mendez,Marco Trungelliti,22.7000,77.3000,,,4.4100,1.2900,,,,,,
+Heilbronnchallenger,QF,Francesco Passaro,Ignacio Buse,65.7000,34.3000,,,1.5200,2.9200,,,,,,
+Prostejovchallenger,SF,Vitaliy Sachko,Hugo Dellien,32.8000,67.2000,,,3.0500,1.4900,,,,,,
+Prostejovchallenger,SF,Chun Hsin Tseng,Alejandro Tabilo,31.2000,68.8000,,,3.2100,1.4500,,,,,,
+Tylerchallenger,QF,Karue Sell,Andres Martin,46.5000,53.5000,,,2.1500,1.8700,,,,,,
+Tylerchallenger,QF,Yibing Wu,Alex Rybakov,86.8000,13.2000,,,1.1500,7.5800,,,,,,
+Tylerchallenger,QF,Rio Noguchi,Yi Zhou,78.6000,21.4000,,,1.2700,4.6700,,,,,,
+Tylerchallenger,QF,Patrick Kypson,Trevor Svajda,63.6000,36.4000,,,1.5700,2.7500,,,,,,

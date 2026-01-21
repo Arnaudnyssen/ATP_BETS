@@ -1,0 +1,13 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atpshanghai,R64,Corentin Moutet,Learner Tien,38.3000,61.7000,,,2.6100,1.6200,,,,,,
+Atpshanghai,R64,Arthur Cazaux,Cameron Norrie,44.5000,55.5000,,,2.2500,1.8000,,,,,,
+Atpshanghai,R64,Alejandro Davidovich Fokina,Matteo Arnaldi,65.4000,34.6000,,,1.5300,2.8900,,,,,,
+Atpshanghai,R64,Dalibor Svrcina,Daniil Medvedev,18.4000,81.6000,,,5.4300,1.2300,,,,,,
+Villenachallenger,SF,Petr Brunclik,Pablo Carreno Busta,11.5000,88.5000,,,8.7000,1.1300,,,,,,
+Villenachallenger,SF,Daniel Merida Aguilar,Hugo Grenier,55.3000,44.7000,,,1.8100,2.2400,,,,,,
+Antofagastachallenger,SF,Joao Lucas Reis Da Silva,Facundo Diaz Acosta,28.2000,71.8000,,,3.5500,1.3900,,,,,,
+Antofagastachallenger,SF,Adolfo Daniel Vallejo,Cristian Garin,17.6000,82.4000,,,5.6800,1.2100,,,,,,
+Bragachallenger,SF,Zdenek Kolar,Vilius Gaubas,29.7000,70.3000,,,3.3700,1.4200,,,,,,
+Bragachallenger,SF,Alejandro Moro Canas,Luka Mikrut,37.1000,62.9000,,,2.7000,1.5900,,,,,,
+Mouilleronlecaptifchallenger,SF,Raphael Collignon,Patrick Kypson,73.7000,26.3000,,,1.3600,3.8000,,,,,,
+Mouilleronlecaptifchallenger,SF,Nicolai Budkov Kjaer,Clement Chidekh,75.2000,24.8000,,,1.3300,4.0300,,,,,,
