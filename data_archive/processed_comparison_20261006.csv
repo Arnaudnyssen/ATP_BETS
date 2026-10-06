@@ -1,0 +1,13 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Atpvienna,SF,Jannik Sinner,Alex De Minaur,78.3000,21.7000,,,1.2800,4.6100,,,,,,
+Atpvienna,SF,Lorenzo Musetti,Alexander Zverev,33.6000,66.4000,,,2.9800,1.5100,,,,,,
+Atpbasel,SF,Ugo Humbert,Alejandro Davidovich Fokina,53.4000,46.6000,,,1.8700,2.1500,,,,,,
+Atpbasel,SF,Joao Fonseca,Jaume Munar,65.7000,34.3000,,,1.5200,2.9200,,,,,,
+Costadosauipechallenger,R16,Andrea Collarini,Cristian Garin,20.8000,79.2000,,,4.8100,1.2600,,,,,,
+Siouxfallschallenger,SF,Mats Rosenkranz,Johannus Monday,48.9000,51.1000,,,2.0400,1.9600,,,,,,
+Siouxfallschallenger,SF,Patrick Kypson,Antoine Ghibaudo,80.4000,19.6000,,,1.2400,5.1000,,,,,,
+Brestchallenger,SF,Eliot Spizzirri,Francesco Passaro,67.6000,32.4000,,,1.4800,3.0900,,,,,,
+Brestchallenger,SF,Hugo Gaston,Alexis Galarneau,66.5000,33.5000,,,1.5000,2.9900,,,,,,
+Suzhouchallenger,SF,Harold Mayot,Yu Hsiou Hsu,54.8000,45.2000,,,1.8200,2.2100,,,,,,
+Hamburgchallenger,SF,Alejandro Moro Canas,Justin Engel,55.2000,44.8000,,,1.8100,2.2300,,,,,,
+Hamburgchallenger,SF,George Loffhagen,Federico Cina,66.9000,33.1000,,,1.4900,3.0200,,,,,,
