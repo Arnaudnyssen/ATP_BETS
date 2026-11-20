@@ -1,0 +1,307 @@
+ResultDate,TournamentKey,Round,WinnerName,LoserName,WinnerNameKey,LoserNameKey,Score,TournamentName
+2026-11-20,2026nittofinals,RR,Alexander Zverev,Ben Shelton,alexanderzverev,benshelton,6-2 7-6(4),Nittoatpfinals
+2026-11-20,2026nittofinals,RR,Alexander Zverev,Arthur Fils,alexanderzverev,arthurfils,6-4 7-6(6),Nittoatpfinals
+2026-11-20,2026nittofinals,RR,Alexander Zverev,Rafael Jodar,alexanderzverev,rafaeljodar,6-4 6-4,Nittoatpfinals
+2026-11-20,2026nittofinals,RR,Ben Shelton,Arthur Fils,benshelton,arthurfils,6-2 3-6 6-3,Nittoatpfinals
+2026-11-20,2026nittofinals,RR,Ben Shelton,Rafael Jodar,benshelton,rafaeljodar,7-6(8) 7-5,Nittoatpfinals
+2026-11-20,2026nittofinals,RR,Arthur Fils,Rafael Jodar,arthurfils,rafaeljodar,4-6 6-2 6-2,Nittoatpfinals
+2026-11-20,2026nittofinals,RR,Carlos Alcaraz,Daniil Medvedev,carlosalcaraz,daniilmedvedev,6-2 6-4,Nittoatpfinals
+2026-11-20,2026nittofinals,RR,Carlos Alcaraz,Frances Tiafoe,carlosalcaraz,francestiafoe,6-2 6-2,Nittoatpfinals
+2026-11-20,2026nittofinals,RR,Daniil Medvedev,Flavio Cobolli,daniilmedvedev,flaviocobolli,7-6(4) 6-3,Nittoatpfinals
+2026-11-20,2026nittofinals,RR,Frances Tiafoe,Flavio Cobolli,francestiafoe,flaviocobolli,7-6(6) 6-0,Nittoatpfinals
+2026-11-20,2026helsinki,R16,Edas Butvilas,Eero Vasa,edasbutvilas,eerovasa,6-1 7-5,Helsinkichallenger
+2026-11-20,2026helsinki,R16,Nishesh Basavareddy,Borna Gojo,nisheshbasavareddy,bornagojo,3-6 6-3 6-4,Helsinkichallenger
+2026-11-20,2026helsinki,R16,Dalibor Svrcina,Stefano Travaglia,daliborsvrcina,stefanotravaglia,6-3 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,R16,Otto Virtanen,Alexander Ritschard,ottovirtanen,alexanderritschard,4-6 6-1 7-5,Helsinkichallenger
+2026-11-20,2026helsinki,R16,Svyatoslav Gulin,Lorenzo Giustino,svyatoslavgulin,lorenzogiustino,7-6(3) 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,R16,Toby Samuel,Andrea Guerrieri,tobysamuel,andreaguerrieri,4-6 6-3 6-4,Helsinkichallenger
+2026-11-20,2026helsinki,R16,Nicolai Budkov Kjaer,Jurij Rodionov,nicolaibudkovkjaer,jurijrodionov,7-6(3) 6-0,Helsinkichallenger
+2026-11-20,2026helsinki,R16,Laslo Djere,Jacob Fearnley,laslodjere,jacobfearnley,6-3 1-6 7-6(6),Helsinkichallenger
+2026-11-20,2026helsinki,R32,Eero Vasa,James Duckworth,eerovasa,jamesduckworth,7-6(2) 5-7 7-6(1),Helsinkichallenger
+2026-11-20,2026helsinki,R32,Edas Butvilas,Michele Ribecai,edasbutvilas,micheleribecai,3-6 7-5 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Borna Gojo,Kimmer Coppejans,bornagojo,kimmercoppejans,6-2 3-6 6-2,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Nishesh Basavareddy,Daniil Glinka,nisheshbasavareddy,daniilglinka,6-3 6-2,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Dalibor Svrcina,Leo Borg,daliborsvrcina,leoborg,7-5 4-6 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Stefano Travaglia,Luka Mikrut,stefanotravaglia,lukamikrut,2-6 6-3 6-0,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Alexander Ritschard,Lukas Neumayer,alexanderritschard,lukasneumayer,6-7(3) 6-3 7-5,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Otto Virtanen,Moez Echargui,ottovirtanen,moezechargui,5-7 6-3 6-2,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Lorenzo Giustino,Shintaro Mochizuki,lorenzogiustino,shintaromochizuki,4-6 6-3 7-6(3),Helsinkichallenger
+2026-11-20,2026helsinki,R32,Svyatoslav Gulin,Linus Lagerbohm,svyatoslavgulin,linuslagerbohm,6-3 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Andrea Guerrieri,Elias Ymer,andreaguerrieri,eliasymer,6-4 7-6(2),Helsinkichallenger
+2026-11-20,2026helsinki,R32,Toby Samuel,Ilya Ivashka,tobysamuel,ilyaivashka,6-7(4) 6-1 6-4,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Jurij Rodionov,Sumit Nagal,jurijrodionov,sumitnagal,6-3 6-4,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Nicolai Budkov Kjaer,Mika Brunold,nicolaibudkovkjaer,mikabrunold,6-7(6) 6-0 6-2,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Laslo Djere,Cezar Cretu,laslodjere,cezarcretu,5-7 6-4 6-4,Helsinkichallenger
+2026-11-20,2026helsinki,R32,Jacob Fearnley,Gianluca Cadenasso,jacobfearnley,gianlucacadenasso,7-5 6-0,Helsinkichallenger
+2026-11-20,2026helsinki,Q2,Kimmer Coppejans,Carlo Alberto Caniato,kimmercoppejans,carloalbertocaniato,7-5 7-6(4),Helsinkichallenger
+2026-11-20,2026helsinki,Q2,Svyatoslav Gulin,Arvid Nordquist,svyatoslavgulin,arvidnordquist,6-3 6-4,Helsinkichallenger
+2026-11-20,2026helsinki,Q2,Luka Mikrut,Michael Agwi,lukamikrut,michaelagwi,6-2 6-2,Helsinkichallenger
+2026-11-20,2026helsinki,Q2,Sumit Nagal,Michael Vrbensky,sumitnagal,michaelvrbensky,6-3 7-5,Helsinkichallenger
+2026-11-20,2026helsinki,Q2,Cezar Cretu,Moez Echargui,cezarcretu,moezechargui,6-3 6-4,Helsinkichallenger
+2026-11-20,2026helsinki,Q2,Alexander Ritschard,Kai Wehnelt,alexanderritschard,kaiwehnelt,6-2 3-6 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Kimmer Coppejans,Adrian Oetzbach,kimmercoppejans,adrianoetzbach,7-5 7-5,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Carlo Alberto Caniato,Aaron Funk,carloalbertocaniato,aaronfunk,6-2 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Arvid Nordquist,Jay Clarke,arvidnordquist,jayclarke,6-2 2-6 6-4,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Svyatoslav Gulin,Oskari Paldanius,svyatoslavgulin,oskaripaldanius,4-6 6-3 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Luka Mikrut,Iiro Vasa,lukamikrut,iirovasa,6-2 6-2,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Michael Agwi,Viktor Durasovic,michaelagwi,viktordurasovic,3-6 6-4 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Sumit Nagal,Sebastian Gima,sumitnagal,sebastiangima,4-6 6-1 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Michael Vrbensky,Vadym Ursu,michaelvrbensky,vadymursu,6-4 6-4,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Cezar Cretu,Felix Alopaeus,cezarcretu,felixalopaeus,7-6(4) 6-2,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Moez Echargui,John Sperle,moezechargui,johnsperle,6-1 3-6 6-1,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Alexander Ritschard,Leevi Saatela,alexanderritschard,leevisaatela,7-5 6-3,Helsinkichallenger
+2026-11-20,2026helsinki,Q1,Kai Wehnelt,Gabi Adrian Boitan,kaiwehnelt,gabiadrianboitan,7-6(8) 7-5,Helsinkichallenger
+2026-11-20,2026metz,R16,Inaki Montes De La Torre,Clement Tabur,inakimontesdelatorre,clementtabur,6-3 6-3,Metzchallenger
+2026-11-20,2026metz,R16,Harold Mayot,Hugo Gaston,haroldmayot,hugogaston,7-5 4-6 7-6(4),Metzchallenger
+2026-11-20,2026metz,R16,Francesco Passaro,Nikoloz Basilashvili,francescopassaro,nikolozbasilashvili,3-2 RET,Metzchallenger
+2026-11-20,2026metz,R16,Pierre Hugues Herbert,Zsombor Piros,pierrehuguesherbert,zsomborpiros,6-4 4-6 7-6(4),Metzchallenger
+2026-11-20,2026metz,R16,Soon Woo Kwon,Matthew William Donald,soonwookwon,matthewwilliamdonald,6-4 7-6(2),Metzchallenger
+2026-11-20,2026metz,R16,Dino Prizmic,Filippo Moroni,dinoprizmic,filippomoroni,6-1 6-3,Metzchallenger
+2026-11-20,2026metz,R16,Sascha Gueymard Wayenburg,Arthur Nagel,saschagueymardwayenburg,arthurnagel,6-2 7-6(3),Metzchallenger
+2026-11-20,2026metz,R16,Luca Nardi,Kyrian Jacquet,lucanardi,kyrianjacquet,6-2 6-3,Metzchallenger
+2026-11-20,2026metz,R32,Clement Tabur,Matej Dodig,clementtabur,matejdodig,6-4 6-4,Metzchallenger
+2026-11-20,2026metz,R32,Inaki Montes De La Torre,Marat Sharipov,inakimontesdelatorre,maratsharipov,6-4 6-4,Metzchallenger
+2026-11-20,2026metz,R32,Harold Mayot,Hugo Grenier,haroldmayot,hugogrenier,6-4 3-6 6-1,Metzchallenger
+2026-11-20,2026metz,R32,Hugo Gaston,Philip Henning,hugogaston,philiphenning,6-3 7-5,Metzchallenger
+2026-11-20,2026metz,R32,Nikoloz Basilashvili,Max Houkes,nikolozbasilashvili,maxhoukes,7-6(5) 6-4,Metzchallenger
+2026-11-20,2026metz,R32,Francesco Passaro,Calvin Hemery,francescopassaro,calvinhemery,6-7(6) 7-6(5) 6-4,Metzchallenger
+2026-11-20,2026metz,R32,Pierre Hugues Herbert,Jonas Forejtek,pierrehuguesherbert,jonasforejtek,6-3 6-2,Metzchallenger
+2026-11-20,2026metz,R32,Zsombor Piros,Alexandre Muller,zsomborpiros,alexandremuller,2-6 6-4 6-2,Metzchallenger
+2026-11-20,2026metz,R32,Matthew William Donald,Carlos Taberner,matthewwilliamdonald,carlostaberner,6-3 2-6 6-4,Metzchallenger
+2026-11-20,2026metz,R32,Soon Woo Kwon,Vitaliy Sachko,soonwookwon,vitaliysachko,6-3 6-4,Metzchallenger
+2026-11-20,2026metz,R32,Filippo Moroni,Antoine Ghibaudo,filippomoroni,antoineghibaudo,6-3 6-4,Metzchallenger
+2026-11-20,2026metz,R32,Dino Prizmic,Diego Dedura Palomero,dinoprizmic,diegodedurapalomero,6-3 6-2,Metzchallenger
+2026-11-20,2026metz,R32,Sascha Gueymard Wayenburg,Benjamin Bonzi,saschagueymardwayenburg,benjaminbonzi,4-6 6-3 6-4,Metzchallenger
+2026-11-20,2026metz,R32,Arthur Nagel,Dusan Lajovic,arthurnagel,dusanlajovic,6-4 4-6 6-2,Metzchallenger
+2026-11-20,2026metz,R32,Luca Nardi,Thomas Faurel,lucanardi,thomasfaurel,7-5 6-1,Metzchallenger
+2026-11-20,2026metz,R32,Kyrian Jacquet,Maxim Mrva,kyrianjacquet,maximmrva,6-1 6-7(5) 6-3,Metzchallenger
+2026-11-20,2026metz,Q2,Antoine Ghibaudo,Ugo Blanchet,antoineghibaudo,ugoblanchet,6-3 6-4,Metzchallenger
+2026-11-20,2026metz,Q2,Jonas Forejtek,Robin Catry,jonasforejtek,robincatry,6-2 6-2,Metzchallenger
+2026-11-20,2026metz,Q2,Luca Nardi,Stefan Latinovic,lucanardi,stefanlatinovic,7-5 3-6 6-3,Metzchallenger
+2026-11-20,2026metz,Q2,Hugo Grenier,Adrien Gobat,hugogrenier,adriengobat,7-6(3) 6-3,Metzchallenger
+2026-11-20,2026metz,Q2,Calvin Hemery,Matthew William Donald,calvinhemery,matthewwilliamdonald,6-3 3-6 6-3,Metzchallenger
+2026-11-20,2026metz,Q2,Filippo Moroni,Carlos Taberner,filippomoroni,carlostaberner,6-4 6-4,Metzchallenger
+2026-11-20,2026metz,Q1,Antoine Ghibaudo,Maximilian Neuchrist,antoineghibaudo,maximilianneuchrist,7-5 7-6(0),Metzchallenger
+2026-11-20,2026metz,Q1,Ugo Blanchet,Matisse Bobichon,ugoblanchet,matissebobichon,6-1 6-3,Metzchallenger
+2026-11-20,2026metz,Q1,Robin Catry,Alejandro Moro Canas,robincatry,alejandromorocanas,6-4 6-7(5) 7-5,Metzchallenger
+2026-11-20,2026metz,Q1,Jonas Forejtek,Lenny Couturier,jonasforejtek,lennycouturier,6-2 6-1,Metzchallenger
+2026-11-20,2026metz,Q1,Luca Nardi,Milos Karol,lucanardi,miloskarol,7-5 6-4,Metzchallenger
+2026-11-20,2026metz,Q1,Stefan Latinovic,Cyril Vandermeersch,stefanlatinovic,cyrilvandermeersch,6-4 3-6 7-6(9),Metzchallenger
+2026-11-20,2026metz,Q1,Adrien Gobat,Buvaysar Gadamauri,adriengobat,buvaysargadamauri,6-2 7-5,Metzchallenger
+2026-11-20,2026metz,Q1,Hugo Grenier,Florent Bax,hugogrenier,florentbax,6-2 6-3,Metzchallenger
+2026-11-20,2026metz,Q1,Calvin Hemery,Alexander Donski,calvinhemery,alexanderdonski,7-6(5) 6-3,Metzchallenger
+2026-11-20,2026metz,Q1,Matthew William Donald,Martin Krumich,matthewwilliamdonald,martinkrumich,6-7(4) 6-3 6-4,Metzchallenger
+2026-11-20,2026metz,Q1,Carlos Taberner,Filip Cristian Jianu,carlostaberner,filipcristianjianu,6-3 6-2,Metzchallenger
+2026-11-20,2026metz,Q1,Filippo Moroni,Eliakim Coulibaly,filippomoroni,eliakimcoulibaly,6-7(7) 5-2 RET,Metzchallenger
+2026-11-20,2026drummondville,R16,James Trotter,Louis Wessels,jamestrotter,louiswessels,6-4 6-3,Drummondvillechallenger
+2026-11-20,2026drummondville,R16,Aidan Mayo,Hynek Barton,aidanmayo,hynekbarton,6-4 7-6(4),Drummondvillechallenger
+2026-11-20,2026drummondville,R16,Darwin Blanch,Samir Banerjee,darwinblanch,samirbanerjee,6-4 6-4,Drummondvillechallenger
+2026-11-20,2026drummondville,R16,Liam Draxl,Daniel Milavsky,liamdraxl,danielmilavsky,3-6 7-6(3) 7-6(5),Drummondvillechallenger
+2026-11-20,2026drummondville,R16,Dylan Dietrich,Justin Boulais,dylandietrich,justinboulais,6-2 7-6(4),Drummondvillechallenger
+2026-11-20,2026drummondville,R16,Duncan Chan,Maks Kasnikowski,duncanchan,makskasnikowski,6-3 6-4,Drummondvillechallenger
+2026-11-20,2026drummondville,R16,Stefan Kozlov,Vignesh Gogineni,stefankozlov,vigneshgogineni,6-3 6-2,Drummondvillechallenger
+2026-11-20,2026drummondville,R16,Clement Chidekh,Patrick Zahraj,clementchidekh,patrickzahraj,6-3 6-3,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Louis Wessels,Nicolas Mejia,louiswessels,nicolasmejia,7-6(5) 4-6 7-6(5),Drummondvillechallenger
+2026-11-20,2026drummondville,R32,James Trotter,Joshua Charlton,jamestrotter,joshuacharlton,3-6 6-4 6-3,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Aidan Mayo,Braden Shick,aidanmayo,bradenshick,5-7 6-2 6-3,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Hynek Barton,Alexis Galarneau,hynekbarton,alexisgalarneau,6-3 6-7(5) 7-5,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Darwin Blanch,Colin Sinclair,darwinblanch,colinsinclair,7-6(4) 6-1,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Samir Banerjee,Niels Visker,samirbanerjee,nielsvisker,6-4 6-2,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Daniel Milavsky,Vladislav Melnic,danielmilavsky,vladislavmelnic,6-4 6-2,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Liam Draxl,Keegan Rice,liamdraxl,keeganrice,3-6 6-4 4-0 RET,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Dylan Dietrich,Petr Nesterov,dylandietrich,petrnesterov,6-2 7-5,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Justin Boulais,Cannon Kingsley,justinboulais,cannonkingsley,5-7 7-6(6) 7-6(4),Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Maks Kasnikowski,Theodore Dean,makskasnikowski,theodoredean,6-2 7-6(4),Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Duncan Chan,Michael Mmoh,duncanchan,michaelmmoh,6-3 6-4,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Stefan Kozlov,Daniel De Jonge,stefankozlov,danieldejonge,6-0 0-0 RET,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Vignesh Gogineni,Max Wiskandt,vigneshgogineni,maxwiskandt,7-6(4) 7-5,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Patrick Zahraj,Alvin Nicholas Tudorica,patrickzahraj,alvinnicholastudorica,6-2 1-6 6-3,Drummondvillechallenger
+2026-11-20,2026drummondville,R32,Clement Chidekh,Mikael Arseneault,clementchidekh,mikaelarseneault,6-0 6-4,Drummondvillechallenger
+2026-11-20,2026drummondville,Q2,Samir Banerjee,Hoyoung Roh,samirbanerjee,hoyoungroh,6-4 6-2,Drummondvillechallenger
+2026-11-20,2026drummondville,Q2,Daniel De Jonge,Benjamin Thomas George,danieldejonge,benjaminthomasgeorge,6-1 6-4,Drummondvillechallenger
+2026-11-20,2026drummondville,Q2,Theodore Dean,Drew Van Orderlain,theodoredean,drewvanorderlain,6-2 6-0,Drummondvillechallenger
+2026-11-20,2026drummondville,Q2,Vignesh Gogineni,Jannik Opitz,vigneshgogineni,jannikopitz,6-1 6-4,Drummondvillechallenger
+2026-11-20,2026drummondville,Q2,Joshua Charlton,Noah Zamora,joshuacharlton,noahzamora,4-6 6-4 7-5,Drummondvillechallenger
+2026-11-20,2026drummondville,Q1,Hoyoung Roh,Adam Farag Cao,hoyoungroh,adamfaragcao,6-1 6-4,Drummondvillechallenger
+2026-11-20,2026drummondville,Q1,Benjamin Thomas George,Nikola Slavic,benjaminthomasgeorge,nikolaslavic,5-7 7-6(3) 6-2,Drummondvillechallenger
+2026-11-20,2026drummondville,Q1,Drew Van Orderlain,Oskar Brostrom Poulsen,drewvanorderlain,oskarbrostrompoulsen,6-3 4-0 RET,Drummondvillechallenger
+2026-11-20,2026drummondville,Q1,Theodore Dean,Joshua Peck,theodoredean,joshuapeck,6-4 6-3,Drummondvillechallenger
+2026-11-20,2026drummondville,Q1,Vignesh Gogineni,Volodymyr Gurenko,vigneshgogineni,volodymyrgurenko,7-6(4) 6-4,Drummondvillechallenger
+2026-11-20,2026drummondville,Q1,Jannik Opitz,Jared Horwood,jannikopitz,jaredhorwood,6-2 6-2,Drummondvillechallenger
+2026-11-20,2026drummondville,Q1,Vladislav Melnic,Matt Kuhar,vladislavmelnic,mattkuhar,7-5 6-3,Drummondvillechallenger
+2026-11-20,2026drummondville,Q1,Maximilian Marterer,Ben Jones,maximilianmarterer,benjones,7-6(2) 2-6 7-5,Drummondvillechallenger
+2026-11-20,2026drummondville,Q1,Noah Zamora,Julien Cordeau,noahzamora,juliencordeau,6-2 6-0,Drummondvillechallenger
+2026-11-20,2026drummondville,Q1,Joshua Charlton,Niels Peter Van Noord,joshuacharlton,nielspetervannoord,7-6(1) 6-4,Drummondvillechallenger
+2026-11-20,2026kobe,QF,Liam Broady,Kasidit Samrej,liambroady,kasiditsamrej,6-4 6-2,Kobechallenger
+2026-11-20,2026kobe,QF,Jay Dylan Hara Friend,Yi Zhou,jaydylanharafriend,yizhou,6-4 6-4,Kobechallenger
+2026-11-20,2026kobe,QF,Benjamin Hassan,Billy Harris,benjaminhassan,billyharris,6-3 6-2,Kobechallenger
+2026-11-20,2026kobe,QF,Yosuke Watanuki,Taro Daniel,yosukewatanuki,tarodaniel,4-6 6-1 6-1,Kobechallenger
+2026-11-20,2026kobe,R16,Kasidit Samrej,Luca Staeheli,kasiditsamrej,lucastaeheli,6-3 7-5,Kobechallenger
+2026-11-20,2026kobe,R16,Liam Broady,Maximus Jones,liambroady,maximusjones,7-5 6-1,Kobechallenger
+2026-11-20,2026kobe,R16,Yi Zhou,Yu Hsiou Hsu,yizhou,yuhsiouhsu,7-5 7-6(4),Kobechallenger
+2026-11-20,2026kobe,R16,Jay Dylan Hara Friend,Rio Noguchi,jaydylanharafriend,rionoguchi,6-4 2-6 7-5,Kobechallenger
+2026-11-20,2026kobe,R16,Billy Harris,Max Schoenhaus,billyharris,maxschoenhaus,7-6(4) 6-3,Kobechallenger
+2026-11-20,2026kobe,R16,Benjamin Hassan,Keegan Smith,benjaminhassan,keegansmith,3-6 6-1 6-2,Kobechallenger
+2026-11-20,2026kobe,R16,Yosuke Watanuki,Fajing Sun,yosukewatanuki,fajingsun,6-4 6-1,Kobechallenger
+2026-11-20,2026kobe,R16,Taro Daniel,Masamichi Imamura,tarodaniel,masamichiimamura,6-2 7-6(2),Kobechallenger
+2026-11-20,2026kobe,R32,Luca Staeheli,Zhizhen Zhang,lucastaeheli,zhizhenzhang,7-6(5) 7-6(5),Kobechallenger
+2026-11-20,2026kobe,R32,Kasidit Samrej,Yuta Tomida,kasiditsamrej,yutatomida,6-1 6-4,Kobechallenger
+2026-11-20,2026kobe,R32,Maximus Jones,Ognjen Milic,maximusjones,ognjenmilic,6-2 3-6 6-2,Kobechallenger
+2026-11-20,2026kobe,R32,Liam Broady,Naoya Honda,liambroady,naoyahonda,6-1 6-4,Kobechallenger
+2026-11-20,2026kobe,R32,Yu Hsiou Hsu,David Jorda Sanchis,yuhsiouhsu,davidjordasanchis,7-5 6-3,Kobechallenger
+2026-11-20,2026kobe,R32,Yi Zhou,Takuya Kumasaka,yizhou,takuyakumasaka,6-3 7-6(5),Kobechallenger
+2026-11-20,2026kobe,R32,Jay Dylan Hara Friend,Mili Poljicak,jaydylanharafriend,milipoljicak,6-4 3-6 6-3,Kobechallenger
+2026-11-20,2026kobe,R32,Rio Noguchi,Mitsuki Wei Kang Leong,rionoguchi,mitsukiweikangleong,6-2 3-6 6-2,Kobechallenger
+2026-11-20,2026kobe,R32,Billy Harris,Koki Matsuda,billyharris,kokimatsuda,7-6(6) 6-2,Kobechallenger
+2026-11-20,2026kobe,R32,Max Schoenhaus,Taisei Ichikawa,maxschoenhaus,taiseiichikawa,6-2 6-3,Kobechallenger
+2026-11-20,2026kobe,R32,Benjamin Hassan,Kaichi Uchida,benjaminhassan,kaichiuchida,3-6 7-5 6-2,Kobechallenger
+2026-11-20,2026kobe,R32,Keegan Smith,Niels Mcdonald,keegansmith,nielsmcdonald,6-3 3-6 6-4,Kobechallenger
+2026-11-20,2026kobe,R32,Yosuke Watanuki,Jie Cui,yosukewatanuki,jiecui,6-2 6-0,Kobechallenger
+2026-11-20,2026kobe,R32,Fajing Sun,Ryuki Matsuda,fajingsun,ryukimatsuda,6-4 7-5,Kobechallenger
+2026-11-20,2026kobe,R32,Masamichi Imamura,Yuta Shimizu,masamichiimamura,yutashimizu,6-1 6-2,Kobechallenger
+2026-11-20,2026kobe,R32,Taro Daniel,Daniel Michalski,tarodaniel,danielmichalski,6-4 6-1,Kobechallenger
+2026-11-20,2026kobe,Q2,Masamichi Imamura,Yusuke Takahashi,masamichiimamura,yusuketakahashi,4-6 6-1 7-5,Kobechallenger
+2026-11-20,2026kobe,Q2,Benjamin Hassan,Yunseong Chung,benjaminhassan,yunseongchung,3-6 7-6(10) 6-2,Kobechallenger
+2026-11-20,2026kobe,Q2,Koki Matsuda,Kanta Watanabe,kokimatsuda,kantawatanabe,6-3 6-3,Kobechallenger
+2026-11-20,2026kobe,Q2,Maximus Jones,Yusuke Kusuhara,maximusjones,yusukekusuhara,6-3 6-2,Kobechallenger
+2026-11-20,2026kobe,Q2,Takuya Kumasaka,Constantin Bittoun Kouzmine,takuyakumasaka,constantinbittounkouzmine,6-2 6-4,Kobechallenger
+2026-11-20,2026kobe,Q2,Taisei Ichikawa,Dimitris Sakellaridis,taiseiichikawa,dimitrissakellaridis,6-2 6-3,Kobechallenger
+2026-11-20,2026kobe,Q1,Masamichi Imamura,Hiromasa Koyama,masamichiimamura,hiromasakoyama,6-2 6-3,Kobechallenger
+2026-11-20,2026kobe,Q1,Yusuke Takahashi,Kosuke Ogura,yusuketakahashi,kosukeogura,6-4 6-2,Kobechallenger
+2026-11-20,2026kobe,Q1,Benjamin Hassan,Jumpei Yamasaki,benjaminhassan,jumpeiyamasaki,6-3 4-6 7-6(3),Kobechallenger
+2026-11-20,2026kobe,Q1,Yunseong Chung,David Poljak,yunseongchung,davidpoljak,7-6(4) 6-1,Kobechallenger
+2026-11-20,2026kobe,Q1,Koki Matsuda,Shintaro Imai,kokimatsuda,shintaroimai,6-3 1-6 6-4,Kobechallenger
+2026-11-20,2026kobe,Q1,Kanta Watanabe,S D Prajwal Dev,kantawatanabe,sdprajwaldev,6-4 6-4,Kobechallenger
+2026-11-20,2026kobe,Q1,Maximus Jones,Yuki Mochizuki,maximusjones,yukimochizuki,6-3 6-2,Kobechallenger
+2026-11-20,2026kobe,Q1,Yusuke Kusuhara,Hikaru Shiraishi,yusukekusuhara,hikarushiraishi,6-3 4-6 6-2,Kobechallenger
+2026-11-20,2026kobe,Q1,Constantin Bittoun Kouzmine,Nitin Kumar Sinha,constantinbittounkouzmine,nitinkumarsinha,6-2 6-4,Kobechallenger
+2026-11-20,2026kobe,Q1,Takuya Kumasaka,Maxim Zhukov,takuyakumasaka,maximzhukov,6-1 4-1 RET,Kobechallenger
+2026-11-20,2026kobe,Q1,Dimitris Sakellaridis,Toya Ishikawa,dimitrissakellaridis,toyaishikawa,4-6 6-2 6-3,Kobechallenger
+2026-11-20,2026kobe,Q1,Taisei Ichikawa,Yuta Kikuchi,taiseiichikawa,yutakikuchi,6-0 6-4,Kobechallenger
+2026-11-20,2026sydney,QF,Sebastian Gorzny,Christian Langmo,sebastiangorzny,christianlangmo,7-6(5) 6-7(5) 6-3,Sydneychallenger
+2026-11-20,2026sydney,QF,Li Tu,Tristan Schoolkate,litu,tristanschoolkate,6-4 3-6 7-6(5),Sydneychallenger
+2026-11-20,2026sydney,QF,Omar Jasika,Hiroki Moriya,omarjasika,hirokimoriya,6-3 6-4,Sydneychallenger
+2026-11-20,2026sydney,QF,Philip Sekulic,Enzo Aguiard,philipsekulic,enzoaguiard,6-4 7-6(4),Sydneychallenger
+2026-11-20,2026sydney,R16,Christian Langmo,Florian Broska,christianlangmo,florianbroska,7-5 7-6(3),Sydneychallenger
+2026-11-20,2026sydney,R16,Sebastian Gorzny,Moerani Bouzige,sebastiangorzny,moeranibouzige,6-4 6-1,Sydneychallenger
+2026-11-20,2026sydney,R16,Tristan Schoolkate,Olukayode Alafia Damina Ayeni,tristanschoolkate,olukayodealafiadaminaayeni,6-1 6-3,Sydneychallenger
+2026-11-20,2026sydney,R16,Li Tu,Isaac Becroft,litu,isaacbecroft,6-3 6-3,Sydneychallenger
+2026-11-20,2026sydney,R16,Hiroki Moriya,Dhakshineswar Suresh,hirokimoriya,dhakshineswarsuresh,7-6(3) 6-4,Sydneychallenger
+2026-11-20,2026sydney,R16,Omar Jasika,Pavle Marinkov,omarjasika,pavlemarinkov,6-2 6-3,Sydneychallenger
+2026-11-20,2026sydney,R16,Philip Sekulic,Jason Kubler,philipsekulic,jasonkubler,6-4 4-6 6-1,Sydneychallenger
+2026-11-20,2026sydney,R16,Enzo Aguiard,Edward Winter,enzoaguiard,edwardwinter,6-3 2-6 7-6(3),Sydneychallenger
+2026-11-20,2026sydney,R32,Christian Langmo,Dane Sweeny,christianlangmo,danesweeny,4-6 7-6(5) 7-5,Sydneychallenger
+2026-11-20,2026sydney,R32,Florian Broska,Casey Hoole,florianbroska,caseyhoole,7-5 6-4,Sydneychallenger
+2026-11-20,2026sydney,R32,Sebastian Gorzny,Kokoro Isomura,sebastiangorzny,kokoroisomura,6-2 6-4,Sydneychallenger
+2026-11-20,2026sydney,R32,Moerani Bouzige,Juncheng Shang,moeranibouzige,junchengshang,2-6 6-0 6-4,Sydneychallenger
+2026-11-20,2026sydney,R32,Tristan Schoolkate,Carl Emil Overbeck,tristanschoolkate,carlemiloverbeck,6-2 6-1,Sydneychallenger
+2026-11-20,2026sydney,R32,Olukayode Alafia Damina Ayeni,Mustafa Ege Sik,olukayodealafiadaminaayeni,mustafaegesik,6-3 6-2,Sydneychallenger
+2026-11-20,2026sydney,R32,Isaac Becroft,Blake Ellis,isaacbecroft,blakeellis,6-7(2) 6-3 6-3,Sydneychallenger
+2026-11-20,2026sydney,R32,Li Tu,James Mccabe,litu,jamesmccabe,6-4 7-5,Sydneychallenger
+2026-11-20,2026sydney,R32,Dhakshineswar Suresh,August Holmgren,dhakshineswarsuresh,augustholmgren,6-7(3) 7-5 6-4,Sydneychallenger
+2026-11-20,2026sydney,R32,Hiroki Moriya,Derek Pham,hirokimoriya,derekpham,6-7(6) 6-4 6-1,Sydneychallenger
+2026-11-20,2026sydney,R32,Pavle Marinkov,Jake Delaney,pavlemarinkov,jakedelaney,4-6 7-6(3) 7-6(7),Sydneychallenger
+2026-11-20,2026sydney,R32,Omar Jasika,Alex Bolt,omarjasika,alexbolt,4-6 6-3 7-5,Sydneychallenger
+2026-11-20,2026sydney,R32,Jason Kubler,Matthew Dellavedova,jasonkubler,matthewdellavedova,7-6(3) 6-7(6) 6-2,Sydneychallenger
+2026-11-20,2026sydney,R32,Philip Sekulic,Dominik Palan,philipsekulic,dominikpalan,6-4 6-4,Sydneychallenger
+2026-11-20,2026sydney,R32,Edward Winter,Evan Zhu,edwardwinter,evanzhu,7-5 6-3,Sydneychallenger
+2026-11-20,2026sydney,R32,Enzo Aguiard,Christopher Oconnell,enzoaguiard,christopheroconnell,7-6(2) 6-4,Sydneychallenger
+2026-11-20,2026sydney,Q2,Hiroki Moriya,Thomas Fancutt,hirokimoriya,thomasfancutt,7-5 6-2,Sydneychallenger
+2026-11-20,2026sydney,Q2,Evan Zhu,Dominik Palan,evanzhu,dominikpalan,6-2 6-7(6) 6-2,Sydneychallenger
+2026-11-20,2026sydney,Q2,Kokoro Isomura,Jason Jung,kokoroisomura,jasonjung,7-6(3) 4-6 6-3,Sydneychallenger
+2026-11-20,2026sydney,Q2,Derek Pham,Pavle Marinkov,derekpham,pavlemarinkov,7-6(5) 6-2,Sydneychallenger
+2026-11-20,2026sydney,Q2,Isaac Becroft,Hayden Jones,isaacbecroft,haydenjones,6-2 6-7(4) 6-3,Sydneychallenger
+2026-11-20,2026sydney,Q2,Jason Kubler,Chase Ferguson,jasonkubler,chaseferguson,6-2 6-1,Sydneychallenger
+2026-11-20,2026sydney,Q1,Hiroki Moriya,Sam Ryan Ziegann,hirokimoriya,samryanziegann,6-1 6-2,Sydneychallenger
+2026-11-20,2026sydney,Q1,Thomas Fancutt,Ymerali Ibraimi,thomasfancutt,ymeraliibraimi,6-3 6-3,Sydneychallenger
+2026-11-20,2026sydney,Q1,Evan Zhu,Daniel Jovanovski,evanzhu,danieljovanovski,6-3 6-3,Sydneychallenger
+2026-11-20,2026sydney,Q1,Dominik Palan,Harrison Satara,dominikpalan,harrisonsatara,6-4 6-4,Sydneychallenger
+2026-11-20,2026sydney,Q1,Kokoro Isomura,Anton Shepp,kokoroisomura,antonshepp,7-6(4) 0-6 6-3,Sydneychallenger
+2026-11-20,2026sydney,Q1,Jason Jung,Herman Hoeyeraal,jasonjung,hermanhoeyeraal,6-2 6-7(5) 7-5,Sydneychallenger
+2026-11-20,2026sydney,Q1,Derek Pham,Tai Sach,derekpham,taisach,6-4 6-2,Sydneychallenger
+2026-11-20,2026sydney,Q1,Pavle Marinkov,Ajeet Rai,pavlemarinkov,ajeetrai,6-3 7-5,Sydneychallenger
+2026-11-20,2026sydney,Q1,Isaac Becroft,Shinji Hazawa,isaacbecroft,shinjihazawa,7-6(6) 6-7(4) 6-2,Sydneychallenger
+2026-11-20,2026sydney,Q1,Hayden Jones,Naoki Nakagawa,haydenjones,naokinakagawa,4-6 6-2 6-1,Sydneychallenger
+2026-11-20,2026sydney,Q1,Jason Kubler,Stefan Vujic,jasonkubler,stefanvujic,6-4 6-4,Sydneychallenger
+2026-11-20,2026sydney,Q1,Chase Ferguson,Benjamin Oconnell,chaseferguson,benjaminoconnell,6-2 7-6(1),Sydneychallenger
+2026-11-20,2026montevideo,R16,Felipe Meligeni Alves,Alex Barrena,felipemeligenialves,alexbarrena,7-6(2) 4-6 6-4,Montevideochallenger
+2026-11-20,2026montevideo,R16,Matheus Pucinelli De Almeida,Juan Carlos Prado Angelo,matheuspucinellidealmeida,juancarlospradoangelo,6-3 6-2,Montevideochallenger
+2026-11-20,2026montevideo,R16,Guido Ivan Justo,Henrique Rocha,guidoivanjusto,henriquerocha,3-6 6-3 6-3,Montevideochallenger
+2026-11-20,2026montevideo,R16,Franco Roncadelli,Juan Manuel La Serna,francoroncadelli,juanmanuellaserna,6-3 6-7(1) 7-6(2),Montevideochallenger
+2026-11-20,2026montevideo,R16,Elmer Moller,Gonzalo Bueno,elmermoller,gonzalobueno,7-6(5) 6-1,Montevideochallenger
+2026-11-20,2026montevideo,R16,Tristan Boyer,Genaro Alberto Olivieri,tristanboyer,genaroalbertoolivieri,6-2 5-7 7-6(5),Montevideochallenger
+2026-11-20,2026montevideo,R16,Oriol Roca Batalla,Zdenek Kolar,oriolrocabatalla,zdenekkolar,6-3 6-4,Montevideochallenger
+2026-11-20,2026montevideo,R16,Thiago Seyboth Wild,Carlos Sanchez Jover,thiagoseybothwild,carlossanchezjover,6-3 7-6(4),Montevideochallenger
+2026-11-20,2026montevideo,R32,Felipe Meligeni Alves,Pedro Boscardin Dias,felipemeligenialves,pedroboscardindias,6-4 6-3,Montevideochallenger
+2026-11-20,2026montevideo,R32,Alex Barrena,Matias Soto,alexbarrena,matiassoto,6-4 6-1,Montevideochallenger
+2026-11-20,2026montevideo,R32,Matheus Pucinelli De Almeida,Nicolas Jarry,matheuspucinellidealmeida,nicolasjarry,6-4 6-4,Montevideochallenger
+2026-11-20,2026montevideo,R32,Juan Carlos Prado Angelo,Lautaro Midon,juancarlospradoangelo,lautaromidon,6-2 3-6 6-3,Montevideochallenger
+2026-11-20,2026montevideo,R32,Henrique Rocha,Federico Aguilar Cardozo,henriquerocha,federicoaguilarcardozo,6-4 6-3,Montevideochallenger
+2026-11-20,2026montevideo,R32,Guido Ivan Justo,Daniel Rincon,guidoivanjusto,danielrincon,3-6 6-3 6-4,Montevideochallenger
+2026-11-20,2026montevideo,R32,Franco Roncadelli,Tomas Barrios Vera,francoroncadelli,tomasbarriosvera,6-3 6-3,Montevideochallenger
+2026-11-20,2026montevideo,R32,Juan Manuel La Serna,Francisco Comesana,juanmanuellaserna,franciscocomesana,6-4 3-6 6-1,Montevideochallenger
+2026-11-20,2026montevideo,R32,Elmer Moller,Thiago Cigarran,elmermoller,thiagocigarran,6-4 6-1,Montevideochallenger
+2026-11-20,2026montevideo,R32,Gonzalo Bueno,Juan Pablo Varillas,gonzalobueno,juanpablovarillas,6-4 2-6 6-4,Montevideochallenger
+2026-11-20,2026montevideo,R32,Genaro Alberto Olivieri,Gonzalo Villanueva,genaroalbertoolivieri,gonzalovillanueva,7-5 1-6 6-3,Montevideochallenger
+2026-11-20,2026montevideo,R32,Tristan Boyer,Hugo Dellien,tristanboyer,hugodellien,6-4 1-6 6-3,Montevideochallenger
+2026-11-20,2026montevideo,R32,Oriol Roca Batalla,Max Alcala Gurri,oriolrocabatalla,maxalcalagurri,6-1 4-6 6-1,Montevideochallenger
+2026-11-20,2026montevideo,R32,Zdenek Kolar,Valerio Aboian,zdenekkolar,valerioaboian,5-7 7-6(5) 6-4,Montevideochallenger
+2026-11-20,2026montevideo,R32,Carlos Sanchez Jover,Joaquin Aguilar Cardozo,carlossanchezjover,joaquinaguilarcardozo,4-6 7-6(7) 6-2,Montevideochallenger
+2026-11-20,2026montevideo,R32,Thiago Seyboth Wild,Nicolas Kicker,thiagoseybothwild,nicolaskicker,7-5 6-3,Montevideochallenger
+2026-11-20,2026montevideo,Q2,Oriol Roca Batalla,Ryan Nijboer,oriolrocabatalla,ryannijboer,7-5 6-3,Montevideochallenger
+2026-11-20,2026montevideo,Q2,Thiago Cigarran,Pedro Boscardin Dias,thiagocigarran,pedroboscardindias,2-6 7-5 6-3,Montevideochallenger
+2026-11-20,2026montevideo,Q2,Carlos Sanchez Jover,Francisco Llanes,carlossanchezjover,franciscollanes,6-7(2) 6-1 6-2,Montevideochallenger
+2026-11-20,2026montevideo,Q2,Gonzalo Villanueva,Alvaro Guillen Meza,gonzalovillanueva,alvaroguillenmeza,6-4 5-7 6-1,Montevideochallenger
+2026-11-20,2026montevideo,Q2,Nicolas Kicker,Johan Nikles,nicolaskicker,johannikles,6-1 6-3,Montevideochallenger
+2026-11-20,2026montevideo,Q2,Felipe Meligeni Alves,Maximo Zeitune,felipemeligenialves,maximozeitune,6-1 6-3,Montevideochallenger
+2026-11-20,2026montevideo,Q1,Ryan Nijboer,Nicolas Hollender,ryannijboer,nicolashollender,6-2 7-5,Montevideochallenger
+2026-11-20,2026montevideo,Q1,Pedro Boscardin Dias,Tomas Zurmendi,pedroboscardindias,tomaszurmendi,6-1 6-1,Montevideochallenger
+2026-11-20,2026montevideo,Q1,Thiago Cigarran,Franco Ribero,thiagocigarran,francoribero,3-6 6-2 6-4,Montevideochallenger
+2026-11-20,2026montevideo,Q1,Carlos Sanchez Jover,Ignacio Carou,carlossanchezjover,ignaciocarou,6-7(3) 6-2 6-4,Montevideochallenger
+2026-11-20,2026montevideo,Q1,Francisco Llanes,Bruno Fernandez,franciscollanes,brunofernandez,7-6(6) 6-2,Montevideochallenger
+2026-11-20,2026montevideo,Q1,Gonzalo Villanueva,Nicolas Barrientos,gonzalovillanueva,nicolasbarrientos,6-3 6-4,Montevideochallenger
+2026-11-20,2026montevideo,Q1,Alvaro Guillen Meza,Thiago Estramil,alvaroguillenmeza,thiagoestramil,6-1 6-0,Montevideochallenger
+2026-11-20,2026montevideo,Q1,Felipe Meligeni Alves,Santiago De La Fuente,felipemeligenialves,santiagodelafuente,6-2 6-0,Montevideochallenger
+2026-11-20,2026montevideo,Q1,Maximo Zeitune,Bruno Oliveira,maximozeitune,brunooliveira,6-3 6-3,Montevideochallenger
+2026-11-20,2026champaign,R16,Harry Wendelken,Geoffrey Blancaneaux,harrywendelken,geoffreyblancaneaux,0-6 7-6(4) 7-6(5),Champaignchallenger
+2026-11-20,2026champaign,R16,Jordan Lee,Andres Martin,jordanlee,andresmartin,6-3 4-6 6-4,Champaignchallenger
+2026-11-20,2026champaign,R16,Oliver Tarvet,Ozan Baris,olivertarvet,ozanbaris,3-6 7-6(5) 6-4,Champaignchallenger
+2026-11-20,2026champaign,R16,Spencer Johnson,Raphael Perot,spencerjohnson,raphaelperot,6-3 7-5,Champaignchallenger
+2026-11-20,2026champaign,R16,Gavin Young,Sebastian Dominko,gavinyoung,sebastiandominko,6-7(3) 6-3 6-1,Champaignchallenger
+2026-11-20,2026champaign,R16,Bor Artnak,Alastair Gray,borartnak,alastairgray,6-2 3-6 6-3,Champaignchallenger
+2026-11-20,2026champaign,R16,Lui Maxted,Jack Kennedy,luimaxted,jackkennedy,6-7(5) 6-1 6-2,Champaignchallenger
+2026-11-20,2026champaign,R16,Shunsuke Mitsui,Aidan Mchugh,shunsukemitsui,aidanmchugh,6-3 6-3,Champaignchallenger
+2026-11-20,2026champaign,R32,Harry Wendelken,Giles Hussey,harrywendelken,gileshussey,6-3 6-3,Champaignchallenger
+2026-11-20,2026champaign,R32,Geoffrey Blancaneaux,Zack Vialla,geoffreyblancaneaux,zackvialla,5-7 6-1 7-6(4),Champaignchallenger
+2026-11-20,2026champaign,R32,Jordan Lee,Hunter Heck,jordanlee,hunterheck,6-1 6-3,Champaignchallenger
+2026-11-20,2026champaign,R32,Andres Martin,Filip Jeff Planinsek,andresmartin,filipjeffplaninsek,6-2 6-3,Champaignchallenger
+2026-11-20,2026champaign,R32,Oliver Tarvet,Karl Poling,olivertarvet,karlpoling,6-3 6-3,Champaignchallenger
+2026-11-20,2026champaign,R32,Ozan Baris,Kenta Miyoshi,ozanbaris,kentamiyoshi,6-3 7-6(5),Champaignchallenger
+2026-11-20,2026champaign,R32,Spencer Johnson,Adam Jilly,spencerjohnson,adamjilly,6-3 6-4,Champaignchallenger
+2026-11-20,2026champaign,R32,Raphael Perot,Amit Vales,raphaelperot,amitvales,6-3 6-0,Champaignchallenger
+2026-11-20,2026champaign,R32,Sebastian Dominko,Kaylan Bigun,sebastiandominko,kaylanbigun,6-3 6-4,Champaignchallenger
+2026-11-20,2026champaign,R32,Gavin Young,Andrew Fenty,gavinyoung,andrewfenty,6-3 6-4,Champaignchallenger
+2026-11-20,2026champaign,R32,Bor Artnak,Luca Wiedenmann,borartnak,lucawiedenmann,6-1 6-3,Champaignchallenger
+2026-11-20,2026champaign,R32,Alastair Gray,Patrick Maloney,alastairgray,patrickmaloney,6-1 6-4,Champaignchallenger
+2026-11-20,2026champaign,R32,Jack Kennedy,Mitchell Krueger,jackkennedy,mitchellkrueger,7-5 6-3,Champaignchallenger
+2026-11-20,2026champaign,R32,Lui Maxted,Quinn Vandecasteele,luimaxted,quinnvandecasteele,3-6 6-4 6-2,Champaignchallenger
+2026-11-20,2026champaign,R32,Aidan Mchugh,Jeremy Zhang,aidanmchugh,jeremyzhang,6-2 6-1,Champaignchallenger
+2026-11-20,2026champaign,R32,Shunsuke Mitsui,Max Hans Rehberg,shunsukemitsui,maxhansrehberg,7-5 6-3,Champaignchallenger
+2026-11-20,2026champaign,Q2,Giles Hussey,Keshav Chopra,gileshussey,keshavchopra,6-7(4) 6-3 6-4,Champaignchallenger
+2026-11-20,2026champaign,Q2,Lui Maxted,David Bakonyi,luimaxted,davidbakonyi,6-3 6-3,Champaignchallenger
+2026-11-20,2026champaign,Q2,Zack Vialla,Sebastian Dominko,zackvialla,sebastiandominko,7-6(0) 7-6(5),Champaignchallenger
+2026-11-20,2026champaign,Q2,Kaylan Bigun,Liam Krall,kaylanbigun,liamkrall,7-5 6-3,Champaignchallenger
+2026-11-20,2026champaign,Q2,Shunsuke Mitsui,Bryce Nakashima,shunsukemitsui,brycenakashima,6-4 3-6 6-4,Champaignchallenger
+2026-11-20,2026champaign,Q2,Hunter Heck,Colson Wells,hunterheck,colsonwells,6-4 6-4,Champaignchallenger
+2026-11-20,2026champaign,Q1,Giles Hussey,Lucas Horve,gileshussey,lucashorve,6-2 6-2,Champaignchallenger
+2026-11-20,2026champaign,Q1,Keshav Chopra,Nicholas Mekhael,keshavchopra,nicholasmekhael,6-2 6-3,Champaignchallenger
+2026-11-20,2026champaign,Q1,Lui Maxted,Tom Hands,luimaxted,tomhands,6-3 6-4,Champaignchallenger
+2026-11-20,2026champaign,Q1,David Bakonyi,Axel Nefve,davidbakonyi,axelnefve,2-6 6-4 7-6(4),Champaignchallenger
+2026-11-20,2026champaign,Q1,Sebastian Dominko,Gianluca Carlini,sebastiandominko,gianlucacarlini,6-4 6-3,Champaignchallenger
+2026-11-20,2026champaign,Q1,Zack Vialla,Samuel Heredia,zackvialla,samuelheredia,3-6 6-0 6-2,Champaignchallenger
+2026-11-20,2026champaign,Q1,Kaylan Bigun,Sasha Colleu,kaylanbigun,sashacolleu,4-6 6-3 6-4,Champaignchallenger
+2026-11-20,2026champaign,Q1,Liam Krall,Ben Weintraub,liamkrall,benweintraub,7-6(6) 6-3,Champaignchallenger
+2026-11-20,2026champaign,Q1,Bryce Nakashima,Hiroki Sakagawa,brycenakashima,hirokisakagawa,7-5 7-5,Champaignchallenger
+2026-11-20,2026champaign,Q1,Shunsuke Mitsui,William Mroz,shunsukemitsui,williammroz,4-6 6-3 7-6(6),Champaignchallenger
+2026-11-20,2026champaign,Q1,Hunter Heck,Jon Gamble,hunterheck,jongamble,6-2 6-2,Champaignchallenger
+2026-11-20,2026champaign,Q1,Colson Wells,Zach Stephens,colsonwells,zachstephens,6-4 7-5,Champaignchallenger

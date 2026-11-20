@@ -1,0 +1,25 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Helsinkichallenger,http://www.tennisabstract.com/current/2026HelsinkiChallenger.html,QF,Edas Butvilas,Nishesh Basavareddy,25.0,75.0,4.0,1.33,Sackmann,2026-11-20 14:35:28 UTC
+Helsinkichallenger,http://www.tennisabstract.com/current/2026HelsinkiChallenger.html,QF,Dalibor Svrcina,Otto Virtanen,51.9,48.1,1.93,2.08,Sackmann,2026-11-20 14:35:28 UTC
+Helsinkichallenger,http://www.tennisabstract.com/current/2026HelsinkiChallenger.html,QF,Svyatoslav Gulin,Toby Samuel,11.5,88.5,8.7,1.13,Sackmann,2026-11-20 14:35:28 UTC
+Helsinkichallenger,http://www.tennisabstract.com/current/2026HelsinkiChallenger.html,QF,Nicolai Budkov Kjaer,Laslo Djere,34.5,65.5,2.9,1.53,Sackmann,2026-11-20 14:35:28 UTC
+Metzchallenger,http://www.tennisabstract.com/current/2026MetzChallenger.html,QF,Inaki Montes De La Torre,Harold Mayot,43.3,56.7,2.31,1.76,Sackmann,2026-11-20 14:35:28 UTC
+Metzchallenger,http://www.tennisabstract.com/current/2026MetzChallenger.html,QF,Francesco Passaro,Pierre Hugues Herbert,57.1,42.9,1.75,2.33,Sackmann,2026-11-20 14:35:28 UTC
+Metzchallenger,http://www.tennisabstract.com/current/2026MetzChallenger.html,QF,Soon Woo Kwon,Dino Prizmic,52.1,47.9,1.92,2.09,Sackmann,2026-11-20 14:35:28 UTC
+Metzchallenger,http://www.tennisabstract.com/current/2026MetzChallenger.html,QF,Sascha Gueymard Wayenburg,Luca Nardi,53.5,46.5,1.87,2.15,Sackmann,2026-11-20 14:35:28 UTC
+Drummondvillechallenger,http://www.tennisabstract.com/current/2026DrummondvilleChallenger.html,QF,James Trotter,Aidan Mayo,29.0,71.0,3.45,1.41,Sackmann,2026-11-20 14:35:28 UTC
+Drummondvillechallenger,http://www.tennisabstract.com/current/2026DrummondvilleChallenger.html,QF,Darwin Blanch,Liam Draxl,41.6,58.4,2.4,1.71,Sackmann,2026-11-20 14:35:28 UTC
+Drummondvillechallenger,http://www.tennisabstract.com/current/2026DrummondvilleChallenger.html,QF,Dylan Dietrich,Duncan Chan,90.2,9.8,1.11,10.2,Sackmann,2026-11-20 14:35:28 UTC
+Drummondvillechallenger,http://www.tennisabstract.com/current/2026DrummondvilleChallenger.html,QF,Stefan Kozlov,Clement Chidekh,20.3,79.7,4.93,1.25,Sackmann,2026-11-20 14:35:28 UTC
+Kobechallenger,http://www.tennisabstract.com/current/2026KobeChallenger.html,SF,Liam Broady,Jay Dylan Hara Friend,37.4,62.6,2.67,1.6,Sackmann,2026-11-20 14:35:28 UTC
+Kobechallenger,http://www.tennisabstract.com/current/2026KobeChallenger.html,SF,Benjamin Hassan,Yosuke Watanuki,27.1,72.9,3.69,1.37,Sackmann,2026-11-20 14:35:28 UTC
+Sydneychallenger,http://www.tennisabstract.com/current/2026SydneyChallenger.html,SF,Sebastian Gorzny,Li Tu,53.1,46.9,1.88,2.13,Sackmann,2026-11-20 14:35:28 UTC
+Sydneychallenger,http://www.tennisabstract.com/current/2026SydneyChallenger.html,SF,Omar Jasika,Philip Sekulic,54.2,45.8,1.85,2.18,Sackmann,2026-11-20 14:35:28 UTC
+Montevideochallenger,http://www.tennisabstract.com/current/2026MontevideoChallenger.html,QF,Felipe Meligeni Alves,Matheus Pucinelli De Almeida,38.2,61.8,2.62,1.62,Sackmann,2026-11-20 14:35:28 UTC
+Montevideochallenger,http://www.tennisabstract.com/current/2026MontevideoChallenger.html,QF,Guido Ivan Justo,Franco Roncadelli,54.1,45.9,1.85,2.18,Sackmann,2026-11-20 14:35:28 UTC
+Montevideochallenger,http://www.tennisabstract.com/current/2026MontevideoChallenger.html,QF,Elmer Moller,Tristan Boyer,47.4,52.6,2.11,1.9,Sackmann,2026-11-20 14:35:28 UTC
+Montevideochallenger,http://www.tennisabstract.com/current/2026MontevideoChallenger.html,QF,Oriol Roca Batalla,Thiago Seyboth Wild,18.0,82.0,5.56,1.22,Sackmann,2026-11-20 14:35:28 UTC
+Champaignchallenger,http://www.tennisabstract.com/current/2026ChampaignChallenger.html,QF,Harry Wendelken,Jordan Lee,72.0,28.0,1.39,3.57,Sackmann,2026-11-20 14:35:28 UTC
+Champaignchallenger,http://www.tennisabstract.com/current/2026ChampaignChallenger.html,QF,Oliver Tarvet,Spencer Johnson,64.8,35.2,1.54,2.84,Sackmann,2026-11-20 14:35:28 UTC
+Champaignchallenger,http://www.tennisabstract.com/current/2026ChampaignChallenger.html,QF,Gavin Young,Bor Artnak,61.2,38.8,1.63,2.58,Sackmann,2026-11-20 14:35:28 UTC
+Champaignchallenger,http://www.tennisabstract.com/current/2026ChampaignChallenger.html,QF,Lui Maxted,Shunsuke Mitsui,57.8,42.2,1.73,2.37,Sackmann,2026-11-20 14:35:28 UTC
