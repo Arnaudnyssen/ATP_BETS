@@ -1,0 +1,44 @@
+TournamentName,TournamentURL,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,Player1_Match_Odds,Player2_Match_Odds,ModelName,ScrapeTimestampUTC
+Playfordchallenger,http://www.tennisabstract.com/current/2026PlayfordChallenger.html,R16,Dane Sweeny,Hayden Jones,66.4,33.6,1.51,2.98,Sackmann,2026-11-24 16:42:51 UTC
+Playfordchallenger,http://www.tennisabstract.com/current/2026PlayfordChallenger.html,R16,Jason Kubler,Carl Emil Overbeck,90.1,9.9,1.11,10.1,Sackmann,2026-11-24 16:42:51 UTC
+Playfordchallenger,http://www.tennisabstract.com/current/2026PlayfordChallenger.html,R16,Akira Santillan,Christian Langmo,55.9,44.1,1.79,2.27,Sackmann,2026-11-24 16:42:51 UTC
+Playfordchallenger,http://www.tennisabstract.com/current/2026PlayfordChallenger.html,R16,Hiroki Moriya,Matthew Dellavedova,67.3,32.7,1.49,3.06,Sackmann,2026-11-24 16:42:51 UTC
+Florianopolischallenger,http://www.tennisabstract.com/current/2026FlorianopolisChallenger.html,R32,Max Alcala Gurri,Gonzalo Villanueva,80.2,19.8,1.25,5.05,Sackmann,2026-11-24 16:42:51 UTC
+Florianopolischallenger,http://www.tennisabstract.com/current/2026FlorianopolisChallenger.html,R32,Andrey Chepelev,Eduardo Ribeiro,42.4,57.6,2.36,1.74,Sackmann,2026-11-24 16:42:51 UTC
+Florianopolischallenger,http://www.tennisabstract.com/current/2026FlorianopolisChallenger.html,R32,Ryan Nijboer,Bruno Fernandez,69.3,30.7,1.44,3.26,Sackmann,2026-11-24 16:42:51 UTC
+Florianopolischallenger,http://www.tennisabstract.com/current/2026FlorianopolisChallenger.html,R32,Daniel Dutra Da Silva,Franco Roncadelli,25.3,74.7,3.95,1.34,Sackmann,2026-11-24 16:42:51 UTC
+Yokohamachallenger,http://www.tennisabstract.com/current/2026YokohamaChallenger.html,R32,Yuta Shimizu,Taisei Ichikawa,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Yokohamachallenger,http://www.tennisabstract.com/current/2026YokohamaChallenger.html,R32,Niels Mcdonald,Luca Staeheli,53.1,46.9,1.88,2.13,Sackmann,2026-11-24 16:42:51 UTC
+Yokohamachallenger,http://www.tennisabstract.com/current/2026YokohamaChallenger.html,R32,Naoya Honda,S D Prajwal Dev,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Yokohamachallenger,http://www.tennisabstract.com/current/2026YokohamaChallenger.html,R32,Constantin Bittoun Kouzmine,Yusuke Takahashi,46.9,53.1,2.13,1.88,Sackmann,2026-11-24 16:42:51 UTC
+Yokohamachallenger,http://www.tennisabstract.com/current/2026YokohamaChallenger.html,R16,Masamichi Imamura,Yunseong Chung,27.6,72.4,3.62,1.38,Sackmann,2026-11-24 16:42:51 UTC
+Yokohamachallenger,http://www.tennisabstract.com/current/2026YokohamaChallenger.html,R32,Lennon Roark Jones,Takuya Kumasaka,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Yokohamachallenger,http://www.tennisabstract.com/current/2026YokohamaChallenger.html,R16,Kaichi Uchida,Mitsuki Wei Kang Leong,56.9,43.1,1.76,2.32,Sackmann,2026-11-24 16:42:51 UTC
+Yokohamachallenger,http://www.tennisabstract.com/current/2026YokohamaChallenger.html,R32,Gai Ando,Kasidit Samrej,0.0,100.0,,1.0,Sackmann,2026-11-24 16:42:51 UTC
+Yokohamachallenger,http://www.tennisabstract.com/current/2026YokohamaChallenger.html,R32,Dimitris Sakellaridis,Ognjen Milic,0.0,100.0,,1.0,Sackmann,2026-11-24 16:42:51 UTC
+Ankarachallenger,http://www.tennisabstract.com/current/2026AnkaraChallenger.html,R32,Diego Dedura Palomero,Joshua Sheehy,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Ankarachallenger,http://www.tennisabstract.com/current/2026AnkaraChallenger.html,R32,Yanaki Milev,Oleg Prihodko,0.0,100.0,,1.0,Sackmann,2026-11-24 16:42:51 UTC
+Ankarachallenger,http://www.tennisabstract.com/current/2026AnkaraChallenger.html,R32,Kenta Miyoshi,Jannik Maute,51.6,48.4,1.94,2.07,Sackmann,2026-11-24 16:42:51 UTC
+Ankarachallenger,http://www.tennisabstract.com/current/2026AnkaraChallenger.html,R32,Ergi Kirkin,Andrej Martin,39.4,60.6,2.54,1.65,Sackmann,2026-11-24 16:42:51 UTC
+Ankarachallenger,http://www.tennisabstract.com/current/2026AnkaraChallenger.html,R32,Goncalo Marques,Vadym Ursu,0.0,100.0,,1.0,Sackmann,2026-11-24 16:42:51 UTC
+Ankarachallenger,http://www.tennisabstract.com/current/2026AnkaraChallenger.html,R16,Mert Naci Turker,Tuncay Duran,48.3,51.7,2.07,1.93,Sackmann,2026-11-24 16:42:51 UTC
+Ankarachallenger,http://www.tennisabstract.com/current/2026AnkaraChallenger.html,R32,Robin Catry,Alexandr Binda,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Ankarachallenger,http://www.tennisabstract.com/current/2026AnkaraChallenger.html,R32,Matisse Bobichon,Leonardo Rossi,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Sansalvadorchallenger,http://www.tennisabstract.com/current/2026SanSalvadorChallenger.html,R32,Timo Legout,Lorenzo Claverie,74.7,25.3,1.34,3.95,Sackmann,2026-11-24 16:42:51 UTC
+Sansalvadorchallenger,http://www.tennisabstract.com/current/2026SanSalvadorChallenger.html,R32,Jeffrey Fradkin,Karl Poling,63.3,36.7,1.58,2.72,Sackmann,2026-11-24 16:42:51 UTC
+Sansalvadorchallenger,http://www.tennisabstract.com/current/2026SanSalvadorChallenger.html,R32,Samuel Heredia,Yannick Alexandrescou,28.7,71.3,3.48,1.4,Sackmann,2026-11-24 16:42:51 UTC
+Sansalvadorchallenger,http://www.tennisabstract.com/current/2026SanSalvadorChallenger.html,R32,Juan Carlos Fuentes Vasquez,Amit Vales,50.0,50.0,2.0,2.0,Sackmann,2026-11-24 16:42:51 UTC
+Monastir2Challenger,http://www.tennisabstract.com/current/2026Monastir2Challenger.html,R32,Kimmer Coppejans,Wojciech Marek,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Monastir2Challenger,http://www.tennisabstract.com/current/2026Monastir2Challenger.html,R32,Branko Djuric,Federico Iannaccone,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Monastir2Challenger,http://www.tennisabstract.com/current/2026Monastir2Challenger.html,R32,Aziz Ouakaa,Leo Borg,0.0,100.0,,1.0,Sackmann,2026-11-24 16:42:51 UTC
+Monastir2Challenger,http://www.tennisabstract.com/current/2026Monastir2Challenger.html,R32,Kasra Rahmani,Dali Blanch,0.0,100.0,,1.0,Sackmann,2026-11-24 16:42:51 UTC
+Monastir2Challenger,http://www.tennisabstract.com/current/2026Monastir2Challenger.html,R16,Giulio Perego,Pedro Vives Marcos,41.6,58.4,2.4,1.71,Sackmann,2026-11-24 16:42:51 UTC
+Monastir2Challenger,http://www.tennisabstract.com/current/2026Monastir2Challenger.html,R32,Toufik Sahtali,Robert Strombachs,0.0,100.0,,1.0,Sackmann,2026-11-24 16:42:51 UTC
+Monastir2Challenger,http://www.tennisabstract.com/current/2026Monastir2Challenger.html,R32,Tiago Pereira,Gabriel Debru,0.0,100.0,,1.0,Sackmann,2026-11-24 16:42:51 UTC
+Hersonissos4Challenger,http://www.tennisabstract.com/current/2026Hersonissos4Challenger.html,R32,Gianluca Cadenasso,Melios Efstathiou,0.0,100.0,,1.0,Sackmann,2026-11-24 16:42:51 UTC
+Hersonissos4Challenger,http://www.tennisabstract.com/current/2026Hersonissos4Challenger.html,R32,Gabriel Ghetu,Ioannis Kountourakis,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Hersonissos4Challenger,http://www.tennisabstract.com/current/2026Hersonissos4Challenger.html,R32,Juan Cruz Martin Manzano,Vladyslav Orlov,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Hersonissos4Challenger,http://www.tennisabstract.com/current/2026Hersonissos4Challenger.html,R32,Andres Martin,Radu Mihai Papoe,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Hersonissos4Challenger,http://www.tennisabstract.com/current/2026Hersonissos4Challenger.html,R32,Gilles Arnaud Bailly,Alibek Kachmazov,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
+Hersonissos4Challenger,http://www.tennisabstract.com/current/2026Hersonissos4Challenger.html,R32,Michael Geerts,Demetris Azoides,0.0,100.0,,1.0,Sackmann,2026-11-24 16:42:51 UTC
+Hersonissos4Challenger,http://www.tennisabstract.com/current/2026Hersonissos4Challenger.html,R32,Anas Mazdrashki,Johannus Monday,100.0,0.0,1.0,,Sackmann,2026-11-24 16:42:51 UTC
