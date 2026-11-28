@@ -1,0 +1,9 @@
+TournamentName,Round,Player1Name,Player2Name,Player1_Match_Prob,Player2_Match_Prob,bc_p1_prob,bc_p2_prob,Player1_Match_Odds,Player2_Match_Odds,bc_p1_odds,bc_p2_odds,p1_spread,p2_spread,rel_p1_spread,rel_p2_spread
+Florianopolischallenger,SF,Eduardo Ribeiro,Juan Manuel La Serna,21.0000,79.0000,,,4.7600,1.2700,,,,,,
+Florianopolischallenger,SF,Igor Ribeiro Marcondes,Felipe Meligeni Alves,50.0000,50.0000,,,2.0000,2.0000,,,,,,
+Ankarachallenger,SF,Diego Dedura Palomero,Thomas Faurel,40.1000,59.9000,,,2.4900,1.6700,,,,,,
+Sansalvadorchallenger,SF,Timo Legout,Luis Guto Miguel,64.7000,35.3000,,,1.5500,2.8300,,,,,,
+Sansalvadorchallenger,SF,Luis Carlos Alvarez,Lucas Andrade Da Silva,65.8000,34.2000,,,1.5200,2.9200,,,,,,
+Monastir2Challenger,SF,Kimmer Coppejans,Gabriel Debru,51.2000,48.8000,,,1.9500,2.0500,,,,,,
+Monastir2Challenger,SF,Semen Pankin,Giorgio Tabacco,35.2000,64.8000,,,2.8400,1.5400,,,,,,
+Hersonissos4Challenger,SF,Gilles Arnaud Bailly,Philip Henning,35.0000,65.0000,,,2.8600,1.5400,,,,,,
